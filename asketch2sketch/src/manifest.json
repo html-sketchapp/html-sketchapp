@@ -1,0 +1,18 @@
+{
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "commands": [
+    {
+      "name": "From *Almost* Sketch to Sketch",
+      "identifier": "asketch2sketch",
+      "script": "./asketch2sketch.js"
+    }
+  ],
+  "menu": {
+    "isRoot": true,
+    "title": "output",
+    "items": [
+      "asketch2sketch"
+    ]
+  }
+}

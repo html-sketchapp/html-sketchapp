@@ -1,0 +1,38 @@
+{
+  "extends": [
+    "./node_modules/frontend-tools-configs/eslint/main.js"
+  ],
+  "rules": {
+    "no-console": 0,
+    "new-cap": 0
+  },
+  "globals": {
+    "NSFont": false,
+    "NSArray": false,
+    "NSColor": false,
+    "NSURL": false,
+    "NSImage": false,
+    "MSImageData": false,
+    "NSAttributedString": false,
+    "MSAttributedString": false,
+    "NSMutableParagraphStyle": false,
+    "NSFontCondensedTrait": false,
+    "NSFontItalicTrait": false,
+    "NSFontWeightRegular": false,
+    "NSFontManager": false,
+    "NSData": false,
+    "NSMakeRange": false,
+    "NSDataBase64EncodingEndLineWithCarriageReturn": false,
+    "NSFontWeightTrait": false,
+    "NSFontTraitsAttribute": false,
+    "NSFontSymbolicTrait": false,
+    "NSFontWeightBold": false,
+    "NSFontWeightUltraLight": false,
+    "NSFontWeightThin": false,
+    "NSFontWeightLight": false,
+    "NSFontWeightMedium": false,
+    "NSFontWeightSemibold": false,
+    "NSFontWeightHeavy": false,
+    "NSFontWeightBlack": false
+  }
+}

@@ -1,0 +1,6 @@
+.DS_Store
+.idea/
+.editorconfig
+node_modules/
+/html2asketch/examples/build/
+/asketch2sketch/plugin.sketchplugin/

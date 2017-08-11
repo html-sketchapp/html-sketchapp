@@ -1,0 +1,31 @@
+{
+  "name": "asketch2sketch",
+  "version": "1.0.0",
+  "description": "From *Almost* Sketch to Sketch",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint src/",
+    "render": "skpm build --run",
+    "watch": "skpm build --run --watch"
+  },
+  "author": "Konrad Dzwinel <konrad.dzwinel@brainly.com>",
+  "license": "MIT",
+  "engines": {
+    "sketch": ">=3.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.4.1",
+    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git",
+    "skpm": "^0.10.2"
+  },
+  "skpm": {
+    "manifest": "src/manifest.json",
+    "main": "plugin.sketchplugin"
+  },
+  "dependencies": {
+    "murmur2js": "^1.0.0",
+    "normalize-css-color": "^1.0.2",
+    "sketch-constants": "^1.1.0",
+    "sketchapp-json-plugin": "0.0.3"
+  }
+}
