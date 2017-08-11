@@ -2,7 +2,6 @@
   "name": "asketch2sketch",
   "version": "1.0.0",
   "description": "From *Almost* Sketch to Sketch",
-  "main": "index.js",
   "scripts": {
     "test": "eslint src/",
     "render": "skpm build --run",
