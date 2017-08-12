@@ -1,8 +1,8 @@
 import {fromSJSONDictionary} from 'sketchapp-json-plugin';
 import {fixTextLayer, fixSharedTextStyle} from './helpers/fixFont';
 import fixImageFill from './helpers/fixImageFill';
-import asketchDocument from '../import/document.json';
-import asketchPage from '../import/page.json';
+import asketchDocument from '../import/document.asketch.json';
+import asketchPage from '../import/page.asketch.json';
 
 function removeExistingLayers(context) {
   if (context.containsLayers()) {
