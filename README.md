@@ -34,11 +34,11 @@ The good news is that most of the missing functionality should be fairly easy to
 
 Ideally, this project should be an, OS independent, NodeJS library that alows to crate valid Sketch files. Unfortunatelly, it's not possible at this point due to Sketch format limitations.
 
-Current solution consists of two parts. First one (`html2asketch`), runs in a browser (either regular or headless) and creates an *almost* valid sketch file (`.asketch`). Second one (`asketch2sketch`), takes that file and imports it into Sketch. Why two parts? They are built in different technologies and run in different environments. `html2asketch` is written in JS and runs in a browser where it can easily extract all information from DOM nodes: their position, size, styles and children. Extracted information are then translated into Sketch's `document.json` and `page.json` files. Unfortunately, ATM these files are not fully readable and some parts of them can't be easily generated from JavaScript (most notably text styling information is a binary blob). Additionally, script running in the browser is limited by CORS and may not be able to download all of the images used on page. `asketch2sketch` is a [cocoascript](http://developer.sketchapp.com/introduction/cocoascript/) (JavaScript + Objective-C) run via NodeJS. It "fixes" `asketch` files (changes text styling information format, downloads and inlines images) and loads them into the Sketch app.
+Current solution consists of two parts. First one (`html2asketch`), runs in a browser (either regular or headless) and creates an *almost* valid sketch file (`.asketch`). Second one (`asketch2sketch`), takes that file and imports it into Sketch. Why two parts? They are built in different technologies and run in different environments. `html2asketch` is written in JS and runs in a browser where it can easily extract all information from DOM nodes: their position, size, styles and children. Extracted information are then translated into Sketch's `document.json` and `page.json` files. Unfortunately, ATM Sketch file format is not fully readable and some parts can't be easily generated from JavaScript (most notably text styling information which is saved as a binary blob). Additionally, script running in the browser is limited by CORS and may not be able to download all of the images used on page. That's where we need `asketch2sketch`. It is a [cocoascript](http://developer.sketchapp.com/introduction/cocoascript/) (JavaScript + Objective-C) run via NodeJS. It "fixes" `asketch` files (changes text styling information format, downloads and inlines images) and loads them into the Sketch app.
 
 ## How do I run it?
 
-`html2asketch` consists of multiple JS classes and methods that you can use to extract specific parts of the website and save them as layers, shared text styles, document colors and symbols. There is no one way of using `html2asketch`. You can build your solution based on the example script included `html2asketch/examples/page2layers.js` which saves whole page as a set of layers. In order to build it:
+`html2asketch` consists of multiple JS classes and methods that you can use to extract specific parts of the website and save them as layers, shared text styles, document colors and symbols. There is no one right way of using `html2asketch`. You can build your solution based on the example script included `html2asketch/examples/page2layers.js` which saves whole page as a set of layers. In order to build it:
 
 ```
 cd html2asketch
@@ -46,7 +46,7 @@ npm i
 npm run build-example
 ```
 
-You can then inject the built file (`html2asketch/examples/build/page2layers.bundle.js`) into any webpage using a regular or headless browser (preferably Chrome, in which this solution was tested). Script will produce a json output which should be copied to `asketch2sketch/import/page.json`. (If you also create a document, copy it to `asketch2sketch/import/document.json`). With asketch files in place, we can run `asketch2sketch`:
+You can then inject the built file (`html2asketch/examples/build/page2layers.bundle.js`) into any webpage using a regular or headless browser (preferably Chrome 60+, in which this solution was tested). Script will produce a json output which should be copied to `asketch2sketch/import/page.askech.json`. (Later on, if you'll also create a document, copy it to `asketch2sketch/import/document.asketch.json`). With asketch files in place, we can run `asketch2sketch`:
 
 ```
 cd asketch2sketch
