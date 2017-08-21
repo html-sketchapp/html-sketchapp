@@ -1,14 +1,15 @@
 {
-  "name": "asketch2sketch",
+  "name": "html2sketch",
   "version": "1.0.0",
-  "description": "From *Almost* Sketch to Sketch",
+  "description": "HTML to Sketch",
+  "repository": "brainly/html-sketchapp",
+  "author": "Konrad Dzwinel <konrad.dzwinel@brainly.com>",
+  "license": "MIT",
   "scripts": {
-    "test": "eslint src/",
+    "test": "eslint html2asketch/src/ asketch2sketch/src/",
     "render": "skpm build --run",
     "watch": "skpm build --run --watch"
   },
-  "author": "Konrad Dzwinel <konrad.dzwinel@brainly.com>",
-  "license": "MIT",
   "engines": {
     "sketch": ">=3.0"
   },
@@ -18,7 +19,7 @@
     "skpm": "^0.10.2"
   },
   "skpm": {
-    "manifest": "src/manifest.json",
+    "manifest": "asketch2sketch/src/manifest.json",
     "main": "plugin.sketchplugin"
   },
   "dependencies": {

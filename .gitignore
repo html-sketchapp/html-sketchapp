@@ -2,5 +2,4 @@
 .idea/
 .editorconfig
 node_modules/
-/html2asketch/examples/build/
-/asketch2sketch/plugin.sketchplugin/
+plugin.sketchplugin/
