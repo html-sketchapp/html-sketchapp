@@ -19,7 +19,7 @@
     "skpm": "^0.10.2"
   },
   "skpm": {
-    "manifest": "asketch2sketch/src/manifest.json",
+    "manifest": "asketch2sketch/manifest.json",
     "main": "plugin.sketchplugin"
   },
   "dependencies": {

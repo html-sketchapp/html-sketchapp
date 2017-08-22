@@ -1,0 +1,25 @@
+{
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "commands": [
+    {
+      "name": "From *Almost* Sketch to Sketch",
+      "identifier": "asketch2sketch",
+      "script": "asketch2sketch.js"
+    }
+  ],
+  "menu": {
+    "isRoot": true,
+    "title": "output",
+    "items": [
+      "asketch2sketch"
+    ]
+  },
+  "version": "1.0.0",
+  "description": "HTML to Sketch",
+  "name": "html-sketchapp",
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://raw.githubusercontent.com//master/.appcast.xml",
+  "author": "Konrad Dzwinel",
+  "email": "konrad.dzwinel@brainly.com"
+}

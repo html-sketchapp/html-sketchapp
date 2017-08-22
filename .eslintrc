@@ -33,6 +33,9 @@
     "NSFontWeightMedium": false,
     "NSFontWeightSemibold": false,
     "NSFontWeightHeavy": false,
-    "NSFontWeightBlack": false
+    "NSFontWeightBlack": false,
+    "NSOpenPanel": false,
+    "NSModalResponseOK": false,
+    "NSString": false
   }
 }

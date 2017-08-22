@@ -1,8 +1,6 @@
 import {fromSJSONDictionary} from 'sketchapp-json-plugin';
 import {fixTextLayer, fixSharedTextStyle} from './helpers/fixFont';
 import fixImageFill from './helpers/fixImageFill';
-import asketchDocument from '../import/document.asketch.json';
-import asketchPage from '../import/page.asketch.json';
 
 function removeExistingLayers(context) {
   if (context.containsLayers()) {
@@ -57,31 +55,59 @@ export default function(context) {
   const document = context.document;
   const page = document.currentPage();
 
+  let asketchDocument = null;
+  let asketchPage = null;
+
+  const panel = NSOpenPanel.openPanel();
+
+  panel.setCanChooseDirectories = false;
+  panel.setCanChooseFiles = true;
+  panel.setTitle = 'Choose a document file';
+  panel.setPrompt = 'Choose';
+
+  if (panel.runModal() === NSModalResponseOK) {
+    const content = NSString.stringWithContentsOfURL(panel.URL());
+
+    asketchDocument = JSON.parse(content);
+  }
+
+  panel.setTitle = 'Choose a page file';
+
+  if (panel.runModal() === NSModalResponseOK) {
+    const content = NSString.stringWithContentsOfURL(panel.URL());
+
+    asketchPage = JSON.parse(content);
+  }
+
   removeSharedColors(document);
   removeSharedTextStyles(document);
   removeExistingLayers(page);
 
-  if (asketchDocument.assets.colors) {
-    asketchDocument.assets.colors.forEach(color => addSharedColor(document, color));
+  if (asketchDocument) {
+    if (asketchDocument.assets.colors) {
+      asketchDocument.assets.colors.forEach(color => addSharedColor(document, color));
 
-    console.log('Shared colors added: ' + asketchDocument.assets.colors.length);
+      console.log('Shared colors added: ' + asketchDocument.assets.colors.length);
+    }
+
+    if (asketchDocument.layerTextStyles && asketchDocument.layerTextStyles.objects) {
+      asketchDocument.layerTextStyles.objects.forEach(style => {
+        fixSharedTextStyle(style);
+        addSharedTextStyle(document, style);
+      });
+
+      console.log('Shared text styles added: ' + asketchDocument.layerTextStyles.objects.length);
+    }
   }
 
-  if (asketchDocument.layerTextStyles && asketchDocument.layerTextStyles.objects) {
-    asketchDocument.layerTextStyles.objects.forEach(style => {
-      fixSharedTextStyle(style);
-      addSharedTextStyle(document, style);
+  if (asketchPage) {
+    page.name = asketchPage.name;
+
+    asketchPage.layers.forEach(layer => {
+      fixLayer(layer);
+      page.addLayer(fromSJSONDictionary(layer));
     });
 
-    console.log('Shared text styles added: ' + asketchDocument.layerTextStyles.objects.length);
+    console.log('Layers added: ' + asketchPage.layers.length);
   }
-
-  page.name = asketchPage.name;
-
-  asketchPage.layers.forEach(layer => {
-    fixLayer(layer);
-    page.addLayer(fromSJSONDictionary(layer));
-  });
-
-  console.log('Layers added: ' + asketchPage.layers.length);
 }
