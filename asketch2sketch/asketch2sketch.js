@@ -66,7 +66,8 @@ export default function(context) {
   panel.setPrompt = 'Choose';
 
   if (panel.runModal() === NSModalResponseOK) {
-    const content = NSString.stringWithContentsOfURL(panel.URL());
+    const data = NSData.dataWithContentsOfURL(panel.URL());
+    const content = NSString.alloc().initWithData_encoding_(data, NSUTF8StringEncoding);
 
     asketchDocument = JSON.parse(content);
   }
@@ -74,7 +75,8 @@ export default function(context) {
   panel.setTitle = 'Choose a page file';
 
   if (panel.runModal() === NSModalResponseOK) {
-    const content = NSString.stringWithContentsOfURL(panel.URL());
+    const data = NSData.dataWithContentsOfURL(panel.URL());
+    const content = NSString.alloc().initWithData_encoding_(data, NSUTF8StringEncoding);
 
     asketchPage = JSON.parse(content);
   }

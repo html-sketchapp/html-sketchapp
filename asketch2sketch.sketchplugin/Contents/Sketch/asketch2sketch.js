@@ -293,7 +293,8 @@ exports['default'] = function (context) {
   panel.setPrompt = 'Choose';
 
   if (panel.runModal() === NSModalResponseOK) {
-    var content = NSString.stringWithContentsOfURL(panel.URL());
+    var data = NSData.dataWithContentsOfURL(panel.URL());
+    var content = NSString.alloc().initWithData_encoding_(data, NSUTF8StringEncoding);
 
     asketchDocument = JSON.parse(content);
   }
@@ -301,7 +302,8 @@ exports['default'] = function (context) {
   panel.setTitle = 'Choose a page file';
 
   if (panel.runModal() === NSModalResponseOK) {
-    var _content = NSString.stringWithContentsOfURL(panel.URL());
+    var _data = NSData.dataWithContentsOfURL(panel.URL());
+    var _content = NSString.alloc().initWithData_encoding_(_data, NSUTF8StringEncoding);
 
     asketchPage = JSON.parse(_content);
   }
@@ -780,6 +782,7 @@ function makeTextStyle(textStyle) {
 }
 
 function fixTextLayer(layer) {
+  // console.log(layer.text);
   layer.attributedString = makeAttributedString(layer.text, layer.style);
   delete layer.style;
   delete layer.text;
