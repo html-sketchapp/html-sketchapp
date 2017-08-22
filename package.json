@@ -20,7 +20,7 @@
   },
   "skpm": {
     "manifest": "asketch2sketch/manifest.json",
-    "main": "plugin.sketchplugin"
+    "main": "asketch2sketch.sketchplugin"
   },
   "dependencies": {
     "murmur2js": "^1.0.0",
