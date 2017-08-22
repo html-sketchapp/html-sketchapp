@@ -106,9 +106,13 @@ export const makeImageFill = async(url, patternFillType = 1) => {
   };
 
   if (dataURL) {
-    const imageData = dataURL.match(/data:image\/.+;base64,(.+)/i)[1];
+    const imageData = dataURL.match(/data:.+;base64,(.+)/i);
 
-    result.image.data = {_data: imageData};
+    if(imageData && imageData[1]) {
+      result.image.data = {_data: imageData[1]};
+    } else {
+      return null;
+    }
   } else {
     result.image.url = url;
   }
