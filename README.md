@@ -45,6 +45,8 @@ Current solution consists of two parts. First one (`html2asketch`) runs in a bro
 
 All `.asketch.json` files should be loaded to Sketch via the `asketch2sketch.sketchplugin` plugin provided in this repository.
 
+<img src="https://i.imgur.com/9eDm6NQ.png" width="300" alt="Installing Sketch plugin" title="Installing Sketch plugin" />
+
 ## Thanks!
 
 This project uses bits and pieces from the fantastic [react-sketchapp](https://github.com/airbnb/react-sketchapp) and wouldn't be possible without [skpm](https://github.com/skpm/skpm) and information from [Sketch-Headers](https://github.com/abynim/Sketch-Headers).
