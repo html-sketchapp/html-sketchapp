@@ -287,32 +287,45 @@ exports['default'] = function (context) {
 
   var panel = NSOpenPanel.openPanel();
 
-  panel.setCanChooseDirectories = false;
-  panel.setCanChooseFiles = true;
-  panel.setTitle = 'Choose a document file';
-  panel.setPrompt = 'Choose';
+  panel.setCanChooseDirectories(false);
+  panel.setCanChooseFiles(true);
+  panel.setAllowsMultipleSelection(true);
+  panel.setTitle('Choose a asketch.json files');
+  panel.setPrompt('Choose');
+  panel.setAllowedFileTypes(['json']);
 
-  if (panel.runModal() === NSModalResponseOK) {
-    var data = NSData.dataWithContentsOfURL(panel.URL());
+  if (panel.runModal() !== NSModalResponseOK || panel.URLs().length === 0) {
+    return;
+  }
+
+  var urls = panel.URLs();
+
+  urls.forEach(function (url) {
+    var data = NSData.dataWithContentsOfURL(url);
     var content = NSString.alloc().initWithData_encoding_(data, NSUTF8StringEncoding);
 
-    asketchDocument = JSON.parse(content);
-  }
+    var asketchFile = null;
 
-  panel.setTitle = 'Choose a page file';
+    try {
+      asketchFile = JSON.parse(content);
+    } catch (e) {
+      var alert = NSAlert.alloc().init();
 
-  if (panel.runModal() === NSModalResponseOK) {
-    var _data = NSData.dataWithContentsOfURL(panel.URL());
-    var _content = NSString.alloc().initWithData_encoding_(_data, NSUTF8StringEncoding);
+      alert.setMessageText('File is not a valid JSON.');
+      alert.runModal();
+    }
 
-    asketchPage = JSON.parse(_content);
-  }
-
-  removeSharedColors(document);
-  removeSharedTextStyles(document);
-  removeExistingLayers(page);
+    if (asketchFile && asketchFile._class === 'document') {
+      asketchDocument = asketchFile;
+    } else if (asketchFile && asketchFile._class === 'page') {
+      asketchPage = asketchFile;
+    }
+  });
 
   if (asketchDocument) {
+    removeSharedColors(document);
+    removeSharedTextStyles(document);
+
     if (asketchDocument.assets.colors) {
       asketchDocument.assets.colors.forEach(function (color) {
         return addSharedColor(document, color);
@@ -332,6 +345,8 @@ exports['default'] = function (context) {
   }
 
   if (asketchPage) {
+    removeExistingLayers(page);
+
     page.name = asketchPage.name;
 
     asketchPage.layers.forEach(function (layer) {

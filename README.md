@@ -45,7 +45,7 @@ Current solution consists of two parts. First one (`html2asketch`) runs in a bro
 
 All `.asketch.json` files should be loaded to Sketch via the `asketch2sketch.sketchplugin` plugin provided in this repository.
 
-<img src="https://i.imgur.com/9eDm6NQ.png" width="300" alt="Installing Sketch plugin" title="Installing Sketch plugin" />
+<img src="https://i.imgur.com/9eDm6NQ.png" width="450" alt="Installing Sketch plugin" title="Installing Sketch plugin" />
 
 ## Thanks!
 

@@ -60,32 +60,45 @@ export default function(context) {
 
   const panel = NSOpenPanel.openPanel();
 
-  panel.setCanChooseDirectories = false;
-  panel.setCanChooseFiles = true;
-  panel.setTitle = 'Choose a document file';
-  panel.setPrompt = 'Choose';
+  panel.setCanChooseDirectories(false);
+  panel.setCanChooseFiles(true);
+  panel.setAllowsMultipleSelection(true);
+  panel.setTitle('Choose a asketch.json files');
+  panel.setPrompt('Choose');
+  panel.setAllowedFileTypes(['json']);
 
-  if (panel.runModal() === NSModalResponseOK) {
-    const data = NSData.dataWithContentsOfURL(panel.URL());
-    const content = NSString.alloc().initWithData_encoding_(data, NSUTF8StringEncoding);
-
-    asketchDocument = JSON.parse(content);
+  if (panel.runModal() !== NSModalResponseOK || panel.URLs().length === 0) {
+    return;
   }
 
-  panel.setTitle = 'Choose a page file';
+  const urls = panel.URLs();
 
-  if (panel.runModal() === NSModalResponseOK) {
-    const data = NSData.dataWithContentsOfURL(panel.URL());
+  urls.forEach(url => {
+    const data = NSData.dataWithContentsOfURL(url);
     const content = NSString.alloc().initWithData_encoding_(data, NSUTF8StringEncoding);
 
-    asketchPage = JSON.parse(content);
-  }
+    let asketchFile = null;
 
-  removeSharedColors(document);
-  removeSharedTextStyles(document);
-  removeExistingLayers(page);
+    try {
+      asketchFile = JSON.parse(content);
+    } catch (e) {
+      const alert = NSAlert.alloc().init();
+
+      alert.setMessageText('File is not a valid JSON.');
+      alert.runModal();
+    }
+
+    if (asketchFile && asketchFile._class === 'document') {
+      asketchDocument = asketchFile;
+    } else if (asketchFile && asketchFile._class === 'page') {
+      asketchPage = asketchFile;
+    }
+  });
 
   if (asketchDocument) {
+    removeSharedColors(document);
+    removeSharedTextStyles(document);
+
     if (asketchDocument.assets.colors) {
       asketchDocument.assets.colors.forEach(color => addSharedColor(document, color));
 
@@ -103,6 +116,8 @@ export default function(context) {
   }
 
   if (asketchPage) {
+    removeExistingLayers(page);
+
     page.name = asketchPage.name;
 
     asketchPage.layers.forEach(layer => {

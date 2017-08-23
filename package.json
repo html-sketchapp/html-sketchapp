@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "HTML to Sketch",
   "repository": "brainly/html-sketchapp",
-  "author": "Konrad Dzwinel <konrad.dzwinel@brainly.com>",
+  "author": "Brainly - Konrad Dzwinel <konrad.dzwinel@brainly.com>",
   "license": "MIT",
   "scripts": {
     "test": "eslint html2asketch/src/ asketch2sketch/src/",
