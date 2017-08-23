@@ -782,7 +782,6 @@ function makeTextStyle(textStyle) {
 }
 
 function fixTextLayer(layer) {
-  // console.log(layer.text);
   layer.attributedString = makeAttributedString(layer.text, layer.style);
   delete layer.style;
   delete layer.text;
