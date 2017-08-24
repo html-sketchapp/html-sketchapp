@@ -25,7 +25,8 @@ This project is a prototype that allowed us to export most of our Front-End styl
 - not all CSS properties are supported (TODO)
 - not all values for supported CSS properties are supported (TODO)
 - not all types of images are supported (webp, svg) (TODO)
-- resizing information are not generated (TODO)
+- resizing information is not generated (TODO)
+- all fonts have to be locally installed (not sure if that's fixable)
 - requires MacOS (Sketch's limitation)
 
 The good news is that most of the missing functionality should be fairly easy to add - feel free to contribute to or fork this project.
@@ -34,7 +35,9 @@ The good news is that most of the missing functionality should be fairly easy to
 
 Ideally, this project should be an, OS independent, NodeJS library that allows to crate valid Sketch files. Unfortunately, it's not possible at this point due to Sketch format limitations.
 
-Current solution consists of two parts. First one (`html2asketch`) runs in a browser (either regular or headless) and creates an *almost* valid Sketch file (`page.asketch.json` and `document.asketch.json`). Second one (`asketch2sketch`) is a Sketch plugin that takes `asketch.json` files and imports them into Sketch. Why two parts? `html2asketch` and `asketch2sketch` are built in different technologies and run in different environments. `html2asketch` is written in JavaScript and runs in a browser where it can easily extract all information from DOM nodes: their position, size, styles and children. Extracted information are then translated into Sketch's `document.json` and `page.json` files. Unfortunately, ATM Sketch file format is not fully readable and some parts can't be easily generated from JavaScript (most notably text styling information which is saved as a binary blob). Additionally, script running in the browser is limited by CORS and may not be able to download all of the images used on page. That's where we need `asketch2sketch` which is a Sketch plugin written in [cocoascript](http://developer.sketchapp.com/introduction/cocoascript/) (JavaScript + Objective-C). It "fixes" `.asketch.json` files (changes text styling information format, downloads and inlines images) and loads them into the Sketch app.
+Current solution consists of two parts. First one (`html2asketch`) runs in a browser (either regular or headless) and creates an *almost* valid Sketch file (`page.asketch.json` and `document.asketch.json`). Second one (`asketch2sketch`) is a Sketch plugin that takes `asketch.json` files and imports them into Sketch.
+
+Why two parts? `html2asketch` and `asketch2sketch` are built in different technologies and run in different environments. `html2asketch` is written in JavaScript and runs in a browser where it can easily extract all information from DOM nodes: their position, size, styles and children. Extracted information are then translated into Sketch's `document.json` and `page.json` files. Unfortunately, ATM Sketch file format is not fully readable and some parts can't be easily generated from JavaScript (most notably text styling information which is saved as a binary blob). Additionally, script running in the browser is limited by CORS and may not be able to download all of the images used on page. That's where we need `asketch2sketch` which is a Sketch plugin written in [cocoascript](http://developer.sketchapp.com/introduction/cocoascript/) (JavaScript + Objective-C). It "fixes" `.asketch.json` files (changes text styling information format, downloads and inlines images) and loads them into the Sketch app.
 
 ## How do I run it?
 
@@ -46,6 +49,13 @@ Current solution consists of two parts. First one (`html2asketch`) runs in a bro
 All `.asketch.json` files should be loaded to Sketch via the `asketch2sketch.sketchplugin` plugin provided in this repository.
 
 <img src="https://i.imgur.com/9eDm6NQ.png" width="450" alt="Installing Sketch plugin" title="Installing Sketch plugin" />
+
+If you prefer to build the plugin from sources:
+
+```
+npm i # install dependencies
+npm run render # build the plugin
+```
 
 ## Thanks!
 

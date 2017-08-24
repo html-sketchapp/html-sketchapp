@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "test": "eslint html2asketch/src/ asketch2sketch/src/",
-    "render": "skpm build --run",
+    "build": "skpm build",
     "watch": "skpm build --run --watch"
   },
   "engines": {
