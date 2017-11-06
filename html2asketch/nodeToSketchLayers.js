@@ -172,7 +172,7 @@ export default async function nodeToSketchLayers(node) {
     fontFamily,
     fontSize: parseInt(fontSize, 10),
     lineHeight: parseInt(lineHeight, 10),
-    letterSpacing: parseFloat(letterSpacing, 10),
+    letterSpacing: parseFloat(letterSpacing),
     fontWeight: parseInt(fontWeight, 10),
     color,
     textTransform,
