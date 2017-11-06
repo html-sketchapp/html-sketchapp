@@ -147,7 +147,11 @@ export default async function nodeToSketchLayers(node) {
     style.addBorder({color: borderColor, thickness: parseInt(borderWidth, 10)});
 
     if (boxShadow !== DEFAULT_VALUES.boxShadow) {
-      style.addShadow(shadowStringToObject(boxShadow));
+      if (boxShadow.indexOf('inset') !== -1) {
+        style.addInnerShadow(shadowStringToObject(boxShadow));
+      } else {
+        style.addShadow(shadowStringToObject(boxShadow));
+      }
     }
 
     leaf.setStyle(style);
