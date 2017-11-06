@@ -9,11 +9,12 @@ function getFirstFont(fonts) {
 }
 
 class TextStyle {
-  constructor({color, fontSize, fontFamily, fontWeight, lineHeight, textTransform, textDecoration, textAlign}) {
+  constructor({color, fontSize, fontFamily, fontWeight, lineHeight, letterSpacing, textTransform, textDecoration, textAlign}) {
     this._color = color;
     this._fontSize = fontSize;
     this._fontFamily = getFirstFont(fontFamily);
     this._lineHeight = lineHeight;
+    this._letterSpacing = letterSpacing;
     this._fontWeight = fontWeight;
     this._textTransform = textTransform;
     this._textDecoration = textDecoration;
@@ -27,6 +28,7 @@ class TextStyle {
       'fontFamily': this._fontFamily,
       'fontWeight': this._fontWeight,
       'lineHeight': this._lineHeight,
+      'letterSpacing': this._letterSpacing,
       'textTransform': this._textTransform,
       'textDecoration': this._textDecoration,
       'textAlign': this._textAlign
