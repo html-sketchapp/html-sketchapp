@@ -48,7 +48,7 @@ class Rectangle extends Base {
         },
         {
           '_class': 'curvePoint',
-          'cornerRadius': this._cornerRadius.bottomLeft,
+          'cornerRadius': this._cornerRadius.bottomRight,
           'curveFrom': '{1, 1}',
           'curveMode': 1,
           'curveTo': '{1, 1}',
@@ -58,7 +58,7 @@ class Rectangle extends Base {
         },
         {
           '_class': 'curvePoint',
-          'cornerRadius': this._cornerRadius.bottomRight,
+          'cornerRadius': this._cornerRadius.bottomLeft,
           'curveFrom': '{0, 1}',
           'curveMode': 1,
           'curveTo': '{0, 1}',
