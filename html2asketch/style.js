@@ -28,11 +28,11 @@ class Style {
     });
   }
 
-  addShadow({color = '#000', radius = 1, offsetX = 0, offsetY = 0, spread = 0}) {
+  addShadow({color = '#000', blur = 1, offsetX = 0, offsetY = 0, spread = 0}) {
     this._shadows.push({
       _class: 'shadow',
       isEnabled: true,
-      blurRadius: radius,
+      blurRadius: blur,
       color: makeColorFromCSS(color),
       contextSettings: {
         _class: 'graphicsContextSettings',
