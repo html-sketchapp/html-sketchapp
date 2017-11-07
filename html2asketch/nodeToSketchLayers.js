@@ -147,10 +147,15 @@ export default async function nodeToSketchLayers(node) {
     style.addBorder({color: borderColor, thickness: parseInt(borderWidth, 10)});
 
     if (boxShadow !== DEFAULT_VALUES.boxShadow) {
+      const shadowObj = shadowStringToObject(boxShadow);
+
       if (boxShadow.indexOf('inset') !== -1) {
-        style.addInnerShadow(shadowStringToObject(boxShadow));
+        if (borderWidth.indexOf(' ') === -1) {
+          shadowObj.spread += parseInt(borderWidth, 10);
+        }
+        style.addInnerShadow(shadowObj);
       } else {
-        style.addShadow(shadowStringToObject(boxShadow));
+        style.addShadow(shadowObj);
       }
     }
 
