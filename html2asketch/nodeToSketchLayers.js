@@ -98,6 +98,14 @@ export default async function nodeToSketchLayers(node) {
     backgroundImage,
     borderColor,
     borderWidth,
+    borderTopWidth,
+    borderRightWidth,
+    borderBottomWidth,
+    borderLeftWidth,
+    borderTopColor,
+    borderRightColor,
+    borderBottomColor,
+    borderLeftColor,
     borderTopLeftRadius,
     borderTopRightRadius,
     borderBottomLeftRadius,
@@ -144,8 +152,6 @@ export default async function nodeToSketchLayers(node) {
       await style.addImageFill(backroundImageToUrl(backgroundImage));
     }
 
-    style.addBorder({color: borderColor, thickness: parseInt(borderWidth, 10)});
-
     if (boxShadow !== DEFAULT_VALUES.boxShadow) {
       const shadowObj = shadowStringToObject(boxShadow);
 
@@ -157,6 +163,15 @@ export default async function nodeToSketchLayers(node) {
       } else {
         style.addShadow(shadowObj);
       }
+    }
+
+    if (borderWidth.indexOf(' ') === -1) {
+      style.addBorder({color: borderColor, thickness: parseInt(borderWidth, 10)});
+    } else {
+      if (borderTopWidth !== '0px') style.addInnerShadow(shadowStringToObject(borderTopColor + ' 0px ' + borderTopWidth + ' 0px 0px inset'));
+      if (borderRightWidth !== '0px') style.addInnerShadow(shadowStringToObject(borderRightColor + ' -' + borderRightWidth + ' 0px 0px 0px inset'));
+      if (borderBottomWidth !== '0px') style.addInnerShadow(shadowStringToObject(borderBottomColor + ' 0px -' + borderBottomWidth + ' 0px 0px inset'));
+      if (borderLeftWidth !== '0px') style.addInnerShadow(shadowStringToObject(borderLeftColor + ' ' + borderLeftWidth + ' 0px 0px 0px inset'));
     }
 
     leaf.setStyle(style);
