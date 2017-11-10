@@ -1,4 +1,5 @@
 import {makeColorFill, makeImageFill, makeColorFromCSS} from './helpers/utils.js';
+import convertAngleToFromAndTo from './helpers/convertAngleToFromAndTo'
 
 class Style {
   constructor() {
@@ -12,39 +13,7 @@ class Style {
   }
 
   addGradientFill({angle, stops}) {
-    // default 180deg
-    const from = {x: 0.5, y: 0};
-    const to = {x: 0.5, y: 1};
-
-    // Learn math or find someone smarter to figure this out correctly
-    switch (angle) {
-      case 'to top':
-      case '360deg':
-      case '0deg':
-        from.y = 1;
-        to.y = 0;
-        break;
-      case 'to bottom':
-      case '180deg':
-        // keep default
-        break;
-      case 'to right':
-      case '90deg':
-        from.x = 0;
-        from.y = 0.5;
-        to.x = 1;
-        to.y = 0.5;
-        break;
-      case 'to left':
-      case '270deg':
-        from.x = 1;
-        from.y = 0.5;
-        to.x = 0;
-        to.y = 0.5;
-        break;
-      default:
-        break;
-    }
+    const {from, to} = convertAngleToFromAndTo(angle);
 
     this._fills.push({
       _class: 'fill',
