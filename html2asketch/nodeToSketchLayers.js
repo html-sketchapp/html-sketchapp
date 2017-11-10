@@ -29,17 +29,6 @@ function shadowStringToObject(shadowStr) {
   return shadowObj;
 }
 
-function backroundImageToUrl(backgroundImage) {
-  let imageUrl = '';
-  const matches = backgroundImage.match(/^url\("(.+)"\)$/i);
-
-  if (matches && matches.length === 2) {
-    imageUrl = matches[1];
-  }
-
-  return imageUrl;
-}
-
 function hasOnlyDefaultStyles(styles) {
   return Object.keys(DEFAULT_VALUES).every(key => {
     const defaultValue = DEFAULT_VALUES[key];
@@ -83,6 +72,99 @@ function fixBorderRadius(borderRadius) {
 
   return parseInt(borderRadius, 10);
 }
+
+const BackgroundImageParser = {};
+
+// Parse the background-image. The structure is as follows:
+// (Supports images and gradients)
+// ---
+// <background-image> = <bg-image> [ , <bg-image> ]*
+// <bg-image> = <image> | none
+// <image> = <url> | <image-list> | <element-reference> | <image-combination> | <gradient>
+// ---
+// Source: https://www.w3.org/TR/css-backgrounds-3/#the-background-image
+// ---
+BackgroundImageParser.parse = async(style, value) => {
+  if (value === DEFAULT_VALUES.backgroundImage) {
+    return;
+  }
+
+  const urlMatches = value.match(/^url\("(.+)"\)$/i);
+  const linearGradientMatches = value.match(/^linear-gradient\((.+)\)$/i);
+
+  if (urlMatches && urlMatches.length === 2) {
+    // Image
+    await style.addImageFill(urlMatches[1]);
+  } else if (linearGradientMatches && linearGradientMatches.length === 2) {
+    // Linear gradient
+    const linearGradientConfig = BackgroundImageParser.parseLinearGradient(linearGradientMatches[1]);
+
+    if (linearGradientConfig) {
+      style.addGradientFill(linearGradientConfig);
+    }
+  }
+};
+
+// Parser for a linear gradient:
+// ---
+// <linear-gradient> = linear-gradient(
+//   [ [ <angle> | to <side-or-corner> ] ,]?
+//   <color-stop>[, <color-stop>]+
+// )
+//
+// <side-or-corner> = [left | right] || [top | bottom]
+// ---
+// Source: https://www.w3.org/TR/css3-images/#linear-gradients
+// ---
+// Example: "to top, rgba(67, 90, 111, 0.04), white"
+BackgroundImageParser.parseLinearGradient = value => {
+  const parts = [];
+  let currentPart = [];
+  let i = 0;
+  let skipComma = false;
+
+  // There can be commas in colors, carefully break apart the value
+  while (i < value.length) {
+    const char = value.substr(i, 1);
+
+    if (char === '(') {
+      skipComma = true;
+    } else if (char === ')') {
+      skipComma = false;
+    }
+
+    if (char === ',' && !skipComma) {
+      parts.push(currentPart.join('').trim());
+      currentPart = [];
+    } else {
+      currentPart.push(char);
+    }
+
+    if (i === value.length - 1) {
+      parts.push(currentPart.join('').trim());
+    }
+    i++;
+  }
+
+  if (parts.length === 2) {
+    // Assume 2 color stops
+    return {
+      angle: '180deg',
+      stops: [parts[0], parts[1]]
+    };
+  } else if (parts.length > 2) {
+    // angle + n stops
+    const [angle, ...stops] = parts;
+
+    return {
+      angle,
+      stops
+    };
+  }
+
+  // Syntax is wrong
+  return null;
+};
 
 export default async function nodeToSketchLayers(node) {
   const layers = [];
@@ -140,9 +222,7 @@ export default async function nodeToSketchLayers(node) {
       leaf.setFixedWidthAndHeight();
     }
 
-    if (backgroundImage !== DEFAULT_VALUES.backgroundImage) {
-      await style.addImageFill(backroundImageToUrl(backgroundImage));
-    }
+    await BackgroundImageParser.parse(style, backgroundImage);
 
     style.addBorder({color: borderColor, thickness: parseInt(borderWidth, 10)});
 
