@@ -6,6 +6,9 @@
     "no-console": 0,
     "new-cap": 0
   },
+  "env": {
+    "jest": true
+  },
   "globals": {
     "NSFont": false,
     "NSArray": false,
