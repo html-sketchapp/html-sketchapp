@@ -28,6 +28,7 @@ This project is a prototype that allowed us to export most of our Front-End styl
 - resizing information is not generated (TODO)
 - all fonts have to be locally installed (not sure if that's fixable)
 - requires MacOS (Sketch's limitation)
+- [more details here](https://github.com/brainly/html-sketchapp/wiki/What's-supported%3F)
 
 The good news is that most of the missing functionality should be fairly easy to add - feel free to contribute to or fork this project.
 
@@ -57,6 +58,6 @@ npm i # install dependencies
 npm run render # build the plugin
 ```
 
-## Thanks!
+## Standing on the shoulders of giants :heart:
 
-This project uses bits and pieces from the fantastic [react-sketchapp](https://github.com/airbnb/react-sketchapp) and wouldn't be possible without [skpm](https://github.com/skpm/skpm) and information from [Sketch-Headers](https://github.com/abynim/Sketch-Headers).
+This project uses huge bits and pieces from the fantastic [react-sketchapp](https://github.com/airbnb/react-sketchapp) and wouldn't be possible without [skpm](https://github.com/skpm/skpm) and information from [Sketch-Headers](https://github.com/abynim/Sketch-Headers).
