@@ -14,6 +14,7 @@
     "sketch": ">=3.0"
   },
   "devDependencies": {
+    "eslint": "^4.4.1",
     "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git",
     "skpm": "^0.10.2"
   },
@@ -22,7 +23,6 @@
     "main": "asketch2sketch.sketchplugin"
   },
   "dependencies": {
-    "eslint": "^4.4.1",
     "murmur2js": "^1.0.0",
     "normalize-css-color": "^1.0.2",
     "sketch-constants": "^1.1.0",
