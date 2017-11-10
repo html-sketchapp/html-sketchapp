@@ -51,7 +51,7 @@ function addSharedColor(document, colorJSON) {
   assets.addColor(color);
 }
 
-export default function(context) {
+export default function asketch2sketch(context) {
   const document = context.document;
   const page = document.currentPage();
 
@@ -63,7 +63,7 @@ export default function(context) {
   panel.setCanChooseDirectories(false);
   panel.setCanChooseFiles(true);
   panel.setAllowsMultipleSelection(true);
-  panel.setTitle('Choose a asketch.json files');
+  panel.setTitle('Choose *.asketch.json files');
   panel.setPrompt('Choose');
   panel.setAllowedFileTypes(['json']);
 

@@ -1,5 +1,5 @@
-import {generateID} from './helpers/utils.js';
-import Base from './base.js';
+import {generateID} from './helpers/utils';
+import Base from './base';
 
 class SymbolMaster extends Base {
   constructor({x, y}) {

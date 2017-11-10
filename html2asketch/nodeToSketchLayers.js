@@ -198,7 +198,8 @@ export default async function nodeToSketchLayers(node) {
       const lineHeightInt = parseInt(lineHeight, 10);
       let fixY = 0;
 
-      // center text inside a box (it's possible in new sketch - fix it!)
+      // center text inside a box
+      // TODO it's possible now in sketch - fix it!
       if (lineHeightInt && textBCR.height !== lineHeightInt * numberOfLines) {
         fixY = (textBCR.height - lineHeightInt * numberOfLines) / 2;
       }
