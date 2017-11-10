@@ -14,7 +14,6 @@
     "sketch": ">=3.0"
   },
   "devDependencies": {
-    "eslint-plugin-import": "^2.8.0",
     "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git",
     "skpm": "^0.10.2"
   },
