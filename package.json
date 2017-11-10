@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "eslint": "^4.4.1",
-    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git",
+    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v16.1.0",
     "skpm": "^0.10.2"
   },
   "skpm": {
