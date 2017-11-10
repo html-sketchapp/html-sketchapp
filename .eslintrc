@@ -36,6 +36,8 @@
     "NSFontWeightBlack": false,
     "NSOpenPanel": false,
     "NSModalResponseOK": false,
-    "NSString": false
+    "NSString": false,
+    "NSUTF8StringEncoding": false,
+    "NSAlert": false
   }
 }

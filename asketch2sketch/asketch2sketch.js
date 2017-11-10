@@ -51,7 +51,7 @@ function addSharedColor(document, colorJSON) {
   assets.addColor(color);
 }
 
-export default function(context) {
+export default function asketch2sketch(context) {
   const document = context.document;
   const page = document.currentPage();
 

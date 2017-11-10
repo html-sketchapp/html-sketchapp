@@ -1,4 +1,4 @@
-import {makeColorFill, makeImageFill, makeColorFromCSS} from './helpers/utils.js';
+import {makeColorFill, makeImageFill, makeColorFromCSS} from './helpers/utils';
 
 class Style {
   constructor() {

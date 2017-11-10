@@ -1,4 +1,4 @@
-import Base from './base.js';
+import Base from './base';
 
 class ShapeGroup extends Base {
   constructor({x, y, width, height}) {
