@@ -1,10 +1,10 @@
-import ShapeGroup from './shapeGroup.js';
-import Rectange from './rectangle.js';
-import createXPathFromElement from './helpers/createXPathFromElement.js';
-import Style from './style.js';
-import Text from './text.js';
-import TextStyle from './textStyle.js';
-import {parseBackgroundImage} from './helpers/background.js';
+import ShapeGroup from './shapeGroup';
+import Rectange from './rectangle';
+import createXPathFromElement from './helpers/createXPathFromElement';
+import Style from './style';
+import Text from './text';
+import TextStyle from './textStyle';
+import {parseBackgroundImage} from './helpers/background';
 
 const DEFAULT_VALUES = {
   backgroundColor: 'rgba(0, 0, 0, 0)',
