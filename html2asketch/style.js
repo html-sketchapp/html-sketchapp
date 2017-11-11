@@ -1,6 +1,5 @@
-import {makeColorFill, makeImageFill, makeColorFromCSS} from './helpers/utils.js';
-import convertAngleToFromAndTo from './helpers/convertAngleToFromAndTo'
-
+import {makeColorFill, makeImageFill, makeColorFromCSS} from './helpers/utils';
+import convertAngleToFromAndTo from './helpers/convertAngleToFromAndTo';
 
 class Style {
   constructor() {
