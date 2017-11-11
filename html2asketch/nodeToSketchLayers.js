@@ -4,6 +4,7 @@ import createXPathFromElement from './helpers/createXPathFromElement';
 import Style from './style';
 import Text from './text';
 import TextStyle from './textStyle';
+import {parseBackgroundImage} from './helpers/background';
 
 const DEFAULT_VALUES = {
   backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -27,17 +28,6 @@ function shadowStringToObject(shadowStr) {
   }
 
   return shadowObj;
-}
-
-function backroundImageToUrl(backgroundImage) {
-  let imageUrl = '';
-  const matches = backgroundImage.match(/^url\("(.+)"\)$/i);
-
-  if (matches && matches.length === 2) {
-    imageUrl = matches[1];
-  }
-
-  return imageUrl;
 }
 
 function hasOnlyDefaultStyles(styles) {
@@ -140,8 +130,23 @@ export default async function nodeToSketchLayers(node) {
       leaf.setFixedWidthAndHeight();
     }
 
-    if (backgroundImage !== DEFAULT_VALUES.backgroundImage) {
-      await style.addImageFill(backroundImageToUrl(backgroundImage));
+    // This should return a array when multiple background-images are supported
+    const backgroundImageResult = parseBackgroundImage(backgroundImage);
+
+    if (backgroundImageResult) {
+      switch (backgroundImageResult.type) {
+        case 'Image':
+          await style.addImageFill(backgroundImageResult.value);
+          break;
+        case 'LinearGradient':
+          style.addGradientFill(backgroundImageResult.value);
+          break;
+        default:
+          // Unsupported types:
+          // - radial gradient
+          // - multiple background-image
+          break;
+      }
     }
 
     style.addBorder({color: borderColor, thickness: parseInt(borderWidth, 10)});

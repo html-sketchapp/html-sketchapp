@@ -1,4 +1,5 @@
 import {makeColorFill, makeImageFill, makeColorFromCSS} from './helpers/utils';
+import convertAngleToFromAndTo from './helpers/convertAngleToFromAndTo';
 
 class Style {
   constructor() {
@@ -11,6 +12,41 @@ class Style {
     this._fills.push(makeColorFill(color));
   }
 
+  addGradientFill({angle, stops}) {
+    const {from, to} = convertAngleToFromAndTo(angle);
+
+    this._fills.push({
+      _class: 'fill',
+      isEnabled: true,
+      // Not sure why there is a color here
+      color: {
+        _class: 'color',
+        alpha: 1,
+        blue: 0.847,
+        green: 0.847,
+        red: 0.847
+      },
+      fillType: 1,
+      gradient: {
+        _class: 'gradient',
+        elipseLength: 0,
+        from: `{${from.x}, ${from.y}`,
+        gradientType: 0,
+        shouldSmoothenOpacity: false,
+        stops: stops.map((stopColor, index) => ({
+          _class: 'gradientStop',
+          color: makeColorFromCSS(stopColor),
+          position: index
+        })),
+        to: `{${to.x}, ${to.y}}`
+      },
+      noiseIndex: 0,
+      noiseIntensity: 0,
+      patternFillType: 1,
+      patternTileScale: 1
+    });
+  }
+
   async addImageFill(image) {
     const fill = await makeImageFill(image);
 
@@ -19,11 +55,11 @@ class Style {
 
   addBorder({color, thickness}) {
     this._borders.push({
-      '_class': 'border',
-      'isEnabled': true,
-      'color': makeColorFromCSS(color),
-      'fillType': 0,
-      'position': 1,
+      _class: 'border',
+      isEnabled: true,
+      color: makeColorFromCSS(color),
+      fillType: 0,
+      position: 1,
       thickness
     });
   }
@@ -47,13 +83,13 @@ class Style {
 
   toJSON() {
     return {
-      '_class': 'style',
-      'fills': this._fills,
-      'borders': this._borders,
-      'shadows': this._shadows,
-      'endDecorationType': 0,
-      'miterLimit': 10,
-      'startDecorationType': 0
+      _class: 'style',
+      fills: this._fills,
+      borders: this._borders,
+      shadows: this._shadows,
+      endDecorationType: 0,
+      miterLimit: 10,
+      startDecorationType: 0
     };
   }
 }
