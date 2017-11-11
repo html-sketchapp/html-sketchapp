@@ -165,13 +165,22 @@ export default async function nodeToSketchLayers(node) {
       }
     }
 
+    // support for one-side borders (using inner shadow because Sketch doesn't support that)
     if (borderWidth.indexOf(' ') === -1) {
       style.addBorder({color: borderColor, thickness: parseInt(borderWidth, 10)});
     } else {
-      if (borderTopWidth !== '0px') style.addInnerShadow(shadowStringToObject(borderTopColor + ' 0px ' + borderTopWidth + ' 0px 0px inset'));
-      if (borderRightWidth !== '0px') style.addInnerShadow(shadowStringToObject(borderRightColor + ' -' + borderRightWidth + ' 0px 0px 0px inset'));
-      if (borderBottomWidth !== '0px') style.addInnerShadow(shadowStringToObject(borderBottomColor + ' 0px -' + borderBottomWidth + ' 0px 0px inset'));
-      if (borderLeftWidth !== '0px') style.addInnerShadow(shadowStringToObject(borderLeftColor + ' ' + borderLeftWidth + ' 0px 0px 0px inset'));
+      if (borderTopWidth !== '0px') {
+        style.addInnerShadow(shadowStringToObject(borderTopColor + ' 0px ' + borderTopWidth + ' 0px 0px inset'));
+      }
+      if (borderRightWidth !== '0px') {
+        style.addInnerShadow(shadowStringToObject(borderRightColor + ' -' + borderRightWidth + ' 0px 0px 0px inset'));
+      }
+      if (borderBottomWidth !== '0px') {
+        style.addInnerShadow(shadowStringToObject(borderBottomColor + ' 0px -' + borderBottomWidth + ' 0px 0px inset'));
+      }
+      if (borderLeftWidth !== '0px') {
+        style.addInnerShadow(shadowStringToObject(borderLeftColor + ' ' + borderLeftWidth + ' 0px 0px 0px inset'));
+      }
     }
 
     leaf.setStyle(style);
