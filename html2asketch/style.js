@@ -6,6 +6,7 @@ class Style {
     this._fills = [];
     this._borders = [];
     this._shadows = [];
+    this._innerShadows = [];
   }
 
   addColorFill(color) {
@@ -81,12 +82,30 @@ class Style {
     });
   }
 
+  addInnerShadow({color = '#000', blur = 1, offsetX = 0, offsetY = 0, spread = 0}) {
+    this._innerShadows.push({
+      _class: 'innerShadow',
+      isEnabled: true,
+      blurRadius: blur,
+      color: makeColorFromCSS(color),
+      contextSettings: {
+        _class: 'graphicsContextSettings',
+        blendMode: 0,
+        opacity: 1
+      },
+      offsetX,
+      offsetY,
+      spread
+    });
+  }
+
   toJSON() {
     return {
       _class: 'style',
       fills: this._fills,
       borders: this._borders,
       shadows: this._shadows,
+      innerShadows: this._innerShadows,
       endDecorationType: 0,
       miterLimit: 10,
       startDecorationType: 0

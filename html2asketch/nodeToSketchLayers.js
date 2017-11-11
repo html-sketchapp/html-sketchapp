@@ -15,9 +15,10 @@ const DEFAULT_VALUES = {
 
 function shadowStringToObject(shadowStr) {
   let shadowObj = {};
-  const matches = shadowStr.match(/^([a-z0-9#., ()]+) ([0-9.]+)px ([0-9.]+)px ([0-9.]+)px ([0-9.]+)px$/i);
+  const matches =
+    shadowStr.match(/^([a-z0-9#., ()]+) ([-]?[0-9.]+)px ([-]?[0-9.]+)px ([-]?[0-9.]+)px ([-]?[0-9.]+)px ?(inset)?$/i);
 
-  if (matches && matches.length === 6) {
+  if (matches && matches.length === 7) {
     shadowObj = {
       color: matches[1],
       offsetX: matches[2],
@@ -88,6 +89,14 @@ export default async function nodeToSketchLayers(node) {
     backgroundImage,
     borderColor,
     borderWidth,
+    borderTopWidth,
+    borderRightWidth,
+    borderBottomWidth,
+    borderLeftWidth,
+    borderTopColor,
+    borderRightColor,
+    borderBottomColor,
+    borderLeftColor,
     borderTopLeftRadius,
     borderTopRightRadius,
     borderBottomLeftRadius,
@@ -149,10 +158,35 @@ export default async function nodeToSketchLayers(node) {
       }
     }
 
-    style.addBorder({color: borderColor, thickness: parseInt(borderWidth, 10)});
-
     if (boxShadow !== DEFAULT_VALUES.boxShadow) {
-      style.addShadow(shadowStringToObject(boxShadow));
+      const shadowObj = shadowStringToObject(boxShadow);
+
+      if (boxShadow.indexOf('inset') !== -1) {
+        if (borderWidth.indexOf(' ') === -1) {
+          shadowObj.spread += parseInt(borderWidth, 10);
+        }
+        style.addInnerShadow(shadowObj);
+      } else {
+        style.addShadow(shadowObj);
+      }
+    }
+
+    // support for one-side borders (using inner shadow because Sketch doesn't support that)
+    if (borderWidth.indexOf(' ') === -1) {
+      style.addBorder({color: borderColor, thickness: parseInt(borderWidth, 10)});
+    } else {
+      if (borderTopWidth !== '0px') {
+        style.addInnerShadow(shadowStringToObject(borderTopColor + ' 0px ' + borderTopWidth + ' 0px 0px inset'));
+      }
+      if (borderRightWidth !== '0px') {
+        style.addInnerShadow(shadowStringToObject(borderRightColor + ' -' + borderRightWidth + ' 0px 0px 0px inset'));
+      }
+      if (borderBottomWidth !== '0px') {
+        style.addInnerShadow(shadowStringToObject(borderBottomColor + ' 0px -' + borderBottomWidth + ' 0px 0px inset'));
+      }
+      if (borderLeftWidth !== '0px') {
+        style.addInnerShadow(shadowStringToObject(borderLeftColor + ' ' + borderLeftWidth + ' 0px 0px 0px inset'));
+      }
     }
 
     leaf.setStyle(style);
