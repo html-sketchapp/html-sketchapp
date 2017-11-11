@@ -1,9 +1,10 @@
-import ShapeGroup from './shapeGroup.js';
-import Rectange from './rectangle.js';
-import createXPathFromElement from './helpers/createXPathFromElement.js';
-import Style from './style.js';
-import Text from './text.js';
-import TextStyle from './textStyle.js';
+import ShapeGroup from './shapeGroup';
+import Rectange from './rectangle';
+import createXPathFromElement from './helpers/createXPathFromElement';
+import Style from './style';
+import Text from './text';
+import TextStyle from './textStyle';
+import {parseBackgroundImage} from './helpers/background';
 
 const DEFAULT_VALUES = {
   backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -27,17 +28,6 @@ function shadowStringToObject(shadowStr) {
   }
 
   return shadowObj;
-}
-
-function backroundImageToUrl(backgroundImage) {
-  let imageUrl = '';
-  const matches = backgroundImage.match(/^url\("(.+)"\)$/i);
-
-  if (matches && matches.length === 2) {
-    imageUrl = matches[1];
-  }
-
-  return imageUrl;
 }
 
 function hasOnlyDefaultStyles(styles) {
@@ -148,8 +138,23 @@ export default async function nodeToSketchLayers(node) {
       leaf.setFixedWidthAndHeight();
     }
 
-    if (backgroundImage !== DEFAULT_VALUES.backgroundImage) {
-      await style.addImageFill(backroundImageToUrl(backgroundImage));
+    // This should return a array when multiple background-images are supported
+    const backgroundImageResult = parseBackgroundImage(backgroundImage);
+
+    if (backgroundImageResult) {
+      switch (backgroundImageResult.type) {
+        case 'Image':
+          await style.addImageFill(backgroundImageResult.value);
+          break;
+        case 'LinearGradient':
+          style.addGradientFill(backgroundImageResult.value);
+          break;
+        default:
+          // Unsupported types:
+          // - radial gradient
+          // - multiple background-image
+          break;
+      }
     }
 
     if (boxShadow !== DEFAULT_VALUES.boxShadow) {
@@ -226,7 +231,8 @@ export default async function nodeToSketchLayers(node) {
       const lineHeightInt = parseInt(lineHeight, 10);
       let fixY = 0;
 
-      // center text inside a box (it's possible in new sketch - fix it!)
+      // center text inside a box
+      // TODO it's possible now in sketch - fix it!
       if (lineHeightInt && textBCR.height !== lineHeightInt * numberOfLines) {
         fixY = (textBCR.height - lineHeightInt * numberOfLines) / 2;
       }

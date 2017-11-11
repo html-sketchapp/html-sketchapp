@@ -8,8 +8,20 @@ function getFirstFont(fonts) {
   return font;
 }
 
+console.log('test');
+
 class TextStyle {
-  constructor({color, fontSize, fontFamily, fontWeight, lineHeight, letterSpacing, textTransform, textDecoration, textAlign}) {
+  constructor({
+    color,
+    fontSize,
+    fontFamily,
+    fontWeight,
+    lineHeight,
+    letterSpacing,
+    textTransform,
+    textDecoration,
+    textAlign
+  }) {
     this._color = color;
     this._fontSize = fontSize;
     this._fontFamily = getFirstFont(fontFamily);

@@ -6,6 +6,9 @@
     "no-console": 0,
     "new-cap": 0
   },
+  "env": {
+    "jest": true
+  },
   "globals": {
     "NSFont": false,
     "NSArray": false,
@@ -36,6 +39,8 @@
     "NSFontWeightBlack": false,
     "NSOpenPanel": false,
     "NSModalResponseOK": false,
-    "NSString": false
+    "NSString": false,
+    "NSUTF8StringEncoding": false,
+    "NSAlert": false
   }
 }

@@ -1,4 +1,4 @@
-import Base from './base.js';
+import Base from './base';
 
 class Text extends Base {
   constructor({x, y, width, height, text, style, multiline}) {

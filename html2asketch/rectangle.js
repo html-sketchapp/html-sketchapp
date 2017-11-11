@@ -1,4 +1,4 @@
-import Base from './base.js';
+import Base from './base';
 
 class Rectangle extends Base {
   constructor({width, height, cornerRadius = {topLeft: 0, bottomLeft: 0, topRight: 0, bottomRight: 0}}) {

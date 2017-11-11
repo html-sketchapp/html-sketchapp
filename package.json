@@ -6,7 +6,7 @@
   "author": "Brainly - Konrad Dzwinel <konrad.dzwinel@brainly.com>",
   "license": "MIT",
   "scripts": {
-    "test": "eslint html2asketch/src/ asketch2sketch/src/",
+    "test": "eslint html2asketch/ asketch2sketch/ && jest",
     "build": "skpm build",
     "watch": "skpm build --run --watch"
   },
@@ -14,8 +14,9 @@
     "sketch": ">=3.0"
   },
   "devDependencies": {
+    "jest": "^21.2.1",
     "eslint": "^4.4.1",
-    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git",
+    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v16.1.0",
     "skpm": "^0.10.2"
   },
   "skpm": {
