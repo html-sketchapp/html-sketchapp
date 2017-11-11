@@ -14,9 +14,9 @@ const DEFAULT_VALUES = {
 
 function shadowStringToObject(shadowStr) {
   let shadowObj = {};
-  const matches = shadowStr.match(/^([a-z0-9#., ()]+) ([-]?[0-9.]+)px ([-]?[0-9.]+)px ([-]?[0-9.]+)px ([-]?[0-9.]+)px/i);
+  const matches = shadowStr.match(/^([a-z0-9#., ()]+) ([-]?[0-9.]+)px ([-]?[0-9.]+)px ([-]?[0-9.]+)px ([-]?[0-9.]+)px ?(inset)?$/i);
 
-  if (matches && matches.length === 6) {
+  if (matches && matches.length === 7) {
     shadowObj = {
       color: matches[1],
       offsetX: matches[2],
