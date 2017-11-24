@@ -65,10 +65,10 @@ export const makeColorFromCSS = (input, alpha = 1) => {
 };
 
 // Solid color fill
-export const makeColorFill = cssColor => ({
+export const makeColorFill = (cssColor, alpha) => ({
   _class: 'fill',
   isEnabled: true,
-  color: makeColorFromCSS(cssColor),
+  color: makeColorFromCSS(cssColor, alpha),
   fillType: 0,
   noiseIndex: 0,
   noiseIntensity: 0,

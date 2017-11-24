@@ -8,8 +8,6 @@ function getFirstFont(fonts) {
   return font;
 }
 
-console.log('test');
-
 class TextStyle {
   constructor({
     color,

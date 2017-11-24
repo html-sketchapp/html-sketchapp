@@ -9,8 +9,8 @@ class Style {
     this._innerShadows = [];
   }
 
-  addColorFill(color) {
-    this._fills.push(makeColorFill(color));
+  addColorFill(color, opacity) {
+    this._fills.push(makeColorFill(color, opacity));
   }
 
   addGradientFill({angle, stops}) {
