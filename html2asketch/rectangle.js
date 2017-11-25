@@ -1,12 +1,18 @@
 import Base from './base';
 
 class Rectangle extends Base {
-  constructor({width, height, cornerRadius = {topLeft: 0, bottomLeft: 0, topRight: 0, bottomRight: 0}}) {
+  constructor({
+    width,
+    height,
+    cornerRadius = {topLeft: 0, bottomLeft: 0, topRight: 0, bottomRight: 0},
+    shouldBreakMaskChain
+  }) {
     super();
     this._class = 'rectangle';
     this._width = width;
     this._height = height;
     this._cornerRadius = cornerRadius;
+    this._shouldBreakMaskChain = shouldBreakMaskChain;
   }
 
   toJSON() {
@@ -73,6 +79,7 @@ class Rectangle extends Base {
     obj.fixedRadius = 0;
     obj.edited = false;
     obj.booleanOperation = -1;
+    obj.shouldBreakMaskChain = this._shouldBreakMaskChain;
 
     return obj;
   }

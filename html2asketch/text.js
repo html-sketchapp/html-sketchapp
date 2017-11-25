@@ -1,7 +1,7 @@
 import Base from './base';
 
 class Text extends Base {
-  constructor({x, y, width, height, text, style, multiline}) {
+  constructor({x, y, width, height, text, style, multiline, shouldBreakMaskChain}) {
     super();
     this._class = 'text';
     this._x = x;
@@ -12,6 +12,7 @@ class Text extends Base {
     this._name = text;
     this._style = style;
     this._multiline = multiline;
+    this._shouldBreakMaskChain = shouldBreakMaskChain;
   }
 
   toJSON() {
@@ -38,6 +39,7 @@ class Text extends Base {
     // 1 - width is set to Fixed
     // 0 - width is set to Auto - this helps us avoid issues with browser setting too small width causing line to break
     obj.textBehaviour = this._multiline ? 1 : 0;
+    obj.shouldBreakMaskChain = this._shouldBreakMaskChain;
     return obj;
   }
 }

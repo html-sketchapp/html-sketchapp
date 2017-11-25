@@ -1,13 +1,14 @@
 import Base from './base';
 
 class ShapeGroup extends Base {
-  constructor({x, y, width, height}) {
+  constructor({x, y, width, height, hasMask}) {
     super();
     this._class = 'shapeGroup';
     this._x = x;
     this._y = y;
     this._width = width;
     this._height = height;
+    this._hasMask = hasMask;
   }
 
   toJSON() {
@@ -24,7 +25,7 @@ class ShapeGroup extends Base {
 
     obj.hasClickThrough = false;
     obj.clippingMaskMode = 0;
-    obj.hasClippingMask = false;
+    obj.hasClippingMask = this._hasMask;
     obj.windingRule = 1;
 
     return obj;
