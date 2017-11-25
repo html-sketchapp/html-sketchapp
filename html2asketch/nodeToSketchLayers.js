@@ -1,6 +1,7 @@
 import ShapeGroup from './shapeGroup';
-import Rectange from './rectangle';
+import Rectangle from './rectangle';
 import createXPathFromElement from './helpers/createXPathFromElement';
+import findParentWithStyle from './helpers/findParentWithStyle';
 import Style from './style';
 import Text from './text';
 import TextStyle from './textStyle';
@@ -10,7 +11,8 @@ const DEFAULT_VALUES = {
   backgroundColor: 'rgba(0, 0, 0, 0)',
   backgroundImage: 'none',
   borderWidth: '0px',
-  boxShadow: 'none'
+  boxShadow: 'none',
+  opacity: 'visible'
 };
 
 function shadowStringToObject(shadowStr) {
@@ -114,15 +116,17 @@ export default async function nodeToSketchLayers(node) {
     display,
     boxShadow,
     visibility,
-    opacity
+    opacity,
+    overflow
   } = styles;
 
   if (display === 'none' || visibility === 'hidden' || parseFloat(opacity) === 0) {
     return layers;
   }
 
-  const leaf = new ShapeGroup({x, y, width, height});
+  const leaf = new ShapeGroup({x, y, width, height, hasMask: overflow === 'hidden'});
   const isImage = node.nodeName === 'IMG' && node.attributes.src;
+  const hasParentMask = !!findParentWithStyle(node, 'overflow', 'hidden');
 
   // if layer has no background/shadow/border/etc. skip it
   if (isImage || !hasOnlyDefaultStyles(styles)) {
@@ -199,7 +203,7 @@ export default async function nodeToSketchLayers(node) {
       bottomRight: fixBorderRadius(borderBottomRightRadius)
     };
 
-    const rectangle = new Rectange({width, height, cornerRadius});
+    const rectangle = new Rectangle({width, height, cornerRadius, shouldBreakMaskChain: !hasParentMask});
 
     leaf.addLayer(rectangle);
     leaf.setName(createXPathFromElement(node));
@@ -245,7 +249,8 @@ export default async function nodeToSketchLayers(node) {
         height: textBCR.height,
         text: textNode.nodeValue.trim(),
         style: textStyle,
-        multiline: numberOfLines > 1
+        multiline: numberOfLines > 1,
+        shouldBreakMaskChain: !hasParentMask
       });
 
       layers.push(text);
