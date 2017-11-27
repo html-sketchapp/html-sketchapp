@@ -79,10 +79,6 @@ export default async function nodeToSketchLayers(node) {
   const layers = [];
   const {width, height, x, y} = node.getBoundingClientRect();
 
-  if (width === 0 || height === 0) {
-    return layers;
-  }
-
   const styles = getComputedStyle(node);
   const {
     backgroundColor,
@@ -114,8 +110,14 @@ export default async function nodeToSketchLayers(node) {
     display,
     boxShadow,
     visibility,
-    opacity
+    opacity,
+    overflowX,
+    overflowY
   } = styles;
+
+  if ((width === 0 || height === 0) && overflowX === 'hidden' && overflowY === 'hidden') {
+    return layers;
+  }
 
   if (display === 'none' || visibility === 'hidden' || parseFloat(opacity) === 0) {
     return layers;
