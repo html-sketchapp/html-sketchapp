@@ -34,15 +34,15 @@ The good news is that most of the missing functionality should be fairly easy to
 
 ## How does it work?
 
-Ideally, this project should be an, OS independent, NodeJS library that allows to crate valid Sketch files. Unfortunately, it's not possible at this point due to Sketch format limitations.
+Ideally, this project should be an, OS independent, NodeJS library that allows to create valid Sketch files. Unfortunately, it's not possible at this point due to Sketch format limitations.
 
 Current solution consists of two parts. First one (`html2asketch`) runs in a browser (either regular or headless) and creates an *almost* valid Sketch file (`page.asketch.json` and `document.asketch.json`). Second one (`asketch2sketch`) is a Sketch plugin that takes `asketch.json` files and imports them into Sketch.
 
-Why two parts? `html2asketch` and `asketch2sketch` are built in different technologies and run in different environments. `html2asketch` is written in JavaScript and runs in a browser where it can easily extract all information from DOM nodes: their position, size, styles and children. Extracted information are then translated into Sketch's `document.json` and `page.json` files. Unfortunately, ATM Sketch file format is not fully readable and some parts can't be easily generated from JavaScript (most notably text styling information which is saved as a binary blob). Additionally, script running in the browser is limited by CORS and may not be able to download all of the images used on page. That's where we need `asketch2sketch` which is a Sketch plugin written in [cocoascript](http://developer.sketchapp.com/introduction/cocoascript/) (JavaScript + Objective-C). It "fixes" `.asketch.json` files (changes text styling information format, downloads and inlines images) and loads them into the Sketch app.
+Why two parts? `html2asketch` and `asketch2sketch` are built in different technologies and run in different environments. `html2asketch` is written in JavaScript and runs in a browser where it can easily extract all information from DOM nodes: their position, size, styles and children. Extracted information are then translated into Sketch's `document.json` and `page.json` files. Unfortunately, at the moment Sketch file format is not fully readable and some parts can't be easily generated from JavaScript (most notably text styling information which is saved as a binary blob). Additionally, the script running in the browser is limited by CORS and may not be able to download all of the images used on page. That's where we need `asketch2sketch` which is a Sketch plugin written in [cocoascript](http://developer.sketchapp.com/introduction/cocoascript/) (JavaScript + Objective-C). It "fixes" `.asketch.json` files (changes text styling information format, downloads and inlines images) and loads them into the Sketch app.
 
 ## How do I run it?
 
-`html2asketch` is a library that you can use to create a script that extracts specific parts of the website and saves them as layers, shared text styles, document colors and symbols. There is no one right way of using `html2asketch`, but you can start by checking out the two examples that we provide:
+`html2asketch` is a library that you can use to create a script that extracts specific parts of your website and saves them as layers, shared text styles, document colors and symbols. There is no one right way of using `html2asketch`, but you can start by checking out the two examples that we provide:
 
 - [html-sketchapp-example](https://github.com/brainly/html-sketchapp-example) - minimal script that takes an URL and produces a `page.asketch.json` file
 - [html-sketchapp-style-guide](https://github.com/brainly/html-sketchapp-style-guide) - script that takes parts of the Brainly style-guide and exports them as Sketch symbols, shared text styles and document colors. This script produces `document.asketch.json` and `page.asketch.json`.
@@ -55,7 +55,7 @@ If you prefer to build the plugin from sources:
 
 ```
 npm i # install dependencies
-npm run render # build the plugin
+npm run build # build the plugin
 ```
 
 ## Standing on the shoulders of giants :heart:
