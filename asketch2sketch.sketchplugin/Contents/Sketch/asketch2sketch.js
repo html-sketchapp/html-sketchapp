@@ -272,25 +272,81 @@ module.exports = {
 
 /***/ }),
 /* 4 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(console) {Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* WEBPACK VAR INJECTION */(function(console) {/* harmony export (immutable) */ __webpack_exports__["default"] = asketch2sketch;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_sketchapp_json_plugin__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_sketchapp_json_plugin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_sketchapp_json_plugin__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__helpers_fixFont__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__helpers_fixImageFill__ = __webpack_require__(15);
 
-exports['default'] = function (context) {
-  var document = context.document;
-  var page = document.currentPage();
 
-  var asketchDocument = null;
-  var asketchPage = null;
 
-  var panel = NSOpenPanel.openPanel();
+
+function removeExistingLayers(context) {
+  if (context.containsLayers()) {
+    const loop = context.children().objectEnumerator();
+    let currLayer = loop.nextObject();
+
+    while (currLayer) {
+      if (currLayer !== context) {
+        currLayer.removeFromParent();
+      }
+      currLayer = loop.nextObject();
+    }
+  }
+}
+
+function fixLayer(layer) {
+  if (layer['_class'] === 'text') {
+    Object(__WEBPACK_IMPORTED_MODULE_1__helpers_fixFont__["b" /* fixTextLayer */])(layer);
+  } else {
+    Object(__WEBPACK_IMPORTED_MODULE_2__helpers_fixImageFill__["a" /* default */])(layer);
+  }
+
+  if (layer.layers) {
+    layer.layers.forEach(fixLayer);
+  }
+}
+
+function removeSharedTextStyles(document) {
+  document.documentData().layerTextStyles().setObjects([]);
+}
+
+function addSharedTextStyle(document, style) {
+  const textStyles = document.documentData().layerTextStyles();
+
+  textStyles.addSharedStyleWithName_firstInstance(style.name, Object(__WEBPACK_IMPORTED_MODULE_0_sketchapp_json_plugin__["fromSJSONDictionary"])(style.value));
+}
+
+function removeSharedColors(document) {
+  const assets = document.documentData().assets();
+
+  assets.removeAllColors();
+}
+
+function addSharedColor(document, colorJSON) {
+  const assets = document.documentData().assets();
+  const color = Object(__WEBPACK_IMPORTED_MODULE_0_sketchapp_json_plugin__["fromSJSONDictionary"])(colorJSON);
+
+  assets.addColor(color);
+}
+
+function asketch2sketch(context) {
+  const document = context.document;
+  const page = document.currentPage();
+
+  let asketchDocument = null;
+  let asketchPage = null;
+
+  const panel = NSOpenPanel.openPanel();
 
   panel.setCanChooseDirectories(false);
   panel.setCanChooseFiles(true);
   panel.setAllowsMultipleSelection(true);
-  panel.setTitle('Choose a asketch.json files');
+  panel.setTitle('Choose *.asketch.json files');
   panel.setPrompt('Choose');
   panel.setAllowedFileTypes(['json']);
 
@@ -298,18 +354,18 @@ exports['default'] = function (context) {
     return;
   }
 
-  var urls = panel.URLs();
+  const urls = panel.URLs();
 
-  urls.forEach(function (url) {
-    var data = NSData.dataWithContentsOfURL(url);
-    var content = NSString.alloc().initWithData_encoding_(data, NSUTF8StringEncoding);
+  urls.forEach(url => {
+    const data = NSData.dataWithContentsOfURL(url);
+    const content = NSString.alloc().initWithData_encoding_(data, NSUTF8StringEncoding);
 
-    var asketchFile = null;
+    let asketchFile = null;
 
     try {
       asketchFile = JSON.parse(content);
     } catch (e) {
-      var alert = NSAlert.alloc().init();
+      const alert = NSAlert.alloc().init();
 
       alert.setMessageText('File is not a valid JSON.');
       alert.runModal();
@@ -327,16 +383,14 @@ exports['default'] = function (context) {
     removeSharedTextStyles(document);
 
     if (asketchDocument.assets.colors) {
-      asketchDocument.assets.colors.forEach(function (color) {
-        return addSharedColor(document, color);
-      });
+      asketchDocument.assets.colors.forEach(color => addSharedColor(document, color));
 
       console.log('Shared colors added: ' + asketchDocument.assets.colors.length);
     }
 
     if (asketchDocument.layerTextStyles && asketchDocument.layerTextStyles.objects) {
-      asketchDocument.layerTextStyles.objects.forEach(function (style) {
-        (0, _fixFont.fixSharedTextStyle)(style);
+      asketchDocument.layerTextStyles.objects.forEach(style => {
+        Object(__WEBPACK_IMPORTED_MODULE_1__helpers_fixFont__["a" /* fixSharedTextStyle */])(style);
         addSharedTextStyle(document, style);
       });
 
@@ -349,74 +403,15 @@ exports['default'] = function (context) {
 
     page.name = asketchPage.name;
 
-    asketchPage.layers.forEach(function (layer) {
+    asketchPage.layers.forEach(layer => {
       fixLayer(layer);
-      page.addLayer((0, _sketchappJsonPlugin.fromSJSONDictionary)(layer));
+      page.addLayer(Object(__WEBPACK_IMPORTED_MODULE_0_sketchapp_json_plugin__["fromSJSONDictionary"])(layer));
     });
 
     console.log('Layers added: ' + asketchPage.layers.length);
   }
-};
-
-var _sketchappJsonPlugin = __webpack_require__(2);
-
-var _fixFont = __webpack_require__(7);
-
-var _fixImageFill = __webpack_require__(15);
-
-var _fixImageFill2 = _interopRequireDefault(_fixImageFill);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function removeExistingLayers(context) {
-  if (context.containsLayers()) {
-    var loop = context.children().objectEnumerator();
-    var currLayer = loop.nextObject();
-
-    while (currLayer) {
-      if (currLayer !== context) {
-        currLayer.removeFromParent();
-      }
-      currLayer = loop.nextObject();
-    }
-  }
 }
-
-function fixLayer(layer) {
-  if (layer['_class'] === 'text') {
-    (0, _fixFont.fixTextLayer)(layer);
-  } else {
-    (0, _fixImageFill2['default'])(layer);
-  }
-
-  if (layer.layers) {
-    layer.layers.forEach(fixLayer);
-  }
-}
-
-function removeSharedTextStyles(document) {
-  document.documentData().layerTextStyles().setObjects([]);
-}
-
-function addSharedTextStyle(document, style) {
-  var textStyles = document.documentData().layerTextStyles();
-
-  textStyles.addSharedStyleWithName_firstInstance(style.name, (0, _sketchappJsonPlugin.fromSJSONDictionary)(style.value));
-}
-
-function removeSharedColors(document) {
-  var assets = document.documentData().assets();
-
-  assets.removeAllColors();
-}
-
-function addSharedColor(document, colorJSON) {
-  var assets = document.documentData().assets();
-  var color = (0, _sketchappJsonPlugin.fromSJSONDictionary)(colorJSON);
-
-  assets.addColor(color);
-}
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
 /* 5 */
@@ -670,47 +665,43 @@ process.umask = function() { return 0; };
 
 /***/ }),
 /* 7 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.fixTextLayer = fixTextLayer;
-exports.fixSharedTextStyle = fixSharedTextStyle;
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["b"] = fixTextLayer;
+/* harmony export (immutable) */ __webpack_exports__["a"] = fixSharedTextStyle;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sketch_constants__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_sketch_constants___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_sketch_constants__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_sketchapp_json_plugin__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_sketchapp_json_plugin___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_sketchapp_json_plugin__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__findFont__ = __webpack_require__(11);
 
-var _utils = __webpack_require__(8);
 
-var _sketchConstants = __webpack_require__(10);
 
-var _sketchappJsonPlugin = __webpack_require__(2);
 
-var _findFont = __webpack_require__(11);
 
-var _findFont2 = _interopRequireDefault(_findFont);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var TEXT_ALIGN = {
-  auto: _sketchConstants.TextAlignment.Left,
-  left: _sketchConstants.TextAlignment.Left,
-  right: _sketchConstants.TextAlignment.Right,
-  center: _sketchConstants.TextAlignment.Center,
-  justify: _sketchConstants.TextAlignment.Justified
+const TEXT_ALIGN = {
+  auto: __WEBPACK_IMPORTED_MODULE_1_sketch_constants__["TextAlignment"].Left,
+  left: __WEBPACK_IMPORTED_MODULE_1_sketch_constants__["TextAlignment"].Left,
+  right: __WEBPACK_IMPORTED_MODULE_1_sketch_constants__["TextAlignment"].Right,
+  center: __WEBPACK_IMPORTED_MODULE_1_sketch_constants__["TextAlignment"].Center,
+  justify: __WEBPACK_IMPORTED_MODULE_1_sketch_constants__["TextAlignment"].Justified
 };
 
-var TEXT_DECORATION_UNDERLINE = {
+const TEXT_DECORATION_UNDERLINE = {
   none: 0,
   underline: 1,
   double: 9
 };
 
-var TEXT_DECORATION_LINETHROUGH = {
+const TEXT_DECORATION_LINETHROUGH = {
   none: 0,
   'line-through': 1
 };
 
 // this doesn't exist in constants
-var TEXT_TRANSFORM = {
+const TEXT_TRANSFORM = {
   uppercase: 1,
   lowercase: 2,
   initial: 0,
@@ -720,7 +711,7 @@ var TEXT_TRANSFORM = {
 };
 
 function makeParagraphStyle(textStyle) {
-  var pStyle = NSMutableParagraphStyle.alloc().init();
+  const pStyle = NSMutableParagraphStyle.alloc().init();
 
   if (textStyle.lineHeight !== undefined) {
     pStyle.minimumLineHeight = textStyle.lineHeight;
@@ -735,18 +726,18 @@ function makeParagraphStyle(textStyle) {
 }
 
 function encodeSketchJSON(sketchObj) {
-  var encoded = (0, _sketchappJsonPlugin.toSJSON)(sketchObj);
+  const encoded = Object(__WEBPACK_IMPORTED_MODULE_2_sketchapp_json_plugin__["toSJSON"])(sketchObj);
 
   return JSON.parse(encoded);
 }
 
 // This shouldn't need to call into Sketch, but it does currently, which is bad for perf :(
 function makeAttributedString(string, textStyle) {
-  var font = (0, _findFont2['default'])(textStyle);
+  const font = Object(__WEBPACK_IMPORTED_MODULE_3__findFont__["a" /* default */])(textStyle);
 
-  var color = (0, _utils.makeColorFromCSS)(textStyle.color || 'black');
+  const color = Object(__WEBPACK_IMPORTED_MODULE_0__utils__["b" /* makeColorFromCSS */])(textStyle.color || 'black');
 
-  var attribs = {
+  const attribs = {
     MSAttributedStringFontAttribute: font.fontDescriptor(),
     NSParagraphStyle: makeParagraphStyle(textStyle),
     NSColor: NSColor.colorWithDeviceRed_green_blue_alpha(color.red, color.green, color.blue, color.alpha),
@@ -762,20 +753,20 @@ function makeAttributedString(string, textStyle) {
     attribs.MSAttributedStringTextTransformAttribute = TEXT_TRANSFORM[textStyle.textTransform] * 1;
   }
 
-  var attribStr = NSAttributedString.attributedStringWithString_attributes_(string, attribs);
-  var msAttribStr = MSAttributedString.alloc().initWithAttributedString(attribStr);
+  const attribStr = NSAttributedString.attributedStringWithString_attributes_(string, attribs);
+  const msAttribStr = MSAttributedString.alloc().initWithAttributedString(attribStr);
 
   return encodeSketchJSON(msAttribStr);
 }
 
 function makeTextStyle(textStyle) {
-  var pStyle = makeParagraphStyle(textStyle);
+  const pStyle = makeParagraphStyle(textStyle);
 
-  var font = (0, _findFont2['default'])(textStyle);
+  const font = Object(__WEBPACK_IMPORTED_MODULE_3__findFont__["a" /* default */])(textStyle);
 
-  var color = (0, _utils.makeColorFromCSS)(textStyle.color || 'black');
+  const color = Object(__WEBPACK_IMPORTED_MODULE_0__utils__["b" /* makeColorFromCSS */])(textStyle.color || 'black');
 
-  var value = {
+  const value = {
     _class: 'textStyle',
     encodedAttributes: {
       MSAttributedStringFontAttribute: encodeSketchJSON(font.fontDescriptor()),
@@ -788,7 +779,7 @@ function makeTextStyle(textStyle) {
 
   return {
     _class: 'style',
-    sharedObjectID: (0, _utils.generateID)(),
+    sharedObjectID: Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* generateID */])(),
     miterLimit: 10,
     startDecorationType: 0,
     endDecorationType: 0,
@@ -809,41 +800,35 @@ function fixSharedTextStyle(sharedStyle) {
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.makeColorFromCSS = undefined;
-exports.generateID = generateID;
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = generateID;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_normalize_css_color__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_normalize_css_color___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_normalize_css_color__);
 
-var _normalizeCssColor = __webpack_require__(9);
 
-var _normalizeCssColor2 = _interopRequireDefault(_normalizeCssColor);
+const lut = [];
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var lut = [];
-
-for (var i = 0; i < 256; i += 1) {
+for (let i = 0; i < 256; i += 1) {
   lut[i] = (i < 16 ? '0' : '') + i.toString(16);
 }
 
 // Hack (http://stackoverflow.com/a/21963136)
 function e7() {
-  var d0 = Math.random() * 0xffffffff | 0;
-  var d1 = Math.random() * 0xffffffff | 0;
-  var d2 = Math.random() * 0xffffffff | 0;
-  var d3 = Math.random() * 0xffffffff | 0;
+  const d0 = Math.random() * 0xffffffff | 0;
+  const d1 = Math.random() * 0xffffffff | 0;
+  const d2 = Math.random() * 0xffffffff | 0;
+  const d3 = Math.random() * 0xffffffff | 0;
 
-  return String(lut[d0 & 0xff] + lut[d0 >> 8 & 0xff] + lut[d0 >> 16 & 0xff] + lut[d0 >> 24 & 0xff]) + '-' + String(lut[d1 & 0xff]) + String(lut[d1 >> 8 & 0xff]) + '-' + String(lut[d1 >> 16 & 0x0f | 0x40]) + String(lut[d1 >> 24 & 0xff]) + '-' + String(lut[d2 & 0x3f | 0x80]) + String(lut[d2 >> 8 & 0xff]) + '-' + String(lut[d2 >> 16 & 0xff]) + String(lut[d2 >> 24 & 0xff]) + String(lut[d3 & 0xff]) + String(lut[d3 >> 8 & 0xff]) + String(lut[d3 >> 16 & 0xff]) + String(lut[d3 >> 24 & 0xff]);
+  return `${lut[d0 & 0xff] + lut[d0 >> 8 & 0xff] + lut[d0 >> 16 & 0xff] + lut[d0 >> 24 & 0xff]}-${lut[d1 & 0xff]}${lut[d1 >> 8 & 0xff]}-${lut[d1 >> 16 & 0x0f | 0x40]}${lut[d1 >> 24 & 0xff]}-${lut[d2 & 0x3f | 0x80]}${lut[d2 >> 8 & 0xff]}-${lut[d2 >> 16 & 0xff]}${lut[d2 >> 24 & 0xff]}${lut[d3 & 0xff]}${lut[d3 >> 8 & 0xff]}${lut[d3 >> 16 & 0xff]}${lut[d3 >> 24 & 0xff]}`;
 }
 
 function generateID() {
   return e7();
 }
 
-var safeToLower = function safeToLower(input) {
+const safeToLower = input => {
   if (typeof input === 'string') {
     return input.toLowerCase();
   }
@@ -852,17 +837,10 @@ var safeToLower = function safeToLower(input) {
 };
 
 // Takes colors as CSS hex, name, rgb, rgba, hsl or hsla
-var makeColorFromCSS = exports.makeColorFromCSS = function makeColorFromCSS(input) {
-  var alpha = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
-
-  var nullableColor = (0, _normalizeCssColor2['default'])(safeToLower(input));
-  var colorInt = nullableColor === null ? 0x00000000 : nullableColor;
-
-  var _normalizeColor$rgba = _normalizeCssColor2['default'].rgba(colorInt),
-      r = _normalizeColor$rgba.r,
-      g = _normalizeColor$rgba.g,
-      b = _normalizeColor$rgba.b,
-      a = _normalizeColor$rgba.a;
+const makeColorFromCSS = (input, alpha = 1) => {
+  const nullableColor = __WEBPACK_IMPORTED_MODULE_0_normalize_css_color___default()(safeToLower(input));
+  const colorInt = nullableColor === null ? 0x00000000 : nullableColor;
+  const { r, g, b, a } = __WEBPACK_IMPORTED_MODULE_0_normalize_css_color___default.a.rgba(colorInt);
 
   return {
     _class: 'color',
@@ -872,6 +850,8 @@ var makeColorFromCSS = exports.makeColorFromCSS = function makeColorFromCSS(inpu
     alpha: a * alpha
   };
 };
+/* harmony export (immutable) */ __webpack_exports__["b"] = makeColorFromCSS;
+
 
 /***/ }),
 /* 9 */
@@ -1373,29 +1353,23 @@ var CurvePointMode = exports.CurvePointMode = {
 
 /***/ }),
 /* 11 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(console) {Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+"use strict";
+/* WEBPACK VAR INJECTION */(function(console) {/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__hashStyle__ = __webpack_require__(12);
 
-var _hashStyle = __webpack_require__(12);
-
-var _hashStyle2 = _interopRequireDefault(_hashStyle);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 // this borrows heavily from react-native's RCTFont class
 // thanks y'all
 // https://github.com/facebook/react-native/blob/master/React/Views/RCTFont.mm
 
-var FONT_STYLES = {
+const FONT_STYLES = {
   normal: false,
   italic: true,
   oblique: true
 };
 
-var FONT_WEIGHTS = {
+const FONT_WEIGHTS = {
   normal: NSFontWeightRegular,
   bold: NSFontWeightBold,
   '100': NSFontWeightUltraLight,
@@ -1409,30 +1383,30 @@ var FONT_WEIGHTS = {
   '900': NSFontWeightBlack
 };
 
-var isItalicFont = function isItalicFont(font) {
-  var traits = font.fontDescriptor().objectForKey(NSFontTraitsAttribute);
-  var symbolicTraits = traits[NSFontSymbolicTrait].unsignedIntValue();
+const isItalicFont = font => {
+  const traits = font.fontDescriptor().objectForKey(NSFontTraitsAttribute);
+  const symbolicTraits = traits[NSFontSymbolicTrait].unsignedIntValue();
 
   return (symbolicTraits & NSFontItalicTrait) !== 0;
 };
 
-var isCondensedFont = function isCondensedFont(font) {
-  var traits = font.fontDescriptor().objectForKey(NSFontTraitsAttribute);
-  var symbolicTraits = traits[NSFontSymbolicTrait].unsignedIntValue();
+const isCondensedFont = font => {
+  const traits = font.fontDescriptor().objectForKey(NSFontTraitsAttribute);
+  const symbolicTraits = traits[NSFontSymbolicTrait].unsignedIntValue();
 
   return (symbolicTraits & NSFontCondensedTrait) !== 0;
 };
 
-var weightOfFont = function weightOfFont(font) {
-  var traits = font.fontDescriptor().objectForKey(NSFontTraitsAttribute);
+const weightOfFont = font => {
+  const traits = font.fontDescriptor().objectForKey(NSFontTraitsAttribute);
 
-  var weight = traits[NSFontWeightTrait].doubleValue();
+  const weight = traits[NSFontWeightTrait].doubleValue();
 
   if (weight === 0.0) {
-    var weights = Object.keys(FONT_WEIGHTS);
+    const weights = Object.keys(FONT_WEIGHTS);
 
-    for (var i = 0; i < weights.length; i += 1) {
-      var w = weights[i];
+    for (let i = 0; i < weights.length; i += 1) {
+      const w = weights[i];
 
       if (font.fontName().toLowerCase().endsWith(w)) {
         return FONT_WEIGHTS[w];
@@ -1443,46 +1417,46 @@ var weightOfFont = function weightOfFont(font) {
   return weight;
 };
 
-var fontNamesForFamilyName = function fontNamesForFamilyName(familyName) {
-  var manager = NSFontManager.sharedFontManager();
-  var members = NSArray.arrayWithArray(manager.availableMembersOfFontFamily(familyName));
+const fontNamesForFamilyName = familyName => {
+  const manager = NSFontManager.sharedFontManager();
+  const members = NSArray.arrayWithArray(manager.availableMembersOfFontFamily(familyName));
 
-  var results = [];
+  const results = [];
 
-  for (var i = 0; i < members.length; i += 1) {
+  for (let i = 0; i < members.length; i += 1) {
     results.push(members[i][0]);
   }
 
   return results;
 };
 
-var useCache = true;
-var _cache = new Map();
+const useCache = true;
+const _cache = new Map();
 
-var getCached = function getCached(key) {
+const getCached = key => {
   if (!useCache) {
     return undefined;
   }
   return _cache.get(key);
 };
 
-var findFont = function findFont(style) {
-  var cacheKey = (0, _hashStyle2['default'])(style);
+const findFont = style => {
+  const cacheKey = Object(__WEBPACK_IMPORTED_MODULE_0__hashStyle__["a" /* default */])(style);
 
-  var font = getCached(cacheKey);
+  let font = getCached(cacheKey);
 
   if (font) {
     return font;
   }
-  var defaultFontFamily = NSFont.systemFontOfSize(14).familyName();
-  var defaultFontWeight = NSFontWeightRegular;
-  var defaultFontSize = 14;
+  const defaultFontFamily = NSFont.systemFontOfSize(14).familyName();
+  const defaultFontWeight = NSFontWeightRegular;
+  const defaultFontSize = 14;
 
-  var fontSize = defaultFontSize;
-  var fontWeight = defaultFontWeight;
-  var familyName = defaultFontFamily;
-  var isItalic = false;
-  var isCondensed = false;
+  let fontSize = defaultFontSize;
+  let fontWeight = defaultFontWeight;
+  let familyName = defaultFontFamily;
+  let isItalic = false;
+  let isCondensed = false;
 
   if (style.fontSize) {
     fontSize = style.fontSize;
@@ -1500,7 +1474,7 @@ var findFont = function findFont(style) {
     fontWeight = FONT_WEIGHTS[style.fontWeight] || NSFontWeightRegular;
   }
 
-  var didFindFont = false;
+  let didFindFont = false;
 
   // Handle system font as special case. This ensures that we preserve
   // the specific metrics of the standard system font as closely as possible.
@@ -1511,8 +1485,8 @@ var findFont = function findFont(style) {
       didFindFont = true;
 
       if (isItalic || isCondensed) {
-        var fontDescriptor = font.fontDescriptor();
-        var symbolicTraits = fontDescriptor.symbolicTraits();
+        let fontDescriptor = font.fontDescriptor();
+        let symbolicTraits = fontDescriptor.symbolicTraits();
 
         if (isItalic) {
           symbolicTraits |= NSFontItalicTrait;
@@ -1528,7 +1502,7 @@ var findFont = function findFont(style) {
     }
   }
 
-  var fontNames = fontNamesForFamilyName(familyName);
+  const fontNames = fontNamesForFamilyName(familyName);
 
   // Gracefully handle being given a font name rather than font family, for
   // example: "Helvetica Light Oblique" rather than just "Helvetica".
@@ -1542,19 +1516,19 @@ var findFont = function findFont(style) {
       isItalic = style.fontStyle ? isItalic : isItalicFont(font);
       isCondensed = isCondensedFont(font);
     } else {
-      console.log('Unrecognized font family \'' + String(familyName) + '\'');
+      console.log(`Unrecognized font family '${familyName}'`);
       font = NSFont.systemFontOfSize_weight(fontSize, fontWeight);
     }
   }
 
   // Get the closest font that matches the given weight for the fontFamily
-  var closestWeight = Infinity;
+  let closestWeight = Infinity;
 
-  for (var i = 0; i < fontNames.length; i += 1) {
-    var match = NSFont.fontWithName_size(fontNames[i], fontSize);
+  for (let i = 0; i < fontNames.length; i += 1) {
+    const match = NSFont.fontWithName_size(fontNames[i], fontSize);
 
     if (isItalic === isItalicFont(match) && isCondensed === isCondensedFont(match)) {
-      var testWeight = weightOfFont(match);
+      const testWeight = weightOfFont(match);
 
       if (Math.abs(testWeight - fontWeight) < Math.abs(closestWeight - fontWeight)) {
         font = match;
@@ -1581,32 +1555,23 @@ var findFont = function findFont(style) {
   return font;
 };
 
-exports['default'] = findFont;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+/* harmony default export */ __webpack_exports__["a"] = (findFont);
+/* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(0)))
 
 /***/ }),
 /* 12 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_murmur2js__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_murmur2js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_murmur2js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__sortObjectKeys__ = __webpack_require__(14);
 
-var _murmur2js = __webpack_require__(13);
 
-var _murmur2js2 = _interopRequireDefault(_murmur2js);
 
-var _sortObjectKeys = __webpack_require__(14);
+const hashStyle = obj => __WEBPACK_IMPORTED_MODULE_0_murmur2js___default()(JSON.stringify(Object(__WEBPACK_IMPORTED_MODULE_1__sortObjectKeys__["a" /* default */])(obj)));
 
-var _sortObjectKeys2 = _interopRequireDefault(_sortObjectKeys);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var hashStyle = function hashStyle(obj) {
-  return (0, _murmur2js2['default'])(JSON.stringify((0, _sortObjectKeys2['default'])(obj)));
-};
-
-exports['default'] = hashStyle;
+/* harmony default export */ __webpack_exports__["a"] = (hashStyle);
 
 /***/ }),
 /* 13 */
@@ -1662,37 +1627,30 @@ module.exports = function murmur2js(str) {
 
 /***/ }),
 /* 14 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+"use strict";
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+const sortObjectKeys = obj => {
+  const keys = Object.keys(obj).sort();
 
-var sortObjectKeys = function sortObjectKeys(obj) {
-  var keys = Object.keys(obj).sort();
-
-  return keys.reduce(function (acc, key) {
-    return Object.assign({}, acc, _defineProperty({}, key, obj[key]));
-  }, {});
+  return keys.reduce((acc, key) => _extends({}, acc, { [key]: obj[key] }), {});
 };
 
-exports["default"] = sortObjectKeys;
+/* harmony default export */ __webpack_exports__["a"] = (sortObjectKeys);
 
 /***/ }),
 /* 15 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports['default'] = fixImageFill;
-var makeImageDataFromUrl = exports.makeImageDataFromUrl = function makeImageDataFromUrl(url) {
-  var fetchedData = NSData.dataWithContentsOfURL(NSURL.URLWithString(url));
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = fixImageFill;
+const makeImageDataFromUrl = url => {
+  let fetchedData = NSData.dataWithContentsOfURL(NSURL.URLWithString(url));
 
   if (fetchedData) {
-    var firstByte = fetchedData.subdataWithRange(NSMakeRange(0, 1)).description();
+    const firstByte = fetchedData.subdataWithRange(NSMakeRange(0, 1)).description();
 
     // Check for first byte. Must use non-type-exact matching (!=).
     // 0xFF = JPEG, 0x89 = PNG, 0x47 = GIF, 0x49 = TIFF, 0x4D = TIFF
@@ -1705,10 +1663,10 @@ var makeImageDataFromUrl = exports.makeImageDataFromUrl = function makeImageData
       }
   }
 
-  var image = void 0;
+  let image;
 
   if (!fetchedData) {
-    var errorUrl = 'data:image/png;base64,' + 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8w8DwHwAEOQHNmnaaOAAAAABJRU5ErkJggg==';
+    const errorUrl = 'data:image/png;base64,' + 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8w8DwHwAEOQHNmnaaOAAAAABJRU5ErkJggg==';
 
     image = NSImage.alloc().initWithContentsOfURL(NSURL.URLWithString(errorUrl));
   } else {
@@ -1717,21 +1675,23 @@ var makeImageDataFromUrl = exports.makeImageDataFromUrl = function makeImageData
 
   return MSImageData.alloc().initWithImage_convertColorSpace(image, false);
 };
+/* unused harmony export makeImageDataFromUrl */
+
 
 function fixImageFill(layer) {
   if (!layer.style || !layer.style.fills) {
     return;
   }
 
-  layer.style.fills.forEach(function (fill) {
+  layer.style.fills.forEach(fill => {
     if (!fill.image || !fill.image.url) {
       return;
     }
 
-    var img = makeImageDataFromUrl(fill.image.url);
+    const img = makeImageDataFromUrl(fill.image.url);
 
-    var data = img.data().base64EncodedStringWithOptions(NSDataBase64EncodingEndLineWithCarriageReturn);
-    var sha1 = img.sha1().base64EncodedStringWithOptions(NSDataBase64EncodingEndLineWithCarriageReturn);
+    const data = img.data().base64EncodedStringWithOptions(NSDataBase64EncodingEndLineWithCarriageReturn);
+    const sha1 = img.sha1().base64EncodedStringWithOptions(NSDataBase64EncodingEndLineWithCarriageReturn);
 
     fill.image.data = { _data: data };
     fill.image.sha1 = { _data: sha1 };
