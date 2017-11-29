@@ -212,8 +212,8 @@ export default async function nodeToSketchLayers(node) {
   const textStyle = new TextStyle({
     fontFamily,
     fontSize: parseInt(fontSize, 10),
-    lineHeight: parseInt(lineHeight, 10),
-    letterSpacing: parseFloat(letterSpacing),
+    lineHeight: lineHeight !== 'normal' ? parseInt(lineHeight, 10) : undefined,
+    letterSpacing: letterSpacing !== 'normal' ? parseFloat(letterSpacing) : undefined,
     fontWeight: parseInt(fontWeight, 10),
     color,
     textTransform,
