@@ -277,8 +277,68 @@ module.exports = {
 /* WEBPACK VAR INJECTION */(function(console) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports['default'] = asketch2sketch;
 
-exports['default'] = function (context) {
+var _sketchappJsonPlugin = __webpack_require__(2);
+
+var _fixFont = __webpack_require__(7);
+
+var _fixImageFill = __webpack_require__(15);
+
+var _fixImageFill2 = _interopRequireDefault(_fixImageFill);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+function removeExistingLayers(context) {
+  if (context.containsLayers()) {
+    var loop = context.children().objectEnumerator();
+    var currLayer = loop.nextObject();
+
+    while (currLayer) {
+      if (currLayer !== context) {
+        currLayer.removeFromParent();
+      }
+      currLayer = loop.nextObject();
+    }
+  }
+}
+
+function fixLayer(layer) {
+  if (layer['_class'] === 'text') {
+    (0, _fixFont.fixTextLayer)(layer);
+  } else {
+    (0, _fixImageFill2['default'])(layer);
+  }
+
+  if (layer.layers) {
+    layer.layers.forEach(fixLayer);
+  }
+}
+
+function removeSharedTextStyles(document) {
+  document.documentData().layerTextStyles().setObjects([]);
+}
+
+function addSharedTextStyle(document, style) {
+  var textStyles = document.documentData().layerTextStyles();
+
+  textStyles.addSharedStyleWithName_firstInstance(style.name, (0, _sketchappJsonPlugin.fromSJSONDictionary)(style.value));
+}
+
+function removeSharedColors(document) {
+  var assets = document.documentData().assets();
+
+  assets.removeAllColors();
+}
+
+function addSharedColor(document, colorJSON) {
+  var assets = document.documentData().assets();
+  var color = (0, _sketchappJsonPlugin.fromSJSONDictionary)(colorJSON);
+
+  assets.addColor(color);
+}
+
+function asketch2sketch(context) {
   var document = context.document;
   var page = document.currentPage();
 
@@ -290,7 +350,7 @@ exports['default'] = function (context) {
   panel.setCanChooseDirectories(false);
   panel.setCanChooseFiles(true);
   panel.setAllowsMultipleSelection(true);
-  panel.setTitle('Choose a asketch.json files');
+  panel.setTitle('Choose *.asketch.json files');
   panel.setPrompt('Choose');
   panel.setAllowedFileTypes(['json']);
 
@@ -356,65 +416,6 @@ exports['default'] = function (context) {
 
     console.log('Layers added: ' + asketchPage.layers.length);
   }
-};
-
-var _sketchappJsonPlugin = __webpack_require__(2);
-
-var _fixFont = __webpack_require__(7);
-
-var _fixImageFill = __webpack_require__(15);
-
-var _fixImageFill2 = _interopRequireDefault(_fixImageFill);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-function removeExistingLayers(context) {
-  if (context.containsLayers()) {
-    var loop = context.children().objectEnumerator();
-    var currLayer = loop.nextObject();
-
-    while (currLayer) {
-      if (currLayer !== context) {
-        currLayer.removeFromParent();
-      }
-      currLayer = loop.nextObject();
-    }
-  }
-}
-
-function fixLayer(layer) {
-  if (layer['_class'] === 'text') {
-    (0, _fixFont.fixTextLayer)(layer);
-  } else {
-    (0, _fixImageFill2['default'])(layer);
-  }
-
-  if (layer.layers) {
-    layer.layers.forEach(fixLayer);
-  }
-}
-
-function removeSharedTextStyles(document) {
-  document.documentData().layerTextStyles().setObjects([]);
-}
-
-function addSharedTextStyle(document, style) {
-  var textStyles = document.documentData().layerTextStyles();
-
-  textStyles.addSharedStyleWithName_firstInstance(style.name, (0, _sketchappJsonPlugin.fromSJSONDictionary)(style.value));
-}
-
-function removeSharedColors(document) {
-  var assets = document.documentData().assets();
-
-  assets.removeAllColors();
-}
-
-function addSharedColor(document, colorJSON) {
-  var assets = document.documentData().assets();
-  var color = (0, _sketchappJsonPlugin.fromSJSONDictionary)(colorJSON);
-
-  assets.addColor(color);
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
