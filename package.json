@@ -14,10 +14,11 @@
     "sketch": ">=3.0"
   },
   "devDependencies": {
-    "jest": "^21.2.1",
+    "babel-preset-airbnb": "^2.4.0",
     "eslint": "^4.4.1",
     "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v16.1.0",
-    "skpm": "^0.10.2"
+    "jest": "^21.2.1",
+    "skpm": "^0.10.3"
   },
   "skpm": {
     "manifest": "asketch2sketch/manifest.json",
