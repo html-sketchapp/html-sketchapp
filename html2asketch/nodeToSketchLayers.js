@@ -112,8 +112,15 @@ export default async function nodeToSketchLayers(node) {
     visibility,
     opacity,
     overflowX,
-    overflowY
+    overflowY,
+    position
   } = styles;
+
+  // Skip node when display is set to none for itself or an ancestor
+  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent
+  if (node.offsetParent === null && position !== 'fixed') {
+    return layers;
+  }
 
   if ((width === 0 || height === 0) && overflowX === 'hidden' && overflowY === 'hidden') {
     return layers;
