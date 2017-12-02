@@ -1,4 +1,8 @@
+// taken from https://github.com/airbnb/react-sketchapp/blob/master/src/utils/findFont.js
 import hashStyle from './hashStyle';
+
+// Font displayed if San Francisco fonts are not found
+const APPLE_BROKEN_SYSTEM_FONT = '.AppleSystemUIFont';
 
 // this borrows heavily from react-native's RCTFont class
 // thanks y'all
@@ -49,7 +53,12 @@ const weightOfFont = font => {
     for (let i = 0; i < weights.length; i += 1) {
       const w = weights[i];
 
-      if (font.fontName().toLowerCase().endsWith(w)) {
+      if (
+        font
+          .fontName()
+          .toLowerCase()
+          .endsWith(w)
+      ) {
         return FONT_WEIGHTS[w];
       }
     }
@@ -60,8 +69,9 @@ const weightOfFont = font => {
 
 const fontNamesForFamilyName = familyName => {
   const manager = NSFontManager.sharedFontManager();
-  const members = NSArray.arrayWithArray(manager.availableMembersOfFontFamily(familyName));
-
+  const members = NSArray.arrayWithArray(
+    manager.availableMembersOfFontFamily(familyName)
+  );
   const results = [];
 
   for (let i = 0; i < members.length; i += 1) {
@@ -93,7 +103,11 @@ const findFont = style => {
 
   let fontSize = defaultFontSize;
   let fontWeight = defaultFontWeight;
-  let familyName = defaultFontFamily;
+  // Default to Helvetica if fonts are missing
+  let familyName =
+    // Must use two equals (==) for compatibility with Cocoascript
+    // eslint-disable-next-line eqeqeq
+    defaultFontFamily == APPLE_BROKEN_SYSTEM_FONT ? 'Helvetica' : defaultFontFamily;
   let isItalic = false;
   let isCondensed = false;
 
@@ -135,7 +149,9 @@ const findFont = style => {
           symbolicTraits |= NSFontCondensedTrait;
         }
 
-        fontDescriptor = fontDescriptor.fontDescriptorWithSymbolicTraits(symbolicTraits);
+        fontDescriptor = fontDescriptor.fontDescriptorWithSymbolicTraits(
+          symbolicTraits
+        );
         font = NSFont.fontWithDescriptor_size(fontDescriptor, fontSize);
       }
     }
@@ -166,10 +182,15 @@ const findFont = style => {
   for (let i = 0; i < fontNames.length; i += 1) {
     const match = NSFont.fontWithName_size(fontNames[i], fontSize);
 
-    if (isItalic === isItalicFont(match) && isCondensed === isCondensedFont(match)) {
+    if (
+      isItalic === isItalicFont(match) &&
+      isCondensed === isCondensedFont(match)
+    ) {
       const testWeight = weightOfFont(match);
 
-      if (Math.abs(testWeight - fontWeight) < Math.abs(closestWeight - fontWeight)) {
+      if (
+        Math.abs(testWeight - fontWeight) < Math.abs(closestWeight - fontWeight)
+      ) {
         font = match;
 
         closestWeight = testWeight;

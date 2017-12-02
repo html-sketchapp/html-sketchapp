@@ -41,6 +41,7 @@
     "NSModalResponseOK": false,
     "NSString": false,
     "NSUTF8StringEncoding": false,
-    "NSAlert": false
+    "NSAlert": false,
+    "NSMutableAttributedString": false
   }
 }
