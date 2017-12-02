@@ -113,7 +113,8 @@ export default async function nodeToSketchLayers(node) {
     opacity,
     overflowX,
     overflowY,
-    position
+    position,
+    whiteSpace
   } = styles;
 
   // Skip node when display is set to none for itself or an ancestor
@@ -247,12 +248,27 @@ export default async function nodeToSketchLayers(node) {
         fixY = (textBCR.height - lineHeightInt * numberOfLines) / 2;
       }
 
+      let textValue = textNode.nodeValue;
+
+      switch (whiteSpace) {
+        case 'normal':
+        case 'nowrap':
+          textValue = textValue.trim().replace(/\n/g, ' ').replace(/ +/g, ' ');
+          break;
+        case 'pre-line':
+          textValue = textValue.replace(/ *\n{1} */g, '\n').replace(/ +/g, ' ');
+          break;
+        default:
+          // pre, pre-wrap
+          break;
+      }
+
       const text = new Text({
         x: textBCR.x,
         y: textBCR.y + fixY,
         width: textBCR.width,
         height: textBCR.height,
-        text: textNode.nodeValue.trim(),
+        text: textValue,
         style: textStyle,
         multiline: numberOfLines > 1
       });
