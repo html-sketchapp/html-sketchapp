@@ -122,7 +122,13 @@ export default function asketch2sketch(context) {
 
     asketchPage.layers.forEach(layer => {
       fixLayer(layer);
-      page.addLayer(fromSJSONDictionary(layer));
+      try {
+        page.addLayer(fromSJSONDictionary(layer));
+      } catch (e) {
+        console.log('Layer couldn\'t be created');
+        console.log(e);
+        console.log(layer);
+      }
     });
 
     console.log('Layers added: ' + asketchPage.layers.length);

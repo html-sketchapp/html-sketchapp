@@ -419,7 +419,13 @@ function asketch2sketch(context) {
 
     asketchPage.layers.forEach(function (layer) {
       fixLayer(layer);
-      page.addLayer((0, _sketchappJsonPlugin.fromSJSONDictionary)(layer));
+      try {
+        page.addLayer((0, _sketchappJsonPlugin.fromSJSONDictionary)(layer));
+      } catch (e) {
+        console.log('Layer couldn\'t be created');
+        console.log(e);
+        console.log(layer);
+      }
     });
 
     console.log('Layers added: ' + asketchPage.layers.length);
