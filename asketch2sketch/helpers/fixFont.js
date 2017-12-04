@@ -1,3 +1,4 @@
+// taken from https://github.com/airbnb/react-sketchapp/blob/master/src/jsonUtils/hacksForJSONImpl.js
 import {generateID, makeColorFromCSS} from './utils';
 import {TextAlignment} from 'sketch-constants';
 import {toSJSON} from 'sketchapp-json-plugin';
@@ -37,6 +38,7 @@ function makeParagraphStyle(textStyle) {
 
   if (textStyle.lineHeight !== undefined) {
     pStyle.minimumLineHeight = textStyle.lineHeight;
+    pStyle.lineHeightMultiple = 1.0;
     pStyle.maximumLineHeight = textStyle.lineHeight;
   }
 
@@ -54,39 +56,59 @@ function encodeSketchJSON(sketchObj) {
 }
 
 // This shouldn't need to call into Sketch, but it does currently, which is bad for perf :(
-function makeAttributedString(string, textStyle) {
-  const font = findFont(textStyle);
+function createStringAttributes(textStyles) {
+  const font = findFont(textStyles);
 
-  const color = makeColorFromCSS(textStyle.color || 'black');
+  const color = makeColorFromCSS(textStyles.color || 'black');
 
   const attribs = {
     MSAttributedStringFontAttribute: font.fontDescriptor(),
-    NSParagraphStyle: makeParagraphStyle(textStyle),
+    NSFont: font,
+    NSParagraphStyle: makeParagraphStyle(textStyles),
     NSColor: NSColor.colorWithDeviceRed_green_blue_alpha(
       color.red,
       color.green,
       color.blue,
       color.alpha
     ),
-    NSUnderline: TEXT_DECORATION_UNDERLINE[textStyle.textDecoration] || 0,
-    NSStrikethrough: TEXT_DECORATION_LINETHROUGH[textStyle.textDecoration] || 0
+    NSUnderline: TEXT_DECORATION_UNDERLINE[textStyles.textDecoration] || 0,
+    NSStrikethrough: TEXT_DECORATION_LINETHROUGH[textStyles.textDecoration] || 0
   };
 
-  if (textStyle.letterSpacing !== undefined) {
-    attribs.NSKern = textStyle.letterSpacing;
+  if (textStyles.letterSpacing !== undefined) {
+    attribs.NSKern = textStyles.letterSpacing;
   }
 
-  if (textStyle.textTransform !== undefined) {
+  if (textStyles.textTransform !== undefined) {
     attribs.MSAttributedStringTextTransformAttribute =
-      TEXT_TRANSFORM[textStyle.textTransform] * 1;
+      TEXT_TRANSFORM[textStyles.textTransform] * 1;
   }
 
-  const attribStr = NSAttributedString.attributedStringWithString_attributes_(
-    string,
+  return attribs;
+}
+
+function createAttributedString(textNode) {
+  const {content, textStyles} = textNode;
+
+  const attribs = createStringAttributes(textStyles);
+
+  return NSAttributedString.attributedStringWithString_attributes_(
+    content,
     attribs
   );
+}
+
+function makeEncodedAttributedString(textNodes) {
+  const fullStr = NSMutableAttributedString.alloc().init();
+
+  textNodes.forEach(textNode => {
+    const newString = createAttributedString(textNode);
+
+    fullStr.appendAttributedString(newString);
+  });
+
   const msAttribStr = MSAttributedString.alloc().initWithAttributedString(
-    attribStr
+    fullStr
   );
 
   return encodeSketchJSON(msAttribStr);
@@ -103,6 +125,7 @@ function makeTextStyle(textStyle) {
     _class: 'textStyle',
     encodedAttributes: {
       MSAttributedStringFontAttribute: encodeSketchJSON(font.fontDescriptor()),
+      NSFont: font,
       NSColor: encodeSketchJSON(
         NSColor.colorWithDeviceRed_green_blue_alpha(
           color.red,
@@ -114,7 +137,7 @@ function makeTextStyle(textStyle) {
       NSParagraphStyle: encodeSketchJSON(pStyle),
       NSKern: textStyle.letterSpacing || 0,
       MSAttributedStringTextTransformAttribute:
-      TEXT_TRANSFORM[textStyle.textTransform || 'initial'] * 1
+        TEXT_TRANSFORM[textStyle.textTransform || 'initial'] * 1
     }
   };
 
@@ -129,7 +152,8 @@ function makeTextStyle(textStyle) {
 }
 
 export function fixTextLayer(layer) {
-  layer.attributedString = makeAttributedString(layer.text, layer.style);
+  layer.attributedString =
+    makeEncodedAttributedString([{content: layer.text, textStyles: layer.style}]);
   delete layer.style;
   delete layer.text;
 }

@@ -1,3 +1,4 @@
+// taken from https://github.com/airbnb/react-sketchapp/blob/master/src/jsonUtils/hacksForJSONImpl.js
 export const makeImageDataFromUrl = url => {
   let fetchedData = NSData.dataWithContentsOfURL(NSURL.URLWithString(url));
 
@@ -11,11 +12,11 @@ export const makeImageDataFromUrl = url => {
     if (
       /* eslint-disable eqeqeq */
       firstByte != '<ff>' &&
-    firstByte != '<89>' &&
-    firstByte != '<47>' &&
-    firstByte != '<49>' &&
-    firstByte != '<4D>'
-    /* eslint-enable eqeqeq */
+      firstByte != '<89>' &&
+      firstByte != '<47>' &&
+      firstByte != '<49>' &&
+      firstByte != '<4d>'
+      /* eslint-enable eqeqeq */
     ) {
       fetchedData = null;
     }
@@ -24,17 +25,18 @@ export const makeImageDataFromUrl = url => {
   let image;
 
   if (!fetchedData) {
-    const errorUrl = 'data:image/png;base64,' +
-      'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8w8DwHwAEOQHNmnaaOAAAAABJRU5ErkJggg==';
+    // eslint-disable-next-line max-len
+    const errorUrl = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8w8DwHwAEOQHNmnaaOAAAAABJRU5ErkJggg==';
 
-    image = NSImage.alloc().initWithContentsOfURL(
-      NSURL.URLWithString(errorUrl)
-    );
+    image = NSImage.alloc().initWithContentsOfURL(NSURL.URLWithString(errorUrl));
   } else {
     image = NSImage.alloc().initWithData(fetchedData);
   }
 
-  return MSImageData.alloc().initWithImage_convertColorSpace(image, false);
+  if (MSImageData.alloc().initWithImage_convertColorSpace !== undefined) {
+    return MSImageData.alloc().initWithImage_convertColorSpace(image, false);
+  }
+  return MSImageData.alloc().initWithImage(image);
 };
 
 export default function fixImageFill(layer) {
