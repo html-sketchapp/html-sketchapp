@@ -1,0 +1,17 @@
+{
+	"compatibleVersion": 3,
+	"bundleVersion": 1,
+	"commands": [
+		{
+			"name": "styles2sketch",
+			"identifier": "main",
+			"script": "./styles2sketch.js"
+		}
+	],
+	"menu": {
+		"isRoot": true,
+		"items": [
+			"main"
+		]
+	}
+}

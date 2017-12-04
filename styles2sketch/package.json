@@ -1,0 +1,27 @@
+{
+	"name": "plugin",
+	"version": "1.0.0",
+	"description": "",
+	"main": "plugin.sketchplugin",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "skpm-build",
+		"render": "skpm-build --watch --run",
+		"publish": "skpm publish"
+	},
+	"author": "",
+	"license": "ISC",
+	"engines": {
+		"sketch": ">=3.0"
+	},
+	"manifest": "src/manifest.json",
+	"devDependencies": {
+		"skpm": "^1.0.10"
+	},
+	"dependencies": {
+		"@skpm/builder": "^0.2.3",
+		"react": "^16.2.0",
+		"react-sketchapp": "^1.0.0-beta.5",
+		"react-test-renderer": "^16.2.0"
+	}
+}

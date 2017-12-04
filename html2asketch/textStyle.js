@@ -18,7 +18,9 @@ class TextStyle {
     letterSpacing,
     textTransform,
     textDecoration,
-    textAlign
+    textAlign,
+    height,
+    width
   }) {
     this._color = color;
     this._fontSize = fontSize;
@@ -29,6 +31,8 @@ class TextStyle {
     this._textTransform = textTransform;
     this._textDecoration = textDecoration;
     this._textAlign = textAlign;
+    this._height = height;
+    this._width = width;
   }
 
   toJSON() {
@@ -41,7 +45,8 @@ class TextStyle {
       'letterSpacing': this._letterSpacing,
       'textTransform': this._textTransform,
       'textDecoration': this._textDecoration,
-      'textAlign': this._textAlign
+      'textAlign': this._textAlign,
+      'width': this._width
     };
   }
 }
