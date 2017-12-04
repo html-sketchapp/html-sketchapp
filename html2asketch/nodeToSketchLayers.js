@@ -1,5 +1,4 @@
 import ShapeGroup from './shapeGroup';
-import Rectange from './rectangle';
 import createXPathFromElement from './helpers/createXPathFromElement';
 import Style from './style';
 import Text from './text';
@@ -62,28 +61,15 @@ function calculateBCRFromRanges(ranges) {
   return {x, y, width, height};
 }
 
-function fixBorderRadius(borderRadius) {
-  const matches = borderRadius.match(/^([0-9.]+)(.+)$/);
-
-  if (matches && matches[2] === '%') {
-    const value = parseInt(matches[1], 10);
-
-    // not sure about this, but border-radius: 50% should be fully rounded
-    return value >= 50 ? 100 : value;
-  }
-
-  return parseInt(borderRadius, 10);
-}
-
 export default async function nodeToSketchLayers(node) {
   const layers = [];
   const {width, height, x, y} = node.getBoundingClientRect();
 
   const styles = getComputedStyle(node);
   const {
+    alignItems,
     backgroundColor,
     backgroundImage,
-    borderColor,
     borderWidth,
     borderTopWidth,
     borderRightWidth,
@@ -135,7 +121,7 @@ export default async function nodeToSketchLayers(node) {
 
   // if layer has no background/shadow/border/etc. skip it
   if (isImage || !hasOnlyDefaultStyles(styles)) {
-    const style = new Style();
+    const style = new Style({display, justifyContent, alignItems, overflowX, overflowY});
 
     if (backgroundColor) {
       style.addColorFill(backgroundColor);
@@ -144,7 +130,7 @@ export default async function nodeToSketchLayers(node) {
     if (isImage) {
       const absoluteUrl = new URL(node.attributes.src.value, location.href);
 
-      await style.addImageFill(absoluteUrl.href);
+      style.addImageFill(absoluteUrl.href);
       leaf.setFixedWidthAndHeight();
     }
 
@@ -154,7 +140,7 @@ export default async function nodeToSketchLayers(node) {
     if (backgroundImageResult) {
       switch (backgroundImageResult.type) {
         case 'Image':
-          await style.addImageFill(backgroundImageResult.value);
+          style.addImageFill(backgroundImageResult.value);
           break;
         case 'LinearGradient':
           style.addGradientFill(backgroundImageResult.value);
@@ -174,70 +160,59 @@ export default async function nodeToSketchLayers(node) {
         if (borderWidth.indexOf(' ') === -1) {
           shadowObj.spread += parseInt(borderWidth, 10);
         }
-        style.addInnerShadow(shadowObj);
+        style.addShadow(shadowObj);
       } else {
         style.addShadow(shadowObj);
       }
     }
 
-    // support for one-side borders (using inner shadow because Sketch doesn't support that)
-    if (borderWidth.indexOf(' ') === -1) {
-      style.addBorder({color: borderColor, thickness: parseInt(borderWidth, 10)});
-    } else {
-      if (borderTopWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderTopColor + ' 0px ' + borderTopWidth + ' 0px 0px inset'));
-      }
-      if (borderRightWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderRightColor + ' -' + borderRightWidth + ' 0px 0px 0px inset'));
-      }
-      if (borderBottomWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderBottomColor + ' 0px -' + borderBottomWidth + ' 0px 0px inset'));
-      }
-      if (borderLeftWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderLeftColor + ' ' + borderLeftWidth + ' 0px 0px 0px inset'));
-      }
-    }
+    style.addBorder({
+      borderTopColor,
+      borderTopWidth: parseInt(borderTopWidth),
+      borderRightColor,
+      borderRightWidth: parseInt(borderRightWidth),
+      borderBottomColor,
+      borderBottomWidth: parseInt(borderBottomWidth),
+      borderLeftColor,
+      borderLeftWidth: parseInt(borderLeftWidth)
+    });
+
+    style.addBorderRadius({
+      borderTopLeftRadius,
+      borderTopRightRadius,
+      borderBottomLeftRadius,
+      borderBottomRightRadius
+    });
 
     leaf.setStyle(style);
-
-    //TODO borderRadius can be expressed in different formats and use various units - for simplicity we assume "X%"
-    const cornerRadius = {
-      topLeft: fixBorderRadius(borderTopLeftRadius),
-      topRight: fixBorderRadius(borderTopRightRadius),
-      bottomLeft: fixBorderRadius(borderBottomLeftRadius),
-      bottomRight: fixBorderRadius(borderBottomRightRadius)
-    };
-
-    const rectangle = new Rectange({width, height, cornerRadius});
-
-    leaf.addLayer(rectangle);
     leaf.setName(createXPathFromElement(node));
-
     layers.push(leaf);
   }
-
-  const textStyle = new TextStyle({
-    fontFamily,
-    fontSize: parseInt(fontSize, 10),
-    lineHeight: lineHeight !== 'normal' ? parseInt(lineHeight, 10) : undefined,
-    letterSpacing: letterSpacing !== 'normal' ? parseFloat(letterSpacing) : undefined,
-    fontWeight: parseInt(fontWeight, 10),
-    color,
-    textTransform,
-    textDecoration: textDecorationStyle,
-    textAlign: display === 'flex' || display === 'inline-flex' ? justifyContent : textAlign
-  });
-
-  const rangeHelper = document.createRange();
 
   // Text
   Array.from(node.childNodes)
     .filter(child => child.nodeType === 3 && child.nodeValue.trim().length > 0)
     .forEach(textNode => {
-      rangeHelper.selectNodeContents(textNode);
+      const rangeHelper = document.createRange();
+
+      rangeHelper.selectNode(textNode);
       const textRanges = Array.from(rangeHelper.getClientRects());
-      const numberOfLines = textRanges.length;
       const textBCR = calculateBCRFromRanges(textRanges);
+      const textStyle = new TextStyle({
+        fontFamily,
+        fontSize: parseInt(fontSize, 10),
+        lineHeight: lineHeight !== 'normal' ? parseInt(lineHeight, 10) : undefined,
+        letterSpacing: letterSpacing !== 'normal' ? parseFloat(letterSpacing) : undefined,
+        fontWeight: parseInt(fontWeight, 10),
+        color,
+        textTransform,
+        textDecoration: textDecorationStyle,
+        width: Math.ceil(textBCR.width),
+        height: Math.ceil(textBCR.height),
+        textAlign
+      });
+
+      const numberOfLines = textRanges.length;
       const lineHeightInt = parseInt(lineHeight, 10);
       let fixY = 0;
 

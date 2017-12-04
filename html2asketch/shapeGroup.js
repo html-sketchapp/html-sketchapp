@@ -21,7 +21,10 @@ class ShapeGroup extends Base {
       'x': this._x,
       'y': this._y
     };
-
+    obj.x = this._x;
+    obj.y = this._y;
+    obj.height = this._height;
+    obj.width = this._width;
     obj.hasClickThrough = false;
     obj.clippingMaskMode = 0;
     obj.hasClippingMask = false;

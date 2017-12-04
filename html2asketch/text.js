@@ -29,6 +29,9 @@ class Text extends Base {
     obj.text = this._text;
     obj.style = this._style.toJSON();
 
+    obj.x = this._x;
+    obj.y = this._y;
+
     obj.resizingConstraint = 47;
     obj.automaticallyDrawOnUnderlyingPath = false;
     obj.dontSynchroniseWithSymbol = false;
