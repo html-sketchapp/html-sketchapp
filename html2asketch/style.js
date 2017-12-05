@@ -1,16 +1,27 @@
-import {makeColorFill, makeImageFill, makeColorFromCSS} from './helpers/utils';
+import {makeColorFill, makeColorFromCSS} from './helpers/utils';
 import convertAngleToFromAndTo from './helpers/convertAngleToFromAndTo';
 
 class Style {
-  constructor() {
+  constructor({display, alignItems, justifyContent, overflowX, overflowY}) {
     this._fills = [];
     this._borders = [];
     this._shadows = [];
     this._innerShadows = [];
+<<<<<<< HEAD
     this._opacity = 1;
+=======
+
+    this._display = display;
+    this._alignItems = alignItems;
+    this._justifyContent = justifyContent;
+
+    this._overflowX = overflowX;
+    this._overflowY = overflowY;
+>>>>>>> [WIP] use react-sketchapp for rendering to sketch (#40)
   }
 
   addColorFill(color, opacity) {
+    this._backgroundColor = color;
     this._fills.push(makeColorFill(color, opacity));
   }
 
@@ -49,55 +60,28 @@ class Style {
     });
   }
 
-  async addImageFill(image) {
-    const fill = await makeImageFill(image);
-
-    this._fills.push(fill);
+  addImageFill(href) {
+    this._href = href;
   }
 
-  addBorder({color, thickness}) {
-    this._borders.push({
-      _class: 'border',
-      isEnabled: true,
-      color: makeColorFromCSS(color),
-      fillType: 0,
-      position: 1,
-      thickness
-    });
+  addBorderRadius(borderRadius) {
+    this._borderRadius = borderRadius;
+  }
+
+  addBorder(border) {
+    this._border = border;
   }
 
   addShadow({color = '#000', blur = 1, offsetX = 0, offsetY = 0, spread = 0}) {
-    this._shadows.push({
-      _class: 'shadow',
-      isEnabled: true,
-      blurRadius: blur,
-      color: makeColorFromCSS(color),
-      contextSettings: {
-        _class: 'graphicsContextSettings',
-        blendMode: 0,
-        opacity: 1
+    this._boxShadow = {
+      shadowOffset: {
+        offsetX,
+        offsetY
       },
-      offsetX,
-      offsetY,
-      spread
-    });
-  }
-
-  addInnerShadow({color = '#000', blur = 1, offsetX = 0, offsetY = 0, spread = 0}) {
-    this._innerShadows.push({
-      _class: 'innerShadow',
-      isEnabled: true,
-      blurRadius: blur,
-      color: makeColorFromCSS(color),
-      contextSettings: {
-        _class: 'graphicsContextSettings',
-        blendMode: 0,
-        opacity: 1
-      },
-      offsetX,
-      offsetY,
-      spread
-    });
+      shadowRadius: blur,
+      shadowSpread: spread,
+      shadowColor: color
+    };
   }
 
   addOpacity(opacity) {
@@ -107,6 +91,7 @@ class Style {
   toJSON() {
     return {
       _class: 'style',
+<<<<<<< HEAD
       fills: this._fills,
       borders: this._borders,
       shadows: this._shadows,
@@ -119,6 +104,16 @@ class Style {
         blendMode: 0,
         opacity: this._opacity
       }
+=======
+      href: this._href,
+      display: this._display,
+      alignItems: this._alignItems,
+      justifyContent: this._justifyContent,
+      backgroundColor: this._backgroundColor,
+      boxShadow: this._boxShadow,
+      borderRadius: this._borderRadius,
+      border: this._border
+>>>>>>> [WIP] use react-sketchapp for rendering to sketch (#40)
     };
   }
 }

@@ -1,5 +1,4 @@
 import ShapeGroup from './shapeGroup';
-import Rectange from './rectangle';
 import createXPathFromElement from './helpers/createXPathFromElement';
 import Style from './style';
 import Text from './text';
@@ -81,9 +80,9 @@ export default async function nodeToSketchLayers(node) {
 
   const styles = getComputedStyle(node);
   const {
+    alignItems,
     backgroundColor,
     backgroundImage,
-    borderColor,
     borderWidth,
     borderTopWidth,
     borderRightWidth,
@@ -140,7 +139,7 @@ export default async function nodeToSketchLayers(node) {
 
   // if layer has no background/shadow/border/etc. skip it
   if (isImage || !hasOnlyDefaultStyles(styles)) {
-    const style = new Style();
+    const style = new Style({display, justifyContent, alignItems, overflowX, overflowY});
 
     if (backgroundColor) {
       style.addColorFill(backgroundColor);
@@ -149,7 +148,7 @@ export default async function nodeToSketchLayers(node) {
     if (isImage) {
       const absoluteUrl = new URL(node.attributes.src.value, location.href);
 
-      await style.addImageFill(absoluteUrl.href);
+      style.addImageFill(absoluteUrl.href);
       leaf.setFixedWidthAndHeight();
     }
 
@@ -159,7 +158,7 @@ export default async function nodeToSketchLayers(node) {
     if (backgroundImageResult) {
       switch (backgroundImageResult.type) {
         case 'Image':
-          await style.addImageFill(backgroundImageResult.value);
+          style.addImageFill(backgroundImageResult.value);
           break;
         case 'LinearGradient':
           style.addGradientFill(backgroundImageResult.value);
@@ -179,7 +178,7 @@ export default async function nodeToSketchLayers(node) {
         if (borderWidth.indexOf(' ') === -1) {
           shadowObj.spread += parseInt(borderWidth, 10);
         }
-        style.addInnerShadow(shadowObj);
+        style.addShadow(shadowObj);
       } else {
         style.addShadow(shadowObj);
       }
@@ -214,12 +213,26 @@ export default async function nodeToSketchLayers(node) {
       bottomLeft: fixBorderRadius(borderBottomLeftRadius, width, height),
       bottomRight: fixBorderRadius(borderBottomRightRadius, width, height)
     };
+    style.addBorder({
+      borderTopColor,
+      borderTopWidth: parseInt(borderTopWidth),
+      borderRightColor,
+      borderRightWidth: parseInt(borderRightWidth),
+      borderBottomColor,
+      borderBottomWidth: parseInt(borderBottomWidth),
+      borderLeftColor,
+      borderLeftWidth: parseInt(borderLeftWidth)
+    });
 
-    const rectangle = new Rectange({width, height, cornerRadius});
+    style.addBorderRadius({
+      borderTopLeftRadius,
+      borderTopRightRadius,
+      borderBottomLeftRadius,
+      borderBottomRightRadius
+    });
 
-    leaf.addLayer(rectangle);
+    leaf.setStyle(style);
     leaf.setName(createXPathFromElement(node));
-
     layers.push(leaf);
   }
 
@@ -241,10 +254,26 @@ export default async function nodeToSketchLayers(node) {
   Array.from(node.childNodes)
     .filter(child => child.nodeType === 3 && child.nodeValue.trim().length > 0)
     .forEach(textNode => {
-      rangeHelper.selectNodeContents(textNode);
+      const rangeHelper = document.createRange();
+
+      rangeHelper.selectNode(textNode);
       const textRanges = Array.from(rangeHelper.getClientRects());
-      const numberOfLines = textRanges.length;
       const textBCR = calculateBCRFromRanges(textRanges);
+      const textStyle = new TextStyle({
+        fontFamily,
+        fontSize: parseInt(fontSize, 10),
+        lineHeight: lineHeight !== 'normal' ? parseInt(lineHeight, 10) : undefined,
+        letterSpacing: letterSpacing !== 'normal' ? parseFloat(letterSpacing) : undefined,
+        fontWeight: parseInt(fontWeight, 10),
+        color,
+        textTransform,
+        textDecoration: textDecorationStyle,
+        width: Math.ceil(textBCR.width),
+        height: Math.ceil(textBCR.height),
+        textAlign
+      });
+
+      const numberOfLines = textRanges.length;
       const lineHeightInt = parseInt(lineHeight, 10);
       let fixY = 0;
 
