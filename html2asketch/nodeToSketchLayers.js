@@ -250,7 +250,7 @@ export default async function nodeToSketchLayers(node) {
       const text = new Text({
         x: textBCR.x,
         y: textBCR.y + fixY,
-        width: textBCR.width,
+        width: textBCR.width + 0.1,
         height: textBCR.height,
         text: textNode.nodeValue.trim(),
         style: textStyle,
