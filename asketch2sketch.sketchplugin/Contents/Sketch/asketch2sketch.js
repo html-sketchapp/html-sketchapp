@@ -802,7 +802,9 @@ function makeEncodedAttributedString(textNodes) {
     fullStr.appendAttributedString(newString);
   });
 
-  var msAttribStr = MSAttributedString.alloc().initWithAttributedString(fullStr);
+  var encodedAttribStr = MSAttributedString.encodeAttributedString(fullStr);
+
+  var msAttribStr = MSAttributedString.alloc().initWithEncodedAttributedString(encodedAttribStr);
 
   return encodeSketchJSON(msAttribStr);
 }
