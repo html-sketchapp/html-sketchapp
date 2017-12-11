@@ -253,10 +253,10 @@ export default async function nodeToSketchLayers(node) {
       switch (whiteSpace) {
         case 'normal':
         case 'nowrap':
-          textValue = textValue.trim().replace(/\n/g, ' ').replace(/ +/g, ' ');
+          textValue = textValue.trim().replace(/\n/g, ' ').replace(/[^\S\n]+/g, ' ');
           break;
         case 'pre-line':
-          textValue = textValue.replace(/ *\n{1} */g, '\n').replace(/ +/g, ' ');
+          textValue = textValue.replace(/ *\n{1} */g, '\n').replace(/[^\S\n]+/g, ' ');
           break;
         default:
           // pre, pre-wrap
