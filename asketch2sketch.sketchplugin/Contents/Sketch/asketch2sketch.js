@@ -178,6 +178,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 This is pretty simplistic at the moment, since it doesn't handle references. More work is needed to actually
 */
 
+/*
+Versions based on discussion info: http://sketchplugins.com/d/316-sketch-version
+*/
+// Internal Sketch Version (ex: 95 => v47 and below)
+var SKETCH_HIGHEST_COMPATIBLE_VERSION = '95';
+// External Sketch Version
+var SKETCH_LOWEST_COMPATIBLE_APP_VERSION = '43';
+
 var envOK = typeof MSJSONDataArchiver !== 'undefined' && typeof MSJSONDictionaryUnarchiver !== 'undefined';
 
 function appVersion() {
@@ -189,7 +197,7 @@ function appVersion() {
 }
 
 var _checkEnv = function _checkEnv() {
-  return (0, _invariant2.default)(envOK, 'sketchapp-json-plugin needs to run within the correct version of Sketch. You are running ' + appVersion());
+  return (0, _invariant2.default)(envOK, 'sketchapp-json-plugin needs to run within Sketch v' + SKETCH_LOWEST_COMPATIBLE_APP_VERSION + '+. You are running ' + appVersion());
 };
 
 function appVersionSupported() {
@@ -219,7 +227,7 @@ function fromSJSON(json) {
 // Takes a Sketch JSON tree and turns it into a native object. May throw on invalid data
 function fromSJSONDictionary(jsonTree) {
   _checkEnv();
-  var decoded = MSJSONDictionaryUnarchiver.alloc().initForReadingFromDictionary(jsonTree).decodeRoot();
+  var decoded = MSJSONDictionaryUnarchiver.unarchiveObjectFromDictionary_asVersion_corruptionDetected_error(jsonTree, SKETCH_HIGHEST_COMPATIBLE_VERSION, null, null);
   var mutableClass = decoded.class().mutableClass();
   return mutableClass.alloc().initWithImmutableModelObject(decoded);
 }
@@ -411,7 +419,13 @@ function asketch2sketch(context) {
 
     asketchPage.layers.forEach(function (layer) {
       fixLayer(layer);
-      page.addLayer((0, _sketchappJsonPlugin.fromSJSONDictionary)(layer));
+      try {
+        page.addLayer((0, _sketchappJsonPlugin.fromSJSONDictionary)(layer));
+      } catch (e) {
+        console.log('Layer couldn\'t be created');
+        console.log(e);
+        console.log(layer);
+      }
     });
 
     console.log('Layers added: ' + asketchPage.layers.length);
@@ -691,6 +705,7 @@ var _findFont2 = _interopRequireDefault(_findFont);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+// taken from https://github.com/airbnb/react-sketchapp/blob/master/src/jsonUtils/hacksForJSONImpl.js
 var TEXT_ALIGN = {
   auto: _sketchConstants.TextAlignment.Left,
   left: _sketchConstants.TextAlignment.Left,
@@ -725,6 +740,7 @@ function makeParagraphStyle(textStyle) {
 
   if (textStyle.lineHeight !== undefined) {
     pStyle.minimumLineHeight = textStyle.lineHeight;
+    pStyle.lineHeightMultiple = 1.0;
     pStyle.maximumLineHeight = textStyle.lineHeight;
   }
 
@@ -742,29 +758,53 @@ function encodeSketchJSON(sketchObj) {
 }
 
 // This shouldn't need to call into Sketch, but it does currently, which is bad for perf :(
-function makeAttributedString(string, textStyle) {
-  var font = (0, _findFont2['default'])(textStyle);
+function createStringAttributes(textStyles) {
+  var font = (0, _findFont2['default'])(textStyles);
 
-  var color = (0, _utils.makeColorFromCSS)(textStyle.color || 'black');
+  var color = (0, _utils.makeColorFromCSS)(textStyles.color || 'black');
 
   var attribs = {
     MSAttributedStringFontAttribute: font.fontDescriptor(),
-    NSParagraphStyle: makeParagraphStyle(textStyle),
+    NSFont: font,
+    NSParagraphStyle: makeParagraphStyle(textStyles),
     NSColor: NSColor.colorWithDeviceRed_green_blue_alpha(color.red, color.green, color.blue, color.alpha),
-    NSUnderline: TEXT_DECORATION_UNDERLINE[textStyle.textDecoration] || 0,
-    NSStrikethrough: TEXT_DECORATION_LINETHROUGH[textStyle.textDecoration] || 0
+    NSUnderline: TEXT_DECORATION_UNDERLINE[textStyles.textDecoration] || 0,
+    NSStrikethrough: TEXT_DECORATION_LINETHROUGH[textStyles.textDecoration] || 0
   };
 
-  if (textStyle.letterSpacing !== undefined) {
-    attribs.NSKern = textStyle.letterSpacing;
+  if (textStyles.letterSpacing !== undefined) {
+    attribs.NSKern = textStyles.letterSpacing;
   }
 
-  if (textStyle.textTransform !== undefined) {
-    attribs.MSAttributedStringTextTransformAttribute = TEXT_TRANSFORM[textStyle.textTransform] * 1;
+  if (textStyles.textTransform !== undefined) {
+    attribs.MSAttributedStringTextTransformAttribute = TEXT_TRANSFORM[textStyles.textTransform] * 1;
   }
 
-  var attribStr = NSAttributedString.attributedStringWithString_attributes_(string, attribs);
-  var msAttribStr = MSAttributedString.alloc().initWithAttributedString(attribStr);
+  return attribs;
+}
+
+function createAttributedString(textNode) {
+  var content = textNode.content,
+      textStyles = textNode.textStyles;
+
+
+  var attribs = createStringAttributes(textStyles);
+
+  return NSAttributedString.attributedStringWithString_attributes_(content, attribs);
+}
+
+function makeEncodedAttributedString(textNodes) {
+  var fullStr = NSMutableAttributedString.alloc().init();
+
+  textNodes.forEach(function (textNode) {
+    var newString = createAttributedString(textNode);
+
+    fullStr.appendAttributedString(newString);
+  });
+
+  var encodedAttribStr = MSAttributedString.encodeAttributedString(fullStr);
+
+  var msAttribStr = MSAttributedString.alloc().initWithEncodedAttributedString(encodedAttribStr);
 
   return encodeSketchJSON(msAttribStr);
 }
@@ -780,6 +820,7 @@ function makeTextStyle(textStyle) {
     _class: 'textStyle',
     encodedAttributes: {
       MSAttributedStringFontAttribute: encodeSketchJSON(font.fontDescriptor()),
+      NSFont: font,
       NSColor: encodeSketchJSON(NSColor.colorWithDeviceRed_green_blue_alpha(color.red, color.green, color.blue, color.alpha)),
       NSParagraphStyle: encodeSketchJSON(pStyle),
       NSKern: textStyle.letterSpacing || 0,
@@ -798,7 +839,7 @@ function makeTextStyle(textStyle) {
 }
 
 function fixTextLayer(layer) {
-  layer.attributedString = makeAttributedString(layer.text, layer.style);
+  layer.attributedString = makeEncodedAttributedString([{ content: layer.text, textStyles: layer.style }]);
   delete layer.style;
   delete layer.text;
 }
@@ -1386,10 +1427,14 @@ var _hashStyle2 = _interopRequireDefault(_hashStyle);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+// Font displayed if San Francisco fonts are not found
+var APPLE_BROKEN_SYSTEM_FONT = '.AppleSystemUIFont';
+
 // this borrows heavily from react-native's RCTFont class
 // thanks y'all
 // https://github.com/facebook/react-native/blob/master/React/Views/RCTFont.mm
 
+// taken from https://github.com/airbnb/react-sketchapp/blob/master/src/utils/findFont.js
 var FONT_STYLES = {
   normal: false,
   italic: true,
@@ -1447,7 +1492,6 @@ var weightOfFont = function weightOfFont(font) {
 var fontNamesForFamilyName = function fontNamesForFamilyName(familyName) {
   var manager = NSFontManager.sharedFontManager();
   var members = NSArray.arrayWithArray(manager.availableMembersOfFontFamily(familyName));
-
   var results = [];
 
   for (var i = 0; i < members.length; i += 1) {
@@ -1481,7 +1525,11 @@ var findFont = function findFont(style) {
 
   var fontSize = defaultFontSize;
   var fontWeight = defaultFontWeight;
-  var familyName = defaultFontFamily;
+  // Default to Helvetica if fonts are missing
+  var familyName =
+  // Must use two equals (==) for compatibility with Cocoascript
+  // eslint-disable-next-line eqeqeq
+  defaultFontFamily == APPLE_BROKEN_SYSTEM_FONT ? 'Helvetica' : defaultFontFamily;
   var isItalic = false;
   var isCondensed = false;
 
@@ -1689,6 +1737,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports['default'] = fixImageFill;
+// taken from https://github.com/airbnb/react-sketchapp/blob/master/src/jsonUtils/hacksForJSONImpl.js
 var makeImageDataFromUrl = exports.makeImageDataFromUrl = function makeImageDataFromUrl(url) {
   var fetchedData = NSData.dataWithContentsOfURL(NSURL.URLWithString(url));
 
@@ -1699,7 +1748,7 @@ var makeImageDataFromUrl = exports.makeImageDataFromUrl = function makeImageData
     // 0xFF = JPEG, 0x89 = PNG, 0x47 = GIF, 0x49 = TIFF, 0x4D = TIFF
     if (
     /* eslint-disable eqeqeq */
-    firstByte != '<ff>' && firstByte != '<89>' && firstByte != '<47>' && firstByte != '<49>' && firstByte != '<4D>'
+    firstByte != '<ff>' && firstByte != '<89>' && firstByte != '<47>' && firstByte != '<49>' && firstByte != '<4d>'
     /* eslint-enable eqeqeq */
     ) {
         fetchedData = null;
@@ -1709,14 +1758,18 @@ var makeImageDataFromUrl = exports.makeImageDataFromUrl = function makeImageData
   var image = void 0;
 
   if (!fetchedData) {
-    var errorUrl = 'data:image/png;base64,' + 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8w8DwHwAEOQHNmnaaOAAAAABJRU5ErkJggg==';
+    // eslint-disable-next-line max-len
+    var errorUrl = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8w8DwHwAEOQHNmnaaOAAAAABJRU5ErkJggg==';
 
     image = NSImage.alloc().initWithContentsOfURL(NSURL.URLWithString(errorUrl));
   } else {
     image = NSImage.alloc().initWithData(fetchedData);
   }
 
-  return MSImageData.alloc().initWithImage_convertColorSpace(image, false);
+  if (MSImageData.alloc().initWithImage_convertColorSpace !== undefined) {
+    return MSImageData.alloc().initWithImage_convertColorSpace(image, false);
+  }
+  return MSImageData.alloc().initWithImage(image);
 };
 
 function fixImageFill(layer) {
