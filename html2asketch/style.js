@@ -114,7 +114,7 @@ class Style {
       endDecorationType: 0,
       miterLimit: 10,
       startDecorationType: 0,
-      contextSettings : {
+      contextSettings: {
         _class: 'graphicsContextSettings',
         blendMode: 0,
         opacity: this._opacity
