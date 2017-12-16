@@ -1,6 +1,7 @@
 import {fromSJSONDictionary} from 'sketchapp-json-plugin';
 import {fixTextLayer, fixSharedTextStyle} from './helpers/fixFont';
 import fixImageFill from './helpers/fixImageFill';
+import makeSVGLayer from './helpers/makeSVGLayer';
 
 function removeExistingLayers(context) {
   if (context.containsLayers()) {
@@ -25,6 +26,15 @@ function fixLayer(layer) {
 
   if (layer.layers) {
     layer.layers.forEach(fixLayer);
+  }
+}
+
+function getNativeLayer(layer) {
+  if (layer['_class'] === 'svg') {
+    return makeSVGLayer(layer);
+  } else {
+    fixLayer(layer);
+    return fromSJSONDictionary(layer);
   }
 }
 
@@ -121,9 +131,10 @@ export default function asketch2sketch(context) {
     page.name = asketchPage.name;
 
     asketchPage.layers.forEach(layer => {
-      fixLayer(layer);
+      const nativeLayer = getNativeLayer(layer);
+
       try {
-        page.addLayer(fromSJSONDictionary(layer));
+        page.addLayer(nativeLayer);
       } catch (e) {
         console.log('Layer couldn\'t be created');
         console.log(e);
