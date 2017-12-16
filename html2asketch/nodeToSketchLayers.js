@@ -198,6 +198,8 @@ export default async function nodeToSketchLayers(node) {
       }
     }
 
+    style.addOpacity(opacity);
+
     leaf.setStyle(style);
 
     //TODO borderRadius can be expressed in different formats and use various units - for simplicity we assume "X%"
