@@ -4,7 +4,7 @@ import createXPathFromElement from './helpers/createXPathFromElement';
 import Style from './style';
 import Text from './text';
 import TextStyle from './textStyle';
-import {parseBackgroundImage} from './helpers/background';
+import {parseBackgroundImage, fixBackgroundImage} from './helpers/background';
 
 const DEFAULT_VALUES = {
   backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -83,6 +83,9 @@ export default async function nodeToSketchLayers(node) {
   const {
     backgroundColor,
     backgroundImage,
+    backgroundPosition,
+    backgroundSize,
+    backgroundRepeat,
     borderColor,
     borderWidth,
     borderTopWidth,
@@ -154,7 +157,16 @@ export default async function nodeToSketchLayers(node) {
     if (backgroundImageResult) {
       switch (backgroundImageResult.type) {
         case 'Image':
-          await style.addImageFill(backgroundImageResult.value);
+          await style.addImageFill(
+            await fixBackgroundImage(
+              backgroundImageResult.value,
+              width,
+              height,
+              backgroundSize,
+              backgroundPosition,
+              backgroundRepeat
+            )
+          );
           break;
         case 'LinearGradient':
           style.addGradientFill(backgroundImageResult.value);
