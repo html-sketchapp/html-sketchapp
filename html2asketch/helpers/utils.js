@@ -84,7 +84,7 @@ export const makeImageFill = async(url, patternFillType = 1) => {
     dataURL = url;
   } else {
     try {
-      dataURL = await toDataURL(url);
+      dataURL = await toDataURL(url + '?cache');
     } catch (e) {
       console.error('Issue downloading ' + url + ' (' + e.message + ')');
     }
