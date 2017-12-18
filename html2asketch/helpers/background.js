@@ -100,6 +100,10 @@ const parseLinearGradient = value => {
 async function toImageObj(url) {
   const imageObj = new Image();
 
+  if (url.indexOf('data:') !== 0) {
+    url += '?cache';
+  }
+
   imageObj.crossOrigin = 'anonymous';
   await new Promise((resolve, reject) => {
     imageObj.src = url;
