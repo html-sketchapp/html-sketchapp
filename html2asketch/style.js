@@ -7,6 +7,7 @@ class Style {
     this._borders = [];
     this._shadows = [];
     this._innerShadows = [];
+    this._opacity = 1;
   }
 
   addColorFill(color, opacity) {
@@ -99,6 +100,10 @@ class Style {
     });
   }
 
+  addOpacity(opacity) {
+    this._opacity = opacity;
+  }
+
   toJSON() {
     return {
       _class: 'style',
@@ -108,7 +113,12 @@ class Style {
       innerShadows: this._innerShadows,
       endDecorationType: 0,
       miterLimit: 10,
-      startDecorationType: 0
+      startDecorationType: 0,
+      contextSettings: {
+        _class: 'graphicsContextSettings',
+        blendMode: 0,
+        opacity: this._opacity
+      }
     };
   }
 }
