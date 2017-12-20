@@ -113,7 +113,8 @@ export default async function nodeToSketchLayers(node) {
     opacity,
     overflowX,
     overflowY,
-    position
+    position,
+    clip
   } = styles;
 
   // Skip node when display is set to none for itself or an ancestor
@@ -127,6 +128,10 @@ export default async function nodeToSketchLayers(node) {
   }
 
   if (display === 'none' || visibility === 'hidden' || parseFloat(opacity) === 0) {
+    return layers;
+  }
+
+  if (clip === 'rect(0px 0px 0px 0px)' && position === 'absolute') {
     return layers;
   }
 
