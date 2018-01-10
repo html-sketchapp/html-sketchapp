@@ -41,25 +41,25 @@ function hasOnlyDefaultStyles(styles) {
 }
 
 function calculateBCRFromRanges(ranges) {
-  let x = Infinity;
-  let y = Infinity;
+  let left = Infinity;
+  let top = Infinity;
   let width = 0;
   let height = 0;
 
   ranges.forEach(range => {
-    x = Math.min(x, range.x);
-    y = Math.min(y, range.y);
+    left = Math.min(left, range.left);
+    top = Math.min(top, range.top);
   });
 
   ranges.forEach(range => {
-    const normalizedWidth = range.width + (range.x - x);
-    const normalizedHeight = range.height + (range.y - y);
+    const normalizedWidth = range.width + (range.left - left);
+    const normalizedHeight = range.height + (range.top - top);
 
     width = Math.max(width, normalizedWidth);
     height = Math.max(height, normalizedHeight);
   });
 
-  return {x, y, width, height};
+  return {left, top, width, height};
 }
 
 function fixBorderRadius(borderRadius) {
@@ -77,7 +77,7 @@ function fixBorderRadius(borderRadius) {
 
 export default async function nodeToSketchLayers(node) {
   const layers = [];
-  const {width, height, x, y} = node.getBoundingClientRect();
+  const {width, height, left, top} = node.getBoundingClientRect();
 
   const styles = getComputedStyle(node);
   const {
@@ -135,7 +135,7 @@ export default async function nodeToSketchLayers(node) {
     return layers;
   }
 
-  const leaf = new ShapeGroup({x, y, width, height});
+  const leaf = new ShapeGroup({left, top, width, height});
   const isImage = node.nodeName === 'IMG' && node.attributes.src;
 
   // if layer has no background/shadow/border/etc. skip it
@@ -255,8 +255,8 @@ export default async function nodeToSketchLayers(node) {
       }
 
       const text = new Text({
-        x: textBCR.x,
-        y: textBCR.y + fixY,
+        x: textBCR.left,
+        y: textBCR.top + fixY,
         width: textBCR.width,
         height: textBCR.height,
         text: textNode.nodeValue.trim(),
