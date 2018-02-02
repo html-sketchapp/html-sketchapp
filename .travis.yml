@@ -8,3 +8,8 @@ script:
 
 notifications:
   email: false
+
+addons:
+  apt:
+    packages:
+    - libsecret-1-dev
