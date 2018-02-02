@@ -62,16 +62,16 @@ function calculateBCRFromRanges(ranges) {
   return {x, y, width, height};
 }
 
-function fixBorderRadius(borderRadius) {
+function fixBorderRadius(borderRadius, width, height) {
   const matches = borderRadius.match(/^([0-9.]+)(.+)$/);
 
+  // Sketch uses 'px' units for border radius, so we need to convert % to px
   if (matches && matches[2] === '%') {
-    const value = parseInt(matches[1], 10);
+    const baseVal = Math.max(width, height);
+    const percentageApplied = baseVal * (parseInt(matches[1], 10) / 100);
 
-    // not sure about this, but border-radius: 50% should be fully rounded
-    return value >= 50 ? 100 : value;
+    return Math.round(percentageApplied);
   }
-
   return parseInt(borderRadius, 10);
 }
 
@@ -209,10 +209,10 @@ export default async function nodeToSketchLayers(node) {
 
     //TODO borderRadius can be expressed in different formats and use various units - for simplicity we assume "X%"
     const cornerRadius = {
-      topLeft: fixBorderRadius(borderTopLeftRadius),
-      topRight: fixBorderRadius(borderTopRightRadius),
-      bottomLeft: fixBorderRadius(borderBottomLeftRadius),
-      bottomRight: fixBorderRadius(borderBottomRightRadius)
+      topLeft: fixBorderRadius(borderTopLeftRadius, width, height),
+      topRight: fixBorderRadius(borderTopRightRadius, width, height),
+      bottomLeft: fixBorderRadius(borderBottomLeftRadius, width, height),
+      bottomRight: fixBorderRadius(borderBottomRightRadius, width, height)
     };
 
     const rectangle = new Rectange({width, height, cornerRadius});
