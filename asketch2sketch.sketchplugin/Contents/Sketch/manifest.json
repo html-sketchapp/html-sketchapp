@@ -17,7 +17,7 @@
   },
   "version": "1.0.0",
   "description": "HTML to Sketch",
-  "name": "html-sketchapp",
+  "name": "asketch2sketch",
   "disableCocoaScriptPreprocessor": true,
   "appcast": "https://raw.githubusercontent.com//master/.appcast.xml",
   "author": "Brainly - Konrad Dzwinel",

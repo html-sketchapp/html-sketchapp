@@ -30,7 +30,7 @@ This project is a prototype that allowed us to export most of our Front-End styl
 - requires MacOS (Sketch's limitation)
 - [more details here](https://github.com/brainly/html-sketchapp/wiki/What's-supported%3F)
 
-The good news is that most of the missing functionality should be fairly easy to add - feel free to contribute to or fork this project.
+The good news is that most of the missing functionality should be fairly easy to add - feel free to contribute to this project.
 
 ## How does it work?
 
