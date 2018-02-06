@@ -104,7 +104,7 @@ export default async function nodeToSketchLayers(node) {
     letterSpacing,
     color,
     textTransform,
-    textDecorationStyle,
+    textDecorationLine,
     textAlign,
     justifyContent,
     display,
@@ -231,7 +231,7 @@ export default async function nodeToSketchLayers(node) {
     fontWeight: parseInt(fontWeight, 10),
     color,
     textTransform,
-    textDecoration: textDecorationStyle,
+    textDecoration: textDecorationLine,
     textAlign: display === 'flex' || display === 'inline-flex' ? justifyContent : textAlign
   });
 
