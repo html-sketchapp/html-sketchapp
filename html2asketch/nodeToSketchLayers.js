@@ -61,19 +61,6 @@ function calculateBCRFromRanges(ranges) {
   return {x, y, width, height};
 }
 
-function fixBorderRadius(borderRadius, width, height) {
-  const matches = borderRadius.match(/^([0-9.]+)(.+)$/);
-
-  // Sketch uses 'px' units for border radius, so we need to convert % to px
-  if (matches && matches[2] === '%') {
-    const baseVal = Math.max(width, height);
-    const percentageApplied = baseVal * (parseInt(matches[1], 10) / 100);
-
-    return Math.round(percentageApplied);
-  }
-  return parseInt(borderRadius, 10);
-}
-
 export default async function nodeToSketchLayers(node) {
   const layers = [];
   const {width, height, x, y} = node.getBoundingClientRect();
@@ -184,35 +171,10 @@ export default async function nodeToSketchLayers(node) {
       }
     }
 
-    // support for one-side borders (using inner shadow because Sketch doesn't support that)
-    if (borderWidth.indexOf(' ') === -1) {
-      style.addBorder({color: borderColor, thickness: parseInt(borderWidth, 10)});
-    } else {
-      if (borderTopWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderTopColor + ' 0px ' + borderTopWidth + ' 0px 0px inset'));
-      }
-      if (borderRightWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderRightColor + ' -' + borderRightWidth + ' 0px 0px 0px inset'));
-      }
-      if (borderBottomWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderBottomColor + ' 0px -' + borderBottomWidth + ' 0px 0px inset'));
-      }
-      if (borderLeftWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderLeftColor + ' ' + borderLeftWidth + ' 0px 0px 0px inset'));
-      }
-    }
-
     style.addOpacity(opacity);
 
     leaf.setStyle(style);
 
-    //TODO borderRadius can be expressed in different formats and use various units - for simplicity we assume "X%"
-    const cornerRadius = {
-      topLeft: fixBorderRadius(borderTopLeftRadius, width, height),
-      topRight: fixBorderRadius(borderTopRightRadius, width, height),
-      bottomLeft: fixBorderRadius(borderBottomLeftRadius, width, height),
-      bottomRight: fixBorderRadius(borderBottomRightRadius, width, height)
-    };
     style.addBorder({
       borderTopColor,
       borderTopWidth: parseInt(borderTopWidth),
@@ -236,20 +198,6 @@ export default async function nodeToSketchLayers(node) {
     layers.push(leaf);
   }
 
-  const textStyle = new TextStyle({
-    fontFamily,
-    fontSize: parseInt(fontSize, 10),
-    lineHeight: lineHeight !== 'normal' ? parseInt(lineHeight, 10) : undefined,
-    letterSpacing: letterSpacing !== 'normal' ? parseFloat(letterSpacing) : undefined,
-    fontWeight: parseInt(fontWeight, 10),
-    color,
-    textTransform,
-    textDecoration: textDecorationLine,
-    textAlign: display === 'flex' || display === 'inline-flex' ? justifyContent : textAlign
-  });
-
-  const rangeHelper = document.createRange();
-
   // Text
   Array.from(node.childNodes)
     .filter(child => child.nodeType === 3 && child.nodeValue.trim().length > 0)
@@ -267,10 +215,10 @@ export default async function nodeToSketchLayers(node) {
         fontWeight: parseInt(fontWeight, 10),
         color,
         textTransform,
-        textDecoration: textDecorationStyle,
+        textDecoration: textDecorationLine,
+        textAlign: display === 'flex' || display === 'inline-flex' ? justifyContent : textAlign,
         width: Math.ceil(textBCR.width),
-        height: Math.ceil(textBCR.height),
-        textAlign
+        height: Math.ceil(textBCR.height)
       });
 
       const numberOfLines = textRanges.length;

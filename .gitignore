@@ -2,3 +2,4 @@
 .idea/
 .editorconfig
 node_modules/
+test/

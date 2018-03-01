@@ -7,9 +7,7 @@ class Style {
     this._borders = [];
     this._shadows = [];
     this._innerShadows = [];
-<<<<<<< HEAD
     this._opacity = 1;
-=======
 
     this._display = display;
     this._alignItems = alignItems;
@@ -17,7 +15,6 @@ class Style {
 
     this._overflowX = overflowX;
     this._overflowY = overflowY;
->>>>>>> [WIP] use react-sketchapp for rendering to sketch (#40)
   }
 
   addColorFill(color, opacity) {
@@ -91,7 +88,6 @@ class Style {
   toJSON() {
     return {
       _class: 'style',
-<<<<<<< HEAD
       fills: this._fills,
       borders: this._borders,
       shadows: this._shadows,
@@ -103,8 +99,7 @@ class Style {
         _class: 'graphicsContextSettings',
         blendMode: 0,
         opacity: this._opacity
-      }
-=======
+      },
       href: this._href,
       display: this._display,
       alignItems: this._alignItems,
@@ -113,7 +108,6 @@ class Style {
       boxShadow: this._boxShadow,
       borderRadius: this._borderRadius,
       border: this._border
->>>>>>> [WIP] use react-sketchapp for rendering to sketch (#40)
     };
   }
 }

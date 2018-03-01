@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Image, render, makeSymbol} from 'react-sketchapp';
+import test from './test';
 
 let idCount = 0;
 const uniqueId = () => idCount++;
@@ -104,56 +105,54 @@ function renderView({
   );
 }
 
-function renderLayers(layers) {
-  return layers.map(layer => {
-    const {frame: {x, y}} = layer;
+function renderLayer(layer) {
+  const result = [];
+  const {_class} = layer;
+  const {href} = layer.style;
 
-    const texts = [];
-    const images = [];
-    const views = [];
+  if (href) {
+    result.push(renderImage(layer));
+  }
 
-    layer.layers.forEach((childLayer, index) => {
-      const {href} = childLayer.style;
+  if (_class === 'text') {
+    result.push(renderText(layer));
+  } else {
+    result.push(renderView(layer));
+  }
 
-      const {_class} = childLayer;
+  layer.layers.reverse()
+    .map(renderLayer)
+    .reduce((sum, next) => sum.concat(next), [])
+    .forEach(childLayer => result.push(childLayer));
 
-      if (href) {
-        images.unshift(renderImage(childLayer));
+  return result;
+}
+
+function removeExistingLayers(context) {
+  if (context.containsLayers()) {
+    const loop = context.children().objectEnumerator();
+    let currLayer = loop.nextObject();
+
+    while (currLayer) {
+      if (currLayer !== context) {
+        currLayer.removeFromParent();
       }
-
-      if (_class === 'text') {
-        texts.unshift(renderText(childLayer, index));
-        return null;
-      }
-
-      views.unshift(renderView(childLayer));
-    });
-
-    const Component = () =>
-      <View
-        key={uniqueId()}
-        style={{
-          position: 'absolute',
-          left: x,
-          top: y
-        }}
-      >
-        {texts}
-        {images}
-        {views}
-      </View>;
-      
-      makeSymbol(Component, layer.name);
-
-    return Component();
-  });
+      currLayer = loop.nextObject();
+    }
+  }
 }
 
 export default function Plugin(context) {
-  const json = requestJson();
+  const json = test;// HACK load DDG page while testing - requestJson();
+
+  const document = context.document;
+  const page = document.currentPage();
+  removeExistingLayers(page);
+
+  const result = json.layers.reverse().map(layer => renderLayer(layer));
 
   render(
-    <View style={json.dimensions}>{renderLayers(json.layers)}</View>,
-    context.document.currentPage()
+    <View style={json.dimensions}>{result}</View>,
+    page
   );
 }
