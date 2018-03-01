@@ -22,7 +22,10 @@
     "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v16.1.4",
     "jest": "^21.2.1",
     "skpm": "^1.0.12",
-    "@skpm/builder": "^0.2.0"
+    "@skpm/builder": "^0.2.3",
+    "react": "^16.2.0",
+    "react-sketchapp": "^1.0.0",
+    "react-test-renderer": "^16.2.0"
   },
   "skpm": {
     "name": "asketch2sketch",
