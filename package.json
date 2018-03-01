@@ -1,8 +1,11 @@
 {
-  "name": "html-sketchapp",
+  "name": "@brainly/html-sketchapp",
   "version": "1.0.0",
   "description": "HTML to Sketch",
-  "repository": "brainly/html-sketchapp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brainly/html-sketchapp.git"
+  },
   "author": "Brainly - Konrad Dzwinel <konrad.dzwinel@brainly.com>",
   "license": "MIT",
   "scripts": {
@@ -31,5 +34,9 @@
     "normalize-css-color": "^1.0.2",
     "sketch-constants": "^1.1.0",
     "sketchapp-json-plugin": "^0.1.2"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/brainly/html-sketchapp/issues"
+  },
+  "homepage": "https://github.com/brainly/html-sketchapp#readme"
 }

@@ -51,7 +51,13 @@ All `.asketch.json` files should be loaded to Sketch via the `asketch2sketch.ske
 
 <img src="https://i.imgur.com/9eDm6NQ.png" width="450" alt="Installing Sketch plugin" title="Installing Sketch plugin" />
 
-If you prefer to build the plugin from sources:
+You can install html-sketchapp from npm:
+
+```
+npm i @brainly/html-sketchapp
+```
+
+This package comes with built version of the plugin, but you can always build it yourself from sources:
 
 ```
 npm i # install dependencies
