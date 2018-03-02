@@ -58,12 +58,22 @@ function calculateBCRFromRanges(ranges) {
     height = Math.max(height, normalizedHeight);
   });
 
+  // position is viewport depnedent, make it absolute
+  x += window.scrollX;
+  y += window.scrollY;
+
   return {x, y, width, height};
 }
 
 export default async function nodeToSketchLayers(node) {
   const layers = [];
-  const {width, height, x, y} = node.getBoundingClientRect();
+  const bcr = node.getBoundingClientRect();
+  const {width, height} = bcr;
+  let {x, y} = bcr;
+
+  // position depends on the current viewport, make the values absolute
+  x += window.scrollX;
+  y += window.scrollY;
 
   const styles = getComputedStyle(node);
   const {

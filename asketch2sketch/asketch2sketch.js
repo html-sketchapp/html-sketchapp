@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, render} from 'react-sketchapp';
+import {Artboard, View, Text, Image, render} from 'react-sketchapp';
 import test from './test';
 
 let idCount = 0;
@@ -190,7 +190,10 @@ export default function Plugin(context) {
   const result = json.layers.reverse().map(layer => renderLayer(layer));
 
   render(
-    <View>{result}</View>,
+    <Artboard style={{
+      width: json.frame.width,
+      height: json.frame.height
+    }}>{result}</Artboard>,
     page
   );
 }
