@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, render, makeSymbol} from 'react-sketchapp';
+import {View, Text, Image, render} from 'react-sketchapp';
 import test from './test';
 
 let idCount = 0;
@@ -53,26 +53,54 @@ function renderImage({style: {href}, x, y, height, width}) {
   );
 }
 
-function renderText(layer) {
+function renderText({
+  name,
+  x,
+  y,
+  text,
+  style: {
+    fontSize,
+    fontFamily,
+    fontWeight,
+    textTransform,
+    textDecoration,
+    letterSpacing,
+    lineHeight,
+    textAlign,
+    color,
+    width
+  }
+}) {
+  const style = {
+    position: 'absolute',
+    left: x,
+    top: y,
+    fontSize,
+    fontFamily,
+    fontWeight,
+    textTransform,
+    textDecoration,
+    letterSpacing,
+    lineHeight,
+    textAlign,
+    color,
+    width
+  };
+
   // in sketch, text will be made larger if transformed to uppercase,
   // but bounding box will not be made larger to accommodate
-  if (layer.style.textTransform === 'uppercase') {
-    delete layer.style.textTransform;
-    layer.text = layer.text.toUpperCase();
+  if (style.textTransform === 'uppercase') {
+    delete style.textTransform;
+    text = text.toUpperCase();
   }
 
   return (
     <Text
       key={uniqueId()}
-      style={{
-        ...layer.style,
-
-        position: 'absolute',
-        left: layer.x,
-        top: layer.y
-      }}
+      name={name}
+      style={style}
     >
-      {layer.text}
+      {text}
     </Text>
   );
 }
@@ -81,9 +109,18 @@ function renderView({
   name,
   height,
   width,
-  style: {display, boxShadow, borderRadius, backgroundColor, border = {}},
   x,
-  y
+  y,
+  style: {
+    display,
+    boxShadow,
+    borderRadius,
+    backgroundColor,
+    border = {},
+    contextSettings: {
+      opacity
+    }
+  }
 }) {
   return (
     <View
@@ -98,6 +135,7 @@ function renderView({
         ...boxShadow,
         ...borderRadius,
         backgroundColor,
+        opacity,
         height,
         width
       }}
@@ -143,16 +181,16 @@ function removeExistingLayers(context) {
 }
 
 export default function Plugin(context) {
-  const json = test;// HACK load DDG page while testing - requestJson();
-
+  const json = test;// HACK load test page while testing - requestJson();
   const document = context.document;
   const page = document.currentPage();
+
   removeExistingLayers(page);
 
   const result = json.layers.reverse().map(layer => renderLayer(layer));
 
   render(
-    <View style={json.dimensions}>{result}</View>,
+    <View>{result}</View>,
     page
   );
 }
