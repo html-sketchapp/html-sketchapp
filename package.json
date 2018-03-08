@@ -9,7 +9,7 @@
   "author": "Brainly - Konrad Dzwinel <konrad.dzwinel@brainly.com>",
   "license": "MIT",
   "scripts": {
-    "test": "eslint html2asketch/ asketch2sketch/ && jest",
+    "test": "jest",
     "build": "skpm-build",
     "watch": "skpm-build --run --watch"
   },
