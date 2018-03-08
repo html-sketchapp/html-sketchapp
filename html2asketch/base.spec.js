@@ -1,18 +1,15 @@
 import Base from './base';
 
 class Base2 extends Base {
-  constructor() {
-    super();
+  constructor(options) {
+    super(options);
     this._class = 'base2';
   }
 }
 
-test('generates deterministic id', () => {
-  const a = new Base2();
-  const b = new Base2();
-
-  a.setName('Badge');
-  b.setName('Badge');
+test('generates deterministic id out of contructor options', () => {
+  const a = new Base2({id: 'Badge'});
+  const b = new Base2({id: 'Badge'});
 
   const actual = a.toJSON().do_objectID;
   const expected = b.toJSON().do_objectID;
@@ -21,10 +18,9 @@ test('generates deterministic id', () => {
 });
 
 test('inherit layer will carry incrementedParentID', () => {
-  const parent = new Base2();
+  const parent = new Base2({id: 'Badge/default-0'});
   const child = new Base2();
 
-  parent.setID('Badge/default-0');
   parent.addLayer(child);
 
   const actual = parent.toJSON().layers[0].do_objectID;
@@ -34,11 +30,10 @@ test('inherit layer will carry incrementedParentID', () => {
 });
 
 test('inherit layers will carry incrementedParentID', () => {
-  const parent = new Base2();
+  const parent = new Base2({id: 'Badge/default-0'});
   const child1 = new Base2();
   const child2 = new Base2();
 
-  parent.setID('Badge/default-0');
   parent.addLayer(child1);
   parent.addLayer(child2);
 
@@ -56,13 +51,12 @@ test('inherit layers will carry incrementedParentID', () => {
 });
 
 test('deeply inherited layers will carry incrementedParentID all along', () => {
-  const parent = new Base2();
+  const parent = new Base2({id: 'Badge/default-0'});
   const child1 = new Base2();
   const child2 = new Base2();
   const grandChild1 = new Base2();
   const grandChild2 = new Base2();
 
-  parent.setID('Badge/default-0');
   parent.addLayer(child1);
   parent.addLayer(child2);
   child2.addLayer(grandChild1);

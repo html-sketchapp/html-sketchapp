@@ -44,7 +44,7 @@ test('symbol ID should equal symbol id', () => {
   expect(actual).toBe(expected);
 });
 
-test.only('inherited layers will carry objectID', () => {
+test('inherited layers will carry objectID', () => {
   const symbol = new SymbolMaster(options);
   const child1 = new BaseTest();
   const child2 = new BaseTest();

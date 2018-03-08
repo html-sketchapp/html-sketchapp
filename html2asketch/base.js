@@ -1,10 +1,8 @@
-import {generateID} from './helpers/utils';
-
 class Base {
-  constructor() {
+  constructor({id} = {}) {
     this._layers = [];
     this._style = null;
-    this._objectID = generateID();
+    this._objectID = id;
     this._name = '';
     this._resizingConstant = 63;
   }
@@ -39,7 +37,7 @@ class Base {
 
     const res = {
       '_class': this._class,
-      'do_objectID': indexedParentID || this._name || this._objectID,
+      'do_objectID': indexedParentID || this._objectID,
       'exportOptions': {
         '_class': 'exportOptions',
         'exportFormats': [],
