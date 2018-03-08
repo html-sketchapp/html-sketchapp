@@ -1,7 +1,4 @@
-
-
-
-import {generateID, makeColorFromCSS} from './helpers/utils';
+import {makeColorFromCSS} from './helpers/utils';
 
 function pageToPageReference(page) {
   return {
@@ -11,18 +8,20 @@ function pageToPageReference(page) {
   };
 }
 
-function textStyleToSharedStyle(textLayer) {
+function textStyleToSharedStyle(textLayer, documentId, i) {
   return {
     '_class': 'sharedStyle',
-    'do_objectID': generateID(),
+    'do_objectID': `${documentId}/textStyles-${i}`,
     name: textLayer._name,
     'style': textLayer._style.toJSON()
   };
 }
 
+const defaultOptions = {id: 'UI KIT'};
+
 class Document {
-  constructor() {
-    this._objectID = generateID();
+  constructor({id} = defaultOptions) {
+    this._objectID = id || defaultOptions.id;
     this._colors = [];
     this._textStyles = [];
     this._pages = [];
@@ -37,7 +36,7 @@ class Document {
   }
 
   addTextStyle(textLayer) {
-    this._textStyles.push(textStyleToSharedStyle(textLayer));
+    this._textStyles.push(textStyleToSharedStyle(textLayer, this._objectID, this._textStyles.length));
   }
 
   addColor(color) {

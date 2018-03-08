@@ -1,8 +1,8 @@
 import Base from './base';
 
 class Page extends Base {
-  constructor({width, height, id }) {
-    super({ id });
+  constructor({width, height, id = 'Page'}) {
+    super({id});
     this._class = 'page';
     this._width = width;
     this._height = height;
