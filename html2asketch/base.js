@@ -1,5 +1,3 @@
-
-
 import {generateID} from './helpers/utils';
 
 class Base {
@@ -41,7 +39,7 @@ class Base {
 
     const res = {
       '_class': this._class,
-      'do_objectID': indexedParentID || this._objectID || this._name,
+      'do_objectID': indexedParentID || this._name || this._objectID,
       'exportOptions': {
         '_class': 'exportOptions',
         'exportFormats': [],
