@@ -1,17 +1,82 @@
 import Base from './base';
 
 class Base2 extends Base {
-  constructor() {
-    super();
+  constructor(options) {
+    super(options);
     this._class = 'base2';
   }
 }
 
-test('generates unique id', () => {
-  const a = new Base();
-  const b = new Base();
+test('generates deterministic id out of contructor options', () => {
+  const a = new Base2({id: 'Badge'});
+  const b = new Base2({id: 'Badge'});
 
-  expect(a.getID()).not.toBe(b.getID());
+  const actual = a.toJSON().do_objectID;
+  const expected = b.toJSON().do_objectID;
+
+  expect(actual).toBe(expected);
+});
+
+test('inherit layer will carry incrementedParentID', () => {
+  const parent = new Base2({id: 'Badge/default-0'});
+  const child = new Base2();
+
+  parent.addLayer(child);
+
+  const actual = parent.toJSON().layers[0].do_objectID;
+  const expected = 'Badge/default-0-0';
+
+  expect(actual).toBe(expected);
+});
+
+test('inherit layers will carry incrementedParentID', () => {
+  const parent = new Base2({id: 'Badge/default-0'});
+  const child1 = new Base2();
+  const child2 = new Base2();
+
+  parent.addLayer(child1);
+  parent.addLayer(child2);
+
+  const actual = [
+    parent.toJSON().layers[0].do_objectID,
+    parent.toJSON().layers[1].do_objectID
+  ].toString();
+
+  const expected = [
+    'Badge/default-0-0',
+    'Badge/default-0-1'
+  ].toString();
+
+  expect(actual).toBe(expected);
+});
+
+test('deeply inherited layers will carry incrementedParentID all along', () => {
+  const parent = new Base2({id: 'Badge/default-0'});
+  const child1 = new Base2();
+  const child2 = new Base2();
+  const grandChild1 = new Base2();
+  const grandChild2 = new Base2();
+
+  parent.addLayer(child1);
+  parent.addLayer(child2);
+  child2.addLayer(grandChild1);
+  child2.addLayer(grandChild2);
+
+  const actual = [
+    parent.toJSON().layers[0].do_objectID,
+    parent.toJSON().layers[1].do_objectID,
+    parent.toJSON().layers[1].layers[0].do_objectID,
+    parent.toJSON().layers[1].layers[1].do_objectID
+  ].toString();
+
+  const expected = [
+    'Badge/default-0-0',
+    'Badge/default-0-1',
+    'Badge/default-0-1-0',
+    'Badge/default-0-1-1'
+  ].toString();
+
+  expect(actual).toBe(expected);
 });
 
 test('can only be used when extended', () => {

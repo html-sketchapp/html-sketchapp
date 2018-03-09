@@ -1,4 +1,3 @@
-import {generateID} from './helpers/utils';
 import Base from './base';
 
 class SymbolMaster extends Base {
@@ -18,6 +17,7 @@ class SymbolMaster extends Base {
   }
 
   toJSON() {
+    this.setID(this._name);
     const obj = super.toJSON();
     let width = 0;
     let height = 0;
@@ -77,7 +77,7 @@ class SymbolMaster extends Base {
     obj.includeBackgroundColorInExport = true;
     obj.resizesContent = false;
     obj.includeBackgroundColorInInstance = false;
-    obj.symbolID = generateID();
+    obj.symbolID = this._name;
     obj.changeIdentifier = 0;
 
     return obj;

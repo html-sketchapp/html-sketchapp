@@ -1,10 +1,8 @@
-import {generateID} from './helpers/utils';
-
 class Base {
-  constructor() {
+  constructor({id} = {}) {
     this._layers = [];
     this._style = null;
-    this._objectID = generateID();
+    this._objectID = id;
     this._name = '';
     this._resizingConstant = 63;
   }
@@ -15,6 +13,9 @@ class Base {
 
   getID() {
     return this._objectID;
+  }
+  setID(_objectID) {
+    this._objectID = _objectID;
   }
 
   setName(name) {
@@ -29,14 +30,14 @@ class Base {
     this._style = style;
   }
 
-  toJSON() {
+  toJSON(indexedParentID) {
     if (!this._class) {
       throw new Error('Class not set.');
     }
 
-    return {
+    const res = {
       '_class': this._class,
-      'do_objectID': this._objectID,
+      'do_objectID': indexedParentID || this._objectID,
       'exportOptions': {
         '_class': 'exportOptions',
         'exportFormats': [],
@@ -56,8 +57,10 @@ class Base {
       'rotation': 0,
       'shouldBreakMaskChain': false,
       style: this._style ? this._style.toJSON() : undefined,
-      layers: this._layers.map(layer => layer.toJSON())
     };
+    res.layers = this._layers.map((layer, i) => layer.toJSON(`${res.do_objectID}-${i}`))
+
+    return res;
   }
 }
 
