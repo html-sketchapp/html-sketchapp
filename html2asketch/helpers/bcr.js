@@ -1,3 +1,4 @@
+// TODO: should probably also take into account children of each node
 export function getGroupBCR(nodes) {
   const groupBCR = nodes.reduce((result, node) => {
     const {x, y, width, height} = node.getBoundingClientRect();
