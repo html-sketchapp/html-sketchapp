@@ -78,7 +78,7 @@ var exports =
 if (false) {
   module.exports = require('./cjs/react.production.min.js');
 } else {
-  module.exports = __webpack_require__(47);
+  module.exports = __webpack_require__(50);
 }
 
 
@@ -604,7 +604,7 @@ var _normalizeCssColor = __webpack_require__(70);
 
 var _normalizeCssColor2 = _interopRequireDefault(_normalizeCssColor);
 
-var _hacksForJSONImpl = __webpack_require__(4);
+var _hacksForJSONImpl = __webpack_require__(5);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -759,6 +759,216 @@ var makeSymbolMaster = exports.makeSymbolMaster = function makeSymbolMaster(fram
 
 /***/ }),
 /* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(console, global) {/* globals log */
+if (!console._skpmEnabled) {
+  if (true) {
+    var sketchDebugger = __webpack_require__(47)
+    var actions = __webpack_require__(49)
+
+    function getStack() {
+      return sketchDebugger.prepareStackTrace(new Error().stack)
+    }
+  }
+
+  console._skpmPrefix = 'console> '
+
+  function logEverywhere(type, args) {
+    var values = Array.prototype.slice.call(args)
+
+    // log to the System logs
+    values.forEach(function(v) {
+      try {
+        log(console._skpmPrefix + indentString() + v)
+      } catch (e) {
+        log(v)
+      }
+    })
+
+    if (true) {
+      if (!sketchDebugger.isDebuggerPresent()) {
+        return
+      }
+
+      var payload = {
+        ts: Date.now(),
+        type: type,
+        plugin: String(context.scriptPath),
+        values: values.map(sketchDebugger.prepareValue),
+        stack: getStack(),
+      }
+
+      sketchDebugger.sendToDebugger(actions.ADD_LOG, payload)
+    }
+  }
+
+  var indentLevel = 0
+  function indentString() {
+    var indent = ''
+    for (var i = 0; i < indentLevel; i++) {
+      indent += '  '
+    }
+    if (indentLevel > 0) {
+      indent += '| '
+    }
+    return indent
+  }
+
+  var oldGroup = console.group
+
+  console.group = function() {
+    // log to the JS context
+    oldGroup && oldGroup.apply(this, arguments)
+    indentLevel += 1
+    if (true) {
+      sketchDebugger.sendToDebugger(actions.GROUP, {
+        plugin: String(context.scriptPath),
+        collapsed: false,
+      })
+    }
+  }
+
+  var oldGroupCollapsed = console.groupCollapsed
+
+  console.groupCollapsed = function() {
+    // log to the JS context
+    oldGroupCollapsed && oldGroupCollapsed.apply(this, arguments)
+    indentLevel += 1
+    if (true) {
+      sketchDebugger.sendToDebugger(actions.GROUP, {
+        plugin: String(context.scriptPath),
+        collapsed: true
+      })
+    }
+  }
+
+  var oldGroupEnd = console.groupEnd
+
+  console.groupEnd = function() {
+    // log to the JS context
+    oldGroupEnd && oldGroupEnd.apply(this, arguments)
+    indentLevel -= 1
+    if (indentLevel < 0) {
+      indentLevel = 0
+    }
+    if (true) {
+      sketchDebugger.sendToDebugger(actions.GROUP_END, {
+        plugin: context.scriptPath,
+      })
+    }
+  }
+
+  var counts = {}
+  var oldCount = console.count
+
+  console.count = function(label) {
+    label = typeof label !== 'undefined' ? label : 'Global'
+    counts[label] = (counts[label] || 0) + 1
+
+    // log to the JS context
+    oldCount && oldCount.apply(this, arguments)
+    return logEverywhere('log', [label + ': ' + counts[label]])
+  }
+
+  var timers = {}
+  var oldTime = console.time
+
+  console.time = function(label) {
+    // log to the JS context
+    oldTime && oldTime.apply(this, arguments)
+
+    label = typeof label !== 'undefined' ? label : 'default'
+    if (timers[label]) {
+      return logEverywhere('warn', ['Timer "' + label + '" already exists'])
+    }
+
+    timers[label] = Date.now()
+    return
+  }
+
+  var oldTimeEnd = console.timeEnd
+
+  console.timeEnd = function(label) {
+    // log to the JS context
+    oldTimeEnd && oldTimeEnd.apply(this, arguments)
+
+    label = typeof label !== 'undefined' ? label : 'default'
+    if (!timers[label]) {
+      return logEverywhere('warn', ['Timer "' + label + '" does not exist'])
+    }
+
+    var duration = Date.now() - timers[label]
+    delete timers[label]
+    return logEverywhere('log', [label + ': ' + (duration / 1000) + 'ms'])
+  }
+
+  var oldLog = console.log
+
+  console.log = function() {
+    // log to the JS context
+    oldLog && oldLog.apply(this, arguments)
+    return logEverywhere('log', arguments)
+  }
+
+  var oldWarn = console.warn
+
+  console.warn = function() {
+    // log to the JS context
+    oldWarn && oldWarn.apply(this, arguments)
+    return logEverywhere('warn', arguments)
+  }
+
+  var oldError = console.error
+
+  console.error = function() {
+    // log to the JS context
+    oldError && oldError.apply(this, arguments)
+    return logEverywhere('error', arguments)
+  }
+
+  var oldAssert = console.assert
+
+  console.assert = function(condition, text) {
+    // log to the JS context
+    oldAssert && oldAssert.apply(this, arguments)
+    if (!condition) {
+      return logEverywhere('assert', [text])
+    }
+    return undefined
+  }
+
+  var oldInfo = console.info
+
+  console.info = function() {
+    // log to the JS context
+    oldInfo && oldInfo.apply(this, arguments)
+    return logEverywhere('info', arguments)
+  }
+
+  var oldClear = console.clear
+
+  console.clear = function() {
+    oldClear && oldClear()
+    if (true) {
+      return sketchDebugger.sendToDebugger(actions.CLEAR_LOGS)
+    }
+  }
+
+  console._skpmEnabled = true
+
+  // polyfill the global object
+  var commonjsGlobal = typeof global !== 'undefined' ? global : this
+
+  commonjsGlobal.console = console
+}
+
+module.exports = console
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(13)))
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1074,216 +1284,6 @@ function makeSvgLayer(layout, name, svg) {
   };
   return encodeSketchJSON(svgLayer);
 }
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(console, global) {/* globals log */
-if (!console._skpmEnabled) {
-  if (true) {
-    var sketchDebugger = __webpack_require__(48)
-    var actions = __webpack_require__(50)
-
-    function getStack() {
-      return sketchDebugger.prepareStackTrace(new Error().stack)
-    }
-  }
-
-  console._skpmPrefix = 'console> '
-
-  function logEverywhere(type, args) {
-    var values = Array.prototype.slice.call(args)
-
-    // log to the System logs
-    values.forEach(function(v) {
-      try {
-        log(console._skpmPrefix + indentString() + v)
-      } catch (e) {
-        log(v)
-      }
-    })
-
-    if (true) {
-      if (!sketchDebugger.isDebuggerPresent()) {
-        return
-      }
-
-      var payload = {
-        ts: Date.now(),
-        type: type,
-        plugin: String(context.scriptPath),
-        values: values.map(sketchDebugger.prepareValue),
-        stack: getStack(),
-      }
-
-      sketchDebugger.sendToDebugger(actions.ADD_LOG, payload)
-    }
-  }
-
-  var indentLevel = 0
-  function indentString() {
-    var indent = ''
-    for (var i = 0; i < indentLevel; i++) {
-      indent += '  '
-    }
-    if (indentLevel > 0) {
-      indent += '| '
-    }
-    return indent
-  }
-
-  var oldGroup = console.group
-
-  console.group = function() {
-    // log to the JS context
-    oldGroup && oldGroup.apply(this, arguments)
-    indentLevel += 1
-    if (true) {
-      sketchDebugger.sendToDebugger(actions.GROUP, {
-        plugin: String(context.scriptPath),
-        collapsed: false,
-      })
-    }
-  }
-
-  var oldGroupCollapsed = console.groupCollapsed
-
-  console.groupCollapsed = function() {
-    // log to the JS context
-    oldGroupCollapsed && oldGroupCollapsed.apply(this, arguments)
-    indentLevel += 1
-    if (true) {
-      sketchDebugger.sendToDebugger(actions.GROUP, {
-        plugin: String(context.scriptPath),
-        collapsed: true
-      })
-    }
-  }
-
-  var oldGroupEnd = console.groupEnd
-
-  console.groupEnd = function() {
-    // log to the JS context
-    oldGroupEnd && oldGroupEnd.apply(this, arguments)
-    indentLevel -= 1
-    if (indentLevel < 0) {
-      indentLevel = 0
-    }
-    if (true) {
-      sketchDebugger.sendToDebugger(actions.GROUP_END, {
-        plugin: context.scriptPath,
-      })
-    }
-  }
-
-  var counts = {}
-  var oldCount = console.count
-
-  console.count = function(label) {
-    label = typeof label !== 'undefined' ? label : 'Global'
-    counts[label] = (counts[label] || 0) + 1
-
-    // log to the JS context
-    oldCount && oldCount.apply(this, arguments)
-    return logEverywhere('log', [label + ': ' + counts[label]])
-  }
-
-  var timers = {}
-  var oldTime = console.time
-
-  console.time = function(label) {
-    // log to the JS context
-    oldTime && oldTime.apply(this, arguments)
-
-    label = typeof label !== 'undefined' ? label : 'default'
-    if (timers[label]) {
-      return logEverywhere('warn', ['Timer "' + label + '" already exists'])
-    }
-
-    timers[label] = Date.now()
-    return
-  }
-
-  var oldTimeEnd = console.timeEnd
-
-  console.timeEnd = function(label) {
-    // log to the JS context
-    oldTimeEnd && oldTimeEnd.apply(this, arguments)
-
-    label = typeof label !== 'undefined' ? label : 'default'
-    if (!timers[label]) {
-      return logEverywhere('warn', ['Timer "' + label + '" does not exist'])
-    }
-
-    var duration = Date.now() - timers[label]
-    delete timers[label]
-    return logEverywhere('log', [label + ': ' + (duration / 1000) + 'ms'])
-  }
-
-  var oldLog = console.log
-
-  console.log = function() {
-    // log to the JS context
-    oldLog && oldLog.apply(this, arguments)
-    return logEverywhere('log', arguments)
-  }
-
-  var oldWarn = console.warn
-
-  console.warn = function() {
-    // log to the JS context
-    oldWarn && oldWarn.apply(this, arguments)
-    return logEverywhere('warn', arguments)
-  }
-
-  var oldError = console.error
-
-  console.error = function() {
-    // log to the JS context
-    oldError && oldError.apply(this, arguments)
-    return logEverywhere('error', arguments)
-  }
-
-  var oldAssert = console.assert
-
-  console.assert = function(condition, text) {
-    // log to the JS context
-    oldAssert && oldAssert.apply(this, arguments)
-    if (!condition) {
-      return logEverywhere('assert', [text])
-    }
-    return undefined
-  }
-
-  var oldInfo = console.info
-
-  console.info = function() {
-    // log to the JS context
-    oldInfo && oldInfo.apply(this, arguments)
-    return logEverywhere('info', arguments)
-  }
-
-  var oldClear = console.clear
-
-  console.clear = function() {
-    oldClear && oldClear()
-    if (true) {
-      return sketchDebugger.sendToDebugger(actions.CLEAR_LOGS)
-    }
-  }
-
-  console._skpmEnabled = true
-
-  // polyfill the global object
-  var commonjsGlobal = typeof global !== 'undefined' ? global : this
-
-  commonjsGlobal.console = console
-}
-
-module.exports = console
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(13)))
 
 /***/ }),
 /* 6 */
@@ -1934,7 +1934,7 @@ if (true) {
 }
 
 module.exports = warning;
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
 /* 16 */
@@ -2574,7 +2574,7 @@ exports.makeShapeGroup = exports.makeRectShapeLayer = exports.makeShapePath = ex
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-var _hacksForJSONImpl = __webpack_require__(4);
+var _hacksForJSONImpl = __webpack_require__(5);
 
 var _models = __webpack_require__(3);
 
@@ -3747,7 +3747,7 @@ var _sharedTextStyles = __webpack_require__(81);
 
 var _sharedTextStyles2 = _interopRequireDefault(_sharedTextStyles);
 
-var _hacksForJSONImpl = __webpack_require__(4);
+var _hacksForJSONImpl = __webpack_require__(5);
 
 var _pick = __webpack_require__(24);
 
@@ -4425,132 +4425,56 @@ function requestJson() {
 }
 
 function renderImage(_ref) {
-  var href = _ref.style.href,
-      x = _ref.x,
-      y = _ref.y,
-      height = _ref.height,
-      width = _ref.width;
+  var style = _ref.style,
+      source = _ref.source,
+      children = _ref.children;
 
-  return _react2['default'].createElement(_reactSketchapp.Image, {
-    key: uniqueId(),
-    source: { uri: href },
-    style: {
-      position: 'absolute',
-      left: x,
-      top: y,
-      height: height,
-      width: width,
-      overflow: 'hidden'
-    }
-  });
+  return _react2['default'].createElement(
+    _reactSketchapp.Image,
+    { key: uniqueId(), style: style, source: { uri: source } },
+    children.map(renderLayer)
+  );
 }
 
 function renderText(_ref2) {
-  var name = _ref2.name,
-      x = _ref2.x,
-      y = _ref2.y,
-      text = _ref2.text,
-      _ref2$style = _ref2.style,
-      fontSize = _ref2$style.fontSize,
-      fontFamily = _ref2$style.fontFamily,
-      fontWeight = _ref2$style.fontWeight,
-      textTransform = _ref2$style.textTransform,
-      textDecoration = _ref2$style.textDecoration,
-      letterSpacing = _ref2$style.letterSpacing,
-      lineHeight = _ref2$style.lineHeight,
-      textAlign = _ref2$style.textAlign,
-      color = _ref2$style.color,
-      width = _ref2$style.width;
-
-  var style = {
-    position: 'absolute',
-    left: x,
-    top: y,
-    fontSize: fontSize,
-    fontFamily: fontFamily,
-    fontWeight: fontWeight,
-    textTransform: textTransform,
-    textDecoration: textDecoration,
-    letterSpacing: letterSpacing,
-    lineHeight: lineHeight,
-    textAlign: textAlign,
-    color: color,
-    width: width
-  };
-
-  // in sketch, text will be made larger if transformed to uppercase,
-  // but bounding box will not be made larger to accommodate
-  if (style.textTransform === 'uppercase') {
-    delete style.textTransform;
-    text = text.toUpperCase();
-  }
+  var style = _ref2.style,
+      children = _ref2.children;
 
   return _react2['default'].createElement(
     _reactSketchapp.Text,
-    {
-      key: uniqueId(),
-      name: name,
-      style: style
-    },
-    text
+    { key: uniqueId(), style: style },
+    children.map(renderLayer)
   );
 }
 
 function renderView(_ref3) {
-  var name = _ref3.name,
-      height = _ref3.height,
-      width = _ref3.width,
-      x = _ref3.x,
-      y = _ref3.y,
-      _ref3$style = _ref3.style,
-      display = _ref3$style.display,
-      boxShadow = _ref3$style.boxShadow,
-      borderRadius = _ref3$style.borderRadius,
-      backgroundColor = _ref3$style.backgroundColor,
-      _ref3$style$border = _ref3$style.border,
-      border = _ref3$style$border === undefined ? {} : _ref3$style$border,
-      opacity = _ref3$style.contextSettings.opacity;
+  var style = _ref3.style,
+      children = _ref3.children;
 
-  return _react2['default'].createElement(_reactSketchapp.View, {
-    key: uniqueId(),
-    name: name,
-    style: Object.assign({
-      position: 'absolute',
-      top: y,
-      left: x,
-      display: display
-    }, border, boxShadow, borderRadius, {
-      backgroundColor: backgroundColor,
-      opacity: opacity,
-      height: height,
-      width: width
-    })
-  });
+  return _react2['default'].createElement(
+    _reactSketchapp.View,
+    { key: uniqueId(), style: style },
+    children.map(renderLayer)
+  );
 }
 
 function renderLayer(layer) {
-  var result = [];
-  var _class = layer._class;
-  var href = layer.style.href;
-
-
-  if (href) {
-    result.push(renderImage(layer));
+  if (typeof layer === 'string') {
+    return layer;
   }
 
-  if (_class === 'text') {
-    result.push(renderText(layer));
-  } else {
-    result.push(renderView(layer));
+  var type = layer.type;
+
+
+  if (type === 'text') {
+    return renderText(layer);
+  } else if (type === 'image') {
+    return renderImage(layer);
+  } else if (type === 'view') {
+    return renderView(layer);
   }
 
-  layer.layers.reverse().map(renderLayer).reduce(function (sum, next) {
-    return sum.concat(next);
-  }, []).forEach(function (childLayer) {
-    return result.push(childLayer);
-  });
-
-  return result;
+  return null;
 }
 
 function removeExistingLayers(context) {
@@ -4574,15 +4498,17 @@ function Plugin(context) {
 
   removeExistingLayers(page);
 
-  var result = json.layers.reverse().map(function (layer) {
+  var newPage = json.pages[0];
+
+  var result = newPage.items.map(function (layer) {
     return renderLayer(layer);
   });
 
   (0, _reactSketchapp.render)(_react2['default'].createElement(
     _reactSketchapp.Artboard,
     { style: {
-        width: json.frame.width,
-        height: json.frame.height
+        width: 800,
+        height: 800
       } },
     result
   ), page);
@@ -4590,6 +4516,277 @@ function Plugin(context) {
 
 /***/ }),
 /* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign, no-var, vars-on-top, prefer-template, prefer-arrow-callback, func-names, prefer-destructuring, object-shorthand */
+var remoteWebview = __webpack_require__(48)
+
+module.exports.identifier = 'skpm.debugger'
+
+function toArray(object) {
+  if (Array.isArray(object)) {
+    return object
+  }
+  var arr = []
+  for (var j = 0; j < object.count(); j += 1) {
+    arr.push(object.objectAtIndex(j))
+  }
+  return arr
+}
+
+module.exports.prepareStackTrace = function(stackTrace) {
+  var stack = stackTrace.split('\n')
+  stack = stack.map(function(s) {
+    return s.replace(/\sg/, '')
+  })
+
+  // pop the last 2 frames as it's ours here
+  stack.splice(0, 2)
+
+  stack = stack.map(function(entry) {
+    var line = null
+    var column = null
+    var file = null
+    var split = entry.split('@')
+    var fn = split[0]
+    var filePath = split[1]
+
+    if (filePath) {
+      split = filePath.split(':')
+      filePath = split[0]
+      line = split[1]
+      column = split[2]
+      file = filePath.split('/')
+      file = file[file.length - 1]
+    }
+    return {
+      fn: fn,
+      file: file,
+      filePath: filePath,
+      line: line,
+      column: column,
+    }
+  })
+
+  return stack
+}
+
+function prepareArray(array, skipMocha) {
+  return array.map(function(i) {
+    return module.exports.prepareValue(i, skipMocha)
+  })
+}
+
+module.exports.prepareObject = function(object, skipMocha) {
+  const deep = {}
+  Object.keys(object).forEach(function(key) {
+    deep[key] = module.exports.prepareValue(object[key], skipMocha)
+  })
+  return deep
+}
+
+function getName(x) {
+  return {
+    type: 'String',
+    primitive: 'String',
+    value: String(x.name()),
+  }
+}
+
+function getSelector(x) {
+  return {
+    type: 'String',
+    primitive: 'String',
+    value: String(x.selector()),
+  }
+}
+
+function introspectMochaObject(value) {
+  var mocha = value.class().mocha()
+  var introspection = {
+    properties: {
+      type: 'Array',
+      primitive: 'Array',
+      value: toArray(mocha.propertiesWithAncestors()).map(getName),
+    },
+    classMethods: {
+      type: 'Array',
+      primitive: 'Array',
+      value: toArray(mocha.classMethodsWithAncestors()).map(getSelector),
+    },
+    instanceMethods: {
+      type: 'Array',
+      primitive: 'Array',
+      value: toArray(mocha.instanceMethodsWithAncestors()).map(getSelector),
+    },
+    protocols: {
+      type: 'Array',
+      primitive: 'Array',
+      value: toArray(mocha.protocolsWithAncestors()).map(getName),
+    },
+  }
+  // if (mocha.treeAsDictionary) {
+  //   introspection.treeAsDictionary = mocha.treeAsDictionary()
+  // }
+  return introspection
+}
+
+module.exports.prepareValue = function prepareValue(value, skipMocha) {
+  var type = 'String'
+  var primitive = 'String'
+  const typeOf = typeof value
+  if (value instanceof Error) {
+    type = 'Error'
+    primitive = 'Error'
+    value = {
+      message: value.message,
+      name: value.name,
+      stack: module.exports.prepareStackTrace(value.stack),
+    }
+  } else if (Array.isArray(value)) {
+    type = 'Array'
+    primitive = 'Array'
+    value = prepareArray(value, skipMocha)
+  } else if (value === null || value === undefined || Number.isNaN(value)) {
+    type = 'Empty'
+    primitive = 'Empty'
+    value = String(value)
+  } else if (typeOf === 'object') {
+    if (value.isKindOfClass && typeof value.class === 'function') {
+      type = String(value.class())
+      // TODO: Here could come some meta data saved as value
+      if (
+        type === 'NSDictionary' ||
+        type === '__NSDictionaryM' ||
+        type === '__NSSingleEntryDictionaryI' ||
+        type === '__NSDictionaryI' ||
+        type === '__NSCFDictionary'
+      ) {
+        primitive = 'Object'
+        value = module.exports.prepareObject(Object(value), skipMocha)
+      } else if (
+        type === 'NSArray' ||
+        type === 'NSMutableArray' ||
+        type === '__NSArrayM' ||
+        type === '__NSSingleObjectArrayI' ||
+        type === '__NSArray0'
+      ) {
+        primitive = 'Array'
+        value = prepareArray(toArray(value), skipMocha)
+      } else if (
+        type === 'NSString' ||
+        type === '__NSCFString' ||
+        type === 'NSTaggedPointerString' ||
+        type === '__NSCFConstantString'
+      ) {
+        primitive = 'String'
+        value = String(value)
+      } else if (type === '__NSCFNumber' || type === 'NSNumber') {
+        primitive = 'Number'
+        value = 0 + value
+      } else if (type === 'MOStruct') {
+        type = String(value.name())
+        primitive = 'Object'
+        value = value.memberNames().reduce(function(prev, k) {
+          prev[k] = module.exports.prepareValue(value[k], skipMocha)
+          return prev
+        }, {})
+      } else if (value.class().mocha && !skipMocha) {
+        primitive = 'Mocha'
+        value = introspectMochaObject(value)
+      } else {
+        primitive = 'Unknown'
+        value = type
+      }
+    } else {
+      type = 'Object'
+      primitive = 'Object'
+      value = module.exports.prepareObject(value, skipMocha)
+    }
+  } else if (typeOf === 'function') {
+    type = 'Function'
+    primitive = 'Function'
+    value = String(value)
+  } else if (value === true || value === false) {
+    type = 'Boolean'
+    primitive = 'Boolean'
+  } else if (typeOf === 'number') {
+    primitive = 'Number'
+    type = 'Number'
+  }
+
+  return {
+    value,
+    type,
+    primitive,
+  }
+}
+
+module.exports.isDebuggerPresent = remoteWebview.isWebviewPresent.bind(
+  this,
+  module.exports.identifier
+)
+
+module.exports.sendToDebugger = function sendToDebugger(name, payload) {
+  return remoteWebview.sendToWebview(
+    module.exports.identifier,
+    'sketchBridge(' +
+      JSON.stringify({
+        name: name,
+        payload: payload,
+      }) +
+      ');'
+  )
+}
+
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports) {
+
+/* globals NSThread */
+
+var threadDictionary = NSThread.mainThread().threadDictionary()
+
+module.exports.isWebviewPresent = function isWebviewPresent (identifier) {
+  return !!threadDictionary[identifier]
+}
+
+module.exports.sendToWebview = function sendToWebview (identifier, evalString) {
+  if (!module.exports.isWebviewPresent(identifier)) {
+    throw new Error('Webview ' + identifier + ' not found')
+  }
+
+  var webview = threadDictionary[identifier]
+    .contentView()
+    .subviews()
+  webview = webview[webview.length - 1]
+
+  return webview.stringByEvaluatingJavaScriptFromString(evalString)
+}
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports) {
+
+module.exports.SET_TREE = 'elements/SET_TREE'
+module.exports.SET_PAGE_METADATA = 'elements/SET_PAGE_METADATA'
+module.exports.SET_LAYER_METADATA = 'elements/SET_LAYER_METADATA'
+module.exports.ADD_LOG = 'logs/ADD_LOG'
+module.exports.CLEAR_LOGS = 'logs/CLEAR_LOGS'
+module.exports.GROUP = 'logs/GROUP'
+module.exports.GROUP_END = 'logs/GROUP_END'
+module.exports.TIMER_START = 'logs/TIMER_START'
+module.exports.TIMER_END = 'logs/TIMER_END'
+module.exports.ADD_REQUEST = 'network/ADD_REQUEST'
+module.exports.SET_RESPONSE = 'network/SET_RESPONSE'
+module.exports.ADD_ACTION = 'actions/ADD_ACTION'
+module.exports.SET_SCRIPT_RESULT = 'playground/SET_SCRIPT_RESULT'
+
+
+/***/ }),
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5951,278 +6148,7 @@ module.exports = react;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
-
-/***/ }),
-/* 48 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign, no-var, vars-on-top, prefer-template, prefer-arrow-callback, func-names, prefer-destructuring, object-shorthand */
-var remoteWebview = __webpack_require__(49)
-
-module.exports.identifier = 'skpm.debugger'
-
-function toArray(object) {
-  if (Array.isArray(object)) {
-    return object
-  }
-  var arr = []
-  for (var j = 0; j < object.count(); j += 1) {
-    arr.push(object.objectAtIndex(j))
-  }
-  return arr
-}
-
-module.exports.prepareStackTrace = function(stackTrace) {
-  var stack = stackTrace.split('\n')
-  stack = stack.map(function(s) {
-    return s.replace(/\sg/, '')
-  })
-
-  // pop the last 2 frames as it's ours here
-  stack.splice(0, 2)
-
-  stack = stack.map(function(entry) {
-    var line = null
-    var column = null
-    var file = null
-    var split = entry.split('@')
-    var fn = split[0]
-    var filePath = split[1]
-
-    if (filePath) {
-      split = filePath.split(':')
-      filePath = split[0]
-      line = split[1]
-      column = split[2]
-      file = filePath.split('/')
-      file = file[file.length - 1]
-    }
-    return {
-      fn: fn,
-      file: file,
-      filePath: filePath,
-      line: line,
-      column: column,
-    }
-  })
-
-  return stack
-}
-
-function prepareArray(array, skipMocha) {
-  return array.map(function(i) {
-    return module.exports.prepareValue(i, skipMocha)
-  })
-}
-
-module.exports.prepareObject = function(object, skipMocha) {
-  const deep = {}
-  Object.keys(object).forEach(function(key) {
-    deep[key] = module.exports.prepareValue(object[key], skipMocha)
-  })
-  return deep
-}
-
-function getName(x) {
-  return {
-    type: 'String',
-    primitive: 'String',
-    value: String(x.name()),
-  }
-}
-
-function getSelector(x) {
-  return {
-    type: 'String',
-    primitive: 'String',
-    value: String(x.selector()),
-  }
-}
-
-function introspectMochaObject(value) {
-  var mocha = value.class().mocha()
-  var introspection = {
-    properties: {
-      type: 'Array',
-      primitive: 'Array',
-      value: toArray(mocha.propertiesWithAncestors()).map(getName),
-    },
-    classMethods: {
-      type: 'Array',
-      primitive: 'Array',
-      value: toArray(mocha.classMethodsWithAncestors()).map(getSelector),
-    },
-    instanceMethods: {
-      type: 'Array',
-      primitive: 'Array',
-      value: toArray(mocha.instanceMethodsWithAncestors()).map(getSelector),
-    },
-    protocols: {
-      type: 'Array',
-      primitive: 'Array',
-      value: toArray(mocha.protocolsWithAncestors()).map(getName),
-    },
-  }
-  // if (mocha.treeAsDictionary) {
-  //   introspection.treeAsDictionary = mocha.treeAsDictionary()
-  // }
-  return introspection
-}
-
-module.exports.prepareValue = function prepareValue(value, skipMocha) {
-  var type = 'String'
-  var primitive = 'String'
-  const typeOf = typeof value
-  if (value instanceof Error) {
-    type = 'Error'
-    primitive = 'Error'
-    value = {
-      message: value.message,
-      name: value.name,
-      stack: module.exports.prepareStackTrace(value.stack),
-    }
-  } else if (Array.isArray(value)) {
-    type = 'Array'
-    primitive = 'Array'
-    value = prepareArray(value, skipMocha)
-  } else if (value === null || value === undefined || Number.isNaN(value)) {
-    type = 'Empty'
-    primitive = 'Empty'
-    value = String(value)
-  } else if (typeOf === 'object') {
-    if (value.isKindOfClass && typeof value.class === 'function') {
-      type = String(value.class())
-      // TODO: Here could come some meta data saved as value
-      if (
-        type === 'NSDictionary' ||
-        type === '__NSDictionaryM' ||
-        type === '__NSSingleEntryDictionaryI' ||
-        type === '__NSDictionaryI' ||
-        type === '__NSCFDictionary'
-      ) {
-        primitive = 'Object'
-        value = module.exports.prepareObject(Object(value), skipMocha)
-      } else if (
-        type === 'NSArray' ||
-        type === 'NSMutableArray' ||
-        type === '__NSArrayM' ||
-        type === '__NSSingleObjectArrayI' ||
-        type === '__NSArray0'
-      ) {
-        primitive = 'Array'
-        value = prepareArray(toArray(value), skipMocha)
-      } else if (
-        type === 'NSString' ||
-        type === '__NSCFString' ||
-        type === 'NSTaggedPointerString' ||
-        type === '__NSCFConstantString'
-      ) {
-        primitive = 'String'
-        value = String(value)
-      } else if (type === '__NSCFNumber' || type === 'NSNumber') {
-        primitive = 'Number'
-        value = 0 + value
-      } else if (type === 'MOStruct') {
-        type = String(value.name())
-        primitive = 'Object'
-        value = value.memberNames().reduce(function(prev, k) {
-          prev[k] = module.exports.prepareValue(value[k], skipMocha)
-          return prev
-        }, {})
-      } else if (value.class().mocha && !skipMocha) {
-        primitive = 'Mocha'
-        value = introspectMochaObject(value)
-      } else {
-        primitive = 'Unknown'
-        value = type
-      }
-    } else {
-      type = 'Object'
-      primitive = 'Object'
-      value = module.exports.prepareObject(value, skipMocha)
-    }
-  } else if (typeOf === 'function') {
-    type = 'Function'
-    primitive = 'Function'
-    value = String(value)
-  } else if (value === true || value === false) {
-    type = 'Boolean'
-    primitive = 'Boolean'
-  } else if (typeOf === 'number') {
-    primitive = 'Number'
-    type = 'Number'
-  }
-
-  return {
-    value,
-    type,
-    primitive,
-  }
-}
-
-module.exports.isDebuggerPresent = remoteWebview.isWebviewPresent.bind(
-  this,
-  module.exports.identifier
-)
-
-module.exports.sendToDebugger = function sendToDebugger(name, payload) {
-  return remoteWebview.sendToWebview(
-    module.exports.identifier,
-    'sketchBridge(' +
-      JSON.stringify({
-        name: name,
-        payload: payload,
-      }) +
-      ');'
-  )
-}
-
-
-/***/ }),
-/* 49 */
-/***/ (function(module, exports) {
-
-/* globals NSThread */
-
-var threadDictionary = NSThread.mainThread().threadDictionary()
-
-module.exports.isWebviewPresent = function isWebviewPresent (identifier) {
-  return !!threadDictionary[identifier]
-}
-
-module.exports.sendToWebview = function sendToWebview (identifier, evalString) {
-  if (!module.exports.isWebviewPresent(identifier)) {
-    throw new Error('Webview ' + identifier + ' not found')
-  }
-
-  var webview = threadDictionary[identifier]
-    .contentView()
-    .subviews()
-  webview = webview[webview.length - 1]
-
-  return webview.stringByEvaluatingJavaScriptFromString(evalString)
-}
-
-
-/***/ }),
-/* 50 */
-/***/ (function(module, exports) {
-
-module.exports.SET_TREE = 'elements/SET_TREE'
-module.exports.SET_PAGE_METADATA = 'elements/SET_PAGE_METADATA'
-module.exports.SET_LAYER_METADATA = 'elements/SET_LAYER_METADATA'
-module.exports.ADD_LOG = 'logs/ADD_LOG'
-module.exports.CLEAR_LOGS = 'logs/CLEAR_LOGS'
-module.exports.GROUP = 'logs/GROUP'
-module.exports.GROUP_END = 'logs/GROUP_END'
-module.exports.TIMER_START = 'logs/TIMER_START'
-module.exports.TIMER_END = 'logs/TIMER_END'
-module.exports.ADD_REQUEST = 'network/ADD_REQUEST'
-module.exports.SET_RESPONSE = 'network/SET_RESPONSE'
-module.exports.ADD_ACTION = 'actions/ADD_ACTION'
-module.exports.SET_SCRIPT_RESULT = 'playground/SET_SCRIPT_RESULT'
-
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
 /* 51 */
@@ -14035,7 +13961,7 @@ module.exports = reactTestRenderer;
   })();
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5), __webpack_require__(10)["setTimeout"], __webpack_require__(10)["clearTimeout"]))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(10)["setTimeout"], __webpack_require__(10)["clearTimeout"]))
 
 /***/ }),
 /* 54 */
@@ -24691,7 +24617,7 @@ module.exports = shallowEqual;
   }run();
 });
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(56), "/", __webpack_require__(5), __webpack_require__(32)["clearInterval"], __webpack_require__(10)["setTimeout"], __webpack_require__(32)["setInterval"], __webpack_require__(57).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(56), "/", __webpack_require__(4), __webpack_require__(32)["clearInterval"], __webpack_require__(10)["setTimeout"], __webpack_require__(32)["setInterval"], __webpack_require__(57).Buffer))
 
 /***/ }),
 /* 56 */
@@ -27726,7 +27652,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _hacksForJSONImpl = __webpack_require__(4);
+var _hacksForJSONImpl = __webpack_require__(5);
 
 // TODO(lmr): do something more sensible here
 var FLOAT_MAX = 999999;
@@ -28995,7 +28921,7 @@ module.exports = function(isValidElement, throwOnDirectAccess) {
   return ReactPropTypes;
 };
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
 /* 73 */
@@ -29214,7 +29140,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _hacksForJSONImpl = __webpack_require__(4);
+var _hacksForJSONImpl = __webpack_require__(5);
 
 var _models = __webpack_require__(3);
 
@@ -29276,7 +29202,7 @@ var _SketchRenderer2 = __webpack_require__(8);
 
 var _SketchRenderer3 = _interopRequireDefault(_SketchRenderer2);
 
-var _hacksForJSONImpl = __webpack_require__(4);
+var _hacksForJSONImpl = __webpack_require__(5);
 
 var _models = __webpack_require__(3);
 
@@ -29483,7 +29409,7 @@ var _ViewRenderer2 = __webpack_require__(38);
 
 var _ViewRenderer3 = _interopRequireDefault(_ViewRenderer2);
 
-var _hacksForJSONImpl = __webpack_require__(4);
+var _hacksForJSONImpl = __webpack_require__(5);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -29672,7 +29598,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _hacksForJSONImpl = __webpack_require__(4);
+var _hacksForJSONImpl = __webpack_require__(5);
 
 var _models = __webpack_require__(3);
 
@@ -29795,7 +29721,7 @@ var _models = __webpack_require__(3);
 
 var _symbol = __webpack_require__(17);
 
-var _hacksForJSONImpl = __webpack_require__(4);
+var _hacksForJSONImpl = __webpack_require__(5);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -31784,7 +31710,7 @@ module.exports = (_temp = _class = function (_React$Component) {
 
   return TextPath;
 }(_react2.default.Component), _class.propTypes = _props2.textPathProps, _temp);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
 /* 110 */
@@ -31932,7 +31858,7 @@ module.exports = (_temp = _class = function (_React$Component) {
   href: _propTypes2.default.string.isRequired,
   width: _props2.numberProp, // Just for reusing `Symbol`
   height: _props2.numberProp }, _props2.pathProps), _temp);
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ }),
 /* 112 */
@@ -31941,7 +31867,15 @@ module.exports = (_temp = _class = function (_React$Component) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = test = { "_class": "page", "do_objectID": "c7481620-520a-451e-8c5d-f274c8f4c6f3", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "Test Page", "nameIsFixed": false, "resizingConstraint": 63, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "_class": "style", "endDecorationType": 0, "miterLimit": 10, "startDecorationType": 0 }, "layers": [{ "_class": "text", "do_objectID": "8214a234-efcd-4c96-b496-f78dc3d64d8d", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "Shadow", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 24, "fontFamily": "Times", "fontWeight": 700, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 82 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 28, "width": 81.375, "x": 8, "y": 19.90625 }, "text": "Shadow", "x": 8, "y": 19.90625, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "shapeGroup", "do_objectID": "8eed9e38-57b2-42f8-8556-1083a02e3520", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "/html[1]/body[1]/div[@class=\"shadow\"]", "nameIsFixed": false, "resizingConstraint": 63, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "_class": "style", "fills": [{ "_class": "fill", "isEnabled": true, "color": { "_class": "color", "red": 0.5019607843137255, "green": 0.5019607843137255, "blue": 0.5019607843137255, "alpha": 1 }, "fillType": 0, "noiseIndex": 0, "noiseIntensity": 0, "patternFillType": 1, "patternTileScale": 1 }], "borders": [], "shadows": [], "innerShadows": [], "endDecorationType": 0, "miterLimit": 10, "startDecorationType": 0, "contextSettings": { "_class": "graphicsContextSettings", "blendMode": 0, "opacity": "1" }, "display": "block", "alignItems": "normal", "justifyContent": "normal", "backgroundColor": "rgb(128, 128, 128)", "boxShadow": { "shadowOffset": { "offsetX": "0", "offsetY": "0" }, "shadowRadius": "5", "shadowSpread": "2", "shadowColor": "rgb(0, 0, 0)" }, "borderRadius": { "borderTopLeftRadius": "0px", "borderTopRightRadius": "0px", "borderBottomLeftRadius": "0px", "borderBottomRightRadius": "0px" }, "border": { "borderTopColor": "rgb(0, 0, 0)", "borderTopWidth": 0, "borderRightColor": "rgb(0, 0, 0)", "borderRightWidth": 0, "borderBottomColor": "rgb(0, 0, 0)", "borderBottomWidth": 0, "borderLeftColor": "rgb(0, 0, 0)", "borderLeftWidth": 0 } }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 100, "width": 100, "x": 8, "y": 67.8125 }, "x": 8, "y": 67.8125, "height": 100, "width": 100, "hasClickThrough": false, "clippingMaskMode": 0, "hasClippingMask": false, "windingRule": 1 }, { "_class": "text", "do_objectID": "609cebe8-2916-4d5b-933f-2eee267c549d", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "box shadow", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 16, "fontFamily": "Times", "fontWeight": 400, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 77 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 18, "width": 76.875, "x": 8, "y": 67.8125 }, "text": "box shadow", "x": 8, "y": 67.8125, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "text", "do_objectID": "620fd6ae-7426-4cb9-9d14-42d68fb12f46", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "text shadow", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 20, "fontFamily": "Times", "fontWeight": 400, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 97 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 23, "width": 96.09375, "x": 8, "y": 167.8125 }, "text": "text shadow", "x": 8, "y": 167.8125, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "text", "do_objectID": "2dcd6980-3012-4988-bd26-98481d4ca84f", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "Image", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 24, "fontFamily": "Times", "fontWeight": 700, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 64 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 28, "width": 63.984375, "x": 8, "y": 210.71875 }, "text": "Image", "x": 8, "y": 210.71875, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "shapeGroup", "do_objectID": "c4761f6a-db0f-47e7-9651-61f2c23256c2", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "/html[1]/body[1]/img[@class=\"image\"]", "nameIsFixed": false, "resizingConstraint": 12, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "_class": "style", "fills": [{ "_class": "fill", "isEnabled": true, "color": { "_class": "color", "red": 0, "green": 0, "blue": 0, "alpha": 0 }, "fillType": 0, "noiseIndex": 0, "noiseIntensity": 0, "patternFillType": 1, "patternTileScale": 1 }], "borders": [], "shadows": [], "innerShadows": [], "endDecorationType": 0, "miterLimit": 10, "startDecorationType": 0, "contextSettings": { "_class": "graphicsContextSettings", "blendMode": 0, "opacity": "1" }, "href": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Collage_of_Nine_Dogs.jpg", "display": "inline", "alignItems": "normal", "justifyContent": "normal", "backgroundColor": "rgba(0, 0, 0, 0)", "borderRadius": { "borderTopLeftRadius": "0px", "borderTopRightRadius": "0px", "borderBottomLeftRadius": "0px", "borderBottomRightRadius": "0px" }, "border": { "borderTopColor": "rgb(0, 0, 0)", "borderTopWidth": 0, "borderRightColor": "rgb(0, 0, 0)", "borderRightWidth": 0, "borderBottomColor": "rgb(0, 0, 0)", "borderBottomWidth": 0, "borderLeftColor": "rgb(0, 0, 0)", "borderLeftWidth": 0 } }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 263.59375, "width": 300, "x": 8, "y": 258.625 }, "x": 8, "y": 258.625, "height": 263.59375, "width": 300, "hasClickThrough": false, "clippingMaskMode": 0, "hasClippingMask": false, "windingRule": 1 }, { "_class": "shapeGroup", "do_objectID": "c690d9e8-b56c-4b01-b31b-c862301aa988", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "/html[1]/body[1]/img[@class=\"image\"]", "nameIsFixed": false, "resizingConstraint": 12, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "_class": "style", "fills": [{ "_class": "fill", "isEnabled": true, "color": { "_class": "color", "red": 0, "green": 0, "blue": 0, "alpha": 0 }, "fillType": 0, "noiseIndex": 0, "noiseIntensity": 0, "patternFillType": 1, "patternTileScale": 1 }], "borders": [], "shadows": [], "innerShadows": [], "endDecorationType": 0, "miterLimit": 10, "startDecorationType": 0, "contextSettings": { "_class": "graphicsContextSettings", "blendMode": 0, "opacity": "1" }, "href": "https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png", "display": "inline", "alignItems": "normal", "justifyContent": "normal", "backgroundColor": "rgba(0, 0, 0, 0)", "borderRadius": { "borderTopLeftRadius": "0px", "borderTopRightRadius": "0px", "borderBottomLeftRadius": "0px", "borderBottomRightRadius": "0px" }, "border": { "borderTopColor": "rgb(0, 0, 0)", "borderTopWidth": 0, "borderRightColor": "rgb(0, 0, 0)", "borderRightWidth": 0, "borderBottomColor": "rgb(0, 0, 0)", "borderBottomWidth": 0, "borderLeftColor": "rgb(0, 0, 0)", "borderLeftWidth": 0 } }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 225, "width": 300, "x": 8, "y": 526.21875 }, "x": 8, "y": 526.21875, "height": 225, "width": 300, "hasClickThrough": false, "clippingMaskMode": 0, "hasClippingMask": false, "windingRule": 1 }, { "_class": "text", "do_objectID": "8bf90e17-1e33-4452-9717-94eb1aa5402e", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "Border", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 24, "fontFamily": "Times", "fontWeight": 700, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 74 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 28, "width": 73.3125, "x": 8, "y": 775.125 }, "text": "Border", "x": 8, "y": 775.125, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "shapeGroup", "do_objectID": "5d3991f2-fc1e-4640-82cc-494f9b5c3547", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "/html[1]/body[1]/div[@class=\"border\"]", "nameIsFixed": false, "resizingConstraint": 63, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "_class": "style", "fills": [{ "_class": "fill", "isEnabled": true, "color": { "_class": "color", "red": 0, "green": 0, "blue": 0, "alpha": 0 }, "fillType": 0, "noiseIndex": 0, "noiseIntensity": 0, "patternFillType": 1, "patternTileScale": 1 }], "borders": [], "shadows": [], "innerShadows": [], "endDecorationType": 0, "miterLimit": 10, "startDecorationType": 0, "contextSettings": { "_class": "graphicsContextSettings", "blendMode": 0, "opacity": "1" }, "display": "block", "alignItems": "normal", "justifyContent": "normal", "backgroundColor": "rgba(0, 0, 0, 0)", "borderRadius": { "borderTopLeftRadius": "0px", "borderTopRightRadius": "0px", "borderBottomLeftRadius": "0px", "borderBottomRightRadius": "0px" }, "border": { "borderTopColor": "rgb(255, 0, 0)", "borderTopWidth": 2, "borderRightColor": "rgb(255, 0, 0)", "borderRightWidth": 2, "borderBottomColor": "rgb(255, 0, 0)", "borderBottomWidth": 2, "borderLeftColor": "rgb(255, 0, 0)", "borderLeftWidth": 2 } }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 104, "width": 104, "x": 8, "y": 823.03125 }, "x": 8, "y": 823.03125, "height": 104, "width": 104, "hasClickThrough": false, "clippingMaskMode": 0, "hasClippingMask": false, "windingRule": 1 }, { "_class": "text", "do_objectID": "a0a41849-5cd3-43b4-888f-05e2f2359b2d", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "border", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 16, "fontFamily": "Times", "fontWeight": 400, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 42 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 18, "width": 41.75, "x": 10, "y": 825.03125 }, "text": "border", "x": 10, "y": 825.03125, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "shapeGroup", "do_objectID": "98236b1b-6591-43b6-8ee0-b3a2be660c95", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "/html[1]/body[1]/div[@class=\"border border1\"]", "nameIsFixed": false, "resizingConstraint": 63, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "_class": "style", "fills": [{ "_class": "fill", "isEnabled": true, "color": { "_class": "color", "red": 0, "green": 0, "blue": 0, "alpha": 0 }, "fillType": 0, "noiseIndex": 0, "noiseIntensity": 0, "patternFillType": 1, "patternTileScale": 1 }], "borders": [], "shadows": [], "innerShadows": [], "endDecorationType": 0, "miterLimit": 10, "startDecorationType": 0, "contextSettings": { "_class": "graphicsContextSettings", "blendMode": 0, "opacity": "1" }, "display": "block", "alignItems": "normal", "justifyContent": "normal", "backgroundColor": "rgba(0, 0, 0, 0)", "borderRadius": { "borderTopLeftRadius": "0px", "borderTopRightRadius": "0px", "borderBottomLeftRadius": "0px", "borderBottomRightRadius": "0px" }, "border": { "borderTopColor": "rgb(0, 0, 255)", "borderTopWidth": 4, "borderRightColor": "rgb(0, 0, 255)", "borderRightWidth": 4, "borderBottomColor": "rgb(0, 0, 255)", "borderBottomWidth": 4, "borderLeftColor": "rgb(0, 0, 255)", "borderLeftWidth": 4 } }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 108, "width": 108, "x": 8, "y": 927.03125 }, "x": 8, "y": 927.03125, "height": 108, "width": 108, "hasClickThrough": false, "clippingMaskMode": 0, "hasClippingMask": false, "windingRule": 1 }, { "_class": "text", "do_objectID": "966a5cae-fb73-4519-8e3a-36b7611767f3", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "border", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 16, "fontFamily": "Times", "fontWeight": 400, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 42 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 18, "width": 41.75, "x": 12, "y": 931.03125 }, "text": "border", "x": 12, "y": 931.03125, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "shapeGroup", "do_objectID": "2abef544-b9eb-4c6f-8593-68b1b995ee8c", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "/html[1]/body[1]/div[@class=\"border border-radius\"]", "nameIsFixed": false, "resizingConstraint": 63, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "_class": "style", "fills": [{ "_class": "fill", "isEnabled": true, "color": { "_class": "color", "red": 0, "green": 0, "blue": 0, "alpha": 0 }, "fillType": 0, "noiseIndex": 0, "noiseIntensity": 0, "patternFillType": 1, "patternTileScale": 1 }], "borders": [], "shadows": [], "innerShadows": [], "endDecorationType": 0, "miterLimit": 10, "startDecorationType": 0, "contextSettings": { "_class": "graphicsContextSettings", "blendMode": 0, "opacity": "1" }, "display": "block", "alignItems": "normal", "justifyContent": "normal", "backgroundColor": "rgba(0, 0, 0, 0)", "borderRadius": { "borderTopLeftRadius": "50%", "borderTopRightRadius": "50%", "borderBottomLeftRadius": "50%", "borderBottomRightRadius": "50%" }, "border": { "borderTopColor": "rgb(255, 0, 0)", "borderTopWidth": 2, "borderRightColor": "rgb(255, 0, 0)", "borderRightWidth": 2, "borderBottomColor": "rgb(255, 0, 0)", "borderBottomWidth": 2, "borderLeftColor": "rgb(255, 0, 0)", "borderLeftWidth": 2 } }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 104, "width": 104, "x": 8, "y": 1035.03125 }, "x": 8, "y": 1035.03125, "height": 104, "width": 104, "hasClickThrough": false, "clippingMaskMode": 0, "hasClippingMask": false, "windingRule": 1 }, { "_class": "text", "do_objectID": "518ac122-a3ef-429a-852a-9c3d0191d121", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "border radius", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 16, "fontFamily": "Times", "fontWeight": 400, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 85 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 18, "width": 84.859375, "x": 10, "y": 1037.03125 }, "text": "border radius", "x": 10, "y": 1037.03125, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "shapeGroup", "do_objectID": "eb87faf5-78d3-430c-a437-fc81dc070683", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "/html[1]/body[1]/div[@class=\"border border-radius2\"]", "nameIsFixed": false, "resizingConstraint": 63, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "_class": "style", "fills": [{ "_class": "fill", "isEnabled": true, "color": { "_class": "color", "red": 0, "green": 0, "blue": 0, "alpha": 0 }, "fillType": 0, "noiseIndex": 0, "noiseIntensity": 0, "patternFillType": 1, "patternTileScale": 1 }], "borders": [], "shadows": [], "innerShadows": [], "endDecorationType": 0, "miterLimit": 10, "startDecorationType": 0, "contextSettings": { "_class": "graphicsContextSettings", "blendMode": 0, "opacity": "1" }, "display": "block", "alignItems": "normal", "justifyContent": "normal", "backgroundColor": "rgba(0, 0, 0, 0)", "borderRadius": { "borderTopLeftRadius": "10px", "borderTopRightRadius": "10px", "borderBottomLeftRadius": "10px", "borderBottomRightRadius": "10px" }, "border": { "borderTopColor": "rgb(255, 0, 0)", "borderTopWidth": 2, "borderRightColor": "rgb(255, 0, 0)", "borderRightWidth": 2, "borderBottomColor": "rgb(255, 0, 0)", "borderBottomWidth": 2, "borderLeftColor": "rgb(255, 0, 0)", "borderLeftWidth": 2 } }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 104, "width": 104, "x": 8, "y": 1139.03125 }, "x": 8, "y": 1139.03125, "height": 104, "width": 104, "hasClickThrough": false, "clippingMaskMode": 0, "hasClippingMask": false, "windingRule": 1 }, { "_class": "text", "do_objectID": "60a53a31-a543-4a5a-8ac1-c661af7e4aaa", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "border radius", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 16, "fontFamily": "Times", "fontWeight": 400, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 85 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 18, "width": 84.859375, "x": 10, "y": 1141.03125 }, "text": "border radius", "x": 10, "y": 1141.03125, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "text", "do_objectID": "7ee49a8d-a63e-4262-b801-db10782eeeec", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "Background", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 24, "fontFamily": "Times", "fontWeight": 700, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 127 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 28, "width": 126.28125, "x": 8, "y": 1262.9375 }, "text": "Background", "x": 8, "y": 1262.9375, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "shapeGroup", "do_objectID": "14aa2ad2-792a-4206-be5f-8cd227eb6366", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "/html[1]/body[1]/div[@class=\"bg-image\"]", "nameIsFixed": false, "resizingConstraint": 63, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "_class": "style", "fills": [{ "_class": "fill", "isEnabled": true, "color": { "_class": "color", "red": 0, "green": 0, "blue": 0, "alpha": 0 }, "fillType": 0, "noiseIndex": 0, "noiseIntensity": 0, "patternFillType": 1, "patternTileScale": 1 }], "borders": [], "shadows": [], "innerShadows": [], "endDecorationType": 0, "miterLimit": 10, "startDecorationType": 0, "contextSettings": { "_class": "graphicsContextSettings", "blendMode": 0, "opacity": "1" }, "href": "https://upload.wikimedia.org/wikipedia/commons/4/47/PNG_transparency_demonstration_1.png", "display": "block", "alignItems": "normal", "justifyContent": "normal", "backgroundColor": "rgba(0, 0, 0, 0)", "borderRadius": { "borderTopLeftRadius": "0px", "borderTopRightRadius": "0px", "borderBottomLeftRadius": "0px", "borderBottomRightRadius": "0px" }, "border": { "borderTopColor": "rgb(0, 0, 0)", "borderTopWidth": 0, "borderRightColor": "rgb(0, 0, 0)", "borderRightWidth": 0, "borderBottomColor": "rgb(0, 0, 0)", "borderBottomWidth": 0, "borderLeftColor": "rgb(0, 0, 0)", "borderLeftWidth": 0 } }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 200, "width": 200, "x": 8, "y": 1310.84375 }, "x": 8, "y": 1310.84375, "height": 200, "width": 200, "hasClickThrough": false, "clippingMaskMode": 0, "hasClippingMask": false, "windingRule": 1 }, { "_class": "shapeGroup", "do_objectID": "3f5096b2-a096-4c1d-a187-b5baa2b37472", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "/html[1]/body[1]/div[@class=\"bg-color\"]", "nameIsFixed": false, "resizingConstraint": 63, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "_class": "style", "fills": [{ "_class": "fill", "isEnabled": true, "color": { "_class": "color", "red": 0, "green": 0.5019607843137255, "blue": 0, "alpha": 1 }, "fillType": 0, "noiseIndex": 0, "noiseIntensity": 0, "patternFillType": 1, "patternTileScale": 1 }], "borders": [], "shadows": [], "innerShadows": [], "endDecorationType": 0, "miterLimit": 10, "startDecorationType": 0, "contextSettings": { "_class": "graphicsContextSettings", "blendMode": 0, "opacity": "1" }, "display": "block", "alignItems": "normal", "justifyContent": "normal", "backgroundColor": "rgb(0, 128, 0)", "borderRadius": { "borderTopLeftRadius": "0px", "borderTopRightRadius": "0px", "borderBottomLeftRadius": "0px", "borderBottomRightRadius": "0px" }, "border": { "borderTopColor": "rgb(0, 0, 0)", "borderTopWidth": 0, "borderRightColor": "rgb(0, 0, 0)", "borderRightWidth": 0, "borderBottomColor": "rgb(0, 0, 0)", "borderBottomWidth": 0, "borderLeftColor": "rgb(0, 0, 0)", "borderLeftWidth": 0 } }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 200, "width": 200, "x": 8, "y": 1510.84375 }, "x": 8, "y": 1510.84375, "height": 200, "width": 200, "hasClickThrough": false, "clippingMaskMode": 0, "hasClippingMask": false, "windingRule": 1 }, { "_class": "shapeGroup", "do_objectID": "4b46b675-56a6-44b3-b9f7-05ddb0729993", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "/html[1]/body[1]/div[@class=\"bg-gradient\"]", "nameIsFixed": false, "resizingConstraint": 63, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "_class": "style", "fills": [{ "_class": "fill", "isEnabled": true, "color": { "_class": "color", "red": 0, "green": 0, "blue": 0, "alpha": 0 }, "fillType": 0, "noiseIndex": 0, "noiseIntensity": 0, "patternFillType": 1, "patternTileScale": 1 }, { "_class": "fill", "isEnabled": true, "color": { "_class": "color", "alpha": 1, "blue": 0.847, "green": 0.847, "red": 0.847 }, "fillType": 1, "gradient": { "_class": "gradient", "elipseLength": 0, "from": "{0.5, 0", "gradientType": 0, "shouldSmoothenOpacity": false, "stops": [{ "_class": "gradientStop", "color": { "_class": "color", "red": 1, "green": 0, "blue": 0, "alpha": 1 }, "position": 0 }, { "_class": "gradientStop", "color": { "_class": "color", "red": 1, "green": 1, "blue": 0, "alpha": 1 }, "position": 1 }], "to": "{0.5, 1}" }, "noiseIndex": 0, "noiseIntensity": 0, "patternFillType": 1, "patternTileScale": 1 }], "borders": [], "shadows": [], "innerShadows": [], "endDecorationType": 0, "miterLimit": 10, "startDecorationType": 0, "contextSettings": { "_class": "graphicsContextSettings", "blendMode": 0, "opacity": "1" }, "display": "block", "alignItems": "normal", "justifyContent": "normal", "backgroundColor": "rgba(0, 0, 0, 0)", "borderRadius": { "borderTopLeftRadius": "0px", "borderTopRightRadius": "0px", "borderBottomLeftRadius": "0px", "borderBottomRightRadius": "0px" }, "border": { "borderTopColor": "rgb(0, 0, 0)", "borderTopWidth": 0, "borderRightColor": "rgb(0, 0, 0)", "borderRightWidth": 0, "borderBottomColor": "rgb(0, 0, 0)", "borderBottomWidth": 0, "borderLeftColor": "rgb(0, 0, 0)", "borderLeftWidth": 0 } }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 200, "width": 200, "x": 8, "y": 1710.84375 }, "x": 8, "y": 1710.84375, "height": 200, "width": 200, "hasClickThrough": false, "clippingMaskMode": 0, "hasClippingMask": false, "windingRule": 1 }, { "_class": "text", "do_objectID": "eb42c60e-1784-4721-abfd-54cc0924109e", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "Font", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 24, "fontFamily": "Times", "fontWeight": 700, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 48 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 28, "width": 48, "x": 8, "y": 1930.75 }, "text": "Font", "x": 8, "y": 1930.75, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "text", "do_objectID": "3f8fdc4e-0031-48ef-87c8-48840d09dd16", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "Font one", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(255, 0, 0)", "fontSize": 16, "fontFamily": "CourierNew", "fontWeight": 400, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 57 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 18, "width": 56.4375, "x": 8, "y": 1978.65625 }, "text": "Font one", "x": 8, "y": 1978.65625, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "text", "do_objectID": "85b90be4-b2e3-44cd-a60f-c9d52200cc37", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "Font two", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 128, 0)", "fontSize": 16, "fontFamily": "Times", "fontWeight": 400, "letterSpacing": 20, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 218 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 18, "width": 217.34375, "x": 8, "y": 2012.65625 }, "text": "Font two", "x": 8, "y": 2012.65625, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "text", "do_objectID": "23c26f77-a76f-479f-8435-2e065c486bf9", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "Font three", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 255)", "fontSize": 30, "fontFamily": "Times", "fontWeight": 400, "lineHeight": 40, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 123 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 36, "width": 122.46875, "x": 8, "y": 2060.65625 }, "text": "Font three", "x": 8, "y": 2060.65625, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "text", "do_objectID": "4a203ed6-40f6-44dd-bcde-468c5f9514db", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "Font four", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 16, "fontFamily": "Times", "fontWeight": 400, "textTransform": "uppercase", "textDecoration": "none", "textAlign": "center", "width": 89 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 18, "width": 88.453125, "x": 127.265625, "y": 2130.65625 }, "text": "Font four", "x": 127.265625, "y": 2130.65625, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "text", "do_objectID": "8a1a8269-d594-4e73-813c-2eec74de979d", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "Font five", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 16, "fontFamily": "Times", "fontWeight": 400, "textTransform": "none", "textDecoration": "underline", "textAlign": "start", "width": 58 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 18, "width": 57.34375, "x": 8, "y": 2164.65625 }, "text": "Font five", "x": 8, "y": 2164.65625, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "text", "do_objectID": "98f492a2-9124-4fc1-813d-80e630f93ed7", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "Font six", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 16, "fontFamily": "Times", "fontWeight": 400, "textTransform": "none", "textDecoration": "line-through", "textAlign": "start", "width": 53 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 18, "width": 52.015625, "x": 8, "y": 2198.65625 }, "text": "Font six", "x": 8, "y": 2198.65625, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "text", "do_objectID": "da05110c-5bb9-4d1c-9f6e-455e23a0a22f", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "Font seven", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 16, "fontFamily": "Times", "fontWeight": 400, "textTransform": "none", "textDecoration": "none", "textAlign": "right", "width": 70 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 18, "width": 69.765625, "x": 265.234375, "y": 2232.65625 }, "text": "Font seven", "x": 265.234375, "y": 2232.65625, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "text", "do_objectID": "adc22731-9853-4772-9f23-882fc28d89a0", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "Visibility", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 24, "fontFamily": "Times", "fontWeight": 700, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 93 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 28, "width": 92.46875, "x": 8, "y": 2270.5625 }, "text": "Visibility", "x": 8, "y": 2270.5625, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "shapeGroup", "do_objectID": "1574d7a1-472d-46d7-b8e3-5fd5193d3e8e", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "/html[1]/body[1]/div[@class=\"box\"]", "nameIsFixed": false, "resizingConstraint": 63, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "_class": "style", "fills": [{ "_class": "fill", "isEnabled": true, "color": { "_class": "color", "red": 1, "green": 0, "blue": 0, "alpha": 1 }, "fillType": 0, "noiseIndex": 0, "noiseIntensity": 0, "patternFillType": 1, "patternTileScale": 1 }], "borders": [], "shadows": [], "innerShadows": [], "endDecorationType": 0, "miterLimit": 10, "startDecorationType": 0, "contextSettings": { "_class": "graphicsContextSettings", "blendMode": 0, "opacity": "1" }, "display": "block", "alignItems": "normal", "justifyContent": "normal", "backgroundColor": "rgb(255, 0, 0)", "borderRadius": { "borderTopLeftRadius": "0px", "borderTopRightRadius": "0px", "borderBottomLeftRadius": "0px", "borderBottomRightRadius": "0px" }, "border": { "borderTopColor": "rgb(0, 0, 0)", "borderTopWidth": 0, "borderRightColor": "rgb(0, 0, 0)", "borderRightWidth": 0, "borderBottomColor": "rgb(0, 0, 0)", "borderBottomWidth": 0, "borderLeftColor": "rgb(0, 0, 0)", "borderLeftWidth": 0 } }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 100, "width": 100, "x": 8, "y": 2418.46875 }, "x": 8, "y": 2418.46875, "height": 100, "width": 100, "hasClickThrough": false, "clippingMaskMode": 0, "hasClippingMask": false, "windingRule": 1 }, { "_class": "text", "do_objectID": "68ba7285-663a-46bd-923f-5320943ed41e", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "block", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 16, "fontFamily": "Times", "fontWeight": 400, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 36 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 18, "width": 35.546875, "x": 8, "y": 2418.46875 }, "text": "block", "x": 8, "y": 2418.46875, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "shapeGroup", "do_objectID": "5ada960d-d8c9-4360-9fb3-20c5f44491ea", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "/html[1]/body[1]/div[@class=\"box\"]", "nameIsFixed": false, "resizingConstraint": 63, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "_class": "style", "fills": [{ "_class": "fill", "isEnabled": true, "color": { "_class": "color", "red": 1, "green": 0, "blue": 0, "alpha": 1 }, "fillType": 0, "noiseIndex": 0, "noiseIntensity": 0, "patternFillType": 1, "patternTileScale": 1 }], "borders": [], "shadows": [], "innerShadows": [], "endDecorationType": 0, "miterLimit": 10, "startDecorationType": 0, "contextSettings": { "_class": "graphicsContextSettings", "blendMode": 0, "opacity": "1" }, "display": "inline-block", "alignItems": "normal", "justifyContent": "normal", "backgroundColor": "rgb(255, 0, 0)", "borderRadius": { "borderTopLeftRadius": "0px", "borderTopRightRadius": "0px", "borderBottomLeftRadius": "0px", "borderBottomRightRadius": "0px" }, "border": { "borderTopColor": "rgb(0, 0, 0)", "borderTopWidth": 0, "borderRightColor": "rgb(0, 0, 0)", "borderRightWidth": 0, "borderBottomColor": "rgb(0, 0, 0)", "borderBottomWidth": 0, "borderLeftColor": "rgb(0, 0, 0)", "borderLeftWidth": 0 } }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 100, "width": 100, "x": 8, "y": 2518.46875 }, "x": 8, "y": 2518.46875, "height": 100, "width": 100, "hasClickThrough": false, "clippingMaskMode": 0, "hasClippingMask": false, "windingRule": 1 }, { "_class": "text", "do_objectID": "3b74c10a-4081-4045-86c8-d1dcd740ed01", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "inline-block", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 16, "fontFamily": "Times", "fontWeight": 400, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 78 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 18, "width": 77.3125, "x": 8, "y": 2518.46875 }, "text": "inline-block", "x": 8, "y": 2518.46875, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "shapeGroup", "do_objectID": "32018892-db45-407e-89d4-b7e811b5a2f4", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "/html[1]/body[1]/div[@class=\"box\"]", "nameIsFixed": false, "resizingConstraint": 63, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "_class": "style", "fills": [{ "_class": "fill", "isEnabled": true, "color": { "_class": "color", "red": 1, "green": 0, "blue": 0, "alpha": 1 }, "fillType": 0, "noiseIndex": 0, "noiseIntensity": 0, "patternFillType": 1, "patternTileScale": 1 }], "borders": [], "shadows": [], "innerShadows": [], "endDecorationType": 0, "miterLimit": 10, "startDecorationType": 0, "contextSettings": { "_class": "graphicsContextSettings", "blendMode": 0, "opacity": "1" }, "display": "inline-block", "alignItems": "normal", "justifyContent": "normal", "backgroundColor": "rgb(255, 0, 0)", "borderRadius": { "borderTopLeftRadius": "0px", "borderTopRightRadius": "0px", "borderBottomLeftRadius": "0px", "borderBottomRightRadius": "0px" }, "border": { "borderTopColor": "rgb(0, 0, 0)", "borderTopWidth": 0, "borderRightColor": "rgb(0, 0, 0)", "borderRightWidth": 0, "borderBottomColor": "rgb(0, 0, 0)", "borderBottomWidth": 0, "borderLeftColor": "rgb(0, 0, 0)", "borderLeftWidth": 0 } }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 100, "width": 100, "x": 112, "y": 2518.46875 }, "x": 112, "y": 2518.46875, "height": 100, "width": 100, "hasClickThrough": false, "clippingMaskMode": 0, "hasClippingMask": false, "windingRule": 1 }, { "_class": "text", "do_objectID": "d7aecc50-60ed-4a7a-87ba-e7f07a73dbba", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "inline-block", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 16, "fontFamily": "Times", "fontWeight": 400, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 78 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 18, "width": 77.3125, "x": 112, "y": 2518.46875 }, "text": "inline-block", "x": 112, "y": 2518.46875, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "text", "do_objectID": "97d54b50-ab40-48d2-933e-80302c895c7f", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "Opacity", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 24, "fontFamily": "Times", "fontWeight": 700, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 82 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 28, "width": 81.328125, "x": 8, "y": 2638.375 }, "text": "Opacity", "x": 8, "y": 2638.375, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "shapeGroup", "do_objectID": "1047a1c5-d495-4650-9feb-ec1569381121", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "/html[1]/body[1]/div[@class=\"box\"]", "nameIsFixed": false, "resizingConstraint": 63, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "_class": "style", "fills": [{ "_class": "fill", "isEnabled": true, "color": { "_class": "color", "red": 1, "green": 0, "blue": 0, "alpha": 1 }, "fillType": 0, "noiseIndex": 0, "noiseIntensity": 0, "patternFillType": 1, "patternTileScale": 1 }], "borders": [], "shadows": [], "innerShadows": [], "endDecorationType": 0, "miterLimit": 10, "startDecorationType": 0, "contextSettings": { "_class": "graphicsContextSettings", "blendMode": 0, "opacity": "0.8" }, "display": "block", "alignItems": "normal", "justifyContent": "normal", "backgroundColor": "rgb(255, 0, 0)", "borderRadius": { "borderTopLeftRadius": "0px", "borderTopRightRadius": "0px", "borderBottomLeftRadius": "0px", "borderBottomRightRadius": "0px" }, "border": { "borderTopColor": "rgb(0, 0, 0)", "borderTopWidth": 0, "borderRightColor": "rgb(0, 0, 0)", "borderRightWidth": 0, "borderBottomColor": "rgb(0, 0, 0)", "borderBottomWidth": 0, "borderLeftColor": "rgb(0, 0, 0)", "borderLeftWidth": 0 } }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 100, "width": 100, "x": 8, "y": 2686.28125 }, "x": 8, "y": 2686.28125, "height": 100, "width": 100, "hasClickThrough": false, "clippingMaskMode": 0, "hasClippingMask": false, "windingRule": 1 }, { "_class": "text", "do_objectID": "47ee2924-b57e-4a64-bf56-f6c0d6e1bcf1", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "opacity 0.8", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 16, "fontFamily": "Times", "fontWeight": 400, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 72 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 18, "width": 71.09375, "x": 8, "y": 2686.28125 }, "text": "opacity 0.8", "x": 8, "y": 2686.28125, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }, { "_class": "shapeGroup", "do_objectID": "e7d833c6-55a4-45fa-988e-711720da8f4f", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "/html[1]/body[1]/div[@class=\"box\"]", "nameIsFixed": false, "resizingConstraint": 63, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "_class": "style", "fills": [{ "_class": "fill", "isEnabled": true, "color": { "_class": "color", "red": 1, "green": 0, "blue": 0, "alpha": 1 }, "fillType": 0, "noiseIndex": 0, "noiseIntensity": 0, "patternFillType": 1, "patternTileScale": 1 }], "borders": [], "shadows": [], "innerShadows": [], "endDecorationType": 0, "miterLimit": 10, "startDecorationType": 0, "contextSettings": { "_class": "graphicsContextSettings", "blendMode": 0, "opacity": "0.3" }, "display": "block", "alignItems": "normal", "justifyContent": "normal", "backgroundColor": "rgb(255, 0, 0)", "borderRadius": { "borderTopLeftRadius": "0px", "borderTopRightRadius": "0px", "borderBottomLeftRadius": "0px", "borderBottomRightRadius": "0px" }, "border": { "borderTopColor": "rgb(0, 0, 0)", "borderTopWidth": 0, "borderRightColor": "rgb(0, 0, 0)", "borderRightWidth": 0, "borderBottomColor": "rgb(0, 0, 0)", "borderBottomWidth": 0, "borderLeftColor": "rgb(0, 0, 0)", "borderLeftWidth": 0 } }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 100, "width": 100, "x": 8, "y": 2786.28125 }, "x": 8, "y": 2786.28125, "height": 100, "width": 100, "hasClickThrough": false, "clippingMaskMode": 0, "hasClippingMask": false, "windingRule": 1 }, { "_class": "text", "do_objectID": "222835fe-3e49-4e0c-b648-8b5528c70d54", "exportOptions": { "_class": "exportOptions", "exportFormats": [], "includedLayerIds": [], "layerOptions": 0, "shouldTrim": false }, "isFlippedHorizontal": false, "isFlippedVertical": false, "isLocked": false, "isVisible": true, "layerListExpandedType": 0, "name": "opacity 0.3", "nameIsFixed": false, "resizingConstraint": 47, "resizingType": 0, "rotation": 0, "shouldBreakMaskChain": false, "style": { "color": "rgb(0, 0, 0)", "fontSize": 16, "fontFamily": "Times", "fontWeight": 400, "textTransform": "none", "textDecoration": "none", "textAlign": "start", "width": 72 }, "layers": [], "frame": { "_class": "rect", "constrainProportions": false, "height": 18, "width": 71.09375, "x": 8, "y": 2786.28125 }, "text": "opacity 0.3", "x": 8, "y": 2786.28125, "automaticallyDrawOnUnderlyingPath": false, "dontSynchroniseWithSymbol": false, "glyphBounds": "", "heightIsClipped": false, "lineSpacingBehaviour": 2, "textBehaviour": 0 }], "frame": { "_class": "rect", "constrainProportions": false, "height": 2866, "width": 327, "x": 0, "y": 0 }, "horizontalRulerData": { "_class": "rulerData", "base": 0, "guides": [] }, "verticalRulerData": { "_class": "rulerData", "base": 0, "guides": [] }, "hasClickThrough": true, "includeInCloudUpload": true };
+exports["default"] = test = {
+  colors: [],
+  textStyles: [],
+  symbols: [],
+  pages: [{
+    name: 'Page',
+    items: [{ "type": "view", "style": { "backgroundColor": "rgba(0, 0, 0, 0)", "position": "absolute", "left": 0, "top": 119, "width": 667, "height": 72, "opacity": 1, "overflow": "visible", "padding": 0, "margin": 0 }, "children": [{ "type": "text", "style": { "color": "rgb(2, 10, 27)", "textDecorationColor": "rgb(2, 10, 27)", "fontFamily": "Proxima Nova", "fontSize": 16, "fontStyle": "normal", "fontWeight": "400", "textDecorationLine": "none", "textDecorationStyle": "solid", "lineHeight": 24, "writtingDirection": "ltr" }, "children": ["Welcome to the official Brainly style guide! This style guide is being used across all language versions of the Brainly website (e.g. "] }, { "type": "view", "style": { "backgroundColor": "rgba(0, 0, 0, 0)", "position": "absolute", "left": 251.421875, "top": 25, "width": 82.609375, "height": 18, "opacity": 1, "overflow": "visible", "padding": 0, "margin": 0 }, "children": [{ "type": "text", "style": { "color": "rgb(87, 178, 248)", "textDecorationColor": "rgb(87, 178, 248)", "fontFamily": "Proxima Nova", "fontSize": 16, "fontStyle": "normal", "fontWeight": "700", "textDecorationLine": "none", "textDecorationStyle": "solid", "lineHeight": 15.84, "writtingDirection": "ltr" }, "children": ["brainly.com"] }] }, { "type": "text", "style": { "color": "rgb(2, 10, 27)", "textDecorationColor": "rgb(2, 10, 27)", "fontFamily": "Proxima Nova", "fontSize": 16, "fontStyle": "normal", "fontWeight": "400", "textDecorationLine": "none", "textDecorationStyle": "solid", "lineHeight": 24, "writtingDirection": "ltr" }, "children": [", "] }, { "type": "view", "style": { "backgroundColor": "rgba(0, 0, 0, 0)", "position": "absolute", "left": 341.828125, "top": 25, "width": 84.984375, "height": 18, "opacity": 1, "overflow": "visible", "padding": 0, "margin": 0 }, "children": [{ "type": "text", "style": { "color": "rgb(87, 178, 248)", "textDecorationColor": "rgb(87, 178, 248)", "fontFamily": "Proxima Nova", "fontSize": 16, "fontStyle": "normal", "fontWeight": "700", "textDecorationLine": "none", "textDecorationStyle": "solid", "lineHeight": 15.84, "writtingDirection": "ltr" }, "children": ["znanija.com"] }] }, { "type": "text", "style": { "color": "rgb(2, 10, 27)", "textDecorationColor": "rgb(2, 10, 27)", "fontFamily": "Proxima Nova", "fontSize": 16, "fontStyle": "normal", "fontWeight": "400", "textDecorationLine": "none", "textDecorationStyle": "solid", "lineHeight": 24, "writtingDirection": "ltr" }, "children": [", "] }, { "type": "view", "style": { "backgroundColor": "rgba(0, 0, 0, 0)", "position": "absolute", "left": 434.609375, "top": 25, "width": 92.5625, "height": 18, "opacity": 1, "overflow": "visible", "padding": 0, "margin": 0 }, "children": [{ "type": "text", "style": { "color": "rgb(87, 178, 248)", "textDecorationColor": "rgb(87, 178, 248)", "fontFamily": "Proxima Nova", "fontSize": 16, "fontStyle": "normal", "fontWeight": "700", "textDecorationLine": "none", "textDecorationStyle": "solid", "lineHeight": 15.84, "writtingDirection": "ltr" }, "children": ["nosdevoirs.fr"] }] }, { "type": "text", "style": { "color": "rgb(2, 10, 27)", "textDecorationColor": "rgb(2, 10, 27)", "fontFamily": "Proxima Nova", "fontSize": 16, "fontStyle": "normal", "fontWeight": "400", "textDecorationLine": "none", "textDecorationStyle": "solid", "lineHeight": 24, "writtingDirection": "ltr" }, "children": ["), on our corporate website ( "] }, { "type": "view", "style": { "backgroundColor": "rgba(0, 0, 0, 0)", "position": "absolute", "left": 66.921875, "top": 49, "width": 69.28125, "height": 18, "opacity": 1, "overflow": "visible", "padding": 0, "margin": 0 }, "children": [{ "type": "text", "style": { "color": "rgb(87, 178, 248)", "textDecorationColor": "rgb(87, 178, 248)", "fontFamily": "Proxima Nova", "fontSize": 16, "fontStyle": "normal", "fontWeight": "700", "textDecorationLine": "none", "textDecorationStyle": "solid", "lineHeight": 15.84, "writtingDirection": "ltr" }, "children": ["brainly.co"] }] }, { "type": "text", "style": { "color": "rgb(2, 10, 27)", "textDecorationColor": "rgb(2, 10, 27)", "fontFamily": "Proxima Nova", "fontSize": 16, "fontStyle": "normal", "fontWeight": "400", "textDecorationLine": "none", "textDecorationStyle": "solid", "lineHeight": 24, "writtingDirection": "ltr" }, "children": [") and some smaller sites (e.g. landing pages)."] }] }]
+  }]
+};
 
 /***/ })
 /******/ ]);

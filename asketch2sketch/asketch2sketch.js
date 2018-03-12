@@ -36,134 +36,56 @@ function requestJson() {
   }
 }
 
-function renderImage({style: {href}, x, y, height, width}) {
+function renderImage({
+  style,
+  source,
+  children
+}) {
   return (
-    <Image
-      key={uniqueId()}
-      source={{uri: href}}
-      style={{
-        position: 'absolute',
-        left: x,
-        top: y,
-        height,
-        width,
-        overflow: 'hidden'
-      }}
-    />
+    <Image key={uniqueId()} style={style} source={{uri: source}}>
+      {children.map(renderLayer)}
+    </Image>
   );
 }
 
 function renderText({
-  name,
-  x,
-  y,
-  text,
-  style: {
-    fontSize,
-    fontFamily,
-    fontWeight,
-    textTransform,
-    textDecoration,
-    letterSpacing,
-    lineHeight,
-    textAlign,
-    color,
-    width
-  }
+  style,
+  children
 }) {
-  const style = {
-    position: 'absolute',
-    left: x,
-    top: y,
-    fontSize,
-    fontFamily,
-    fontWeight,
-    textTransform,
-    textDecoration,
-    letterSpacing,
-    lineHeight,
-    textAlign,
-    color,
-    width
-  };
-
-  // in sketch, text will be made larger if transformed to uppercase,
-  // but bounding box will not be made larger to accommodate
-  if (style.textTransform === 'uppercase') {
-    delete style.textTransform;
-    text = text.toUpperCase();
-  }
-
   return (
-    <Text
-      key={uniqueId()}
-      name={name}
-      style={style}
-    >
-      {text}
+    <Text key={uniqueId()} style={style}>
+      {children.map(renderLayer)}
     </Text>
   );
 }
 
 function renderView({
-  name,
-  height,
-  width,
-  x,
-  y,
-  style: {
-    display,
-    boxShadow,
-    borderRadius,
-    backgroundColor,
-    border = {},
-    contextSettings: {
-      opacity
-    }
-  }
+  style,
+  children
 }) {
   return (
-    <View
-      key={uniqueId()}
-      name={name}
-      style={{
-        position: 'absolute',
-        top: y,
-        left: x,
-        display,
-        ...border,
-        ...boxShadow,
-        ...borderRadius,
-        backgroundColor,
-        opacity,
-        height,
-        width
-      }}
-    />
+    <View key={uniqueId()} style={style}>
+      {children.map(renderLayer)}
+    </View>
   );
 }
 
 function renderLayer(layer) {
-  const result = [];
-  const {_class} = layer;
-  const {href} = layer.style;
-
-  if (href) {
-    result.push(renderImage(layer));
+  if (typeof layer === 'string') {
+    return layer;
   }
 
-  if (_class === 'text') {
-    result.push(renderText(layer));
-  } else {
-    result.push(renderView(layer));
+  const {type} = layer;
+
+  if (type === 'text') {
+    return renderText(layer);
+  } else if (type === 'image') {
+    return renderImage(layer);
+  } else if (type === 'view') {
+    return renderView(layer);
   }
 
-  layer.layers.reverse()
-    .map(renderLayer)
-    .reduce((sum, next) => sum.concat(next), [])
-    .forEach(childLayer => result.push(childLayer));
-
-  return result;
+  return null;
 }
 
 function removeExistingLayers(context) {
@@ -187,12 +109,14 @@ export default function Plugin(context) {
 
   removeExistingLayers(page);
 
-  const result = json.layers.reverse().map(layer => renderLayer(layer));
+  const newPage = json.pages[0];
+
+  const result = newPage.items.map(layer => renderLayer(layer));
 
   render(
     <Artboard style={{
-      width: json.frame.width,
-      height: json.frame.height
+      width: 800,
+      height: 800
     }}>{result}</Artboard>,
     page
   );
