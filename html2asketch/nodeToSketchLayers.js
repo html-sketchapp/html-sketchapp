@@ -63,16 +63,16 @@ function calculateBCRFromRanges(ranges) {
   return {x, y, width, height};
 }
 
-function fixBorderRadius(borderRadius) {
+function fixBorderRadius(borderRadius, width, height) {
   const matches = borderRadius.match(/^([0-9.]+)(.+)$/);
 
+  // Sketch uses 'px' units for border radius, so we need to convert % to px
   if (matches && matches[2] === '%') {
-    const value = parseInt(matches[1], 10);
+    const baseVal = Math.max(width, height);
+    const percentageApplied = baseVal * (parseInt(matches[1], 10) / 100);
 
-    // not sure about this, but border-radius: 50% should be fully rounded
-    return value >= 50 ? 100 : value;
+    return Math.round(percentageApplied);
   }
-
   return parseInt(borderRadius, 10);
 }
 
@@ -121,7 +121,7 @@ export default async function nodeToSketchLayers(node) {
     letterSpacing,
     color,
     textTransform,
-    textDecorationStyle,
+    textDecorationLine,
     textAlign,
     justifyContent,
     display,
@@ -130,7 +130,8 @@ export default async function nodeToSketchLayers(node) {
     opacity,
     overflowX,
     overflowY,
-    position
+    position,
+    clip
   } = styles;
 
   if (isSVGDescendant(node)) {
@@ -148,6 +149,10 @@ export default async function nodeToSketchLayers(node) {
   }
 
   if (display === 'none' || visibility === 'hidden' || parseFloat(opacity) === 0) {
+    return layers;
+  }
+
+  if (clip === 'rect(0px 0px 0px 0px)' && position === 'absolute') {
     return layers;
   }
 
@@ -238,14 +243,16 @@ export default async function nodeToSketchLayers(node) {
       }
     }
 
+    style.addOpacity(opacity);
+
     leaf.setStyle(style);
 
     //TODO borderRadius can be expressed in different formats and use various units - for simplicity we assume "X%"
     const cornerRadius = {
-      topLeft: fixBorderRadius(borderTopLeftRadius),
-      topRight: fixBorderRadius(borderTopRightRadius),
-      bottomLeft: fixBorderRadius(borderBottomLeftRadius),
-      bottomRight: fixBorderRadius(borderBottomRightRadius)
+      topLeft: fixBorderRadius(borderTopLeftRadius, width, height),
+      topRight: fixBorderRadius(borderTopRightRadius, width, height),
+      bottomLeft: fixBorderRadius(borderBottomLeftRadius, width, height),
+      bottomRight: fixBorderRadius(borderBottomRightRadius, width, height)
     };
 
     const rectangle = new Rectange({width, height, cornerRadius});
@@ -264,7 +271,7 @@ export default async function nodeToSketchLayers(node) {
     fontWeight: parseInt(fontWeight, 10),
     color,
     textTransform,
-    textDecoration: textDecorationStyle,
+    textDecoration: textDecorationLine,
     textAlign: display === 'flex' || display === 'inline-flex' ? justifyContent : textAlign
   });
 

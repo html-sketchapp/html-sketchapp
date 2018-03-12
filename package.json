@@ -1,26 +1,31 @@
 {
-  "name": "html-sketchapp",
+  "name": "@brainly/html-sketchapp",
   "version": "1.0.0",
   "description": "HTML to Sketch",
-  "repository": "brainly/html-sketchapp",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brainly/html-sketchapp.git"
+  },
   "author": "Brainly - Konrad Dzwinel <konrad.dzwinel@brainly.com>",
   "license": "MIT",
   "scripts": {
     "test": "eslint html2asketch/ asketch2sketch/ && jest",
-    "build": "skpm build",
-    "watch": "skpm build --run --watch"
+    "build": "skpm-build",
+    "watch": "skpm-build --run --watch"
   },
   "engines": {
     "sketch": ">=3.0"
   },
   "devDependencies": {
     "babel-preset-airbnb": "^2.4.0",
-    "eslint": "^4.4.1",
-    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v16.1.0",
+    "eslint": "^4.16.0",
+    "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v16.1.4",
     "jest": "^21.2.1",
-    "skpm": "^0.10.3"
+    "skpm": "^1.0.12",
+    "@skpm/builder": "^0.2.0"
   },
   "skpm": {
+    "name": "asketch2sketch",
     "manifest": "asketch2sketch/manifest.json",
     "main": "asketch2sketch.sketchplugin"
   },
@@ -29,5 +34,9 @@
     "normalize-css-color": "^1.0.2",
     "sketch-constants": "^1.1.0",
     "sketchapp-json-plugin": "^0.1.2"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/brainly/html-sketchapp/issues"
+  },
+  "homepage": "https://github.com/brainly/html-sketchapp#readme"
 }
