@@ -1,0 +1,122 @@
+// based on https://www.w3.org/TR/SVG2/styling.html and defaults taken from Chrome
+const SVG_STYLE_PROPERTIES = [
+  //name, default value
+  ['cx', '0px'],
+  ['cy', '0px'],
+
+  ['height', 'auto'],
+  ['width', 'auto'],
+  ['x', '0px'],
+  ['y', '0px'],
+
+  ['r', '0px'],
+
+  ['rx', 'auto'],
+  ['ry', 'auto'],
+
+  ['d', 'none'],
+
+  ['fill', 'rgb(0, 0, 0)'],
+
+  ['transform', 'none'],
+
+  ['alignment-baseline', 'auto'],
+  ['baseline-shift', '0px'],
+  ['clip', 'auto'],
+  ['clip-path', 'none'],
+  ['clip-rule', 'nonzero'],
+  ['color', 'rgb(0, 0, 0)'],
+  ['color-interpolation', 'sRGB'],
+  ['color-interpolation-filters', 'linearRGB'],
+  ['color-rendering', 'auto'],
+  ['cursor', 'auto'],
+  ['direction', 'ltr'],
+  ['display', 'inline'],
+  ['dominant-baseline', 'auto'],
+  ['fill-opacity', '1'],
+  ['fill-rule', 'nonzero'],
+  ['filter', 'none'],
+  ['flood-color', 'rgb(0, 0, 0)'],
+  ['flood-opacity', '1'],
+  ['font-family', 'Times'],
+  ['font-size', '16px'],
+  ['font-size-adjust', 'none'],
+  ['font-stretch', '100%'],
+  ['font-style', 'normal'],
+  ['font-variant', 'normal'],
+  ['font-weight', '400'],
+  ['glyph-orientation-horizontal', undefined],
+  ['glyph-orientation-vertical', undefined],
+  ['image-rendering', 'auto'],
+  ['letter-spacing', 'normal'],
+  ['lighting-color', 'rgb(255, 255, 255)'],
+  ['marker-end', 'none'],
+  ['marker-mid', 'none'],
+  ['marker-start', 'none'],
+  ['mask', 'none'],
+  ['opacity', '1'],
+  ['overflow', 'visible'],
+  ['pointer-events', 'auto'],
+  ['shape-rendering', 'auto'],
+  ['solid-color', undefined],
+  ['solid-opacity', undefined],
+  ['stop-color', 'rgb(0, 0, 0)'],
+  ['stop-opacity', '1'],
+  ['stroke', 'none'],
+  ['stroke-dasharray', 'none'],
+  ['stroke-dashoffset', '0px'],
+  ['stroke-linecap', 'butt'],
+  ['stroke-linejoin', 'miter'],
+  ['stroke-miterlimit', '4'],
+  ['stroke-opacity', '1'],
+  ['stroke-width', '1px'],
+  ['text-anchor', 'start'],
+  ['text-decoration', 'none solid rgb(0, 0, 0)'],
+  ['text-overflow', 'clip'],
+  ['text-rendering', 'auto'],
+  ['unicode-bidi', 'normal'],
+  ['vector-effect', 'none'],
+  ['visibility', 'visible'],
+  ['white-space', 'normal'],
+  ['word-spacing', '0px'],
+  ['writing-mode', 'horizontal-tb']
+];
+
+function inlineStyles(node) {
+  const styles = getComputedStyle(node);
+
+  SVG_STYLE_PROPERTIES.forEach(prop => {
+    const propName = prop[0];
+    const propDefaultValue = prop[1];
+    const propCurrentValue = styles[propName];
+    const propAttributeValue = node.getAttribute(propName);
+
+    if (propCurrentValue !== propDefaultValue &&
+    propCurrentValue !== propAttributeValue) {
+      node.style[propName] = propCurrentValue;
+    }
+  });
+
+}
+
+export function getSVGString(svgNode) {
+  const queue = Array.from(svgNode.children);
+
+  while (queue.length) {
+    const node = queue.pop();
+
+    if (
+      !(node instanceof SVGElement) ||
+      node instanceof SVGDefsElement ||
+      node instanceof SVGTitleElement
+    ) {
+      continue;
+    }
+
+    inlineStyles(node);
+
+    Array.from(node.children).forEach(child => queue.push(child));
+  }
+
+  return svgNode.outerHTML;
+}

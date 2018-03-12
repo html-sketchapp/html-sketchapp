@@ -2009,10 +2009,37 @@ function makeSVGLayer(layer) {
   svgImporter.prepareToImportFromData(svgData);
   var svgLayer = svgImporter.importAsLayer();
 
-  svgLayer.frame().setX(layer.x);
-  svgLayer.frame().setY(layer.y);
-  svgLayer.frame().setHeight(layer.height);
-  svgLayer.frame().setWidth(layer.width);
+  // imported svg may have different size, and proportions, than expected by the `layer`
+  // we have to do resizing and centering ourselves to avoid stretching of the image
+  var expectedWidth = layer.width;
+  var expectedHeight = layer.height;
+  var actualWidth = svgLayer.frame().width();
+  var actualHeight = svgLayer.frame().height();
+
+  if (actualWidth === 0 || actualHeight === 0) {
+    svgLayer.frame().setX(layer.x);
+    svgLayer.frame().setY(layer.y);
+    svgLayer.frame().setWidth(layer.width);
+    svgLayer.frame().setHeight(layer.height);
+
+    return svgLayer;
+  }
+
+  var resultWidth = expectedWidth;
+  var resultHeight = expectedWidth / actualWidth * actualHeight;
+
+  if (actualHeight > actualWidth) {
+    resultHeight = expectedHeight;
+    resultWidth = expectedHeight / actualHeight * actualWidth;
+  }
+
+  var fixX = (expectedWidth - resultWidth) / 2;
+  var fixY = (expectedHeight - resultHeight) / 2;
+
+  svgLayer.frame().setX(layer.x + fixX);
+  svgLayer.frame().setY(layer.y + fixY);
+  svgLayer.frame().setWidth(resultWidth);
+  svgLayer.frame().setHeight(resultHeight);
 
   return svgLayer;
 }

@@ -6,6 +6,8 @@ import Text from './text';
 import TextStyle from './textStyle';
 import SVG from './svg';
 import {parseBackgroundImage} from './helpers/background';
+import {getSVGString} from './helpers/svg';
+import {getGroupBCR} from './helpers/bcr';
 
 const DEFAULT_VALUES = {
   backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -80,6 +82,36 @@ function isSVGDescendant(node) {
   return (node instanceof SVGElement) && node.matches('svg *');
 }
 
+function isVisible(node, {width, height}, {
+  position,
+  overflowX,
+  overflowY,
+  opacity,
+  visibility,
+  display,
+  clip
+}) {
+  // Skip node when display is set to none for itself or an ancestor
+  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent
+  if (node.tagName !== 'BODY' && node.offsetParent === null && position !== 'fixed') {
+    return false;
+  }
+
+  if ((width === 0 || height === 0) && overflowX === 'hidden' && overflowY === 'hidden') {
+    return false;
+  }
+
+  if (display === 'none' || visibility === 'hidden' || parseFloat(opacity) === 0) {
+    return false;
+  }
+
+  if (clip === 'rect(0px 0px 0px 0px)' && position === 'absolute') {
+    return false;
+  }
+
+  return true;
+}
+
 export default async function nodeToSketchLayers(node) {
   const layers = [];
   const {width, height, x, y} = node.getBoundingClientRect();
@@ -114,12 +146,7 @@ export default async function nodeToSketchLayers(node) {
     justifyContent,
     display,
     boxShadow,
-    visibility,
-    opacity,
-    overflowX,
-    overflowY,
-    position,
-    clip
+    opacity
   } = styles;
 
   // skip SVG child nodes as they are already covered by `new SVG(…)`
@@ -127,21 +154,7 @@ export default async function nodeToSketchLayers(node) {
     return layers;
   }
 
-  // Skip node when display is set to none for itself or an ancestor
-  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent
-  if (node.offsetParent === null && position !== 'fixed') {
-    return layers;
-  }
-
-  if ((width === 0 || height === 0) && overflowX === 'hidden' && overflowY === 'hidden') {
-    return layers;
-  }
-
-  if (display === 'none' || visibility === 'hidden' || parseFloat(opacity) === 0) {
-    return layers;
-  }
-
-  if (clip === 'rect(0px 0px 0px 0px)' && position === 'absolute') {
+  if (!isVisible(node, {width, height}, styles)) {
     return layers;
   }
 
@@ -150,7 +163,15 @@ export default async function nodeToSketchLayers(node) {
   const isSVG = node.nodeName === 'svg';
 
   if (isSVG) {
-    layers.push(new SVG({x, y, width, height, rawSVGString: node.outerHTML}));
+    const childrenBCR = getGroupBCR(Array.from(node.children));
+
+    layers.push(new SVG({
+      x: childrenBCR.x,
+      y: childrenBCR.y,
+      width: childrenBCR.width,
+      height: childrenBCR.height,
+      rawSVGString: getSVGString(node)
+    }));
     return layers;
   }
 
