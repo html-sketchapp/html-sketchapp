@@ -1,8 +1,6 @@
 export default function makeSVGLayer(layer) {
   const svgString = NSString.stringWithString(layer.rawSVGString);
-  // eslint-disable-next-line no-undef
   const svgData = svgString.dataUsingEncoding(NSUTF8StringEncoding);
-  // eslint-disable-next-line no-undef
   const svgImporter = MSSVGImporter.svgImporter();
 
   svgImporter.prepareToImportFromData(svgData);

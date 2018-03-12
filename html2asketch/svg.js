@@ -1,7 +1,7 @@
 import Base from './base';
 
 class SVG extends Base {
-  constructor({rawSVGString, width, height, x, y}) {
+  constructor({x, y, width, height, rawSVGString}) {
     super();
     this._rawSVGString = rawSVGString;
     this._width = width;
@@ -11,6 +11,7 @@ class SVG extends Base {
   }
 
   toJSON() {
+    // NOTE: this is a non-standard extension of the .sketch format
     return {
       _class: 'svg',
       rawSVGString: this._rawSVGString,

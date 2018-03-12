@@ -77,19 +77,7 @@ function fixBorderRadius(borderRadius, width, height) {
 }
 
 function isSVGDescendant(node) {
-  if (node.nodeName === 'HTML') {
-    return false;
-  }
-
-  let parent = node.parentNode;
-
-  while (parent.nodeName !== 'svg') {
-    parent = parent.parentNode;
-    if (parent === document) {
-      return false;
-    }
-  }
-  return true;
+  return (node instanceof SVGElement) && node.matches('svg *');
 }
 
 export default async function nodeToSketchLayers(node) {
@@ -134,6 +122,7 @@ export default async function nodeToSketchLayers(node) {
     clip
   } = styles;
 
+  // skip SVG child nodes as they are already covered by `new SVG(…)`
   if (isSVGDescendant(node)) {
     return layers;
   }
@@ -158,24 +147,11 @@ export default async function nodeToSketchLayers(node) {
 
   const leaf = new ShapeGroup({x, y, width, height});
   const isImage = node.nodeName === 'IMG' && node.attributes.src;
-  const isSVG = node.nodeName.toLowerCase() === 'svg';
+  const isSVG = node.nodeName === 'svg';
 
   if (isSVG) {
-    const pathData = {};
-    let BCRNode = node;
-
-    if (node.childNodes.length === 1) {
-      BCRNode = node.childNodes[0];
-    }
-
-    const {width, height, x, y} = BCRNode.getBoundingClientRect();
-
-    pathData.width = width;
-    pathData.height = height;
-    pathData.x = x;
-    pathData.y = y;
-
-    layers.push(new SVG(Object.assign({rawSVGString: node.outerHTML}, pathData)));
+    layers.push(new SVG({x, y, width, height, rawSVGString: node.outerHTML}));
+    return layers;
   }
 
   // if layer has no background/shadow/border/etc. skip it

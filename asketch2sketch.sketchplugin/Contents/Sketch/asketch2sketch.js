@@ -374,7 +374,7 @@ var _fixImageFill = __webpack_require__(16);
 
 var _fixImageFill2 = _interopRequireDefault(_fixImageFill);
 
-var _makeSVGLayer = __webpack_require__(16);
+var _makeSVGLayer = __webpack_require__(17);
 
 var _makeSVGLayer2 = _interopRequireDefault(_makeSVGLayer);
 
@@ -1994,7 +1994,7 @@ function fixImageFill(layer) {
 }
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 Object.defineProperty(exports, "__esModule", {
@@ -2003,9 +2003,7 @@ Object.defineProperty(exports, "__esModule", {
 exports["default"] = makeSVGLayer;
 function makeSVGLayer(layer) {
   var svgString = NSString.stringWithString(layer.rawSVGString);
-  // eslint-disable-next-line no-undef
   var svgData = svgString.dataUsingEncoding(NSUTF8StringEncoding);
-  // eslint-disable-next-line no-undef
   var svgImporter = MSSVGImporter.svgImporter();
 
   svgImporter.prepareToImportFromData(svgData);
