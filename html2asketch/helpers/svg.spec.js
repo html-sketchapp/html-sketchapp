@@ -2,10 +2,10 @@ import {getSVGString} from './svg';
 import {JSDOM} from 'jsdom';
 
 // unsuported by jsdom
-global.SVGDefsElement = () => {};
-global.SVGTitleElement = () => {};
-global.SVGUseElement = () => {};
-global.SVGSymbolElement = () => {};
+global.SVGDefsElement = () => {/*do nothing*/};
+global.SVGTitleElement = () => {/*do nothing*/};
+global.SVGUseElement = () => {/*do nothing*/};
+global.SVGSymbolElement = () => {/*do nothing*/};
 
 test('returns correct outer HTML of the DOM node w/o children', () => {
   const outerHTML = 'pizza';
