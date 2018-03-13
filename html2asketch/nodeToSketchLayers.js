@@ -4,7 +4,10 @@ import createXPathFromElement from './helpers/createXPathFromElement';
 import Style from './style';
 import Text from './text';
 import TextStyle from './textStyle';
+import SVG from './svg';
 import {parseBackgroundImage} from './helpers/background';
+import {getSVGString} from './helpers/svg';
+import {getGroupBCR} from './helpers/bcr';
 
 const DEFAULT_VALUES = {
   backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -75,6 +78,50 @@ function fixBorderRadius(borderRadius, width, height) {
   return parseInt(borderRadius, 10);
 }
 
+function isSVGDescendant(node) {
+  return (node instanceof SVGElement) && node.matches('svg *');
+}
+
+function isVisible(node, {width, height}, {
+  position,
+  overflowX,
+  overflowY,
+  opacity,
+  visibility,
+  display,
+  clip
+}) {
+  // Skip node when display is set to none for itself or an ancestor
+  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent
+  if (node.tagName !== 'BODY' && node.offsetParent === null && position !== 'fixed') {
+    return false;
+  }
+
+  if ((width === 0 || height === 0) && overflowX === 'hidden' && overflowY === 'hidden') {
+    return false;
+  }
+
+  if (display === 'none' || visibility === 'hidden' || parseFloat(opacity) === 0) {
+    return false;
+  }
+
+  if (clip === 'rect(0px 0px 0px 0px)' && position === 'absolute') {
+    return false;
+  }
+
+  const parent = node.parentElement;
+
+  if (
+    parent &&
+    parent.nodeName !== 'HTML' &&
+    !isVisible(parent, parent.getBoundingClientRect(), getComputedStyle(parent))
+  ) {
+    return false;
+  }
+
+  return true;
+}
+
 export default async function nodeToSketchLayers(node) {
   const layers = [];
   const {width, height, x, y} = node.getBoundingClientRect();
@@ -109,34 +156,36 @@ export default async function nodeToSketchLayers(node) {
     justifyContent,
     display,
     boxShadow,
-    visibility,
-    opacity,
-    overflowX,
-    overflowY,
-    position,
-    clip
+    opacity
   } = styles;
 
-  // Skip node when display is set to none for itself or an ancestor
-  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent
-  if (node.offsetParent === null && position !== 'fixed') {
+  // skip SVG child nodes as they are already covered by `new SVG(…)`
+  if (isSVGDescendant(node)) {
     return layers;
   }
 
-  if ((width === 0 || height === 0) && overflowX === 'hidden' && overflowY === 'hidden') {
-    return layers;
-  }
-
-  if (display === 'none' || visibility === 'hidden' || parseFloat(opacity) === 0) {
-    return layers;
-  }
-
-  if (clip === 'rect(0px 0px 0px 0px)' && position === 'absolute') {
+  if (!isVisible(node, {width, height}, styles)) {
     return layers;
   }
 
   const leaf = new ShapeGroup({x, y, width, height});
   const isImage = node.nodeName === 'IMG' && node.attributes.src;
+  const isSVG = node.nodeName === 'svg';
+
+  if (isSVG) {
+    // sketch ignores padding and centerging as defined by viewBox and preserveAspectRatio when
+    // importing SVG, so instead of using BCR of the SVG, we are using BCR of its children
+    const childrenBCR = getGroupBCR(Array.from(node.children));
+
+    layers.push(new SVG({
+      x: childrenBCR.x,
+      y: childrenBCR.y,
+      width: childrenBCR.width,
+      height: childrenBCR.height,
+      rawSVGString: getSVGString(node)
+    }));
+    return layers;
+  }
 
   // if layer has no background/shadow/border/etc. skip it
   if (isImage || !hasOnlyDefaultStyles(styles)) {

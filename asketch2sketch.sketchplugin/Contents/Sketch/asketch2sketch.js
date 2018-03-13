@@ -374,6 +374,10 @@ var _fixImageFill = __webpack_require__(16);
 
 var _fixImageFill2 = _interopRequireDefault(_fixImageFill);
 
+var _makeSVGLayer = __webpack_require__(17);
+
+var _makeSVGLayer2 = _interopRequireDefault(_makeSVGLayer);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 function removeExistingLayers(context) {
@@ -399,6 +403,15 @@ function fixLayer(layer) {
 
   if (layer.layers) {
     layer.layers.forEach(fixLayer);
+  }
+}
+
+function getNativeLayer(layer) {
+  if (layer['_class'] === 'svg') {
+    return (0, _makeSVGLayer2['default'])(layer);
+  } else {
+    fixLayer(layer);
+    return (0, _sketchappJsonPlugin.fromSJSONDictionary)(layer);
   }
 }
 
@@ -497,9 +510,10 @@ function asketch2sketch(context) {
     page.name = asketchPage.name;
 
     asketchPage.layers.forEach(function (layer) {
-      fixLayer(layer);
+      var nativeLayer = getNativeLayer(layer);
+
       try {
-        page.addLayer((0, _sketchappJsonPlugin.fromSJSONDictionary)(layer));
+        page.addLayer(nativeLayer);
       } catch (e) {
         console.log('Layer couldn\'t be created');
         console.log(e);
@@ -1977,6 +1991,30 @@ function fixImageFill(layer) {
 
     delete fill.image.url;
   });
+}
+
+/***/ }),
+/* 17 */
+/***/ (function(module, exports) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports["default"] = makeSVGLayer;
+function makeSVGLayer(layer) {
+  var svgString = NSString.stringWithString(layer.rawSVGString);
+  var svgData = svgString.dataUsingEncoding(NSUTF8StringEncoding);
+  var svgImporter = MSSVGImporter.svgImporter();
+
+  svgImporter.prepareToImportFromData(svgData);
+  var svgLayer = svgImporter.importAsLayer();
+
+  svgLayer.frame().setX(layer.x);
+  svgLayer.frame().setY(layer.y);
+  svgLayer.frame().setWidth(layer.width);
+  svgLayer.frame().setHeight(layer.height);
+
+  return svgLayer;
 }
 
 /***/ })

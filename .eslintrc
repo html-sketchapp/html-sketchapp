@@ -42,6 +42,7 @@
     "NSString": false,
     "NSUTF8StringEncoding": false,
     "NSAlert": false,
-    "NSMutableAttributedString": false
+    "NSMutableAttributedString": false,
+    "MSSVGImporter": false
   }
 }
