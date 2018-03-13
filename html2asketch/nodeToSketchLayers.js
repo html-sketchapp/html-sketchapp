@@ -163,6 +163,8 @@ export default async function nodeToSketchLayers(node) {
   const isSVG = node.nodeName === 'svg';
 
   if (isSVG) {
+    // sketch ignores padding and centerging as defined by viewBox and preserveAspectRatio when
+    // importing SVG, so instead of using BCR of the SVG, we are using BCR of its children
     const childrenBCR = getGroupBCR(Array.from(node.children));
 
     layers.push(new SVG({

@@ -99,6 +99,8 @@ function inlineStyles(node) {
 
 }
 
+// NOTE: this code modifies the original node by inlining all styles
+// this is not ideal and probably fixable
 export function getSVGString(svgNode) {
   const queue = Array.from(svgNode.children);
 
