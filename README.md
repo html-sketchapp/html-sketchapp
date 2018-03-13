@@ -18,7 +18,7 @@ The motivation behind this project was ability to easily share Front-End style g
 
 We were unable to quickly work around these limitations, so we created html-sketchapp.
 
-You can learn more about this project from the excelent ["Sketching in the Browser"](https://medium.com/seek-blog/sketching-in-the-browser-33a7b7aa0526) by @markdalgleish.
+You can learn more about this project from the excelent article ["Sketching in the Browser"](https://medium.com/seek-blog/sketching-in-the-browser-33a7b7aa0526) by @markdalgleish.
 
 ## Why experimental?
 
