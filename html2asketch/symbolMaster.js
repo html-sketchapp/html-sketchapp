@@ -1,5 +1,6 @@
 import {generateID} from './helpers/utils';
 import Base from './base';
+import SymbolInstance from './symbolInstance';
 
 class SymbolMaster extends Base {
   constructor({x, y}) {
@@ -7,6 +8,11 @@ class SymbolMaster extends Base {
     this._class = 'symbolMaster';
     this._x = x;
     this._y = y;
+    this._symbolID = generateID();
+  }
+
+  getSymbolInstance({x, y, width, height}) {
+    return new SymbolInstance({x, y, width, height, symbolID: this._symbolID});
   }
 
   addLayer(layer) {
@@ -77,7 +83,7 @@ class SymbolMaster extends Base {
     obj.includeBackgroundColorInExport = true;
     obj.resizesContent = false;
     obj.includeBackgroundColorInInstance = false;
-    obj.symbolID = generateID();
+    obj.symbolID = this._symbolID;
     obj.changeIdentifier = 0;
 
     return obj;
