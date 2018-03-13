@@ -109,6 +109,16 @@ function isVisible(node, {width, height}, {
     return false;
   }
 
+  const parent = node.parentElement;
+
+  if (
+    parent &&
+    parent.nodeName !== 'HTML' &&
+    !isVisible(parent, parent.getBoundingClientRect(), getComputedStyle(parent))
+  ) {
+    return false;
+  }
+
   return true;
 }
 
