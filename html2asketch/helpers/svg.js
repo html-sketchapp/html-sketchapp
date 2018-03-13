@@ -99,6 +99,14 @@ function inlineStyles(node) {
 
 }
 
+function replaceUse(node) {
+  const href = node.href.baseVal;
+  // TODO this will only work for internal references
+  const refNode = document.querySelector(href);
+
+  return refNode ? refNode.cloneNode(true) : null;
+}
+
 // NOTE: this code modifies the original node by inlining all styles
 // this is not ideal and probably fixable
 export function getSVGString(svgNode) {
@@ -112,6 +120,16 @@ export function getSVGString(svgNode) {
       node instanceof SVGDefsElement ||
       node instanceof SVGTitleElement
     ) {
+      continue;
+    }
+
+    if (node instanceof SVGUseElement) {
+      const replacement = replaceUse(node);
+
+      if (replacement) {
+        node.parentNode.replaceChild(replacement, node);
+        queue.push(replacement);
+      }
       continue;
     }
 
