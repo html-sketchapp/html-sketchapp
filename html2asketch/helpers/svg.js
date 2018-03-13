@@ -99,12 +99,23 @@ function inlineStyles(node) {
 
 }
 
-function replaceUse(node) {
+function getUseReplacement(node) {
   const href = node.href.baseVal;
   // TODO this will only work for internal references
   const refNode = document.querySelector(href);
+  let resultNode = null;
 
-  return refNode ? refNode.cloneNode(true) : null;
+  if (refNode) {
+    if (refNode instanceof SVGSymbolElement) {
+      resultNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      Array.from(refNode.attributes).forEach(attr => resultNode.setAttribute(attr.name, attr.value));
+      Array.from(refNode.cloneNode(true).children).forEach(child => resultNode.appendChild(child));
+    } else {
+      resultNode = refNode.cloneNode(true);
+    }
+  }
+
+  return resultNode;
 }
 
 // NOTE: this code modifies the original node by inlining all styles
@@ -124,7 +135,7 @@ export function getSVGString(svgNode) {
     }
 
     if (node instanceof SVGUseElement) {
-      const replacement = replaceUse(node);
+      const replacement = getUseReplacement(node);
 
       if (replacement) {
         node.parentNode.replaceChild(replacement, node);
