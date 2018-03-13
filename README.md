@@ -1,4 +1,4 @@
-# html-sketchapp
+# html-sketchapp [![Build Status](https://travis-ci.org/brainly/html-sketchapp.svg?branch=master)](https://travis-ci.org/brainly/html-sketchapp) [![npm version](https://badge.fury.io/js/%40brainly%2Fhtml-sketchapp.svg)](https://badge.fury.io/js/%40brainly%2Fhtml-sketchapp)
 
 *Experimental* HTML to Sketch export solution.
 
@@ -26,7 +26,7 @@ This project is a prototype that allowed us to export most of our Front-End styl
 
 - not all CSS properties are supported (TODO)
 - not all values for supported CSS properties are supported (TODO)
-- not all types of images are supported (webp, svg) (TODO)
+- not all types of images are supported (webp, external svg) (TODO)
 - resizing information is not generated (TODO)
 - all fonts have to be locally installed (not sure if that's fixable)
 - requires MacOS (Sketch's limitation)
