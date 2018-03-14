@@ -22,5 +22,5 @@
   "disableCocoaScriptPreprocessor": true,
   "appcast": "https://raw.githubusercontent.com/brainly/html-sketchapp/master/.appcast.xml",
   "author": "Brainly - Konrad Dzwinel",
-  "email": "konrad.dzwinel@brainly.com"
+  "authorEmail": "konrad.dzwinel@brainly.com"
 }

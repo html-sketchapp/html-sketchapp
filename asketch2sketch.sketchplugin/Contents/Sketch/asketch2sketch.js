@@ -65,218 +65,213 @@ var exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(console, global) {/* globals log */
-if (!console._skpmEnabled) {
-  if (true) {
-    var sketchDebugger = __webpack_require__(4)
-    var actions = __webpack_require__(6)
+/* WEBPACK VAR INJECTION */(function(console) {/* globals log */
 
-    function getStack() {
-      return sketchDebugger.prepareStackTrace(new Error().stack)
-    }
+if (true) {
+  var sketchUtils = __webpack_require__(5)
+  var sketchDebugger = __webpack_require__(7)
+  var actions = __webpack_require__(9)
+
+  function getStack() {
+    return sketchUtils.prepareStackTrace(new Error().stack)
   }
-
-  console._skpmPrefix = 'console> '
-
-  function logEverywhere(type, args) {
-    var values = Array.prototype.slice.call(args)
-
-    // log to the System logs
-    values.forEach(function(v) {
-      try {
-        log(console._skpmPrefix + indentString() + v)
-      } catch (e) {
-        log(v)
-      }
-    })
-
-    if (true) {
-      if (!sketchDebugger.isDebuggerPresent()) {
-        return
-      }
-
-      var payload = {
-        ts: Date.now(),
-        type: type,
-        plugin: String(context.scriptPath),
-        values: values.map(sketchDebugger.prepareValue),
-        stack: getStack(),
-      }
-
-      sketchDebugger.sendToDebugger(actions.ADD_LOG, payload)
-    }
-  }
-
-  var indentLevel = 0
-  function indentString() {
-    var indent = ''
-    for (var i = 0; i < indentLevel; i++) {
-      indent += '  '
-    }
-    if (indentLevel > 0) {
-      indent += '| '
-    }
-    return indent
-  }
-
-  var oldGroup = console.group
-
-  console.group = function() {
-    // log to the JS context
-    oldGroup && oldGroup.apply(this, arguments)
-    indentLevel += 1
-    if (true) {
-      sketchDebugger.sendToDebugger(actions.GROUP, {
-        plugin: String(context.scriptPath),
-        collapsed: false,
-      })
-    }
-  }
-
-  var oldGroupCollapsed = console.groupCollapsed
-
-  console.groupCollapsed = function() {
-    // log to the JS context
-    oldGroupCollapsed && oldGroupCollapsed.apply(this, arguments)
-    indentLevel += 1
-    if (true) {
-      sketchDebugger.sendToDebugger(actions.GROUP, {
-        plugin: String(context.scriptPath),
-        collapsed: true
-      })
-    }
-  }
-
-  var oldGroupEnd = console.groupEnd
-
-  console.groupEnd = function() {
-    // log to the JS context
-    oldGroupEnd && oldGroupEnd.apply(this, arguments)
-    indentLevel -= 1
-    if (indentLevel < 0) {
-      indentLevel = 0
-    }
-    if (true) {
-      sketchDebugger.sendToDebugger(actions.GROUP_END, {
-        plugin: context.scriptPath,
-      })
-    }
-  }
-
-  var counts = {}
-  var oldCount = console.count
-
-  console.count = function(label) {
-    label = typeof label !== 'undefined' ? label : 'Global'
-    counts[label] = (counts[label] || 0) + 1
-
-    // log to the JS context
-    oldCount && oldCount.apply(this, arguments)
-    return logEverywhere('log', [label + ': ' + counts[label]])
-  }
-
-  var timers = {}
-  var oldTime = console.time
-
-  console.time = function(label) {
-    // log to the JS context
-    oldTime && oldTime.apply(this, arguments)
-
-    label = typeof label !== 'undefined' ? label : 'default'
-    if (timers[label]) {
-      return logEverywhere('warn', ['Timer "' + label + '" already exists'])
-    }
-
-    timers[label] = Date.now()
-    return
-  }
-
-  var oldTimeEnd = console.timeEnd
-
-  console.timeEnd = function(label) {
-    // log to the JS context
-    oldTimeEnd && oldTimeEnd.apply(this, arguments)
-
-    label = typeof label !== 'undefined' ? label : 'default'
-    if (!timers[label]) {
-      return logEverywhere('warn', ['Timer "' + label + '" does not exist'])
-    }
-
-    var duration = Date.now() - timers[label]
-    delete timers[label]
-    return logEverywhere('log', [label + ': ' + (duration / 1000) + 'ms'])
-  }
-
-  var oldLog = console.log
-
-  console.log = function() {
-    // log to the JS context
-    oldLog && oldLog.apply(this, arguments)
-    return logEverywhere('log', arguments)
-  }
-
-  var oldWarn = console.warn
-
-  console.warn = function() {
-    // log to the JS context
-    oldWarn && oldWarn.apply(this, arguments)
-    return logEverywhere('warn', arguments)
-  }
-
-  var oldError = console.error
-
-  console.error = function() {
-    // log to the JS context
-    oldError && oldError.apply(this, arguments)
-    return logEverywhere('error', arguments)
-  }
-
-  var oldAssert = console.assert
-
-  console.assert = function(condition, text) {
-    // log to the JS context
-    oldAssert && oldAssert.apply(this, arguments)
-    if (!condition) {
-      return logEverywhere('assert', [text])
-    }
-    return undefined
-  }
-
-  var oldInfo = console.info
-
-  console.info = function() {
-    // log to the JS context
-    oldInfo && oldInfo.apply(this, arguments)
-    return logEverywhere('info', arguments)
-  }
-
-  var oldClear = console.clear
-
-  console.clear = function() {
-    oldClear && oldClear()
-    if (true) {
-      return sketchDebugger.sendToDebugger(actions.CLEAR_LOGS)
-    }
-  }
-
-  console._skpmEnabled = true
-
-  // polyfill the global object
-  var commonjsGlobal = typeof global !== 'undefined' ? global : this
-
-  commonjsGlobal.console = console
 }
+
+console._skpmPrefix = 'console> '
+
+function logEverywhere(type, args) {
+  var values = Array.prototype.slice.call(args)
+
+  // log to the System logs
+  values.forEach(function(v) {
+    try {
+      log(console._skpmPrefix + indentString() + v)
+    } catch (e) {
+      log(v)
+    }
+  })
+
+  if (true) {
+    if (!sketchDebugger.isDebuggerPresent()) {
+      return
+    }
+
+    var payload = {
+      ts: Date.now(),
+      type: type,
+      plugin: String(context.scriptPath),
+      values: values.map(sketchUtils.prepareValue),
+      stack: getStack(),
+    }
+
+    sketchDebugger.sendToDebugger(actions.ADD_LOG, payload)
+  }
+}
+
+var indentLevel = 0
+function indentString() {
+  var indent = ''
+  for (var i = 0; i < indentLevel; i++) {
+    indent += '  '
+  }
+  if (indentLevel > 0) {
+    indent += '| '
+  }
+  return indent
+}
+
+var oldGroup = console.group
+
+console.group = function() {
+  // log to the JS context
+  oldGroup && oldGroup.apply(this, arguments)
+  indentLevel += 1
+  if (true) {
+    sketchDebugger.sendToDebugger(actions.GROUP, {
+      plugin: String(context.scriptPath),
+      collapsed: false,
+    })
+  }
+}
+
+var oldGroupCollapsed = console.groupCollapsed
+
+console.groupCollapsed = function() {
+  // log to the JS context
+  oldGroupCollapsed && oldGroupCollapsed.apply(this, arguments)
+  indentLevel += 1
+  if (true) {
+    sketchDebugger.sendToDebugger(actions.GROUP, {
+      plugin: String(context.scriptPath),
+      collapsed: true
+    })
+  }
+}
+
+var oldGroupEnd = console.groupEnd
+
+console.groupEnd = function() {
+  // log to the JS context
+  oldGroupEnd && oldGroupEnd.apply(this, arguments)
+  indentLevel -= 1
+  if (indentLevel < 0) {
+    indentLevel = 0
+  }
+  if (true) {
+    sketchDebugger.sendToDebugger(actions.GROUP_END, {
+      plugin: context.scriptPath,
+    })
+  }
+}
+
+var counts = {}
+var oldCount = console.count
+
+console.count = function(label) {
+  label = typeof label !== 'undefined' ? label : 'Global'
+  counts[label] = (counts[label] || 0) + 1
+
+  // log to the JS context
+  oldCount && oldCount.apply(this, arguments)
+  return logEverywhere('log', [label + ': ' + counts[label]])
+}
+
+var timers = {}
+var oldTime = console.time
+
+console.time = function(label) {
+  // log to the JS context
+  oldTime && oldTime.apply(this, arguments)
+
+  label = typeof label !== 'undefined' ? label : 'default'
+  if (timers[label]) {
+    return logEverywhere('warn', ['Timer "' + label + '" already exists'])
+  }
+
+  timers[label] = Date.now()
+  return
+}
+
+var oldTimeEnd = console.timeEnd
+
+console.timeEnd = function(label) {
+  // log to the JS context
+  oldTimeEnd && oldTimeEnd.apply(this, arguments)
+
+  label = typeof label !== 'undefined' ? label : 'default'
+  if (!timers[label]) {
+    return logEverywhere('warn', ['Timer "' + label + '" does not exist'])
+  }
+
+  var duration = Date.now() - timers[label]
+  delete timers[label]
+  return logEverywhere('log', [label + ': ' + (duration / 1000) + 'ms'])
+}
+
+var oldLog = console.log
+
+console.log = function() {
+  // log to the JS context
+  oldLog && oldLog.apply(this, arguments)
+  return logEverywhere('log', arguments)
+}
+
+var oldWarn = console.warn
+
+console.warn = function() {
+  // log to the JS context
+  oldWarn && oldWarn.apply(this, arguments)
+  return logEverywhere('warn', arguments)
+}
+
+var oldError = console.error
+
+console.error = function() {
+  // log to the JS context
+  oldError && oldError.apply(this, arguments)
+  return logEverywhere('error', arguments)
+}
+
+var oldAssert = console.assert
+
+console.assert = function(condition, text) {
+  // log to the JS context
+  oldAssert && oldAssert.apply(this, arguments)
+  if (!condition) {
+    return logEverywhere('assert', [text])
+  }
+  return undefined
+}
+
+var oldInfo = console.info
+
+console.info = function() {
+  // log to the JS context
+  oldInfo && oldInfo.apply(this, arguments)
+  return logEverywhere('info', arguments)
+}
+
+var oldClear = console.clear
+
+console.clear = function() {
+  oldClear && oldClear()
+  if (true) {
+    return sketchDebugger.sendToDebugger(actions.CLEAR_LOGS)
+  }
+}
+
+console._skpmEnabled = true
 
 module.exports = console
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0), __webpack_require__(3)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 1 */
@@ -293,7 +288,7 @@ exports.toSJSON = toSJSON;
 exports.fromSJSON = fromSJSON;
 exports.fromSJSONDictionary = fromSJSONDictionary;
 
-var _invariant = __webpack_require__(7);
+var _invariant = __webpack_require__(10);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -359,6 +354,75 @@ function fromSJSONDictionary(jsonTree) {
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+/* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign, no-var, vars-on-top, prefer-template, prefer-arrow-callback, func-names, prefer-destructuring, object-shorthand */
+
+module.exports = function prepareStackTrace(stackTrace) {
+  var stack = stackTrace.split('\n')
+  stack = stack.map(function (s) {
+    return s.replace(/\sg/, '')
+  })
+
+  stack = stack.map(function (entry) {
+    // entry is something like `functionName@path/to/my/file:line:column`
+    // or `path/to/my/file:line:column`
+    // or `path/to/my/file`
+    // or `path/to/@my/file:line:column`
+    var parts = entry.split('@')
+    var fn = parts.shift()
+    var filePath = parts.join('@') // the path can contain @
+
+    if (fn.indexOf('/Users/') === 0) {
+      // actually we didn't have a fn so just put it back in the filePath
+      filePath = fn + (filePath ? ('@' + filePath) : '')
+      fn = null
+    }
+
+    if (!filePath) {
+      // we should always have a filePath, so if we don't have one here, it means that the function what actually anonymous and that it is the filePath instead
+      filePath = entry
+      fn = null
+    }
+
+    var filePathParts = filePath.split(':')
+    filePath = filePathParts[0]
+
+    // the file is the last part of the filePath
+    var file = filePath.split('/')
+    file = file[file.length - 1]
+
+    return {
+      fn: fn,
+      file: file,
+      filePath: filePath,
+      line: filePathParts[1],
+      column: filePathParts[2],
+    }
+  })
+
+  return stack
+}
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+module.exports = function toArray(object) {
+  if (Array.isArray(object)) {
+    return object
+  }
+  var arr = []
+  for (var j = 0; j < (object || []).length; j += 1) {
+    arr.push(object[j])
+  }
+  return arr
+}
+
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(console) {Object.defineProperty(exports, "__esModule", {
@@ -368,13 +432,13 @@ exports['default'] = asketch2sketch;
 
 var _sketchappJsonPlugin = __webpack_require__(1);
 
-var _fixFont = __webpack_require__(8);
+var _fixFont = __webpack_require__(11);
 
-var _fixImageFill = __webpack_require__(16);
+var _fixImageFill = __webpack_require__(19);
 
 var _fixImageFill2 = _interopRequireDefault(_fixImageFill);
 
-var _fixSVG = __webpack_require__(17);
+var _fixSVG = __webpack_require__(20);
 
 var _fixSVG2 = _interopRequireDefault(_fixSVG);
 
@@ -527,99 +591,36 @@ function asketch2sketch(context) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports) {
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
 
-var g;
+var prepareValue = __webpack_require__(6)
 
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
+module.exports.toArray = __webpack_require__(3)
+module.exports.prepareStackTrace = __webpack_require__(2)
+module.exports.prepareValue = prepareValue
+module.exports.prepareObject = prepareValue.prepareObject
+module.exports.prepareArray = prepareValue.prepareArray
 
 
 /***/ }),
-/* 4 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign, no-var, vars-on-top, prefer-template, prefer-arrow-callback, func-names, prefer-destructuring, object-shorthand */
-var remoteWebview = __webpack_require__(5)
+var prepareStackTrace = __webpack_require__(2)
+var toArray = __webpack_require__(3)
 
-module.exports.identifier = 'skpm.debugger'
-
-function toArray(object) {
-  if (Array.isArray(object)) {
-    return object
-  }
-  var arr = []
-  for (var j = 0; j < object.count(); j += 1) {
-    arr.push(object.objectAtIndex(j))
-  }
-  return arr
-}
-
-module.exports.prepareStackTrace = function(stackTrace) {
-  var stack = stackTrace.split('\n')
-  stack = stack.map(function(s) {
-    return s.replace(/\sg/, '')
-  })
-
-  // pop the last 2 frames as it's ours here
-  stack.splice(0, 2)
-
-  stack = stack.map(function(entry) {
-    var line = null
-    var column = null
-    var file = null
-    var split = entry.split('@')
-    var fn = split[0]
-    var filePath = split[1]
-
-    if (filePath) {
-      split = filePath.split(':')
-      filePath = split[0]
-      line = split[1]
-      column = split[2]
-      file = filePath.split('/')
-      file = file[file.length - 1]
-    }
-    return {
-      fn: fn,
-      file: file,
-      filePath: filePath,
-      line: line,
-      column: column,
-    }
-  })
-
-  return stack
-}
-
-function prepareArray(array, skipMocha) {
+function prepareArray(array, options) {
   return array.map(function(i) {
-    return module.exports.prepareValue(i, skipMocha)
+    return prepareValue(i, options)
   })
 }
 
-module.exports.prepareObject = function(object, skipMocha) {
+function prepareObject(object, options) {
   const deep = {}
   Object.keys(object).forEach(function(key) {
-    deep[key] = module.exports.prepareValue(object[key], skipMocha)
+    deep[key] = prepareValue(object[key], options)
   })
   return deep
 }
@@ -640,37 +641,50 @@ function getSelector(x) {
   }
 }
 
-function introspectMochaObject(value) {
+function introspectMochaObject(value, options) {
+  options = options || {}
   var mocha = value.class().mocha()
   var introspection = {
     properties: {
       type: 'Array',
       primitive: 'Array',
-      value: toArray(mocha.propertiesWithAncestors()).map(getName),
+      value: toArray(
+        mocha['properties' + (options.withAncestors ? 'WithAncestors' : '')]()
+      ).map(getName),
     },
     classMethods: {
       type: 'Array',
       primitive: 'Array',
-      value: toArray(mocha.classMethodsWithAncestors()).map(getSelector),
+      value: toArray(
+        mocha['classMethods' + (options.withAncestors ? 'WithAncestors' : '')]()
+      ).map(getSelector),
     },
     instanceMethods: {
       type: 'Array',
       primitive: 'Array',
-      value: toArray(mocha.instanceMethodsWithAncestors()).map(getSelector),
+      value: toArray(
+        mocha['instanceMethods' + (options.withAncestors ? 'WithAncestors' : '')]()
+      ).map(getSelector),
     },
     protocols: {
       type: 'Array',
       primitive: 'Array',
-      value: toArray(mocha.protocolsWithAncestors()).map(getName),
+      value: toArray(
+        mocha['protocols' + (options.withAncestors ? 'WithAncestors' : '')]()
+      ).map(getName),
     },
   }
-  // if (mocha.treeAsDictionary) {
-  //   introspection.treeAsDictionary = mocha.treeAsDictionary()
-  // }
+  if (mocha.treeAsDictionary && options.withTree) {
+    introspection.treeAsDictionary = {
+      type: 'Object',
+      primitive: 'Object',
+      value: prepareObject(mocha.treeAsDictionary())
+    }
+  }
   return introspection
 }
 
-module.exports.prepareValue = function prepareValue(value, skipMocha) {
+function prepareValue(value, options) {
   var type = 'String'
   var primitive = 'String'
   const typeOf = typeof value
@@ -680,12 +694,12 @@ module.exports.prepareValue = function prepareValue(value, skipMocha) {
     value = {
       message: value.message,
       name: value.name,
-      stack: module.exports.prepareStackTrace(value.stack),
+      stack: prepareStackTrace(value.stack),
     }
   } else if (Array.isArray(value)) {
     type = 'Array'
     primitive = 'Array'
-    value = prepareArray(value, skipMocha)
+    value = prepareArray(value, options)
   } else if (value === null || value === undefined || Number.isNaN(value)) {
     type = 'Empty'
     primitive = 'Empty'
@@ -702,7 +716,7 @@ module.exports.prepareValue = function prepareValue(value, skipMocha) {
         type === '__NSCFDictionary'
       ) {
         primitive = 'Object'
-        value = module.exports.prepareObject(Object(value), skipMocha)
+        value = prepareObject(Object(value), options)
       } else if (
         type === 'NSArray' ||
         type === 'NSMutableArray' ||
@@ -711,7 +725,7 @@ module.exports.prepareValue = function prepareValue(value, skipMocha) {
         type === '__NSArray0'
       ) {
         primitive = 'Array'
-        value = prepareArray(toArray(value), skipMocha)
+        value = prepareArray(toArray(value), options)
       } else if (
         type === 'NSString' ||
         type === '__NSCFString' ||
@@ -727,12 +741,12 @@ module.exports.prepareValue = function prepareValue(value, skipMocha) {
         type = String(value.name())
         primitive = 'Object'
         value = value.memberNames().reduce(function(prev, k) {
-          prev[k] = module.exports.prepareValue(value[k], skipMocha)
+          prev[k] = prepareValue(value[k], options)
           return prev
         }, {})
-      } else if (value.class().mocha && !skipMocha) {
+      } else if (value.class().mocha) {
         primitive = 'Mocha'
-        value = introspectMochaObject(value)
+        value = (options || {}).skipMocha ? type : introspectMochaObject(value, options)
       } else {
         primitive = 'Unknown'
         value = type
@@ -740,7 +754,7 @@ module.exports.prepareValue = function prepareValue(value, skipMocha) {
     } else {
       type = 'Object'
       primitive = 'Object'
-      value = module.exports.prepareObject(value, skipMocha)
+      value = prepareObject(value, options)
     }
   } else if (typeOf === 'function') {
     type = 'Function'
@@ -761,6 +775,20 @@ module.exports.prepareValue = function prepareValue(value, skipMocha) {
   }
 }
 
+module.exports = prepareValue
+module.exports.prepareObject = prepareObject
+module.exports.prepareArray = prepareArray
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign, no-var, vars-on-top, prefer-template, prefer-arrow-callback, func-names, prefer-destructuring, object-shorthand */
+var remoteWebview = __webpack_require__(8)
+
+module.exports.identifier = 'skpm.debugger'
+
 module.exports.isDebuggerPresent = remoteWebview.isWebviewPresent.bind(
   this,
   module.exports.identifier
@@ -780,7 +808,7 @@ module.exports.sendToDebugger = function sendToDebugger(name, payload) {
 
 
 /***/ }),
-/* 5 */
+/* 8 */
 /***/ (function(module, exports) {
 
 /* globals NSThread */
@@ -806,7 +834,7 @@ module.exports.sendToWebview = function sendToWebview (identifier, evalString) {
 
 
 /***/ }),
-/* 6 */
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports.SET_TREE = 'elements/SET_TREE'
@@ -825,7 +853,7 @@ module.exports.SET_SCRIPT_RESULT = 'playground/SET_SCRIPT_RESULT'
 
 
 /***/ }),
-/* 7 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -883,7 +911,7 @@ module.exports = invariant;
 
 
 /***/ }),
-/* 8 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 Object.defineProperty(exports, "__esModule", {
@@ -892,13 +920,13 @@ Object.defineProperty(exports, "__esModule", {
 exports.fixTextLayer = fixTextLayer;
 exports.fixSharedTextStyle = fixSharedTextStyle;
 
-var _utils = __webpack_require__(9);
+var _utils = __webpack_require__(12);
 
-var _sketchConstants = __webpack_require__(11);
+var _sketchConstants = __webpack_require__(14);
 
 var _sketchappJsonPlugin = __webpack_require__(1);
 
-var _findFont = __webpack_require__(12);
+var _findFont = __webpack_require__(15);
 
 var _findFont2 = _interopRequireDefault(_findFont);
 
@@ -1049,7 +1077,7 @@ function fixSharedTextStyle(sharedStyle) {
 }
 
 /***/ }),
-/* 9 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 Object.defineProperty(exports, "__esModule", {
@@ -1058,7 +1086,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.makeColorFromCSS = undefined;
 exports.generateID = generateID;
 
-var _normalizeCssColor = __webpack_require__(10);
+var _normalizeCssColor = __webpack_require__(13);
 
 var _normalizeCssColor2 = _interopRequireDefault(_normalizeCssColor);
 
@@ -1115,7 +1143,7 @@ var makeColorFromCSS = exports.makeColorFromCSS = function makeColorFromCSS(inpu
 };
 
 /***/ }),
-/* 10 */
+/* 13 */
 /***/ (function(module, exports) {
 
 /*
@@ -1484,7 +1512,7 @@ module.exports = normalizeColor;
 
 
 /***/ }),
-/* 11 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1613,14 +1641,14 @@ var CurvePointMode = exports.CurvePointMode = {
 };
 
 /***/ }),
-/* 12 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(console) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _hashStyle = __webpack_require__(13);
+var _hashStyle = __webpack_require__(16);
 
 var _hashStyle2 = _interopRequireDefault(_hashStyle);
 
@@ -1833,18 +1861,18 @@ exports['default'] = findFont;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 13 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _murmur2js = __webpack_require__(14);
+var _murmur2js = __webpack_require__(17);
 
 var _murmur2js2 = _interopRequireDefault(_murmur2js);
 
-var _sortObjectKeys = __webpack_require__(15);
+var _sortObjectKeys = __webpack_require__(18);
 
 var _sortObjectKeys2 = _interopRequireDefault(_sortObjectKeys);
 
@@ -1857,7 +1885,7 @@ var hashStyle = function hashStyle(obj) {
 exports['default'] = hashStyle;
 
 /***/ }),
-/* 14 */
+/* 17 */
 /***/ (function(module, exports) {
 
 /**
@@ -1909,7 +1937,7 @@ module.exports = function murmur2js(str) {
 
 
 /***/ }),
-/* 15 */
+/* 18 */
 /***/ (function(module, exports) {
 
 Object.defineProperty(exports, "__esModule", {
@@ -1929,7 +1957,7 @@ var sortObjectKeys = function sortObjectKeys(obj) {
 exports["default"] = sortObjectKeys;
 
 /***/ }),
-/* 16 */
+/* 19 */
 /***/ (function(module, exports) {
 
 Object.defineProperty(exports, "__esModule", {
@@ -1994,7 +2022,7 @@ function fixImageFill(layer) {
 }
 
 /***/ }),
-/* 17 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 Object.defineProperty(exports, "__esModule", {

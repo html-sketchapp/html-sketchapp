@@ -19,7 +19,7 @@
     "sketch": ">=3.0"
   },
   "devDependencies": {
-    "@skpm/builder": "^0.2.0",
+    "@skpm/builder": "^0.4.2",
     "babel-preset-airbnb": "^2.4.0",
     "eslint": "^4.16.0",
     "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v16.1.4",
