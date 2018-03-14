@@ -9,7 +9,15 @@ script:
 notifications:
   email: false
 
+dist: trusty
+
 addons:
   apt:
     packages:
-    - libsecret-1-dev
+      - libsecret-1-dev
+      # This is required to run new chrome on old trusty
+      - libnss3
+
+cache:
+  directories:
+    - node_modules
