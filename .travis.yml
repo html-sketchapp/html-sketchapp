@@ -12,4 +12,8 @@ notifications:
 addons:
   apt:
     packages:
-    - libsecret-1-dev
+      - libsecret-1-dev
+
+cache:
+  directories:
+    - node_modules
