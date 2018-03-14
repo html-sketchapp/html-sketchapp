@@ -25,7 +25,10 @@ function removeRandomness(layer) {
   }
 }
 
-puppeteer.launch().then(async browser => {
+const isTravis = 'TRAVIS' in process.env && 'CI' in process.env;
+const args = isTravis ? ['--no-sandbox', '--disable-setuid-sandbox'] : [];
+
+puppeteer.launch({args}).then(async browser => {
   const page = await browser.newPage();
 
   await page.setViewport({width: 800, height: 600});
