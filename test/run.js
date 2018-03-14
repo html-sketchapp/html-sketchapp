@@ -69,8 +69,10 @@ puppeteer.launch({args}).then(async browser => {
   browser.close();
 
   if (diff.changed) {
-    console.log('Oh no! That\'s not the expected output.');
+    console.error('E2E tests: ❌ Oh no! That\'s not the expected output. See the diff below:');
     console.log(diff.text);
     process.exit(1);
+  } else {
+    console.log('E2E tests: ✅');
   }
 });
