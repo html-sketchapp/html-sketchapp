@@ -1,0 +1,1945 @@
+[
+  {
+    "_layers": [],
+    "_style": null,
+    "_objectID": "pizza",
+    "_name": "",
+    "_resizingConstant": 63,
+    "_rawSVGString": "<svg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 200 200\">\n    <svg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 24 24\" id=\"svg-circles\" style=\"font-family: &quot;Times New Roman&quot;; overflow: hidden;\">\n    <circle class=\"b\" cx=\"6.03\" cy=\"5.95\" r=\"2\" style=\"cx: 6.03px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"c\" cx=\"12.08\" cy=\"5.95\" r=\"2\" style=\"cx: 12.08px; cy: 5.95px; r: 2px; fill: rgb(83, 207, 146); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"5.95\" r=\"2\" style=\"cx: 18.08px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"d\" cx=\"6.03\" cy=\"11.93\" r=\"2\" style=\"cx: 6.03px; cy: 11.93px; r: 2px; fill: rgb(87, 178, 248); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"12.08\" cy=\"11.93\" r=\"2\" style=\"cx: 12.08px; cy: 11.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"e\" cx=\"18.08\" cy=\"11.93\" r=\"2\" style=\"cx: 18.08px; cy: 11.93px; r: 2px; fill: rgb(254, 200, 60); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"6.03\" cy=\"17.93\" r=\"2\" style=\"cx: 6.03px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"f\" cx=\"12.08\" cy=\"17.93\" r=\"2\" style=\"cx: 12.08px; cy: 17.93px; r: 2px; fill: rgb(255, 121, 107); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"17.93\" r=\"2\" style=\"cx: 18.08px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n  </svg>\n  </svg>",
+    "_width": 133.75,
+    "_height": 133.16650390625,
+    "_x": 41.583335876464844,
+    "_y": 3896.604248046875
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 18,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 700,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "SVG via <use>",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 3822.96875,
+    "_width": 119.046875,
+    "_height": 21,
+    "_text": "SVG via <use>",
+    "_multiline": false
+  },
+  {
+    "_layers": [],
+    "_style": null,
+    "_objectID": "pizza",
+    "_name": "",
+    "_resizingConstant": 63,
+    "_rawSVGString": "<svg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 24 24\" id=\"svg-circles\">\n    <circle class=\"b\" cx=\"6.03\" cy=\"5.95\" r=\"2\" style=\"cx: 6.03px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"c\" cx=\"12.08\" cy=\"5.95\" r=\"2\" style=\"cx: 12.08px; cy: 5.95px; r: 2px; fill: rgb(83, 207, 146); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"5.95\" r=\"2\" style=\"cx: 18.08px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"d\" cx=\"6.03\" cy=\"11.93\" r=\"2\" style=\"cx: 6.03px; cy: 11.93px; r: 2px; fill: rgb(87, 178, 248); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"12.08\" cy=\"11.93\" r=\"2\" style=\"cx: 12.08px; cy: 11.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"e\" cx=\"18.08\" cy=\"11.93\" r=\"2\" style=\"cx: 18.08px; cy: 11.93px; r: 2px; fill: rgb(254, 200, 60); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"6.03\" cy=\"17.93\" r=\"2\" style=\"cx: 6.03px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"f\" cx=\"12.08\" cy=\"17.93\" r=\"2\" style=\"cx: 12.08px; cy: 17.93px; r: 2px; fill: rgb(255, 121, 107); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"17.93\" r=\"2\" style=\"cx: 18.08px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n  </svg>",
+    "_width": 133.74999237060547,
+    "_height": 133.16650390625,
+    "_x": 41.583335876464844,
+    "_y": 3633.166748046875
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 18,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 700,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "Inheritied styles",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 3559.53125,
+    "_width": 128.359375,
+    "_height": 21,
+    "_text": "Inheritied styles",
+    "_multiline": false
+  },
+  {
+    "_layers": [],
+    "_style": null,
+    "_objectID": "pizza",
+    "_name": "",
+    "_resizingConstant": 63,
+    "_rawSVGString": "<svg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 24 24\">\n    <defs>\n      <style>\n        .b {\n          fill: #020a1a;\n        }\n\n        .c {\n          fill: #53cf92;\n        }\n\n        .d {\n          fill: #57b2f8;\n        }\n\n        .e {\n          fill: #fec83c;\n        }\n\n        .f {\n          fill: #ff796b;\n        }\n      </style>\n    </defs>\n    <title>all_1</title>\n    <circle class=\"b\" cx=\"6.03\" cy=\"5.95\" r=\"2\" style=\"cx: 6.03px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"c\" cx=\"12.08\" cy=\"5.95\" r=\"2\" style=\"cx: 12.08px; cy: 5.95px; r: 2px; fill: rgb(83, 207, 146); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"5.95\" r=\"2\" style=\"cx: 18.08px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"d\" cx=\"6.03\" cy=\"11.93\" r=\"2\" style=\"cx: 6.03px; cy: 11.93px; r: 2px; fill: rgb(87, 178, 248); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"12.08\" cy=\"11.93\" r=\"2\" style=\"cx: 12.08px; cy: 11.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"e\" cx=\"18.08\" cy=\"11.93\" r=\"2\" style=\"cx: 18.08px; cy: 11.93px; r: 2px; fill: rgb(254, 200, 60); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"6.03\" cy=\"17.93\" r=\"2\" style=\"cx: 6.03px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"f\" cx=\"12.08\" cy=\"17.93\" r=\"2\" style=\"cx: 12.08px; cy: 17.93px; r: 2px; fill: rgb(255, 121, 107); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"17.93\" r=\"2\" style=\"cx: 18.08px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n  </svg>",
+    "_width": 133.74999237060547,
+    "_height": 133.16650390625,
+    "_x": 41.583335876464844,
+    "_y": 3369.729248046875
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 18,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 700,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "Embedded styles",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 3296.09375,
+    "_width": 134.609375,
+    "_height": 21,
+    "_text": "Embedded styles",
+    "_multiline": false
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 24,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 700,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "SVG",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 3249.1875,
+    "_width": 49.34375,
+    "_height": 26,
+    "_text": "SVG",
+    "_multiline": false
+  },
+  {
+    "_layers": [
+      {
+        "_layers": [],
+        "_style": null,
+        "_objectID": "pizza",
+        "_name": "",
+        "_resizingConstant": 63,
+        "_class": "rectangle",
+        "_width": 100,
+        "_height": 100,
+        "_cornerRadius": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0
+        }
+      }
+    ],
+    "_style": {
+      "_fills": [
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 1,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        }
+      ],
+      "_borders": [
+        {
+          "_class": "border",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "position": 1,
+          "thickness": 0
+        }
+      ],
+      "_shadows": [],
+      "_innerShadows": [],
+      "_opacity": "0.3"
+    },
+    "_objectID": "pizza",
+    "_name": "/html[1]/body[1]/div[@class=\"box\"]",
+    "_resizingConstant": 63,
+    "_class": "shapeGroup",
+    "_x": 8,
+    "_y": 3129.28125,
+    "_width": 100,
+    "_height": 100
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 16,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 400,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "opacity 0.3",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 3129.28125,
+    "_width": 71.09375,
+    "_height": 17,
+    "_text": "opacity 0.3",
+    "_multiline": false
+  },
+  {
+    "_layers": [
+      {
+        "_layers": [],
+        "_style": null,
+        "_objectID": "pizza",
+        "_name": "",
+        "_resizingConstant": 63,
+        "_class": "rectangle",
+        "_width": 100,
+        "_height": 100,
+        "_cornerRadius": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0
+        }
+      }
+    ],
+    "_style": {
+      "_fills": [
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 1,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        }
+      ],
+      "_borders": [
+        {
+          "_class": "border",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "position": 1,
+          "thickness": 0
+        }
+      ],
+      "_shadows": [],
+      "_innerShadows": [],
+      "_opacity": "0.8"
+    },
+    "_objectID": "pizza",
+    "_name": "/html[1]/body[1]/div[@class=\"box\"]",
+    "_resizingConstant": 63,
+    "_class": "shapeGroup",
+    "_x": 8,
+    "_y": 3029.28125,
+    "_width": 100,
+    "_height": 100
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 16,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 400,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "opacity 0.8",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 3029.28125,
+    "_width": 71.09375,
+    "_height": 17,
+    "_text": "opacity 0.8",
+    "_multiline": false
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 24,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 700,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "Opacity",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 2982.375,
+    "_width": 81.328125,
+    "_height": 26,
+    "_text": "Opacity",
+    "_multiline": false
+  },
+  {
+    "_layers": [
+      {
+        "_layers": [],
+        "_style": null,
+        "_objectID": "pizza",
+        "_name": "",
+        "_resizingConstant": 63,
+        "_class": "rectangle",
+        "_width": 100,
+        "_height": 100,
+        "_cornerRadius": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0
+        }
+      }
+    ],
+    "_style": {
+      "_fills": [
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 1,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        }
+      ],
+      "_borders": [
+        {
+          "_class": "border",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "position": 1,
+          "thickness": 0
+        }
+      ],
+      "_shadows": [],
+      "_innerShadows": [],
+      "_opacity": "1"
+    },
+    "_objectID": "pizza",
+    "_name": "/html[1]/body[1]/div[@class=\"box\"]",
+    "_resizingConstant": 63,
+    "_class": "shapeGroup",
+    "_x": 112,
+    "_y": 2862.46875,
+    "_width": 100,
+    "_height": 100
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 16,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 400,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "inline-block",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 112,
+    "_y": 2862.46875,
+    "_width": 77.3125,
+    "_height": 17,
+    "_text": "inline-block",
+    "_multiline": false
+  },
+  {
+    "_layers": [
+      {
+        "_layers": [],
+        "_style": null,
+        "_objectID": "pizza",
+        "_name": "",
+        "_resizingConstant": 63,
+        "_class": "rectangle",
+        "_width": 100,
+        "_height": 100,
+        "_cornerRadius": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0
+        }
+      }
+    ],
+    "_style": {
+      "_fills": [
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 1,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        }
+      ],
+      "_borders": [
+        {
+          "_class": "border",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "position": 1,
+          "thickness": 0
+        }
+      ],
+      "_shadows": [],
+      "_innerShadows": [],
+      "_opacity": "1"
+    },
+    "_objectID": "pizza",
+    "_name": "/html[1]/body[1]/div[@class=\"box\"]",
+    "_resizingConstant": 63,
+    "_class": "shapeGroup",
+    "_x": 8,
+    "_y": 2862.46875,
+    "_width": 100,
+    "_height": 100
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 16,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 400,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "inline-block",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 2862.46875,
+    "_width": 77.3125,
+    "_height": 17,
+    "_text": "inline-block",
+    "_multiline": false
+  },
+  {
+    "_layers": [
+      {
+        "_layers": [],
+        "_style": null,
+        "_objectID": "pizza",
+        "_name": "",
+        "_resizingConstant": 63,
+        "_class": "rectangle",
+        "_width": 100,
+        "_height": 100,
+        "_cornerRadius": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0
+        }
+      }
+    ],
+    "_style": {
+      "_fills": [
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 1,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        }
+      ],
+      "_borders": [
+        {
+          "_class": "border",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "position": 1,
+          "thickness": 0
+        }
+      ],
+      "_shadows": [],
+      "_innerShadows": [],
+      "_opacity": "1"
+    },
+    "_objectID": "pizza",
+    "_name": "/html[1]/body[1]/div[@class=\"box\"]",
+    "_resizingConstant": 63,
+    "_class": "shapeGroup",
+    "_x": 8,
+    "_y": 2762.46875,
+    "_width": 100,
+    "_height": 100
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 16,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 400,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "block",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 2762.46875,
+    "_width": 35.546875,
+    "_height": 17,
+    "_text": "block",
+    "_multiline": false
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 24,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 700,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "Visibility",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 2615.5625,
+    "_width": 92.453125,
+    "_height": 26,
+    "_text": "Visibility",
+    "_multiline": false
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 16,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 400,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "right"
+    },
+    "_objectID": "pizza",
+    "_name": "Font seven",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 722.234375,
+    "_y": 2577.65625,
+    "_width": 69.765625,
+    "_height": 17,
+    "_text": "Font seven",
+    "_multiline": false
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 16,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 400,
+      "_textTransform": "none",
+      "_textDecoration": "line-through",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "Font six",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 2543.65625,
+    "_width": 52.015625,
+    "_height": 17,
+    "_text": "Font six",
+    "_multiline": false
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 16,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 400,
+      "_textTransform": "none",
+      "_textDecoration": "underline",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "Font five",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 2509.65625,
+    "_width": 58.21875,
+    "_height": 17,
+    "_text": "Font five",
+    "_multiline": false
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 16,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 400,
+      "_textTransform": "uppercase",
+      "_textDecoration": "none",
+      "_textAlign": "center"
+    },
+    "_objectID": "pizza",
+    "_name": "Font four",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 355.765625,
+    "_y": 2475.65625,
+    "_width": 88.453125,
+    "_height": 17,
+    "_text": "Font four",
+    "_multiline": false
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 255)",
+      "_fontSize": 30,
+      "_fontFamily": "Times New Roman",
+      "_lineHeight": 40,
+      "_fontWeight": 400,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "Font three",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 2405.15625,
+    "_width": 122.46875,
+    "_height": 33,
+    "_text": "Font three",
+    "_multiline": false
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 128, 0)",
+      "_fontSize": 16,
+      "_fontFamily": "Times New Roman",
+      "_letterSpacing": 20,
+      "_fontWeight": 400,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "Font two",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 2357.65625,
+    "_width": 217.34375,
+    "_height": 17,
+    "_text": "Font two",
+    "_multiline": false
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(255, 0, 0)",
+      "_fontSize": 16,
+      "_fontFamily": "CourierNew",
+      "_fontWeight": 400,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "Font one",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 2323.65625,
+    "_width": 56.4375,
+    "_height": 17,
+    "_text": "Font one",
+    "_multiline": false
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 24,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 700,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "Font",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 2276.75,
+    "_width": 48,
+    "_height": 26,
+    "_text": "Font",
+    "_multiline": false
+  },
+  {
+    "_layers": [
+      {
+        "_layers": [],
+        "_style": null,
+        "_objectID": "pizza",
+        "_name": "",
+        "_resizingConstant": 63,
+        "_class": "rectangle",
+        "_width": 200,
+        "_height": 200,
+        "_cornerRadius": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0
+        }
+      }
+    ],
+    "_style": {
+      "_fills": [
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 0
+          },
+          "fillType": 0,
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        },
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "alpha": 1,
+            "blue": 0.847,
+            "green": 0.847,
+            "red": 0.847
+          },
+          "fillType": 1,
+          "gradient": {
+            "_class": "gradient",
+            "elipseLength": 0,
+            "from": "{0.5, 0",
+            "gradientType": 0,
+            "shouldSmoothenOpacity": false,
+            "stops": [
+              {
+                "_class": "gradientStop",
+                "color": {
+                  "_class": "color",
+                  "red": 1,
+                  "green": 0,
+                  "blue": 0,
+                  "alpha": 1
+                },
+                "position": 0
+              },
+              {
+                "_class": "gradientStop",
+                "color": {
+                  "_class": "color",
+                  "red": 1,
+                  "green": 1,
+                  "blue": 0,
+                  "alpha": 1
+                },
+                "position": 1
+              }
+            ],
+            "to": "{0.5, 1}"
+          },
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        }
+      ],
+      "_borders": [
+        {
+          "_class": "border",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "position": 1,
+          "thickness": 0
+        }
+      ],
+      "_shadows": [],
+      "_innerShadows": [],
+      "_opacity": "1"
+    },
+    "_objectID": "pizza",
+    "_name": "/html[1]/body[1]/div[@class=\"bg-gradient\"]",
+    "_resizingConstant": 63,
+    "_class": "shapeGroup",
+    "_x": 8,
+    "_y": 2056.84375,
+    "_width": 200,
+    "_height": 200
+  },
+  {
+    "_layers": [
+      {
+        "_layers": [],
+        "_style": null,
+        "_objectID": "pizza",
+        "_name": "",
+        "_resizingConstant": 63,
+        "_class": "rectangle",
+        "_width": 200,
+        "_height": 200,
+        "_cornerRadius": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0
+        }
+      }
+    ],
+    "_style": {
+      "_fills": [
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0.5019607843137255,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        }
+      ],
+      "_borders": [
+        {
+          "_class": "border",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "position": 1,
+          "thickness": 0
+        }
+      ],
+      "_shadows": [],
+      "_innerShadows": [],
+      "_opacity": "1"
+    },
+    "_objectID": "pizza",
+    "_name": "/html[1]/body[1]/div[@class=\"bg-color\"]",
+    "_resizingConstant": 63,
+    "_class": "shapeGroup",
+    "_x": 8,
+    "_y": 1856.84375,
+    "_width": 200,
+    "_height": 200
+  },
+  {
+    "_layers": [
+      {
+        "_layers": [],
+        "_style": null,
+        "_objectID": "pizza",
+        "_name": "",
+        "_resizingConstant": 63,
+        "_class": "rectangle",
+        "_width": 200,
+        "_height": 200,
+        "_cornerRadius": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0
+        }
+      }
+    ],
+    "_style": {
+      "_fills": [
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 0
+          },
+          "fillType": 0,
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        },
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "fillType": 4,
+          "image": {
+            "_class": "MSJSONOriginalDataReference",
+            "_ref_class": "MSImageData",
+            "_ref": "images/haribo",
+            "url": "file:///Users/kdzwinel/Projects/html-sketchapp/test/assets/blue.jpg"
+          },
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        }
+      ],
+      "_borders": [
+        {
+          "_class": "border",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "position": 1,
+          "thickness": 0
+        }
+      ],
+      "_shadows": [],
+      "_innerShadows": [],
+      "_opacity": "1"
+    },
+    "_objectID": "pizza",
+    "_name": "/html[1]/body[1]/div[@class=\"bg-image\"]",
+    "_resizingConstant": 63,
+    "_class": "shapeGroup",
+    "_x": 8,
+    "_y": 1656.84375,
+    "_width": 200,
+    "_height": 200
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 24,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 700,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "Background",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 1609.9375,
+    "_width": 126.265625,
+    "_height": 26,
+    "_text": "Background",
+    "_multiline": false
+  },
+  {
+    "_layers": [
+      {
+        "_layers": [],
+        "_style": null,
+        "_objectID": "pizza",
+        "_name": "",
+        "_resizingConstant": 63,
+        "_class": "rectangle",
+        "_width": 104,
+        "_height": 104,
+        "_cornerRadius": {
+          "topLeft": 10,
+          "topRight": 10,
+          "bottomLeft": 10,
+          "bottomRight": 10
+        }
+      }
+    ],
+    "_style": {
+      "_fills": [
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 0
+          },
+          "fillType": 0,
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        }
+      ],
+      "_borders": [
+        {
+          "_class": "border",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 1,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "position": 1,
+          "thickness": 2
+        }
+      ],
+      "_shadows": [],
+      "_innerShadows": [],
+      "_opacity": "1"
+    },
+    "_objectID": "pizza",
+    "_name": "/html[1]/body[1]/div[@class=\"border border-radius2\"]",
+    "_resizingConstant": 63,
+    "_class": "shapeGroup",
+    "_x": 8,
+    "_y": 1486.03125,
+    "_width": 104,
+    "_height": 104
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 16,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 400,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "border radius",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 10,
+    "_y": 1488.03125,
+    "_width": 84.859375,
+    "_height": 17,
+    "_text": "border radius",
+    "_multiline": false
+  },
+  {
+    "_layers": [
+      {
+        "_layers": [],
+        "_style": null,
+        "_objectID": "pizza",
+        "_name": "",
+        "_resizingConstant": 63,
+        "_class": "rectangle",
+        "_width": 104,
+        "_height": 104,
+        "_cornerRadius": {
+          "topLeft": 52,
+          "topRight": 52,
+          "bottomLeft": 52,
+          "bottomRight": 52
+        }
+      }
+    ],
+    "_style": {
+      "_fills": [
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 0
+          },
+          "fillType": 0,
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        }
+      ],
+      "_borders": [
+        {
+          "_class": "border",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 1,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "position": 1,
+          "thickness": 2
+        }
+      ],
+      "_shadows": [],
+      "_innerShadows": [],
+      "_opacity": "1"
+    },
+    "_objectID": "pizza",
+    "_name": "/html[1]/body[1]/div[@class=\"border border-radius\"]",
+    "_resizingConstant": 63,
+    "_class": "shapeGroup",
+    "_x": 8,
+    "_y": 1382.03125,
+    "_width": 104,
+    "_height": 104
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 16,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 400,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "border radius",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 10,
+    "_y": 1384.03125,
+    "_width": 84.859375,
+    "_height": 17,
+    "_text": "border radius",
+    "_multiline": false
+  },
+  {
+    "_layers": [
+      {
+        "_layers": [],
+        "_style": null,
+        "_objectID": "pizza",
+        "_name": "",
+        "_resizingConstant": 63,
+        "_class": "rectangle",
+        "_width": 108,
+        "_height": 108,
+        "_cornerRadius": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0
+        }
+      }
+    ],
+    "_style": {
+      "_fills": [
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 0
+          },
+          "fillType": 0,
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        }
+      ],
+      "_borders": [
+        {
+          "_class": "border",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 1,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "position": 1,
+          "thickness": 4
+        }
+      ],
+      "_shadows": [],
+      "_innerShadows": [],
+      "_opacity": "1"
+    },
+    "_objectID": "pizza",
+    "_name": "/html[1]/body[1]/div[@class=\"border border1\"]",
+    "_resizingConstant": 63,
+    "_class": "shapeGroup",
+    "_x": 8,
+    "_y": 1274.03125,
+    "_width": 108,
+    "_height": 108
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 16,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 400,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "border",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 12,
+    "_y": 1278.03125,
+    "_width": 41.75,
+    "_height": 17,
+    "_text": "border",
+    "_multiline": false
+  },
+  {
+    "_layers": [
+      {
+        "_layers": [],
+        "_style": null,
+        "_objectID": "pizza",
+        "_name": "",
+        "_resizingConstant": 63,
+        "_class": "rectangle",
+        "_width": 104,
+        "_height": 104,
+        "_cornerRadius": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0
+        }
+      }
+    ],
+    "_style": {
+      "_fills": [
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 0
+          },
+          "fillType": 0,
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        }
+      ],
+      "_borders": [
+        {
+          "_class": "border",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 1,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "position": 1,
+          "thickness": 2
+        }
+      ],
+      "_shadows": [],
+      "_innerShadows": [],
+      "_opacity": "1"
+    },
+    "_objectID": "pizza",
+    "_name": "/html[1]/body[1]/div[@class=\"border\"]",
+    "_resizingConstant": 63,
+    "_class": "shapeGroup",
+    "_x": 8,
+    "_y": 1170.03125,
+    "_width": 104,
+    "_height": 104
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 16,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 400,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "border",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 10,
+    "_y": 1172.03125,
+    "_width": 41.75,
+    "_height": 17,
+    "_text": "border",
+    "_multiline": false
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 24,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 700,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "Border",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 1123.125,
+    "_width": 73.3125,
+    "_height": 26,
+    "_text": "Border",
+    "_multiline": false
+  },
+  {
+    "_layers": [
+      {
+        "_layers": [],
+        "_style": null,
+        "_objectID": "pizza",
+        "_name": "",
+        "_resizingConstant": 63,
+        "_class": "rectangle",
+        "_width": 300,
+        "_height": 150,
+        "_cornerRadius": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0
+        }
+      }
+    ],
+    "_style": {
+      "_fills": [
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 0
+          },
+          "fillType": 0,
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        },
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "fillType": 4,
+          "image": {
+            "_class": "MSJSONOriginalDataReference",
+            "_ref_class": "MSImageData",
+            "_ref": "images/haribo",
+            "url": "file:///Users/kdzwinel/Projects/html-sketchapp/test/assets/yellow.gif"
+          },
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        }
+      ],
+      "_borders": [
+        {
+          "_class": "border",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "position": 1,
+          "thickness": 0
+        }
+      ],
+      "_shadows": [],
+      "_innerShadows": [],
+      "_opacity": "1"
+    },
+    "_objectID": "pizza",
+    "_name": "/html[1]/body[1]/img[@class=\"image\"]",
+    "_resizingConstant": 12,
+    "_class": "shapeGroup",
+    "_x": 8,
+    "_y": 949.21875,
+    "_width": 300,
+    "_height": 150
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 18,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 700,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "GIF",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 908.5,
+    "_width": 33.25,
+    "_height": 21,
+    "_text": "GIF",
+    "_multiline": false
+  },
+  {
+    "_layers": [
+      {
+        "_layers": [],
+        "_style": null,
+        "_objectID": "pizza",
+        "_name": "",
+        "_resizingConstant": 63,
+        "_class": "rectangle",
+        "_width": 300,
+        "_height": 300,
+        "_cornerRadius": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0
+        }
+      }
+    ],
+    "_style": {
+      "_fills": [
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 0
+          },
+          "fillType": 0,
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        },
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "fillType": 4,
+          "image": {
+            "_class": "MSJSONOriginalDataReference",
+            "_ref_class": "MSImageData",
+            "_ref": "images/haribo",
+            "url": "file:///Users/kdzwinel/Projects/html-sketchapp/test/assets/red.png"
+          },
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        }
+      ],
+      "_borders": [
+        {
+          "_class": "border",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "position": 1,
+          "thickness": 0
+        }
+      ],
+      "_shadows": [],
+      "_innerShadows": [],
+      "_opacity": "1"
+    },
+    "_objectID": "pizza",
+    "_name": "/html[1]/body[1]/img[@class=\"image\"]",
+    "_resizingConstant": 12,
+    "_class": "shapeGroup",
+    "_x": 8,
+    "_y": 585.78125,
+    "_width": 300,
+    "_height": 300
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 18,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 700,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "PNG",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 545.0625,
+    "_width": 39.484375,
+    "_height": 21,
+    "_text": "PNG",
+    "_multiline": false
+  },
+  {
+    "_layers": [
+      {
+        "_layers": [],
+        "_style": null,
+        "_objectID": "pizza",
+        "_name": "",
+        "_resizingConstant": 63,
+        "_class": "rectangle",
+        "_width": 300,
+        "_height": 225,
+        "_cornerRadius": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0
+        }
+      }
+    ],
+    "_style": {
+      "_fills": [
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 0
+          },
+          "fillType": 0,
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        },
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "fillType": 4,
+          "image": {
+            "_class": "MSJSONOriginalDataReference",
+            "_ref_class": "MSImageData",
+            "_ref": "images/haribo",
+            "url": "file:///Users/kdzwinel/Projects/html-sketchapp/test/assets/blue.jpg"
+          },
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        }
+      ],
+      "_borders": [
+        {
+          "_class": "border",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "position": 1,
+          "thickness": 0
+        }
+      ],
+      "_shadows": [],
+      "_innerShadows": [],
+      "_opacity": "1"
+    },
+    "_objectID": "pizza",
+    "_name": "/html[1]/body[1]/img[@class=\"image\"]",
+    "_resizingConstant": 12,
+    "_class": "shapeGroup",
+    "_x": 8,
+    "_y": 297.34375,
+    "_width": 300,
+    "_height": 225
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 18,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 700,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "JPG",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 256.625,
+    "_width": 35.328125,
+    "_height": 21,
+    "_text": "JPG",
+    "_multiline": false
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 24,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 700,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "Image",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 209.71875,
+    "_width": 63.984375,
+    "_height": 26,
+    "_text": "Image",
+    "_multiline": false
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 20,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 400,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "text shadow",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 166.8125,
+    "_width": 96.09375,
+    "_height": 22,
+    "_text": "text shadow",
+    "_multiline": false
+  },
+  {
+    "_layers": [
+      {
+        "_layers": [],
+        "_style": null,
+        "_objectID": "pizza",
+        "_name": "",
+        "_resizingConstant": 63,
+        "_class": "rectangle",
+        "_width": 100,
+        "_height": 100,
+        "_cornerRadius": {
+          "topLeft": 0,
+          "topRight": 0,
+          "bottomLeft": 0,
+          "bottomRight": 0
+        }
+      }
+    ],
+    "_style": {
+      "_fills": [
+        {
+          "_class": "fill",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0.5019607843137255,
+            "green": 0.5019607843137255,
+            "blue": 0.5019607843137255,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "noiseIndex": 0,
+          "noiseIntensity": 0,
+          "patternFillType": 1,
+          "patternTileScale": 1
+        }
+      ],
+      "_borders": [
+        {
+          "_class": "border",
+          "isEnabled": true,
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "fillType": 0,
+          "position": 1,
+          "thickness": 0
+        }
+      ],
+      "_shadows": [
+        {
+          "_class": "shadow",
+          "isEnabled": true,
+          "blurRadius": "5",
+          "color": {
+            "_class": "color",
+            "red": 0,
+            "green": 0,
+            "blue": 0,
+            "alpha": 1
+          },
+          "contextSettings": {
+            "_class": "graphicsContextSettings",
+            "blendMode": 0,
+            "opacity": 1
+          },
+          "offsetX": "0",
+          "offsetY": "0",
+          "spread": "2"
+        }
+      ],
+      "_innerShadows": [],
+      "_opacity": "1"
+    },
+    "_objectID": "pizza",
+    "_name": "/html[1]/body[1]/div[@class=\"shadow\"]",
+    "_resizingConstant": 63,
+    "_class": "shapeGroup",
+    "_x": 8,
+    "_y": 66.8125,
+    "_width": 100,
+    "_height": 100
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 16,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 400,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "box shadow",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 66.8125,
+    "_width": 76.875,
+    "_height": 17,
+    "_text": "box shadow",
+    "_multiline": false
+  },
+  {
+    "_layers": [],
+    "_style": {
+      "_color": "rgb(0, 0, 0)",
+      "_fontSize": 24,
+      "_fontFamily": "Times New Roman",
+      "_fontWeight": 700,
+      "_textTransform": "none",
+      "_textDecoration": "none",
+      "_textAlign": "start"
+    },
+    "_objectID": "pizza",
+    "_name": "Shadow",
+    "_resizingConstant": 63,
+    "_class": "text",
+    "_x": 8,
+    "_y": 19.90625,
+    "_width": 81.375,
+    "_height": 26,
+    "_text": "Shadow",
+    "_multiline": false
+  }
+]
