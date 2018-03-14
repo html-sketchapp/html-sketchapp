@@ -1,4 +1,4 @@
-import {toSJSON, fromSJSONDictionary} from 'sketchapp-json-plugin';
+import {toSJSON} from 'sketchapp-json-plugin';
 
 function makeNativeSVGLayer(layer) {
   const svgString = NSString.stringWithString(layer.rawSVGString);
