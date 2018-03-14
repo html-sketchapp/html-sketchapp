@@ -12,9 +12,22 @@ function removeRandomness(layer) {
     layer._objectID = 'pizza';
   }
 
-  if (layer.image && layer.image._ref) {
-    layer.image._ref = 'images/haribo';
+  if (layer.image) {
+    if (layer.image._ref) {
+      layer.image._ref = 'images/haribo';
+    }
+
+    if (layer.image.url) {
+      layer.image.url = path.basename(layer.image.url);
+    }
   }
+
+  // for some reason only width differs between local and travis
+  if (layer._width) {
+    layer._width = Math.floor(layer._width);
+  }
+
+  // we need to go deeper
 
   if (layer._style && layer._style._fills) {
     layer._style._fills.forEach(removeRandomness);
