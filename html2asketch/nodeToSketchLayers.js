@@ -109,6 +109,11 @@ function isVisible(node, {width, height}, {
     return false;
   }
 
+  // node is detached from the DOM
+  if (!document.contains(node)) {
+    return false;
+  }
+
   const parent = node.parentElement;
 
   if (
