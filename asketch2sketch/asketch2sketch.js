@@ -1,7 +1,7 @@
 import {fromSJSONDictionary} from 'sketchapp-json-plugin';
 import {fixTextLayer, fixSharedTextStyle} from './helpers/fixFont';
 import fixImageFill from './helpers/fixImageFill';
-import makeSVGLayer from './helpers/makeSVGLayer';
+import fixSVGLayer from './helpers/fixSVG';
 
 function removeExistingLayers(context) {
   if (context.containsLayers()) {
@@ -18,8 +18,11 @@ function removeExistingLayers(context) {
 }
 
 function fixLayer(layer) {
-  if (layer['_class'] === 'text') {
+  if (layer._class === 'text') {
     fixTextLayer(layer);
+  } else if (layer._class === 'svg') {
+    fixSVGLayer(layer);
+    return;
   } else {
     fixImageFill(layer);
   }
@@ -30,11 +33,12 @@ function fixLayer(layer) {
 }
 
 function getNativeLayer(layer) {
-  if (layer['_class'] === 'svg') {
-    return makeSVGLayer(layer);
-  } else {
-    fixLayer(layer);
+  fixLayer(layer);
+
+  try {
     return fromSJSONDictionary(layer);
+  } catch (e) {
+    throw new Error('Layer decoding failed - ' + e);
   }
 }
 
@@ -131,17 +135,13 @@ export default function asketch2sketch(context) {
     page.name = asketchPage.name;
 
     asketchPage.layers.forEach(layer => {
-      const nativeLayer = getNativeLayer(layer);
-
       try {
+        const nativeLayer = getNativeLayer(layer);
+
         page.addLayer(nativeLayer);
       } catch (e) {
-        console.log('Layer couldn\'t be created');
-        console.log(e);
-        console.log(layer);
+        console.log('Layer couldn\'t be created: ' + layer.name, e);
       }
     });
-
-    console.log('Layers added: ' + asketchPage.layers.length);
   }
 }
