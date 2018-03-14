@@ -18,6 +18,8 @@ The motivation behind this project was ability to easily share Front-End style g
 
 We were unable to quickly work around these limitations, so we created html-sketchapp.
 
+You can learn more about this project from the excellent article ["Sketching in the Browser"](https://medium.com/seek-blog/sketching-in-the-browser-33a7b7aa0526) by @markdalgleish.
+
 ## Why experimental?
 
 This project is a prototype that allowed us to export most of our Front-End style guide to Sketch. The main focus was on exporting the style guide and not on providing a complete solution, therefore there are quite a few known limitations:
@@ -63,6 +65,10 @@ This package comes with built version of the plugin, but you can always build it
 npm i # install dependencies
 npm run build # build the plugin
 ```
+
+## Projects using html-sketchapp
+- [html-sketchapp-cli](https://github.com/seek-oss/html-sketchapp-cli) - "Quickly generate Sketch libraries from HTML documents and living style guides."
+- [story2sketch](https://github.com/chrisvxd/story2sketch) - "Convert Storybook stories into Sketch symbols."
 
 ## Standing on the shoulders of giants :heart:
 
