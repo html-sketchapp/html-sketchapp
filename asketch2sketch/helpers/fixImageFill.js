@@ -19,6 +19,9 @@ export const makeImageDataFromUrl = url => {
       /* eslint-enable eqeqeq */
     ) {
       fetchedData = null;
+    } else {
+      console.log('Unsupported image type: ' + url);
+      
     }
   }
 

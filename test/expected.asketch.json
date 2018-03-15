@@ -63,7 +63,7 @@
         "height": 71,
         "width": 53,
         "x": 8,
-        "y": 4259.5
+        "y": 4622.9375
       },
       "text": "pre-line\n\n\ntext\n",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -110,7 +110,7 @@
         "height": 75,
         "width": 70,
         "x": 8,
-        "y": 4168.5
+        "y": 4531.9375
       },
       "text": "    pre \n\n\n    text \n  ",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -157,7 +157,7 @@
         "height": 17,
         "width": 90,
         "x": 8,
-        "y": 4134.5
+        "y": 4497.9375
       },
       "text": "Default text !!",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -204,7 +204,7 @@
         "height": 26,
         "width": 119,
         "x": 8,
-        "y": 4087.59375
+        "y": 4451.03125
       },
       "text": "white-space",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -218,9 +218,9 @@
       "_class": "svg",
       "rawSVGString": "<svg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 200 200\">\n    <svg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 24 24\" id=\"svg-circles\" style=\"font-family: &quot;Times New Roman&quot;; overflow: hidden;\">\n    <circle class=\"b\" cx=\"6.03\" cy=\"5.95\" r=\"2\" style=\"cx: 6.03px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"c\" cx=\"12.08\" cy=\"5.95\" r=\"2\" style=\"cx: 12.08px; cy: 5.95px; r: 2px; fill: rgb(83, 207, 146); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"5.95\" r=\"2\" style=\"cx: 18.08px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"d\" cx=\"6.03\" cy=\"11.93\" r=\"2\" style=\"cx: 6.03px; cy: 11.93px; r: 2px; fill: rgb(87, 178, 248); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"12.08\" cy=\"11.93\" r=\"2\" style=\"cx: 12.08px; cy: 11.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"e\" cx=\"18.08\" cy=\"11.93\" r=\"2\" style=\"cx: 18.08px; cy: 11.93px; r: 2px; fill: rgb(254, 200, 60); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"6.03\" cy=\"17.93\" r=\"2\" style=\"cx: 6.03px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"f\" cx=\"12.08\" cy=\"17.93\" r=\"2\" style=\"cx: 12.08px; cy: 17.93px; r: 2px; fill: rgb(255, 121, 107); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"17.93\" r=\"2\" style=\"cx: 18.08px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n  </svg>\n  </svg>",
       "width": 133.75,
-      "height": 133.16650390625,
+      "height": 133.1669921875,
       "x": 41.583335876464844,
-      "y": 3896.604248046875
+      "y": 4260.04150390625
     },
     {
       "_class": "text",
@@ -259,7 +259,7 @@
         "height": 21,
         "width": 119,
         "x": 8,
-        "y": 3822.96875
+        "y": 4186.40625
       },
       "text": "SVG via <use>",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -273,9 +273,9 @@
       "_class": "svg",
       "rawSVGString": "<svg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 24 24\" id=\"svg-circles\">\n    <circle class=\"b\" cx=\"6.03\" cy=\"5.95\" r=\"2\" style=\"cx: 6.03px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"c\" cx=\"12.08\" cy=\"5.95\" r=\"2\" style=\"cx: 12.08px; cy: 5.95px; r: 2px; fill: rgb(83, 207, 146); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"5.95\" r=\"2\" style=\"cx: 18.08px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"d\" cx=\"6.03\" cy=\"11.93\" r=\"2\" style=\"cx: 6.03px; cy: 11.93px; r: 2px; fill: rgb(87, 178, 248); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"12.08\" cy=\"11.93\" r=\"2\" style=\"cx: 12.08px; cy: 11.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"e\" cx=\"18.08\" cy=\"11.93\" r=\"2\" style=\"cx: 18.08px; cy: 11.93px; r: 2px; fill: rgb(254, 200, 60); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"6.03\" cy=\"17.93\" r=\"2\" style=\"cx: 6.03px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"f\" cx=\"12.08\" cy=\"17.93\" r=\"2\" style=\"cx: 12.08px; cy: 17.93px; r: 2px; fill: rgb(255, 121, 107); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"17.93\" r=\"2\" style=\"cx: 18.08px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n  </svg>",
       "width": 133.74999237060547,
-      "height": 133.16650390625,
+      "height": 133.166748046875,
       "x": 41.583335876464844,
-      "y": 3633.166748046875
+      "y": 3996.604248046875
     },
     {
       "_class": "text",
@@ -314,7 +314,7 @@
         "height": 21,
         "width": 128,
         "x": 8,
-        "y": 3559.53125
+        "y": 3922.96875
       },
       "text": "Inheritied styles",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -330,7 +330,7 @@
       "width": 133.74999237060547,
       "height": 133.16650390625,
       "x": 41.583335876464844,
-      "y": 3369.729248046875
+      "y": 3733.166748046875
     },
     {
       "_class": "text",
@@ -369,7 +369,7 @@
         "height": 21,
         "width": 134,
         "x": 8,
-        "y": 3296.09375
+        "y": 3659.53125
       },
       "text": "Embedded styles",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -416,7 +416,7 @@
         "height": 26,
         "width": 49,
         "x": 8,
-        "y": 3249.1875
+        "y": 3612.625
       },
       "text": "SVG",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -584,7 +584,7 @@
         "height": 100,
         "width": 100,
         "x": 8,
-        "y": 3129.28125
+        "y": 3492.71875
       },
       "hasClickThrough": false,
       "clippingMaskMode": 0,
@@ -628,7 +628,7 @@
         "height": 17,
         "width": 71,
         "x": 8,
-        "y": 3129.28125
+        "y": 3492.71875
       },
       "text": "opacity 0.3",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -796,7 +796,7 @@
         "height": 100,
         "width": 100,
         "x": 8,
-        "y": 3029.28125
+        "y": 3392.71875
       },
       "hasClickThrough": false,
       "clippingMaskMode": 0,
@@ -840,7 +840,7 @@
         "height": 17,
         "width": 71,
         "x": 8,
-        "y": 3029.28125
+        "y": 3392.71875
       },
       "text": "opacity 0.8",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -887,7 +887,7 @@
         "height": 26,
         "width": 81,
         "x": 8,
-        "y": 2982.375
+        "y": 3345.8125
       },
       "text": "Opacity",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -1055,7 +1055,7 @@
         "height": 100,
         "width": 100,
         "x": 112,
-        "y": 2862.46875
+        "y": 3225.90625
       },
       "hasClickThrough": false,
       "clippingMaskMode": 0,
@@ -1099,7 +1099,7 @@
         "height": 17,
         "width": 77,
         "x": 112,
-        "y": 2862.46875
+        "y": 3225.90625
       },
       "text": "inline-block",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -1267,7 +1267,7 @@
         "height": 100,
         "width": 100,
         "x": 8,
-        "y": 2862.46875
+        "y": 3225.90625
       },
       "hasClickThrough": false,
       "clippingMaskMode": 0,
@@ -1311,7 +1311,7 @@
         "height": 17,
         "width": 77,
         "x": 8,
-        "y": 2862.46875
+        "y": 3225.90625
       },
       "text": "inline-block",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -1479,7 +1479,7 @@
         "height": 100,
         "width": 100,
         "x": 8,
-        "y": 2762.46875
+        "y": 3125.90625
       },
       "hasClickThrough": false,
       "clippingMaskMode": 0,
@@ -1523,7 +1523,7 @@
         "height": 17,
         "width": 35,
         "x": 8,
-        "y": 2762.46875
+        "y": 3125.90625
       },
       "text": "block",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -1570,7 +1570,7 @@
         "height": 26,
         "width": 92,
         "x": 8,
-        "y": 2615.5625
+        "y": 2979
       },
       "text": "Visibility",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -1617,7 +1617,7 @@
         "height": 17,
         "width": 69,
         "x": 722.234375,
-        "y": 2577.65625
+        "y": 2941.09375
       },
       "text": "Font seven",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -1664,7 +1664,7 @@
         "height": 17,
         "width": 52,
         "x": 8,
-        "y": 2543.65625
+        "y": 2907.09375
       },
       "text": "Font six",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -1711,7 +1711,7 @@
         "height": 17,
         "width": 58,
         "x": 8,
-        "y": 2509.65625
+        "y": 2873.09375
       },
       "text": "Font five",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -1758,7 +1758,7 @@
         "height": 17,
         "width": 88,
         "x": 355.765625,
-        "y": 2475.65625
+        "y": 2839.09375
       },
       "text": "Font four",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -1806,7 +1806,7 @@
         "height": 33,
         "width": 122,
         "x": 8,
-        "y": 2405.15625
+        "y": 2768.59375
       },
       "text": "Font three",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -1854,7 +1854,7 @@
         "height": 17,
         "width": 217,
         "x": 8,
-        "y": 2357.65625
+        "y": 2721.09375
       },
       "text": "Font two",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -1901,7 +1901,7 @@
         "height": 17,
         "width": 56,
         "x": 8,
-        "y": 2323.65625
+        "y": 2687.09375
       },
       "text": "Font one",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -1948,7 +1948,7 @@
         "height": 26,
         "width": 48,
         "x": 8,
-        "y": 2276.75
+        "y": 2640.1875
       },
       "text": "Font",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -2164,7 +2164,7 @@
         "height": 200,
         "width": 200,
         "x": 8,
-        "y": 2056.84375
+        "y": 2420.28125
       },
       "hasClickThrough": false,
       "clippingMaskMode": 0,
@@ -2329,7 +2329,7 @@
         "height": 200,
         "width": 200,
         "x": 8,
-        "y": 1856.84375
+        "y": 2220.28125
       },
       "hasClickThrough": false,
       "clippingMaskMode": 0,
@@ -2509,7 +2509,7 @@
         "height": 200,
         "width": 200,
         "x": 8,
-        "y": 1656.84375
+        "y": 2020.28125
       },
       "hasClickThrough": false,
       "clippingMaskMode": 0,
@@ -2553,7 +2553,7 @@
         "height": 26,
         "width": 126,
         "x": 8,
-        "y": 1609.9375
+        "y": 1973.375
       },
       "text": "Background",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -2721,7 +2721,7 @@
         "height": 104,
         "width": 104,
         "x": 8,
-        "y": 1486.03125
+        "y": 1849.46875
       },
       "hasClickThrough": false,
       "clippingMaskMode": 0,
@@ -2765,7 +2765,7 @@
         "height": 17,
         "width": 84,
         "x": 10,
-        "y": 1488.03125
+        "y": 1851.46875
       },
       "text": "border radius",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -2933,7 +2933,7 @@
         "height": 104,
         "width": 104,
         "x": 8,
-        "y": 1382.03125
+        "y": 1745.46875
       },
       "hasClickThrough": false,
       "clippingMaskMode": 0,
@@ -2977,7 +2977,7 @@
         "height": 17,
         "width": 84,
         "x": 10,
-        "y": 1384.03125
+        "y": 1747.46875
       },
       "text": "border radius",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -3145,7 +3145,7 @@
         "height": 108,
         "width": 108,
         "x": 8,
-        "y": 1274.03125
+        "y": 1637.46875
       },
       "hasClickThrough": false,
       "clippingMaskMode": 0,
@@ -3189,7 +3189,7 @@
         "height": 17,
         "width": 41,
         "x": 12,
-        "y": 1278.03125
+        "y": 1641.46875
       },
       "text": "border",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -3357,7 +3357,7 @@
         "height": 104,
         "width": 104,
         "x": 8,
-        "y": 1170.03125
+        "y": 1533.46875
       },
       "hasClickThrough": false,
       "clippingMaskMode": 0,
@@ -3401,7 +3401,7 @@
         "height": 17,
         "width": 41,
         "x": 10,
-        "y": 1172.03125
+        "y": 1535.46875
       },
       "text": "border",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -3448,9 +3448,236 @@
         "height": 26,
         "width": 73,
         "x": 8,
-        "y": 1123.125
+        "y": 1486.5625
       },
       "text": "Border",
+      "automaticallyDrawOnUnderlyingPath": false,
+      "dontSynchroniseWithSymbol": false,
+      "glyphBounds": "",
+      "heightIsClipped": false,
+      "lineSpacingBehaviour": 2,
+      "textBehaviour": 0
+    },
+    {
+      "_class": "shapeGroup",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "/html[1]/body[1]/img[@class=\"image\"]",
+      "nameIsFixed": false,
+      "resizingConstraint": 12,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          },
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "fillType": 4,
+            "image": {
+              "_class": "MSJSONOriginalDataReference",
+              "_ref_class": "MSImageData",
+              "_ref": "images/haribo",
+              "url": "green.svg"
+            },
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
+      "layers": [
+        {
+          "_class": "rectangle",
+          "do_objectID": "pizza",
+          "exportOptions": {
+            "_class": "exportOptions",
+            "exportFormats": [],
+            "includedLayerIds": [],
+            "layerOptions": 0,
+            "shouldTrim": false
+          },
+          "isFlippedHorizontal": false,
+          "isFlippedVertical": false,
+          "isLocked": false,
+          "isVisible": true,
+          "layerListExpandedType": 0,
+          "name": "rectangle",
+          "nameIsFixed": false,
+          "resizingConstraint": 63,
+          "resizingType": 0,
+          "rotation": 0,
+          "shouldBreakMaskChain": false,
+          "layers": [],
+          "frame": {
+            "_class": "rect",
+            "constrainProportions": false,
+            "height": 300,
+            "width": 300,
+            "x": 0,
+            "y": 0
+          },
+          "path": {
+            "_class": "path",
+            "isClosed": true,
+            "pointRadiusBehaviour": 1,
+            "points": [
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 0}",
+                "curveMode": 1,
+                "curveTo": "{0, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 0}",
+                "curveMode": 1,
+                "curveTo": "{1, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 1}",
+                "curveMode": 1,
+                "curveTo": "{1, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 1}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 1}",
+                "curveMode": 1,
+                "curveTo": "{0, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 1}"
+              }
+            ]
+          },
+          "hasConvertedToNewRoundCorners": true,
+          "fixedRadius": 0,
+          "edited": false,
+          "booleanOperation": -1
+        }
+      ],
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 300,
+        "width": 300,
+        "x": 8,
+        "y": 1162.65625
+      },
+      "hasClickThrough": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
+      "windingRule": 1
+    },
+    {
+      "_class": "text",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "SVG",
+      "nameIsFixed": false,
+      "resizingConstraint": 47,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "style": {
+        "color": "rgb(0, 0, 0)",
+        "fontSize": 18,
+        "fontFamily": "Times New Roman",
+        "fontWeight": 700,
+        "textTransform": "none",
+        "textDecoration": "none",
+        "textAlign": "start"
+      },
+      "layers": [],
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 21,
+        "width": 38,
+        "x": 8,
+        "y": 1121.9375
+      },
+      "text": "SVG",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
       "glyphBounds": "",
@@ -4518,7 +4745,7 @@
     "_class": "rect",
     "constrainProportions": false,
     "height": 784,
-    "width": 4312,
+    "width": 4675,
     "x": 0,
     "y": 0
   },

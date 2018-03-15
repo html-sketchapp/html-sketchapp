@@ -1958,9 +1958,9 @@ exports["default"] = sortObjectKeys;
 
 /***/ }),
 /* 19 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-Object.defineProperty(exports, "__esModule", {
+/* WEBPACK VAR INJECTION */(function(console) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports['default'] = fixImageFill;
@@ -1979,7 +1979,9 @@ var makeImageDataFromUrl = exports.makeImageDataFromUrl = function makeImageData
     /* eslint-enable eqeqeq */
     ) {
         fetchedData = null;
-      }
+      } else {
+      console.log('Unsupported image type: ' + url);
+    }
   }
 
   var image = void 0;
@@ -2020,6 +2022,7 @@ function fixImageFill(layer) {
     delete fill.image.url;
   });
 }
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 20 */
