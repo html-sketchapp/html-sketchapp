@@ -1085,6 +1085,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.makeColorFromCSS = undefined;
 exports.generateID = generateID;
+exports.replaceProperties = replaceProperties;
 
 var _normalizeCssColor = __webpack_require__(13);
 
@@ -1141,6 +1142,20 @@ var makeColorFromCSS = exports.makeColorFromCSS = function makeColorFromCSS(inpu
     alpha: a * alpha
   };
 };
+
+function replaceProperties(dest, src) {
+  for (var prop in dest) {
+    if (dest.hasOwnProperty(prop)) {
+      delete dest[prop];
+    }
+  }
+
+  for (var _prop in src) {
+    if (src.hasOwnProperty(_prop)) {
+      dest[_prop] = src[_prop];
+    }
+  }
+}
 
 /***/ }),
 /* 13 */
@@ -1960,46 +1975,74 @@ exports["default"] = sortObjectKeys;
 /* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(console) {Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports['default'] = fixImageFill;
-// taken from https://github.com/airbnb/react-sketchapp/blob/master/src/jsonUtils/hacksForJSONImpl.js
-var makeImageDataFromUrl = exports.makeImageDataFromUrl = function makeImageDataFromUrl(url) {
+
+var _fixSVG = __webpack_require__(20);
+
+var _fixSVG2 = _interopRequireDefault(_fixSVG);
+
+var _utils = __webpack_require__(12);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+// based on https://github.com/airbnb/react-sketchapp/blob/master/src/jsonUtils/hacksForJSONImpl.js
+
+var IMG_SVG = 'svg';
+var IMG_BLOB = 'blob';
+var IMG_UNSUPPORTED = 'unsupported';
+var IMG_ERROR = 'error';
+
+function getImageDataFromUrl(url) {
   var fetchedData = NSData.dataWithContentsOfURL(NSURL.URLWithString(url));
 
-  if (fetchedData) {
-    var firstByte = fetchedData.subdataWithRange(NSMakeRange(0, 1)).description();
-
-    // Check for first byte. Must use non-type-exact matching (!=).
-    // 0xFF = JPEG, 0x89 = PNG, 0x47 = GIF, 0x49 = TIFF, 0x4D = TIFF
-    if (
-    /* eslint-disable eqeqeq */
-    firstByte != '<ff>' && firstByte != '<89>' && firstByte != '<47>' && firstByte != '<49>' && firstByte != '<4d>'
-    /* eslint-enable eqeqeq */
-    ) {
-        fetchedData = null;
-      } else {
-      console.log('Unsupported image type: ' + url);
-    }
-  }
-
-  var image = void 0;
-
   if (!fetchedData) {
-    // eslint-disable-next-line max-len
-    var errorUrl = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8w8DwHwAEOQHNmnaaOAAAAABJRU5ErkJggg==';
-
-    image = NSImage.alloc().initWithContentsOfURL(NSURL.URLWithString(errorUrl));
-  } else {
-    image = NSImage.alloc().initWithData(fetchedData);
+    return {
+      type: IMG_ERROR,
+      data: null
+    };
   }
 
-  if (MSImageData.alloc().initWithImage_convertColorSpace !== undefined) {
-    return MSImageData.alloc().initWithImage_convertColorSpace(image, false);
+  var firstByte = fetchedData.subdataWithRange(NSMakeRange(0, 1)).description();
+
+  // Check for first byte. Must use non-type-exact matching (!=).
+  // 0xFF = JPEG, 0x89 = PNG, 0x47 = GIF, 0x49 = TIFF, 0x4D = TIFF
+  if (
+  /* eslint-disable eqeqeq */
+  firstByte == '<3c>'
+  /* eslint-enable eqeqeq */
+  ) {
+      var rawSVGString = NSString.alloc().initWithData_encoding_(fetchedData, NSUTF8StringEncoding);
+
+      return {
+        type: IMG_SVG,
+        data: rawSVGString
+      };
+    } else if (
+  /* eslint-disable eqeqeq */
+  firstByte != '<ff>' && firstByte != '<89>' && firstByte != '<47>' && firstByte != '<49>' && firstByte != '<4d>'
+  /* eslint-enable eqeqeq */
+  ) {
+      return {
+        type: IMG_UNSUPPORTED,
+        data: null
+      };
+    } else {
+    return {
+      type: IMG_BLOB,
+      data: fetchedData
+    };
   }
-  return MSImageData.alloc().initWithImage(image);
-};
+}
+
+function getErrorImage() {
+  // eslint-disable-next-line max-len
+  var errorUrl = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8w8DwHwAEOQHNmnaaOAAAAABJRU5ErkJggg==';
+
+  return NSImage.alloc().initWithContentsOfURL(NSURL.URLWithString(errorUrl));
+}
 
 function fixImageFill(layer) {
   if (!layer.style || !layer.style.fills) {
@@ -2011,18 +2054,46 @@ function fixImageFill(layer) {
       return;
     }
 
-    var img = makeImageDataFromUrl(fill.image.url);
+    var _getImageDataFromUrl = getImageDataFromUrl(fill.image.url),
+        imageType = _getImageDataFromUrl.type,
+        imageData = _getImageDataFromUrl.data;
 
-    var data = img.data().base64EncodedStringWithOptions(NSDataBase64EncodingEndLineWithCarriageReturn);
-    var sha1 = img.sha1().base64EncodedStringWithOptions(NSDataBase64EncodingEndLineWithCarriageReturn);
+    if (imageType === IMG_ERROR || imageType === IMG_UNSUPPORTED) {
+      imageType = IMG_BLOB;
+      imageData = getErrorImage();
+    }
 
-    fill.image.data = { _data: data };
-    fill.image.sha1 = { _data: sha1 };
+    if (imageType === IMG_BLOB) {
+      var nsImage = NSImage.alloc().initWithData(imageData);
+      var img = null;
 
-    delete fill.image.url;
+      if (MSImageData.alloc().initWithImage_convertColorSpace !== undefined) {
+        img = MSImageData.alloc().initWithImage_convertColorSpace(nsImage, false);
+      } else {
+        img = MSImageData.alloc().initWithImage(nsImage);
+      }
+
+      var data = img.data().base64EncodedStringWithOptions(NSDataBase64EncodingEndLineWithCarriageReturn);
+      var sha1 = img.sha1().base64EncodedStringWithOptions(NSDataBase64EncodingEndLineWithCarriageReturn);
+
+      fill.image.data = { _data: data };
+      fill.image.sha1 = { _data: sha1 };
+
+      delete fill.image.url;
+    } else {
+      var svgLayer = {
+        x: layer.frame.x,
+        y: layer.frame.y,
+        width: layer.frame.width,
+        height: layer.frame.height,
+        rawSVGString: imageData
+      };
+
+      (0, _fixSVG2['default'])(svgLayer);
+      (0, _utils.replaceProperties)(layer, svgLayer);
+    }
   });
 }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 20 */
@@ -2034,6 +2105,8 @@ Object.defineProperty(exports, "__esModule", {
 exports['default'] = fixSVGLayer;
 
 var _sketchappJsonPlugin = __webpack_require__(1);
+
+var _utils = __webpack_require__(12);
 
 function makeNativeSVGLayer(layer) {
   var svgString = NSString.stringWithString(layer.rawSVGString);
@@ -2051,26 +2124,12 @@ function makeNativeSVGLayer(layer) {
   return svgLayer;
 }
 
-function replaceProperties(dest, src) {
-  for (var prop in dest) {
-    if (dest.hasOwnProperty(prop)) {
-      delete dest[prop];
-    }
-  }
-
-  for (var _prop in src) {
-    if (src.hasOwnProperty(_prop)) {
-      dest[_prop] = src[_prop];
-    }
-  }
-}
-
 function fixSVGLayer(layer) {
   var svgLayer = makeNativeSVGLayer(layer);
   var newLayerString = (0, _sketchappJsonPlugin.toSJSON)(svgLayer);
   var newLayerObject = JSON.parse(newLayerString);
 
-  replaceProperties(layer, newLayerObject);
+  (0, _utils.replaceProperties)(layer, newLayerObject);
 }
 
 /***/ })

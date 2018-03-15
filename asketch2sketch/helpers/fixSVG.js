@@ -1,4 +1,5 @@
 import {toSJSON} from 'sketchapp-json-plugin';
+import {replaceProperties} from './utils';
 
 function makeNativeSVGLayer(layer) {
   const svgString = NSString.stringWithString(layer.rawSVGString);
@@ -14,20 +15,6 @@ function makeNativeSVGLayer(layer) {
   svgLayer.frame().setHeight(layer.height);
 
   return svgLayer;
-}
-
-function replaceProperties(dest, src) {
-  for (const prop in dest) {
-    if (dest.hasOwnProperty(prop)) {
-      delete dest[prop];
-    }
-  }
-
-  for (const prop in src) {
-    if (src.hasOwnProperty(prop)) {
-      dest[prop] = src[prop];
-    }
-  }
 }
 
 export default function fixSVGLayer(layer) {
