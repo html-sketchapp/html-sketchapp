@@ -56,7 +56,6 @@ function getImageDataFromUrl(url) {
   }
 }
 
-
 function getErrorImage() {
   // eslint-disable-next-line max-len
   const errorUrl = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8w8DwHwAEOQHNmnaaOAAAAABJRU5ErkJggg==';

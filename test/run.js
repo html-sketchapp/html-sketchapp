@@ -5,7 +5,7 @@ const jsdiff = require('variable-diff');
 
 const injectedScriptPath = './build/inject.bundle.js';
 const expectedPath = './expected.asketch.json';
-const testPagePath = './test-page.html';
+const testPageURL = 'file://' + path.resolve('./test-page.html');
 
 function removeRandomness(layer) {
   if (layer.do_objectID) {
@@ -45,7 +45,7 @@ puppeteer.launch({args}).then(async browser => {
   const page = await browser.newPage();
 
   await page.setViewport({width: 800, height: 600});
-  await page.goto('file://' + path.resolve(testPagePath), {
+  await page.goto(testPageURL, {
     waitUntil: 'networkidle0'
   });
 
