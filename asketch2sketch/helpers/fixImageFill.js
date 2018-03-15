@@ -97,7 +97,7 @@ export default function fixImageFill(layer) {
       fill.image.sha1 = {_data: sha1};
 
       delete fill.image.url;
-    } else {
+    } else if (imageType === IMG_SVG) {
       const svgLayer = {
         x: layer.frame.x,
         y: layer.frame.y,
@@ -107,6 +107,8 @@ export default function fixImageFill(layer) {
       };
 
       fixSVGLayer(svgLayer);
+
+      // note that this won't work if given layer has multiple fills
       replaceProperties(layer, svgLayer);
     }
   });

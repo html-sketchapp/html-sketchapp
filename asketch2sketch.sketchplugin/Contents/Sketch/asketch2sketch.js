@@ -2080,7 +2080,7 @@ function fixImageFill(layer) {
       fill.image.sha1 = { _data: sha1 };
 
       delete fill.image.url;
-    } else {
+    } else if (imageType === IMG_SVG) {
       var svgLayer = {
         x: layer.frame.x,
         y: layer.frame.y,
@@ -2090,6 +2090,8 @@ function fixImageFill(layer) {
       };
 
       (0, _fixSVG2['default'])(svgLayer);
+
+      // note that this won't work if given layer has multiple fills
       (0, _utils.replaceProperties)(layer, svgLayer);
     }
   });
