@@ -77,7 +77,7 @@ export const makeColorFill = (cssColor, alpha) => ({
 });
 
 // patternFillType - 0 1 2 3
-export const makeImageFill = async(url, patternFillType = 1) => {
+export const makeImageFill = async (url, patternFillType = 1) => {
   let dataURL = '';
 
   if (url.indexOf('data:') === 0) {

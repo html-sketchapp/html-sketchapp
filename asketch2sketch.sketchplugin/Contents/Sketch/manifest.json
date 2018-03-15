@@ -15,11 +15,12 @@
       "asketch2sketch"
     ]
   },
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "HTML to Sketch",
-  "name": "html-sketchapp",
+  "homepage": "https://github.com/brainly/html-sketchapp#readme",
+  "name": "asketch2sketch",
   "disableCocoaScriptPreprocessor": true,
-  "appcast": "https://raw.githubusercontent.com//master/.appcast.xml",
+  "appcast": "https://raw.githubusercontent.com/brainly/html-sketchapp/master/.appcast.xml",
   "author": "Brainly - Konrad Dzwinel",
-  "email": "konrad.dzwinel@brainly.com"
+  "authorEmail": "konrad.dzwinel@brainly.com"
 }

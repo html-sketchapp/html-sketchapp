@@ -1,5 +1,5 @@
 var that = this;
-function run (key, context) {
+function __skpm_run (key, context) {
   that.context = context;
 
 var exports =
@@ -72,89 +72,209 @@ var exports =
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {/* globals log */
+/* WEBPACK VAR INJECTION */(function(console) {/* globals log */
 
-var console = {
-  log: log,
-  warn: log,
-  error: log,
-  dump: function (obj) {
-    log('###############################################')
-    log('## Dumping object ' + obj)
-    if (obj.className) {
-      log('## obj class is: ' + obj.className())
-    }
-    log('###############################################')
+if (true) {
+  var sketchUtils = __webpack_require__(5)
+  var sketchDebugger = __webpack_require__(7)
+  var actions = __webpack_require__(9)
 
-    if (obj.class && obj.class().mocha) {
-      log('obj.properties:')
-      log(obj.class().mocha().properties())
-      log('obj.propertiesWithAncestors:')
-      log(obj.class().mocha().propertiesWithAncestors())
-
-      log('obj.classMethods:')
-      log(obj.class().mocha().classMethods())
-      log('obj.classMethodsWithAncestors:')
-      log(obj.class().mocha().classMethodsWithAncestors())
-
-      log('obj.instanceMethods:')
-      log(obj.class().mocha().instanceMethods())
-      log('obj.instanceMethodsWithAncestors:')
-      log(obj.class().mocha().instanceMethodsWithAncestors())
-
-      log('obj.protocols:')
-      log(obj.class().mocha().protocols())
-      log('obj.protocolsWithAncestors:')
-      log(obj.class().mocha().protocolsWithAncestors())
-    }
-
-    if (obj.treeAsDictionary) {
-      log('obj.treeAsDictionary():')
-      log(obj.treeAsDictionary())
-    }
+  function getStack() {
+    return sketchUtils.prepareStackTrace(new Error().stack)
   }
 }
 
-// polyfill the global object
-var commonjsGlobal = typeof global !== 'undefined'
-  ? global
-  : this
+console._skpmPrefix = 'console> '
 
-commonjsGlobal.console = commonjsGlobal.console || console
+function logEverywhere(type, args) {
+  var values = Array.prototype.slice.call(args)
+
+  // log to the System logs
+  values.forEach(function(v) {
+    try {
+      log(console._skpmPrefix + indentString() + v)
+    } catch (e) {
+      log(v)
+    }
+  })
+
+  if (true) {
+    if (!sketchDebugger.isDebuggerPresent()) {
+      return
+    }
+
+    var payload = {
+      ts: Date.now(),
+      type: type,
+      plugin: String(context.scriptPath),
+      values: values.map(sketchUtils.prepareValue),
+      stack: getStack(),
+    }
+
+    sketchDebugger.sendToDebugger(actions.ADD_LOG, payload)
+  }
+}
+
+var indentLevel = 0
+function indentString() {
+  var indent = ''
+  for (var i = 0; i < indentLevel; i++) {
+    indent += '  '
+  }
+  if (indentLevel > 0) {
+    indent += '| '
+  }
+  return indent
+}
+
+var oldGroup = console.group
+
+console.group = function() {
+  // log to the JS context
+  oldGroup && oldGroup.apply(this, arguments)
+  indentLevel += 1
+  if (true) {
+    sketchDebugger.sendToDebugger(actions.GROUP, {
+      plugin: String(context.scriptPath),
+      collapsed: false,
+    })
+  }
+}
+
+var oldGroupCollapsed = console.groupCollapsed
+
+console.groupCollapsed = function() {
+  // log to the JS context
+  oldGroupCollapsed && oldGroupCollapsed.apply(this, arguments)
+  indentLevel += 1
+  if (true) {
+    sketchDebugger.sendToDebugger(actions.GROUP, {
+      plugin: String(context.scriptPath),
+      collapsed: true
+    })
+  }
+}
+
+var oldGroupEnd = console.groupEnd
+
+console.groupEnd = function() {
+  // log to the JS context
+  oldGroupEnd && oldGroupEnd.apply(this, arguments)
+  indentLevel -= 1
+  if (indentLevel < 0) {
+    indentLevel = 0
+  }
+  if (true) {
+    sketchDebugger.sendToDebugger(actions.GROUP_END, {
+      plugin: context.scriptPath,
+    })
+  }
+}
+
+var counts = {}
+var oldCount = console.count
+
+console.count = function(label) {
+  label = typeof label !== 'undefined' ? label : 'Global'
+  counts[label] = (counts[label] || 0) + 1
+
+  // log to the JS context
+  oldCount && oldCount.apply(this, arguments)
+  return logEverywhere('log', [label + ': ' + counts[label]])
+}
+
+var timers = {}
+var oldTime = console.time
+
+console.time = function(label) {
+  // log to the JS context
+  oldTime && oldTime.apply(this, arguments)
+
+  label = typeof label !== 'undefined' ? label : 'default'
+  if (timers[label]) {
+    return logEverywhere('warn', ['Timer "' + label + '" already exists'])
+  }
+
+  timers[label] = Date.now()
+  return
+}
+
+var oldTimeEnd = console.timeEnd
+
+console.timeEnd = function(label) {
+  // log to the JS context
+  oldTimeEnd && oldTimeEnd.apply(this, arguments)
+
+  label = typeof label !== 'undefined' ? label : 'default'
+  if (!timers[label]) {
+    return logEverywhere('warn', ['Timer "' + label + '" does not exist'])
+  }
+
+  var duration = Date.now() - timers[label]
+  delete timers[label]
+  return logEverywhere('log', [label + ': ' + (duration / 1000) + 'ms'])
+}
+
+var oldLog = console.log
+
+console.log = function() {
+  // log to the JS context
+  oldLog && oldLog.apply(this, arguments)
+  return logEverywhere('log', arguments)
+}
+
+var oldWarn = console.warn
+
+console.warn = function() {
+  // log to the JS context
+  oldWarn && oldWarn.apply(this, arguments)
+  return logEverywhere('warn', arguments)
+}
+
+var oldError = console.error
+
+console.error = function() {
+  // log to the JS context
+  oldError && oldError.apply(this, arguments)
+  return logEverywhere('error', arguments)
+}
+
+var oldAssert = console.assert
+
+console.assert = function(condition, text) {
+  // log to the JS context
+  oldAssert && oldAssert.apply(this, arguments)
+  if (!condition) {
+    return logEverywhere('assert', [text])
+  }
+  return undefined
+}
+
+var oldInfo = console.info
+
+console.info = function() {
+  // log to the JS context
+  oldInfo && oldInfo.apply(this, arguments)
+  return logEverywhere('info', arguments)
+}
+
+var oldClear = console.clear
+
+console.clear = function() {
+  oldClear && oldClear()
+  if (true) {
+    return sketchDebugger.sendToDebugger(actions.CLEAR_LOGS)
+  }
+}
+
+console._skpmEnabled = true
 
 module.exports = console
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
-
-var g;
-
-// This works in non-strict mode
-g = (function() {
-	return this;
-})();
-
-try {
-	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1,eval)("this");
-} catch(e) {
-	// This works if the window reference is available
-	if(typeof window === "object")
-		g = window;
-}
-
-// g can still be undefined, but nothing to do about it...
-// We return undefined, instead of nothing here, so it's
-// easier to handle this case. if(!global) { ...}
-
-module.exports = g;
-
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -168,7 +288,7 @@ exports.toSJSON = toSJSON;
 exports.fromSJSON = fromSJSON;
 exports.fromSJSONDictionary = fromSJSONDictionary;
 
-var _invariant = __webpack_require__(5);
+var _invariant = __webpack_require__(10);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -233,50 +353,73 @@ function fromSJSONDictionary(jsonTree) {
 }
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 2 */
+/***/ (function(module, exports) {
 
-/* WEBPACK VAR INJECTION */(function(global) {/* globals coscript */
+/* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign, no-var, vars-on-top, prefer-template, prefer-arrow-callback, func-names, prefer-destructuring, object-shorthand */
 
-var ids = []
+module.exports = function prepareStackTrace(stackTrace) {
+  var stack = stackTrace.split('\n')
+  stack = stack.map(function (s) {
+    return s.replace(/\sg/, '')
+  })
 
-function setTimeout (func, delay, param1, param2, param3, param4, param5, param6, param7, param8, param9, param10) {
-  coscript.shouldKeepAround = true
-  var id = ids.length
-  ids.push(true)
-  coscript.scheduleWithInterval_jsFunction(
-    (delay || 0) / 1000,
-    function () {
-      if (ids[id]) { // if not cleared
-        func(param1, param2, param3, param4, param5, param6, param7, param8, param9, param10)
-      }
-      clearTimeout(id)
-      if (ids.every(function (_id) { return !_id })) { // if everything is cleared
-        coscript.shouldKeepAround = false
-      }
+  stack = stack.map(function (entry) {
+    // entry is something like `functionName@path/to/my/file:line:column`
+    // or `path/to/my/file:line:column`
+    // or `path/to/my/file`
+    // or `path/to/@my/file:line:column`
+    var parts = entry.split('@')
+    var fn = parts.shift()
+    var filePath = parts.join('@') // the path can contain @
+
+    if (fn.indexOf('/Users/') === 0) {
+      // actually we didn't have a fn so just put it back in the filePath
+      filePath = fn + (filePath ? ('@' + filePath) : '')
+      fn = null
     }
-  )
-  return id
+
+    if (!filePath) {
+      // we should always have a filePath, so if we don't have one here, it means that the function what actually anonymous and that it is the filePath instead
+      filePath = entry
+      fn = null
+    }
+
+    var filePathParts = filePath.split(':')
+    filePath = filePathParts[0]
+
+    // the file is the last part of the filePath
+    var file = filePath.split('/')
+    file = file[file.length - 1]
+
+    return {
+      fn: fn,
+      file: file,
+      filePath: filePath,
+      line: filePathParts[1],
+      column: filePathParts[2],
+    }
+  })
+
+  return stack
 }
 
-function clearTimeout (id) {
-  ids[id] = false
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+module.exports = function toArray(object) {
+  if (Array.isArray(object)) {
+    return object
+  }
+  var arr = []
+  for (var j = 0; j < (object || []).length; j += 1) {
+    arr.push(object[j])
+  }
+  return arr
 }
 
-// polyfill the global object
-var commonjsGlobal = typeof global !== 'undefined'
-  ? global
-  : this
-
-commonjsGlobal.setTimeout = commonjsGlobal.setTimeout || setTimeout
-commonjsGlobal.clearTimeout = commonjsGlobal.clearTimeout || clearTimeout
-
-module.exports = {
-  setTimeout: setTimeout,
-  clearTimeout: clearTimeout
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 4 */
@@ -287,13 +430,17 @@ module.exports = {
 });
 exports['default'] = asketch2sketch;
 
-var _sketchappJsonPlugin = __webpack_require__(2);
+var _sketchappJsonPlugin = __webpack_require__(1);
 
-var _fixFont = __webpack_require__(7);
+var _fixFont = __webpack_require__(11);
 
-var _fixImageFill = __webpack_require__(15);
+var _fixImageFill = __webpack_require__(19);
 
 var _fixImageFill2 = _interopRequireDefault(_fixImageFill);
+
+var _fixSVG = __webpack_require__(20);
+
+var _fixSVG2 = _interopRequireDefault(_fixSVG);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -312,14 +459,27 @@ function removeExistingLayers(context) {
 }
 
 function fixLayer(layer) {
-  if (layer['_class'] === 'text') {
+  if (layer._class === 'text') {
     (0, _fixFont.fixTextLayer)(layer);
+  } else if (layer._class === 'svg') {
+    (0, _fixSVG2['default'])(layer);
+    return;
   } else {
     (0, _fixImageFill2['default'])(layer);
   }
 
   if (layer.layers) {
     layer.layers.forEach(fixLayer);
+  }
+}
+
+function getNativeLayer(layer) {
+  fixLayer(layer);
+
+  try {
+    return (0, _sketchappJsonPlugin.fromSJSONDictionary)(layer);
+  } catch (e) {
+    throw new Error('Layer decoding failed - ' + e);
   }
 }
 
@@ -418,17 +578,14 @@ function asketch2sketch(context) {
     page.name = asketchPage.name;
 
     asketchPage.layers.forEach(function (layer) {
-      fixLayer(layer);
       try {
-        page.addLayer((0, _sketchappJsonPlugin.fromSJSONDictionary)(layer));
+        var nativeLayer = getNativeLayer(layer);
+
+        page.addLayer(nativeLayer);
       } catch (e) {
-        console.log('Layer couldn\'t be created');
-        console.log(e);
-        console.log(layer);
+        console.log('Layer couldn\'t be created: ' + layer.name, e);
       }
     });
-
-    console.log('Layers added: ' + asketchPage.layers.length);
   }
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -437,8 +594,270 @@ function asketch2sketch(context) {
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var prepareValue = __webpack_require__(6)
+
+module.exports.toArray = __webpack_require__(3)
+module.exports.prepareStackTrace = __webpack_require__(2)
+module.exports.prepareValue = prepareValue
+module.exports.prepareObject = prepareValue.prepareObject
+module.exports.prepareArray = prepareValue.prepareArray
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign, no-var, vars-on-top, prefer-template, prefer-arrow-callback, func-names, prefer-destructuring, object-shorthand */
+var prepareStackTrace = __webpack_require__(2)
+var toArray = __webpack_require__(3)
+
+function prepareArray(array, options) {
+  return array.map(function(i) {
+    return prepareValue(i, options)
+  })
+}
+
+function prepareObject(object, options) {
+  const deep = {}
+  Object.keys(object).forEach(function(key) {
+    deep[key] = prepareValue(object[key], options)
+  })
+  return deep
+}
+
+function getName(x) {
+  return {
+    type: 'String',
+    primitive: 'String',
+    value: String(x.name()),
+  }
+}
+
+function getSelector(x) {
+  return {
+    type: 'String',
+    primitive: 'String',
+    value: String(x.selector()),
+  }
+}
+
+function introspectMochaObject(value, options) {
+  options = options || {}
+  var mocha = value.class().mocha()
+  var introspection = {
+    properties: {
+      type: 'Array',
+      primitive: 'Array',
+      value: toArray(
+        mocha['properties' + (options.withAncestors ? 'WithAncestors' : '')]()
+      ).map(getName),
+    },
+    classMethods: {
+      type: 'Array',
+      primitive: 'Array',
+      value: toArray(
+        mocha['classMethods' + (options.withAncestors ? 'WithAncestors' : '')]()
+      ).map(getSelector),
+    },
+    instanceMethods: {
+      type: 'Array',
+      primitive: 'Array',
+      value: toArray(
+        mocha['instanceMethods' + (options.withAncestors ? 'WithAncestors' : '')]()
+      ).map(getSelector),
+    },
+    protocols: {
+      type: 'Array',
+      primitive: 'Array',
+      value: toArray(
+        mocha['protocols' + (options.withAncestors ? 'WithAncestors' : '')]()
+      ).map(getName),
+    },
+  }
+  if (mocha.treeAsDictionary && options.withTree) {
+    introspection.treeAsDictionary = {
+      type: 'Object',
+      primitive: 'Object',
+      value: prepareObject(mocha.treeAsDictionary())
+    }
+  }
+  return introspection
+}
+
+function prepareValue(value, options) {
+  var type = 'String'
+  var primitive = 'String'
+  const typeOf = typeof value
+  if (value instanceof Error) {
+    type = 'Error'
+    primitive = 'Error'
+    value = {
+      message: value.message,
+      name: value.name,
+      stack: prepareStackTrace(value.stack),
+    }
+  } else if (Array.isArray(value)) {
+    type = 'Array'
+    primitive = 'Array'
+    value = prepareArray(value, options)
+  } else if (value === null || value === undefined || Number.isNaN(value)) {
+    type = 'Empty'
+    primitive = 'Empty'
+    value = String(value)
+  } else if (typeOf === 'object') {
+    if (value.isKindOfClass && typeof value.class === 'function') {
+      type = String(value.class())
+      // TODO: Here could come some meta data saved as value
+      if (
+        type === 'NSDictionary' ||
+        type === '__NSDictionaryM' ||
+        type === '__NSSingleEntryDictionaryI' ||
+        type === '__NSDictionaryI' ||
+        type === '__NSCFDictionary'
+      ) {
+        primitive = 'Object'
+        value = prepareObject(Object(value), options)
+      } else if (
+        type === 'NSArray' ||
+        type === 'NSMutableArray' ||
+        type === '__NSArrayM' ||
+        type === '__NSSingleObjectArrayI' ||
+        type === '__NSArray0'
+      ) {
+        primitive = 'Array'
+        value = prepareArray(toArray(value), options)
+      } else if (
+        type === 'NSString' ||
+        type === '__NSCFString' ||
+        type === 'NSTaggedPointerString' ||
+        type === '__NSCFConstantString'
+      ) {
+        primitive = 'String'
+        value = String(value)
+      } else if (type === '__NSCFNumber' || type === 'NSNumber') {
+        primitive = 'Number'
+        value = 0 + value
+      } else if (type === 'MOStruct') {
+        type = String(value.name())
+        primitive = 'Object'
+        value = value.memberNames().reduce(function(prev, k) {
+          prev[k] = prepareValue(value[k], options)
+          return prev
+        }, {})
+      } else if (value.class().mocha) {
+        primitive = 'Mocha'
+        value = (options || {}).skipMocha ? type : introspectMochaObject(value, options)
+      } else {
+        primitive = 'Unknown'
+        value = type
+      }
+    } else {
+      type = 'Object'
+      primitive = 'Object'
+      value = prepareObject(value, options)
+    }
+  } else if (typeOf === 'function') {
+    type = 'Function'
+    primitive = 'Function'
+    value = String(value)
+  } else if (value === true || value === false) {
+    type = 'Boolean'
+    primitive = 'Boolean'
+  } else if (typeOf === 'number') {
+    primitive = 'Number'
+    type = 'Number'
+  }
+
+  return {
+    value,
+    type,
+    primitive,
+  }
+}
+
+module.exports = prepareValue
+module.exports.prepareObject = prepareObject
+module.exports.prepareArray = prepareArray
+
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign, no-var, vars-on-top, prefer-template, prefer-arrow-callback, func-names, prefer-destructuring, object-shorthand */
+var remoteWebview = __webpack_require__(8)
+
+module.exports.identifier = 'skpm.debugger'
+
+module.exports.isDebuggerPresent = remoteWebview.isWebviewPresent.bind(
+  this,
+  module.exports.identifier
+)
+
+module.exports.sendToDebugger = function sendToDebugger(name, payload) {
+  return remoteWebview.sendToWebview(
+    module.exports.identifier,
+    'sketchBridge(' +
+      JSON.stringify({
+        name: name,
+        payload: payload,
+      }) +
+      ');'
+  )
+}
+
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+/* globals NSThread */
+
+var threadDictionary = NSThread.mainThread().threadDictionary()
+
+module.exports.isWebviewPresent = function isWebviewPresent (identifier) {
+  return !!threadDictionary[identifier]
+}
+
+module.exports.sendToWebview = function sendToWebview (identifier, evalString) {
+  if (!module.exports.isWebviewPresent(identifier)) {
+    throw new Error('Webview ' + identifier + ' not found')
+  }
+
+  var webview = threadDictionary[identifier]
+    .contentView()
+    .subviews()
+  webview = webview[webview.length - 1]
+
+  return webview.stringByEvaluatingJavaScriptFromString(evalString)
+}
+
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports) {
+
+module.exports.SET_TREE = 'elements/SET_TREE'
+module.exports.SET_PAGE_METADATA = 'elements/SET_PAGE_METADATA'
+module.exports.SET_LAYER_METADATA = 'elements/SET_LAYER_METADATA'
+module.exports.ADD_LOG = 'logs/ADD_LOG'
+module.exports.CLEAR_LOGS = 'logs/CLEAR_LOGS'
+module.exports.GROUP = 'logs/GROUP'
+module.exports.GROUP_END = 'logs/GROUP_END'
+module.exports.TIMER_START = 'logs/TIMER_START'
+module.exports.TIMER_END = 'logs/TIMER_END'
+module.exports.ADD_REQUEST = 'network/ADD_REQUEST'
+module.exports.SET_RESPONSE = 'network/SET_RESPONSE'
+module.exports.ADD_ACTION = 'actions/ADD_ACTION'
+module.exports.SET_SCRIPT_RESULT = 'playground/SET_SCRIPT_RESULT'
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
+/**
  * Copyright 2013-2015, Facebook, Inc.
  * All rights reserved.
  *
@@ -461,7 +880,7 @@ function asketch2sketch(context) {
  */
 
 var invariant = function(condition, format, a, b, c, d, e, f) {
-  if (process.env.NODE_ENV !== 'production') {
+  if (true) {
     if (format === undefined) {
       throw new Error('invariant requires an error message argument');
     }
@@ -490,201 +909,9 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 
 module.exports = invariant;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
 
 /***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(setTimeout, clearTimeout) {// shim for using process in browser
-var process = module.exports = {};
-
-// cached from whatever global is present so that test runners that stub it
-// don't break things.  But we need to wrap it in a try catch in case it is
-// wrapped in strict mode code which doesn't define any globals.  It's inside a
-// function because try/catches deoptimize in certain engines.
-
-var cachedSetTimeout;
-var cachedClearTimeout;
-
-function defaultSetTimout() {
-    throw new Error('setTimeout has not been defined');
-}
-function defaultClearTimeout () {
-    throw new Error('clearTimeout has not been defined');
-}
-(function () {
-    try {
-        if (typeof setTimeout === 'function') {
-            cachedSetTimeout = setTimeout;
-        } else {
-            cachedSetTimeout = defaultSetTimout;
-        }
-    } catch (e) {
-        cachedSetTimeout = defaultSetTimout;
-    }
-    try {
-        if (typeof clearTimeout === 'function') {
-            cachedClearTimeout = clearTimeout;
-        } else {
-            cachedClearTimeout = defaultClearTimeout;
-        }
-    } catch (e) {
-        cachedClearTimeout = defaultClearTimeout;
-    }
-} ())
-function runTimeout(fun) {
-    if (cachedSetTimeout === setTimeout) {
-        //normal enviroments in sane situations
-        return setTimeout(fun, 0);
-    }
-    // if setTimeout wasn't available but was latter defined
-    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
-        cachedSetTimeout = setTimeout;
-        return setTimeout(fun, 0);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedSetTimeout(fun, 0);
-    } catch(e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
-            return cachedSetTimeout.call(null, fun, 0);
-        } catch(e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
-            return cachedSetTimeout.call(this, fun, 0);
-        }
-    }
-
-
-}
-function runClearTimeout(marker) {
-    if (cachedClearTimeout === clearTimeout) {
-        //normal enviroments in sane situations
-        return clearTimeout(marker);
-    }
-    // if clearTimeout wasn't available but was latter defined
-    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
-        cachedClearTimeout = clearTimeout;
-        return clearTimeout(marker);
-    }
-    try {
-        // when when somebody has screwed with setTimeout but no I.E. maddness
-        return cachedClearTimeout(marker);
-    } catch (e){
-        try {
-            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
-            return cachedClearTimeout.call(null, marker);
-        } catch (e){
-            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
-            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
-            return cachedClearTimeout.call(this, marker);
-        }
-    }
-
-
-
-}
-var queue = [];
-var draining = false;
-var currentQueue;
-var queueIndex = -1;
-
-function cleanUpNextTick() {
-    if (!draining || !currentQueue) {
-        return;
-    }
-    draining = false;
-    if (currentQueue.length) {
-        queue = currentQueue.concat(queue);
-    } else {
-        queueIndex = -1;
-    }
-    if (queue.length) {
-        drainQueue();
-    }
-}
-
-function drainQueue() {
-    if (draining) {
-        return;
-    }
-    var timeout = runTimeout(cleanUpNextTick);
-    draining = true;
-
-    var len = queue.length;
-    while(len) {
-        currentQueue = queue;
-        queue = [];
-        while (++queueIndex < len) {
-            if (currentQueue) {
-                currentQueue[queueIndex].run();
-            }
-        }
-        queueIndex = -1;
-        len = queue.length;
-    }
-    currentQueue = null;
-    draining = false;
-    runClearTimeout(timeout);
-}
-
-process.nextTick = function (fun) {
-    var args = new Array(arguments.length - 1);
-    if (arguments.length > 1) {
-        for (var i = 1; i < arguments.length; i++) {
-            args[i - 1] = arguments[i];
-        }
-    }
-    queue.push(new Item(fun, args));
-    if (queue.length === 1 && !draining) {
-        runTimeout(drainQueue);
-    }
-};
-
-// v8 likes predictible objects
-function Item(fun, array) {
-    this.fun = fun;
-    this.array = array;
-}
-Item.prototype.run = function () {
-    this.fun.apply(null, this.array);
-};
-process.title = 'browser';
-process.browser = true;
-process.env = {};
-process.argv = [];
-process.version = ''; // empty string to avoid regexp issues
-process.versions = {};
-
-function noop() {}
-
-process.on = noop;
-process.addListener = noop;
-process.once = noop;
-process.off = noop;
-process.removeListener = noop;
-process.removeAllListeners = noop;
-process.emit = noop;
-process.prependListener = noop;
-process.prependOnceListener = noop;
-
-process.listeners = function (name) { return [] }
-
-process.binding = function (name) {
-    throw new Error('process.binding is not supported');
-};
-
-process.cwd = function () { return '/' };
-process.chdir = function (dir) {
-    throw new Error('process.chdir is not supported');
-};
-process.umask = function() { return 0; };
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)["setTimeout"], __webpack_require__(3)["clearTimeout"]))
-
-/***/ }),
-/* 7 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 Object.defineProperty(exports, "__esModule", {
@@ -693,13 +920,13 @@ Object.defineProperty(exports, "__esModule", {
 exports.fixTextLayer = fixTextLayer;
 exports.fixSharedTextStyle = fixSharedTextStyle;
 
-var _utils = __webpack_require__(8);
+var _utils = __webpack_require__(12);
 
-var _sketchConstants = __webpack_require__(10);
+var _sketchConstants = __webpack_require__(14);
 
-var _sketchappJsonPlugin = __webpack_require__(2);
+var _sketchappJsonPlugin = __webpack_require__(1);
 
-var _findFont = __webpack_require__(11);
+var _findFont = __webpack_require__(15);
 
 var _findFont2 = _interopRequireDefault(_findFont);
 
@@ -850,7 +1077,7 @@ function fixSharedTextStyle(sharedStyle) {
 }
 
 /***/ }),
-/* 8 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 Object.defineProperty(exports, "__esModule", {
@@ -859,7 +1086,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.makeColorFromCSS = undefined;
 exports.generateID = generateID;
 
-var _normalizeCssColor = __webpack_require__(9);
+var _normalizeCssColor = __webpack_require__(13);
 
 var _normalizeCssColor2 = _interopRequireDefault(_normalizeCssColor);
 
@@ -916,7 +1143,7 @@ var makeColorFromCSS = exports.makeColorFromCSS = function makeColorFromCSS(inpu
 };
 
 /***/ }),
-/* 9 */
+/* 13 */
 /***/ (function(module, exports) {
 
 /*
@@ -1285,7 +1512,7 @@ module.exports = normalizeColor;
 
 
 /***/ }),
-/* 10 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1414,14 +1641,14 @@ var CurvePointMode = exports.CurvePointMode = {
 };
 
 /***/ }),
-/* 11 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(console) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _hashStyle = __webpack_require__(12);
+var _hashStyle = __webpack_require__(16);
 
 var _hashStyle2 = _interopRequireDefault(_hashStyle);
 
@@ -1634,18 +1861,18 @@ exports['default'] = findFont;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 12 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _murmur2js = __webpack_require__(13);
+var _murmur2js = __webpack_require__(17);
 
 var _murmur2js2 = _interopRequireDefault(_murmur2js);
 
-var _sortObjectKeys = __webpack_require__(14);
+var _sortObjectKeys = __webpack_require__(18);
 
 var _sortObjectKeys2 = _interopRequireDefault(_sortObjectKeys);
 
@@ -1658,7 +1885,7 @@ var hashStyle = function hashStyle(obj) {
 exports['default'] = hashStyle;
 
 /***/ }),
-/* 13 */
+/* 17 */
 /***/ (function(module, exports) {
 
 /**
@@ -1710,7 +1937,7 @@ module.exports = function murmur2js(str) {
 
 
 /***/ }),
-/* 14 */
+/* 18 */
 /***/ (function(module, exports) {
 
 Object.defineProperty(exports, "__esModule", {
@@ -1730,7 +1957,7 @@ var sortObjectKeys = function sortObjectKeys(obj) {
 exports["default"] = sortObjectKeys;
 
 /***/ }),
-/* 15 */
+/* 19 */
 /***/ (function(module, exports) {
 
 Object.defineProperty(exports, "__esModule", {
@@ -1794,6 +2021,55 @@ function fixImageFill(layer) {
   });
 }
 
+/***/ }),
+/* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports['default'] = fixSVGLayer;
+
+var _sketchappJsonPlugin = __webpack_require__(1);
+
+function makeNativeSVGLayer(layer) {
+  var svgString = NSString.stringWithString(layer.rawSVGString);
+  var svgData = svgString.dataUsingEncoding(NSUTF8StringEncoding);
+  var svgImporter = MSSVGImporter.svgImporter();
+
+  svgImporter.prepareToImportFromData(svgData);
+  var svgLayer = svgImporter.importAsLayer();
+
+  svgLayer.frame().setX(layer.x);
+  svgLayer.frame().setY(layer.y);
+  svgLayer.frame().setWidth(layer.width);
+  svgLayer.frame().setHeight(layer.height);
+
+  return svgLayer;
+}
+
+function replaceProperties(dest, src) {
+  for (var prop in dest) {
+    if (dest.hasOwnProperty(prop)) {
+      delete dest[prop];
+    }
+  }
+
+  for (var _prop in src) {
+    if (src.hasOwnProperty(_prop)) {
+      dest[_prop] = src[_prop];
+    }
+  }
+}
+
+function fixSVGLayer(layer) {
+  var svgLayer = makeNativeSVGLayer(layer);
+  var newLayerString = (0, _sketchappJsonPlugin.toSJSON)(svgLayer);
+  var newLayerObject = JSON.parse(newLayerString);
+
+  replaceProperties(layer, newLayerObject);
+}
+
 /***/ })
 /******/ ]);
   if (key === 'default' && typeof exports === 'function') {
@@ -1802,4 +2078,4 @@ function fixImageFill(layer) {
     exports[key](context);
   }
 }
-that['onRun'] = run.bind(this, 'default')
+that['onRun'] = __skpm_run.bind(this, 'default')

@@ -4,7 +4,10 @@ import createXPathFromElement from './helpers/createXPathFromElement';
 import Style from './style';
 import Text from './text';
 import TextStyle from './textStyle';
+import SVG from './svg';
 import {parseBackgroundImage} from './helpers/background';
+import {getSVGString} from './helpers/svg';
+import {getGroupBCR} from './helpers/bcr';
 
 const DEFAULT_VALUES = {
   backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -62,17 +65,80 @@ function calculateBCRFromRanges(ranges) {
   return {x, y, width, height};
 }
 
-function fixBorderRadius(borderRadius) {
+function fixBorderRadius(borderRadius, width, height) {
   const matches = borderRadius.match(/^([0-9.]+)(.+)$/);
 
+  // Sketch uses 'px' units for border radius, so we need to convert % to px
   if (matches && matches[2] === '%') {
-    const value = parseInt(matches[1], 10);
+    const baseVal = Math.max(width, height);
+    const percentageApplied = baseVal * (parseInt(matches[1], 10) / 100);
 
-    // not sure about this, but border-radius: 50% should be fully rounded
-    return value >= 50 ? 100 : value;
+    return Math.round(percentageApplied);
+  }
+  return parseInt(borderRadius, 10);
+}
+
+function fixWhiteSpace(text, whiteSpace) {
+  switch (whiteSpace) {
+    case 'normal':
+    case 'nowrap':
+      return text.trim().replace(/\n/g, ' ').replace(/[^\S\n]+/g, ' ');
+    case 'pre-line':
+      return text.replace(/ *\n{1} */g, '\n').replace(/[^\S\n]+/g, ' ');
+    default:
+      // pre, pre-wrap
   }
 
-  return parseInt(borderRadius, 10);
+  return text;
+}
+
+function isSVGDescendant(node) {
+  return (node instanceof SVGElement) && node.matches('svg *');
+}
+
+function isVisible(node, {width, height}, {
+  position,
+  overflowX,
+  overflowY,
+  opacity,
+  visibility,
+  display,
+  clip
+}) {
+  // Skip node when display is set to none for itself or an ancestor
+  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent
+  if (node.tagName !== 'BODY' && node.offsetParent === null && position !== 'fixed') {
+    return false;
+  }
+
+  if ((width === 0 || height === 0) && overflowX === 'hidden' && overflowY === 'hidden') {
+    return false;
+  }
+
+  if (display === 'none' || visibility === 'hidden' || parseFloat(opacity) === 0) {
+    return false;
+  }
+
+  if (clip === 'rect(0px 0px 0px 0px)' && position === 'absolute') {
+    return false;
+  }
+
+  // node is detached from the DOM
+  if (!document.contains(node)) {
+    return false;
+  }
+
+  const parent = node.parentElement;
+
+  if (
+    parent &&
+    parent.nodeName !== 'HTML' &&
+    !isVisible(parent, parent.getBoundingClientRect(), getComputedStyle(parent))
+  ) {
+    return false;
+  }
+
+  return true;
 }
 
 export default async function nodeToSketchLayers(node) {
@@ -104,35 +170,42 @@ export default async function nodeToSketchLayers(node) {
     letterSpacing,
     color,
     textTransform,
-    textDecorationStyle,
+    textDecorationLine,
     textAlign,
     justifyContent,
     display,
     boxShadow,
-    visibility,
     opacity,
-    overflowX,
-    overflowY,
-    position,
     whiteSpace
   } = styles;
 
-  // Skip node when display is set to none for itself or an ancestor
-  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent
-  if (node.offsetParent === null && position !== 'fixed') {
+  // skip SVG child nodes as they are already covered by `new SVG(…)`
+  if (isSVGDescendant(node)) {
     return layers;
   }
 
-  if ((width === 0 || height === 0) && overflowX === 'hidden' && overflowY === 'hidden') {
-    return layers;
-  }
-
-  if (display === 'none' || visibility === 'hidden' || parseFloat(opacity) === 0) {
+  if (!isVisible(node, {width, height}, styles)) {
     return layers;
   }
 
   const leaf = new ShapeGroup({x, y, width, height});
   const isImage = node.nodeName === 'IMG' && node.attributes.src;
+  const isSVG = node.nodeName === 'svg';
+
+  if (isSVG) {
+    // sketch ignores padding and centerging as defined by viewBox and preserveAspectRatio when
+    // importing SVG, so instead of using BCR of the SVG, we are using BCR of its children
+    const childrenBCR = getGroupBCR(Array.from(node.children));
+
+    layers.push(new SVG({
+      x: childrenBCR.x,
+      y: childrenBCR.y,
+      width: childrenBCR.width,
+      height: childrenBCR.height,
+      rawSVGString: getSVGString(node)
+    }));
+    return layers;
+  }
 
   // if layer has no background/shadow/border/etc. skip it
   if (isImage || !hasOnlyDefaultStyles(styles)) {
@@ -199,14 +272,16 @@ export default async function nodeToSketchLayers(node) {
       }
     }
 
+    style.addOpacity(opacity);
+
     leaf.setStyle(style);
 
     //TODO borderRadius can be expressed in different formats and use various units - for simplicity we assume "X%"
     const cornerRadius = {
-      topLeft: fixBorderRadius(borderTopLeftRadius),
-      topRight: fixBorderRadius(borderTopRightRadius),
-      bottomLeft: fixBorderRadius(borderBottomLeftRadius),
-      bottomRight: fixBorderRadius(borderBottomRightRadius)
+      topLeft: fixBorderRadius(borderTopLeftRadius, width, height),
+      topRight: fixBorderRadius(borderTopRightRadius, width, height),
+      bottomLeft: fixBorderRadius(borderBottomLeftRadius, width, height),
+      bottomRight: fixBorderRadius(borderBottomRightRadius, width, height)
     };
 
     const rectangle = new Rectange({width, height, cornerRadius});
@@ -225,7 +300,7 @@ export default async function nodeToSketchLayers(node) {
     fontWeight: parseInt(fontWeight, 10),
     color,
     textTransform,
-    textDecoration: textDecorationStyle,
+    textDecoration: textDecorationLine,
     textAlign: display === 'flex' || display === 'inline-flex' ? justifyContent : textAlign
   });
 
@@ -248,20 +323,7 @@ export default async function nodeToSketchLayers(node) {
         fixY = (textBCR.height - lineHeightInt * numberOfLines) / 2;
       }
 
-      let textValue = textNode.nodeValue;
-
-      switch (whiteSpace) {
-        case 'normal':
-        case 'nowrap':
-          textValue = textValue.trim().replace(/\n/g, ' ').replace(/[^\S\n]+/g, ' ');
-          break;
-        case 'pre-line':
-          textValue = textValue.replace(/ *\n{1} */g, '\n').replace(/[^\S\n]+/g, ' ');
-          break;
-        default:
-          // pre, pre-wrap
-          break;
-      }
+      const textValue = fixWhiteSpace(textNode.nodeValue, whiteSpace);
 
       const text = new Text({
         x: textBCR.x,

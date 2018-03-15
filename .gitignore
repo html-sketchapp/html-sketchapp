@@ -2,3 +2,5 @@
 .idea/
 .editorconfig
 node_modules/
+playground/
+test/build/

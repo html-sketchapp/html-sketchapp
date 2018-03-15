@@ -1,4 +1,4 @@
-# html-sketchapp
+# html-sketchapp [![Build Status](https://travis-ci.org/brainly/html-sketchapp.svg?branch=master)](https://travis-ci.org/brainly/html-sketchapp) [![npm version](https://badge.fury.io/js/%40brainly%2Fhtml-sketchapp.svg)](https://badge.fury.io/js/%40brainly%2Fhtml-sketchapp)
 
 *Experimental* HTML to Sketch export solution.
 
@@ -18,19 +18,21 @@ The motivation behind this project was ability to easily share Front-End style g
 
 We were unable to quickly work around these limitations, so we created html-sketchapp.
 
+You can learn more about this project from the excellent article ["Sketching in the Browser"](https://medium.com/seek-blog/sketching-in-the-browser-33a7b7aa0526) by @markdalgleish.
+
 ## Why experimental?
 
 This project is a prototype that allowed us to export most of our Front-End style guide to Sketch. The main focus was on exporting the style guide and not on providing a complete solution, therefore there are quite a few known limitations:
 
 - not all CSS properties are supported (TODO)
 - not all values for supported CSS properties are supported (TODO)
-- not all types of images are supported (webp, svg) (TODO)
+- not all types of images are supported (webp, external svg) (TODO)
 - resizing information is not generated (TODO)
 - all fonts have to be locally installed (not sure if that's fixable)
 - requires MacOS (Sketch's limitation)
 - [more details here](https://github.com/brainly/html-sketchapp/wiki/What's-supported%3F)
 
-The good news is that most of the missing functionality should be fairly easy to add - feel free to contribute to or fork this project.
+The good news is that most of the missing functionality should be fairly easy to add - feel free to contribute to this project.
 
 ## How does it work?
 
@@ -51,12 +53,22 @@ All `.asketch.json` files should be loaded to Sketch via the `asketch2sketch.ske
 
 <img src="https://i.imgur.com/9eDm6NQ.png" width="450" alt="Installing Sketch plugin" title="Installing Sketch plugin" />
 
-If you prefer to build the plugin from sources:
+You can install html-sketchapp from npm:
+
+```
+npm i @brainly/html-sketchapp
+```
+
+This package comes with built version of the plugin, but you can always build it yourself from sources:
 
 ```
 npm i # install dependencies
 npm run build # build the plugin
 ```
+
+## Projects using html-sketchapp
+- [html-sketchapp-cli](https://github.com/seek-oss/html-sketchapp-cli) - "Quickly generate Sketch libraries from HTML documents and living style guides."
+- [story2sketch](https://github.com/chrisvxd/story2sketch) - "Convert Storybook stories into Sketch symbols."
 
 ## Standing on the shoulders of giants :heart:
 
