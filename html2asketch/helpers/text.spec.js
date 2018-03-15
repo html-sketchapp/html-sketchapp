@@ -17,7 +17,7 @@ test('normal & nowrap', () => {
 test('pre-line', () => {
   const input = `
        Luke,  I'm
-    
+
 
   your      father `;
   const output = `
@@ -29,3 +29,14 @@ your father`;
   expect(fixWhiteSpace(input, 'pre-line')).toEqual(output);
 });
 
+// Sequences of whitespace are preserved. Lines are only broken at newline characters
+test('pre & pre-wrap', () => {
+  const input = `
+       Luke,  I'm
+    
+
+  your      father `;
+
+  expect(fixWhiteSpace(input, 'pre')).toEqual(input);
+  expect(fixWhiteSpace(input, 'pre-wrap')).toEqual(input);
+});
