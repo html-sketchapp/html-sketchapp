@@ -44,28 +44,6 @@ function hasOnlyDefaultStyles(styles) {
   });
 }
 
-function calculateBCRFromRanges(ranges) {
-  let x = Infinity;
-  let y = Infinity;
-  let width = 0;
-  let height = 0;
-
-  ranges.forEach(range => {
-    x = Math.min(x, range.x);
-    y = Math.min(y, range.y);
-  });
-
-  ranges.forEach(range => {
-    const normalizedWidth = range.width + (range.x - x);
-    const normalizedHeight = range.height + (range.y - y);
-
-    width = Math.max(width, normalizedWidth);
-    height = Math.max(height, normalizedHeight);
-  });
-
-  return {x, y, width, height};
-}
-
 function fixBorderRadius(borderRadius, width, height) {
   const matches = borderRadius.match(/^([0-9.]+)(.+)$/);
 
@@ -300,7 +278,7 @@ export default function nodeToSketchLayers(node) {
       rangeHelper.selectNodeContents(textNode);
       const textRanges = Array.from(rangeHelper.getClientRects());
       const numberOfLines = textRanges.length;
-      const textBCR = calculateBCRFromRanges(textRanges);
+      const textBCR = rangeHelper.getBoundingClientRect();
       const lineHeightInt = parseInt(lineHeight, 10);
       let fixY = 0;
 

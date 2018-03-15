@@ -65,7 +65,7 @@ var exports =
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -75,9 +75,9 @@ var exports =
 /* WEBPACK VAR INJECTION */(function(console) {/* globals log */
 
 if (true) {
-  var sketchUtils = __webpack_require__(5)
-  var sketchDebugger = __webpack_require__(7)
-  var actions = __webpack_require__(9)
+  var sketchUtils = __webpack_require__(7)
+  var sketchDebugger = __webpack_require__(9)
+  var actions = __webpack_require__(11)
 
   function getStack() {
     return sketchUtils.prepareStackTrace(new Error().stack)
@@ -288,7 +288,7 @@ exports.toSJSON = toSJSON;
 exports.fromSJSON = fromSJSON;
 exports.fromSJSONDictionary = fromSJSONDictionary;
 
-var _invariant = __webpack_require__(10);
+var _invariant = __webpack_require__(12);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -354,6 +354,87 @@ function fromSJSONDictionary(jsonTree) {
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.makeColorFromCSS = undefined;
+exports.generateID = generateID;
+exports.replaceProperties = replaceProperties;
+
+var _normalizeCssColor = __webpack_require__(14);
+
+var _normalizeCssColor2 = _interopRequireDefault(_normalizeCssColor);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var lut = [];
+
+for (var i = 0; i < 256; i += 1) {
+  lut[i] = (i < 16 ? '0' : '') + i.toString(16);
+}
+
+// Hack (http://stackoverflow.com/a/21963136)
+function e7() {
+  var d0 = Math.random() * 0xffffffff | 0;
+  var d1 = Math.random() * 0xffffffff | 0;
+  var d2 = Math.random() * 0xffffffff | 0;
+  var d3 = Math.random() * 0xffffffff | 0;
+
+  return String(lut[d0 & 0xff] + lut[d0 >> 8 & 0xff] + lut[d0 >> 16 & 0xff] + lut[d0 >> 24 & 0xff]) + '-' + String(lut[d1 & 0xff]) + String(lut[d1 >> 8 & 0xff]) + '-' + String(lut[d1 >> 16 & 0x0f | 0x40]) + String(lut[d1 >> 24 & 0xff]) + '-' + String(lut[d2 & 0x3f | 0x80]) + String(lut[d2 >> 8 & 0xff]) + '-' + String(lut[d2 >> 16 & 0xff]) + String(lut[d2 >> 24 & 0xff]) + String(lut[d3 & 0xff]) + String(lut[d3 >> 8 & 0xff]) + String(lut[d3 >> 16 & 0xff]) + String(lut[d3 >> 24 & 0xff]);
+}
+
+function generateID() {
+  return e7();
+}
+
+var safeToLower = function safeToLower(input) {
+  if (typeof input === 'string') {
+    return input.toLowerCase();
+  }
+
+  return input;
+};
+
+// Takes colors as CSS hex, name, rgb, rgba, hsl or hsla
+var makeColorFromCSS = exports.makeColorFromCSS = function makeColorFromCSS(input) {
+  var alpha = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
+
+  var nullableColor = (0, _normalizeCssColor2['default'])(safeToLower(input));
+  var colorInt = nullableColor === null ? 0x00000000 : nullableColor;
+
+  var _normalizeColor$rgba = _normalizeCssColor2['default'].rgba(colorInt),
+      r = _normalizeColor$rgba.r,
+      g = _normalizeColor$rgba.g,
+      b = _normalizeColor$rgba.b,
+      a = _normalizeColor$rgba.a;
+
+  return {
+    _class: 'color',
+    red: r / 255,
+    green: g / 255,
+    blue: b / 255,
+    alpha: a * alpha
+  };
+};
+
+function replaceProperties(dest, src) {
+  for (var prop in dest) {
+    if (dest.hasOwnProperty(prop)) {
+      delete dest[prop];
+    }
+  }
+
+  for (var _prop in src) {
+    if (src.hasOwnProperty(_prop)) {
+      dest[_prop] = src[_prop];
+    }
+  }
+}
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports) {
 
 /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign, no-var, vars-on-top, prefer-template, prefer-arrow-callback, func-names, prefer-destructuring, object-shorthand */
@@ -406,7 +487,7 @@ module.exports = function prepareStackTrace(stackTrace) {
 
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, exports) {
 
 module.exports = function toArray(object) {
@@ -422,7 +503,44 @@ module.exports = function toArray(object) {
 
 
 /***/ }),
-/* 4 */
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports['default'] = fixSVGLayer;
+
+var _sketchappJsonPlugin = __webpack_require__(1);
+
+var _utils = __webpack_require__(2);
+
+function makeNativeSVGLayer(layer) {
+  var svgString = NSString.stringWithString(layer.rawSVGString);
+  var svgData = svgString.dataUsingEncoding(NSUTF8StringEncoding);
+  var svgImporter = MSSVGImporter.svgImporter();
+
+  svgImporter.prepareToImportFromData(svgData);
+  var svgLayer = svgImporter.importAsLayer();
+
+  svgLayer.frame().setX(layer.x);
+  svgLayer.frame().setY(layer.y);
+  svgLayer.frame().setWidth(layer.width);
+  svgLayer.frame().setHeight(layer.height);
+
+  return svgLayer;
+}
+
+function fixSVGLayer(layer) {
+  var svgLayer = makeNativeSVGLayer(layer);
+  var newLayerString = (0, _sketchappJsonPlugin.toSJSON)(svgLayer);
+  var newLayerObject = JSON.parse(newLayerString);
+
+  (0, _utils.replaceProperties)(layer, newLayerObject);
+}
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(console) {Object.defineProperty(exports, "__esModule", {
@@ -432,13 +550,13 @@ exports['default'] = asketch2sketch;
 
 var _sketchappJsonPlugin = __webpack_require__(1);
 
-var _fixFont = __webpack_require__(11);
+var _fixFont = __webpack_require__(13);
 
-var _fixImageFill = __webpack_require__(19);
+var _fixImageFill = __webpack_require__(20);
 
 var _fixImageFill2 = _interopRequireDefault(_fixImageFill);
 
-var _fixSVG = __webpack_require__(20);
+var _fixSVG = __webpack_require__(5);
 
 var _fixSVG2 = _interopRequireDefault(_fixSVG);
 
@@ -591,25 +709,25 @@ function asketch2sketch(context) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var prepareValue = __webpack_require__(6)
+var prepareValue = __webpack_require__(8)
 
-module.exports.toArray = __webpack_require__(3)
-module.exports.prepareStackTrace = __webpack_require__(2)
+module.exports.toArray = __webpack_require__(4)
+module.exports.prepareStackTrace = __webpack_require__(3)
 module.exports.prepareValue = prepareValue
 module.exports.prepareObject = prepareValue.prepareObject
 module.exports.prepareArray = prepareValue.prepareArray
 
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign, no-var, vars-on-top, prefer-template, prefer-arrow-callback, func-names, prefer-destructuring, object-shorthand */
-var prepareStackTrace = __webpack_require__(2)
-var toArray = __webpack_require__(3)
+var prepareStackTrace = __webpack_require__(3)
+var toArray = __webpack_require__(4)
 
 function prepareArray(array, options) {
   return array.map(function(i) {
@@ -781,11 +899,11 @@ module.exports.prepareArray = prepareArray
 
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint-disable no-not-accumulator-reassign/no-not-accumulator-reassign, no-var, vars-on-top, prefer-template, prefer-arrow-callback, func-names, prefer-destructuring, object-shorthand */
-var remoteWebview = __webpack_require__(8)
+var remoteWebview = __webpack_require__(10)
 
 module.exports.identifier = 'skpm.debugger'
 
@@ -808,7 +926,7 @@ module.exports.sendToDebugger = function sendToDebugger(name, payload) {
 
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports) {
 
 /* globals NSThread */
@@ -834,7 +952,7 @@ module.exports.sendToWebview = function sendToWebview (identifier, evalString) {
 
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(module, exports) {
 
 module.exports.SET_TREE = 'elements/SET_TREE'
@@ -853,7 +971,7 @@ module.exports.SET_SCRIPT_RESULT = 'playground/SET_SCRIPT_RESULT'
 
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -911,7 +1029,7 @@ module.exports = invariant;
 
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 Object.defineProperty(exports, "__esModule", {
@@ -920,13 +1038,13 @@ Object.defineProperty(exports, "__esModule", {
 exports.fixTextLayer = fixTextLayer;
 exports.fixSharedTextStyle = fixSharedTextStyle;
 
-var _utils = __webpack_require__(12);
+var _utils = __webpack_require__(2);
 
-var _sketchConstants = __webpack_require__(14);
+var _sketchConstants = __webpack_require__(15);
 
 var _sketchappJsonPlugin = __webpack_require__(1);
 
-var _findFont = __webpack_require__(15);
+var _findFont = __webpack_require__(16);
 
 var _findFont2 = _interopRequireDefault(_findFont);
 
@@ -1077,88 +1195,7 @@ function fixSharedTextStyle(sharedStyle) {
 }
 
 /***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.makeColorFromCSS = undefined;
-exports.generateID = generateID;
-exports.replaceProperties = replaceProperties;
-
-var _normalizeCssColor = __webpack_require__(13);
-
-var _normalizeCssColor2 = _interopRequireDefault(_normalizeCssColor);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
-
-var lut = [];
-
-for (var i = 0; i < 256; i += 1) {
-  lut[i] = (i < 16 ? '0' : '') + i.toString(16);
-}
-
-// Hack (http://stackoverflow.com/a/21963136)
-function e7() {
-  var d0 = Math.random() * 0xffffffff | 0;
-  var d1 = Math.random() * 0xffffffff | 0;
-  var d2 = Math.random() * 0xffffffff | 0;
-  var d3 = Math.random() * 0xffffffff | 0;
-
-  return String(lut[d0 & 0xff] + lut[d0 >> 8 & 0xff] + lut[d0 >> 16 & 0xff] + lut[d0 >> 24 & 0xff]) + '-' + String(lut[d1 & 0xff]) + String(lut[d1 >> 8 & 0xff]) + '-' + String(lut[d1 >> 16 & 0x0f | 0x40]) + String(lut[d1 >> 24 & 0xff]) + '-' + String(lut[d2 & 0x3f | 0x80]) + String(lut[d2 >> 8 & 0xff]) + '-' + String(lut[d2 >> 16 & 0xff]) + String(lut[d2 >> 24 & 0xff]) + String(lut[d3 & 0xff]) + String(lut[d3 >> 8 & 0xff]) + String(lut[d3 >> 16 & 0xff]) + String(lut[d3 >> 24 & 0xff]);
-}
-
-function generateID() {
-  return e7();
-}
-
-var safeToLower = function safeToLower(input) {
-  if (typeof input === 'string') {
-    return input.toLowerCase();
-  }
-
-  return input;
-};
-
-// Takes colors as CSS hex, name, rgb, rgba, hsl or hsla
-var makeColorFromCSS = exports.makeColorFromCSS = function makeColorFromCSS(input) {
-  var alpha = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;
-
-  var nullableColor = (0, _normalizeCssColor2['default'])(safeToLower(input));
-  var colorInt = nullableColor === null ? 0x00000000 : nullableColor;
-
-  var _normalizeColor$rgba = _normalizeCssColor2['default'].rgba(colorInt),
-      r = _normalizeColor$rgba.r,
-      g = _normalizeColor$rgba.g,
-      b = _normalizeColor$rgba.b,
-      a = _normalizeColor$rgba.a;
-
-  return {
-    _class: 'color',
-    red: r / 255,
-    green: g / 255,
-    blue: b / 255,
-    alpha: a * alpha
-  };
-};
-
-function replaceProperties(dest, src) {
-  for (var prop in dest) {
-    if (dest.hasOwnProperty(prop)) {
-      delete dest[prop];
-    }
-  }
-
-  for (var _prop in src) {
-    if (src.hasOwnProperty(_prop)) {
-      dest[_prop] = src[_prop];
-    }
-  }
-}
-
-/***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports) {
 
 /*
@@ -1527,7 +1564,7 @@ module.exports = normalizeColor;
 
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1656,14 +1693,14 @@ var CurvePointMode = exports.CurvePointMode = {
 };
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(console) {Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _hashStyle = __webpack_require__(16);
+var _hashStyle = __webpack_require__(17);
 
 var _hashStyle2 = _interopRequireDefault(_hashStyle);
 
@@ -1876,18 +1913,18 @@ exports['default'] = findFont;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _murmur2js = __webpack_require__(17);
+var _murmur2js = __webpack_require__(18);
 
 var _murmur2js2 = _interopRequireDefault(_murmur2js);
 
-var _sortObjectKeys = __webpack_require__(18);
+var _sortObjectKeys = __webpack_require__(19);
 
 var _sortObjectKeys2 = _interopRequireDefault(_sortObjectKeys);
 
@@ -1900,7 +1937,7 @@ var hashStyle = function hashStyle(obj) {
 exports['default'] = hashStyle;
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports) {
 
 /**
@@ -1952,7 +1989,7 @@ module.exports = function murmur2js(str) {
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports) {
 
 Object.defineProperty(exports, "__esModule", {
@@ -1972,7 +2009,7 @@ var sortObjectKeys = function sortObjectKeys(obj) {
 exports["default"] = sortObjectKeys;
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 Object.defineProperty(exports, "__esModule", {
@@ -1980,11 +2017,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports['default'] = fixImageFill;
 
-var _fixSVG = __webpack_require__(20);
+var _fixSVG = __webpack_require__(5);
 
 var _fixSVG2 = _interopRequireDefault(_fixSVG);
 
-var _utils = __webpack_require__(12);
+var _utils = __webpack_require__(2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
@@ -2121,43 +2158,6 @@ function fixImageFill(layer) {
       }
     }
   }
-}
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports, __webpack_require__) {
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports['default'] = fixSVGLayer;
-
-var _sketchappJsonPlugin = __webpack_require__(1);
-
-var _utils = __webpack_require__(12);
-
-function makeNativeSVGLayer(layer) {
-  var svgString = NSString.stringWithString(layer.rawSVGString);
-  var svgData = svgString.dataUsingEncoding(NSUTF8StringEncoding);
-  var svgImporter = MSSVGImporter.svgImporter();
-
-  svgImporter.prepareToImportFromData(svgData);
-  var svgLayer = svgImporter.importAsLayer();
-
-  svgLayer.frame().setX(layer.x);
-  svgLayer.frame().setY(layer.y);
-  svgLayer.frame().setWidth(layer.width);
-  svgLayer.frame().setHeight(layer.height);
-
-  return svgLayer;
-}
-
-function fixSVGLayer(layer) {
-  var svgLayer = makeNativeSVGLayer(layer);
-  var newLayerString = (0, _sketchappJsonPlugin.toSJSON)(svgLayer);
-  var newLayerObject = JSON.parse(newLayerString);
-
-  (0, _utils.replaceProperties)(layer, newLayerObject);
 }
 
 /***/ })
