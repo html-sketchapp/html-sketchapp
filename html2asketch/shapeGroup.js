@@ -1,11 +1,11 @@
 import Base from './base';
 
 class ShapeGroup extends Base {
-  constructor({x, y, width, height}) {
+  constructor({left, top, width, height}) {
     super();
     this._class = 'shapeGroup';
-    this._x = x;
-    this._y = y;
+    this._x = left;
+    this._y = top;
     this._width = width;
     this._height = height;
   }
