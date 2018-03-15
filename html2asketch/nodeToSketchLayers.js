@@ -8,6 +8,7 @@ import SVG from './svg';
 import {parseBackgroundImage} from './helpers/background';
 import {getSVGString} from './helpers/svg';
 import {getGroupBCR} from './helpers/bcr';
+import {fixWhiteSpace} from './helpers/text';
 
 const DEFAULT_VALUES = {
   backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -161,7 +162,8 @@ export default async function nodeToSketchLayers(node) {
     justifyContent,
     display,
     boxShadow,
-    opacity
+    opacity,
+    whiteSpace
   } = styles;
 
   // skip SVG child nodes as they are already covered by `new SVG(…)`
@@ -308,12 +310,14 @@ export default async function nodeToSketchLayers(node) {
         fixY = (textBCR.height - lineHeightInt * numberOfLines) / 2;
       }
 
+      const textValue = fixWhiteSpace(textNode.nodeValue, whiteSpace);
+
       const text = new Text({
         x: textBCR.x,
         y: textBCR.y + fixY,
         width: textBCR.width,
         height: textBCR.height,
-        text: textNode.nodeValue.trim(),
+        text: textValue,
         style: textStyle,
         multiline: numberOfLines > 1
       });
