@@ -51,3 +51,17 @@ export const makeColorFromCSS = (input, alpha = 1) => {
     alpha: a * alpha
   };
 };
+
+export function replaceProperties(dest, src) {
+  for (const prop in dest) {
+    if (dest.hasOwnProperty(prop)) {
+      delete dest[prop];
+    }
+  }
+
+  for (const prop in src) {
+    if (src.hasOwnProperty(prop)) {
+      dest[prop] = src[prop];
+    }
+  }
+}

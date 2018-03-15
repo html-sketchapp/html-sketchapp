@@ -14,17 +14,15 @@ export default async function run(startNode) {
   page.setName(document.title);
 
   const queue = [startNode];
-  const promises = [];
+  const arrayOfLayers = [];
 
   while (queue.length) {
     const node = queue.pop();
 
-    promises.push(nodeToSketchLayers(node));
+    arrayOfLayers.push(nodeToSketchLayers(node));
 
     Array.from(node.children).forEach(child => queue.push(child));
   }
-
-  const arrayOfLayers = await Promise.all(promises);
 
   flatten(arrayOfLayers).forEach(layer => page.addLayer(layer));
 

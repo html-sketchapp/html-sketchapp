@@ -49,8 +49,8 @@ class Style {
     });
   }
 
-  async addImageFill(image) {
-    const fill = await makeImageFill(image);
+  addImageFill(image) {
+    const fill = makeImageFill(image);
 
     this._fills.push(fill);
   }

@@ -128,7 +128,7 @@ function isVisible(node, {width, height}, {
   return true;
 }
 
-export default async function nodeToSketchLayers(node) {
+export default function nodeToSketchLayers(node) {
   const layers = [];
   const {width, height, x, y} = node.getBoundingClientRect();
 
@@ -205,7 +205,7 @@ export default async function nodeToSketchLayers(node) {
     if (isImage) {
       const absoluteUrl = new URL(node.attributes.src.value, location.href);
 
-      await style.addImageFill(absoluteUrl.href);
+      style.addImageFill(absoluteUrl.href);
       leaf.setFixedWidthAndHeight();
     }
 
@@ -215,7 +215,7 @@ export default async function nodeToSketchLayers(node) {
     if (backgroundImageResult) {
       switch (backgroundImageResult.type) {
         case 'Image':
-          await style.addImageFill(backgroundImageResult.value);
+          style.addImageFill(backgroundImageResult.value);
           break;
         case 'LinearGradient':
           style.addGradientFill(backgroundImageResult.value);
