@@ -1,17 +1,6 @@
 import normalizeColor from 'normalize-css-color';
 import {FillType} from 'sketch-constants';
 
-// https://stackoverflow.com/a/20285053
-const toDataURL = url => fetch(url, {mode: 'cors'})
-  .then(response => response.blob())
-  .then(blob => new Promise((resolve, reject) => {
-    const reader = new FileReader();
-
-    reader.onloadend = () => resolve(reader.result);
-    reader.onerror = reject;
-    reader.readAsDataURL(blob);
-  }));
-
 const lut = [];
 
 for (let i = 0; i < 256; i += 1) {
@@ -77,19 +66,7 @@ export const makeColorFill = (cssColor, alpha) => ({
 });
 
 // patternFillType - 0 1 2 3
-export const makeImageFill = async (url, patternFillType = 1) => {
-  let dataURL = '';
-
-  if (url.indexOf('data:') === 0) {
-    dataURL = url;
-  } else {
-    try {
-      dataURL = await toDataURL(url);
-    } catch (e) {
-      console.error('Issue downloading ' + url + ' (' + e.message + ')');
-    }
-  }
-
+export const makeImageFill = (url, patternFillType = 1) => {
   const result = {
     _class: 'fill',
     isEnabled: true,
@@ -105,8 +82,8 @@ export const makeImageFill = async (url, patternFillType = 1) => {
     patternTileScale: 1
   };
 
-  if (dataURL) {
-    const imageData = dataURL.match(/data:.+;base64,(.+)/i);
+  if (url.indexOf('data:') === 0) {
+    const imageData = url.match(/data:.+;base64,(.+)/i);
 
     if (imageData && imageData[1]) {
       result.image.data = {_data: imageData[1]};

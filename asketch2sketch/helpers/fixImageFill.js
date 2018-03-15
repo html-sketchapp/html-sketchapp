@@ -56,6 +56,7 @@ function getImageDataFromUrl(url) {
   }
 }
 
+
 function getErrorImage() {
   // eslint-disable-next-line max-len
   const errorUrl = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mM8w8DwHwAEOQHNmnaaOAAAAABJRU5ErkJggg==';
@@ -68,9 +69,11 @@ export default function fixImageFill(layer) {
     return;
   }
 
-  layer.style.fills.forEach(fill => {
+  const fills = layer.style.fills;
+
+  for (const fill of fills) {
     if (!fill.image || !fill.image.url) {
-      return;
+      continue;
     }
 
     let {type: imageType, data: imageData} = getImageDataFromUrl(fill.image.url);
@@ -108,8 +111,11 @@ export default function fixImageFill(layer) {
 
       fixSVGLayer(svgLayer);
 
-      // note that this won't work if given layer has multiple fills
+      // we are replacing the parent layer with SVGLayer
       replaceProperties(layer, svgLayer);
+
+      // since we can't replace the parent twice, we have to bail out
+      return;
     }
-  });
+  }
 }

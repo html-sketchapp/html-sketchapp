@@ -2049,52 +2049,78 @@ function fixImageFill(layer) {
     return;
   }
 
-  layer.style.fills.forEach(function (fill) {
-    if (!fill.image || !fill.image.url) {
-      return;
-    }
+  var fills = layer.style.fills;
 
-    var _getImageDataFromUrl = getImageDataFromUrl(fill.image.url),
-        imageType = _getImageDataFromUrl.type,
-        imageData = _getImageDataFromUrl.data;
+  var _iteratorNormalCompletion = true;
+  var _didIteratorError = false;
+  var _iteratorError = undefined;
 
-    if (imageType === IMG_ERROR || imageType === IMG_UNSUPPORTED) {
-      imageType = IMG_BLOB;
-      imageData = getErrorImage();
-    }
+  try {
+    for (var _iterator = fills[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+      var fill = _step.value;
 
-    if (imageType === IMG_BLOB) {
-      var nsImage = NSImage.alloc().initWithData(imageData);
-      var img = null;
-
-      if (MSImageData.alloc().initWithImage_convertColorSpace !== undefined) {
-        img = MSImageData.alloc().initWithImage_convertColorSpace(nsImage, false);
-      } else {
-        img = MSImageData.alloc().initWithImage(nsImage);
+      if (!fill.image || !fill.image.url) {
+        continue;
       }
 
-      var data = img.data().base64EncodedStringWithOptions(NSDataBase64EncodingEndLineWithCarriageReturn);
-      var sha1 = img.sha1().base64EncodedStringWithOptions(NSDataBase64EncodingEndLineWithCarriageReturn);
+      var _getImageDataFromUrl = getImageDataFromUrl(fill.image.url),
+          imageType = _getImageDataFromUrl.type,
+          imageData = _getImageDataFromUrl.data;
 
-      fill.image.data = { _data: data };
-      fill.image.sha1 = { _data: sha1 };
+      if (imageType === IMG_ERROR || imageType === IMG_UNSUPPORTED) {
+        imageType = IMG_BLOB;
+        imageData = getErrorImage();
+      }
 
-      delete fill.image.url;
-    } else if (imageType === IMG_SVG) {
-      var svgLayer = {
-        x: layer.frame.x,
-        y: layer.frame.y,
-        width: layer.frame.width,
-        height: layer.frame.height,
-        rawSVGString: imageData
-      };
+      if (imageType === IMG_BLOB) {
+        var nsImage = NSImage.alloc().initWithData(imageData);
+        var img = null;
 
-      (0, _fixSVG2['default'])(svgLayer);
+        if (MSImageData.alloc().initWithImage_convertColorSpace !== undefined) {
+          img = MSImageData.alloc().initWithImage_convertColorSpace(nsImage, false);
+        } else {
+          img = MSImageData.alloc().initWithImage(nsImage);
+        }
 
-      // note that this won't work if given layer has multiple fills
-      (0, _utils.replaceProperties)(layer, svgLayer);
+        var data = img.data().base64EncodedStringWithOptions(NSDataBase64EncodingEndLineWithCarriageReturn);
+        var sha1 = img.sha1().base64EncodedStringWithOptions(NSDataBase64EncodingEndLineWithCarriageReturn);
+
+        fill.image.data = { _data: data };
+        fill.image.sha1 = { _data: sha1 };
+
+        delete fill.image.url;
+      } else if (imageType === IMG_SVG) {
+        var svgLayer = {
+          x: layer.frame.x,
+          y: layer.frame.y,
+          width: layer.frame.width,
+          height: layer.frame.height,
+          rawSVGString: imageData
+        };
+
+        (0, _fixSVG2['default'])(svgLayer);
+
+        // we are replacing the parent layer with SVGLayer
+        (0, _utils.replaceProperties)(layer, svgLayer);
+
+        // since we can't replace the parent twice, we have to bail out
+        return;
+      }
     }
-  });
+  } catch (err) {
+    _didIteratorError = true;
+    _iteratorError = err;
+  } finally {
+    try {
+      if (!_iteratorNormalCompletion && _iterator['return']) {
+        _iterator['return']();
+      }
+    } finally {
+      if (_didIteratorError) {
+        throw _iteratorError;
+      }
+    }
+  }
 }
 
 /***/ }),
