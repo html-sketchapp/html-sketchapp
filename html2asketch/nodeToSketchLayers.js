@@ -8,6 +8,7 @@ import SVG from './svg';
 import {parseBackgroundImage} from './helpers/background';
 import {getSVGString} from './helpers/svg';
 import {getGroupBCR} from './helpers/bcr';
+import {fixWhiteSpace} from './helpers/text';
 
 const DEFAULT_VALUES = {
   backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -76,20 +77,6 @@ function fixBorderRadius(borderRadius, width, height) {
     return Math.round(percentageApplied);
   }
   return parseInt(borderRadius, 10);
-}
-
-function fixWhiteSpace(text, whiteSpace) {
-  switch (whiteSpace) {
-    case 'normal':
-    case 'nowrap':
-      return text.trim().replace(/\n/g, ' ').replace(/[^\S\n]+/g, ' ');
-    case 'pre-line':
-      return text.replace(/ *\n{1} */g, '\n').replace(/[^\S\n]+/g, ' ');
-    default:
-      // pre, pre-wrap
-  }
-
-  return text;
 }
 
 function isSVGDescendant(node) {

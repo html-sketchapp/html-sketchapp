@@ -8,8 +8,8 @@ const expectedPath = './expected.asketch.json';
 const testPagePath = './test-page.html';
 
 function removeRandomness(layer) {
-  if (layer._objectID) {
-    layer._objectID = 'pizza';
+  if (layer.do_objectID) {
+    layer.do_objectID = 'pizza';
   }
 
   if (layer.image) {
@@ -23,18 +23,18 @@ function removeRandomness(layer) {
   }
 
   // for some reason only width differs between local and travis
-  if (layer._width) {
-    layer._width = Math.floor(layer._width);
+  if (layer.frame && layer.frame.width) {
+    layer.frame.width = Math.floor(layer.frame.width);
   }
 
   // we need to go deeper
 
-  if (layer._style && layer._style._fills) {
-    layer._style._fills.forEach(removeRandomness);
+  if (layer.style && layer.style.fills) {
+    layer.style.fills.forEach(removeRandomness);
   }
 
-  if (layer._layers) {
-    layer._layers.forEach(removeRandomness);
+  if (layer.layers) {
+    layer.layers.forEach(removeRandomness);
   }
 }
 
@@ -55,7 +55,7 @@ puppeteer.launch({args}).then(async browser => {
 
   const asketchJSON = await page.evaluate('body2sketch.default(document.body)');
 
-  asketchJSON.forEach(removeRandomness);
+  removeRandomness(asketchJSON);
 
   // update file with expected output by uncommenting the two lines below
   // fs.writeFileSync(path.resolve(__dirname, expectedPath), JSON.stringify(asketchJSON, null, 2));
