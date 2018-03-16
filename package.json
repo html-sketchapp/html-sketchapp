@@ -9,7 +9,8 @@
   "author": "Brainly - Konrad Dzwinel <konrad.dzwinel@brainly.com>",
   "license": "MIT",
   "scripts": {
-    "test": "npm run lint && jest && npm run e2e",
+    "test": "npm run lint && npm run unit && npm run e2e",
+    "unit": "jest",
     "lint": "eslint html2asketch/ asketch2sketch/ test/*.js",
     "e2e": "cd test && webpack --config ./webpack.config.js && node ./run.js",
     "build": "skpm-build",
