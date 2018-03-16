@@ -154,7 +154,7 @@ export default function nodeToSketchLayers(node) {
   }
 
   const leaf = new ShapeGroup({x, y, width, height});
-  const isImage = node.nodeName === 'IMG' && node.attributes.src;
+  const isImage = node.nodeName === 'IMG' && node.currentSrc;
   const isSVG = node.nodeName === 'svg';
 
   if (isSVG) {
@@ -181,7 +181,7 @@ export default function nodeToSketchLayers(node) {
     }
 
     if (isImage) {
-      const absoluteUrl = new URL(node.attributes.src.value, location.href);
+      const absoluteUrl = new URL(node.currentSrc, location.href);
 
       style.addImageFill(absoluteUrl.href);
       leaf.setFixedWidthAndHeight();
