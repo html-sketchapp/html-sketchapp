@@ -9,6 +9,7 @@ import {parseBackgroundImage} from './helpers/background';
 import {getSVGString} from './helpers/svg';
 import {getGroupBCR} from './helpers/bcr';
 import {fixWhiteSpace} from './helpers/text';
+import {isVisible} from './helpers/visibility';
 
 const DEFAULT_VALUES = {
   backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -61,54 +62,10 @@ function isSVGDescendant(node) {
   return (node instanceof SVGElement) && node.matches('svg *');
 }
 
-function isVisible(node, {width, height}, {
-  position,
-  overflowX,
-  overflowY,
-  opacity,
-  visibility,
-  display,
-  clip
-}) {
-  // Skip node when display is set to none for itself or an ancestor
-  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetParent
-  if (node.tagName !== 'BODY' && node.offsetParent === null && position !== 'fixed') {
-    return false;
-  }
-
-  if ((width === 0 || height === 0) && overflowX === 'hidden' && overflowY === 'hidden') {
-    return false;
-  }
-
-  if (display === 'none' || visibility === 'hidden' || parseFloat(opacity) === 0) {
-    return false;
-  }
-
-  if (clip === 'rect(0px 0px 0px 0px)' && position === 'absolute') {
-    return false;
-  }
-
-  // node is detached from the DOM
-  if (!document.contains(node)) {
-    return false;
-  }
-
-  const parent = node.parentElement;
-
-  if (
-    parent &&
-    parent.nodeName !== 'HTML' &&
-    !isVisible(parent, parent.getBoundingClientRect(), getComputedStyle(parent))
-  ) {
-    return false;
-  }
-
-  return true;
-}
-
 export default function nodeToSketchLayers(node) {
   const layers = [];
-  const {width, height, x, y} = node.getBoundingClientRect();
+  const bcr = node.getBoundingClientRect();
+  const {width, height, x, y} = bcr;
 
   const styles = getComputedStyle(node);
   const {
@@ -149,7 +106,7 @@ export default function nodeToSketchLayers(node) {
     return layers;
   }
 
-  if (!isVisible(node, {width, height}, styles)) {
+  if (!isVisible(node, bcr, styles)) {
     return layers;
   }
 
