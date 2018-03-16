@@ -14,7 +14,7 @@ test('correctly identifies visible nodes', () => {
       <p class='check-me'></p>
     </div>
     <div class='check-me' style='width: 0'>text</div>
-    <div class='check-me' style='opacity: 0.0001'>text</div>
+    <div class='check-me' style='opacity: 0.1'>text</div>
   </body>
   </html>
   `, {
@@ -59,6 +59,7 @@ test('correctly identifies not visible nodes', () => {
       clip: rect(0px, 0px, 0px, 0px);
       position: absolute;
     }
+    .six {visibility: collapse}
   </style>
   </head>
   <body>
@@ -67,7 +68,8 @@ test('correctly identifies not visible nodes', () => {
     <div class='three check-me'>text</div>
     <div class='four check-me'><div class='check-me'></div></div>
     <div class='five check-me'></div>
-    <div class='six'></div>
+    <div class='six check-me'></div>
+    <div class='remove-me check-me'></div>
   </body>
   </html>
   `, {
@@ -86,8 +88,8 @@ test('correctly identifies not visible nodes', () => {
 
   const nodesToCheck = Array.from(document.querySelectorAll('.check-me'));
 
-  // detach node .six
-  document.body.removeChild(document.querySelector('.six'));
+  // detach node .remove-me
+  document.body.removeChild(document.querySelector('.remove-me'));
 
   window.visibleNodes = nodesToCheck.filter(n => isVisible(n));
   `);

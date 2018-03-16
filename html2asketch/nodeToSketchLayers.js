@@ -64,7 +64,8 @@ function isSVGDescendant(node) {
 
 export default function nodeToSketchLayers(node) {
   const layers = [];
-  const {width, height, x, y} = node.getBoundingClientRect();
+  const bcr = node.getBoundingClientRect();
+  const {width, height, x, y} = bcr;
 
   const styles = getComputedStyle(node);
   const {
@@ -105,7 +106,7 @@ export default function nodeToSketchLayers(node) {
     return layers;
   }
 
-  if (!isVisible(node, {width, height}, styles)) {
+  if (!isVisible(node, bcr, styles)) {
     return layers;
   }
 
