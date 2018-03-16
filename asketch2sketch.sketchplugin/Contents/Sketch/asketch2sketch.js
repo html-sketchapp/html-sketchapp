@@ -560,6 +560,14 @@ var _fixSVG = __webpack_require__(5);
 
 var _fixSVG2 = _interopRequireDefault(_fixSVG);
 
+var _showDialog = __webpack_require__(21);
+
+var _showDialog2 = _interopRequireDefault(_showDialog);
+
+var _zoomToFit = __webpack_require__(22);
+
+var _zoomToFit2 = _interopRequireDefault(_zoomToFit);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
 function removeExistingLayers(context) {
@@ -695,15 +703,26 @@ function asketch2sketch(context) {
 
     page.name = asketchPage.name;
 
+    var failedLayers = 0;
+
     asketchPage.layers.forEach(function (layer) {
       try {
         var nativeLayer = getNativeLayer(layer);
 
         page.addLayer(nativeLayer);
       } catch (e) {
+        failedLayers++;
         console.log('Layer couldn\'t be created: ' + layer.name, e);
       }
     });
+
+    if (failedLayers === 1) {
+      (0, _showDialog2['default'])('One layer couldn\'t be imported and was skipped.');
+    } else if (failedLayers > 1) {
+      (0, _showDialog2['default'])(failedLayers + ' layers couldn\'t be imported and were skipped.');
+    }
+
+    (0, _zoomToFit2['default'])(context);
   }
 }
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -2159,6 +2178,91 @@ function fixImageFill(layer) {
     }
   }
 }
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports) {
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports['default'] = showDialog;
+function showDialog(text) {
+  var alert = COSAlertWindow['new']();
+
+  alert.setMessageText('asketch2sketch');
+  alert.setInformativeText(text);
+  alert.addButtonWithTitle('OK');
+
+  alert.runModal();
+
+  return alert;
+}
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(console) {Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports['default'] = zoomToFit;
+function _getCurrentView(doc) {
+  if (doc.currentView) {
+    return doc.currentView();
+  } else if (doc.contentDrawView) {
+    return doc.contentDrawView();
+  }
+  console.log('zoomToFit: can not get the currentView');
+  return null;
+}
+
+function zoomToFit(context) {
+  var doc = context.document;
+  var page = doc.currentPage();
+  var layers = page.layers();
+  var view = _getCurrentView(doc);
+
+  var rect = layers.reduce(function (result, layer) {
+    var frame = layer.frame();
+    var minX = frame.x();
+    var minY = frame.y();
+    var maxX = frame.x() + frame.width();
+    var maxY = frame.y() + frame.height();
+
+    if (result === null) {
+      return {
+        minX: minX,
+        minY: minY,
+        maxX: maxX,
+        maxY: maxY
+      };
+    }
+
+    if (minX < result.minX) {
+      result.minX = minX;
+    }
+    if (minY < result.minY) {
+      result.minY = minY;
+    }
+    if (maxX > result.maxX) {
+      result.maxX = maxX;
+    }
+    if (maxY > result.maxY) {
+      result.maxY = maxY;
+    }
+
+    return result;
+  }, null);
+
+  var x = rect.minX;
+  var y = rect.minY;
+  var width = rect.maxX - rect.minX;
+  var height = rect.maxY - rect.minY;
+
+  view.zoomToFitRect(NSMakeRect(x, y, width, height));
+}
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
 /******/ ]);

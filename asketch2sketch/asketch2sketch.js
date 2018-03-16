@@ -2,6 +2,8 @@ import {fromSJSONDictionary} from 'sketchapp-json-plugin';
 import {fixTextLayer, fixSharedTextStyle} from './helpers/fixFont';
 import fixImageFill from './helpers/fixImageFill';
 import fixSVGLayer from './helpers/fixSVG';
+import showDialog from './helpers/showDialog';
+import zoomToFit from './helpers/zoomToFit';
 
 function removeExistingLayers(context) {
   if (context.containsLayers()) {
@@ -134,14 +136,25 @@ export default function asketch2sketch(context) {
 
     page.name = asketchPage.name;
 
+    let failedLayers = 0;
+
     asketchPage.layers.forEach(layer => {
       try {
         const nativeLayer = getNativeLayer(layer);
 
         page.addLayer(nativeLayer);
       } catch (e) {
+        failedLayers++;
         console.log('Layer couldn\'t be created: ' + layer.name, e);
       }
     });
+
+    if (failedLayers === 1) {
+      showDialog('One layer couldn\'t be imported and was skipped.');
+    } else if (failedLayers > 1) {
+      showDialog(`${failedLayers} layers couldn't be imported and were skipped.`);
+    }
+
+    zoomToFit(context);
   }
 }

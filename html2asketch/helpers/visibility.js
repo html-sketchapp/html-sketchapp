@@ -7,6 +7,12 @@ export function isVisible(node, {width, height} = node.getBoundingClientRect(), 
   display,
   clip
 } = getComputedStyle(node)) {
+  // skip node when display is set to none for itself or an ancestor
+  // helps us catch things such as <noscript>
+  if (node.tagName !== 'BODY' && node.offsetParent === null && position !== 'fixed') {
+    return false;
+  }
+
   if ((width === 0 || height === 0) && overflowX === 'hidden' && overflowY === 'hidden') {
     return false;
   }

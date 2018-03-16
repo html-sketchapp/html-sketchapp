@@ -43,6 +43,8 @@
     "NSUTF8StringEncoding": false,
     "NSAlert": false,
     "NSMutableAttributedString": false,
-    "MSSVGImporter": false
+    "MSSVGImporter": false,
+    "COSAlertWindow": false,
+    "NSMakeRect": false
   }
 }
