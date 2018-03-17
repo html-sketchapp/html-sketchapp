@@ -1,4 +1,13 @@
-export function isVisible(node, {width, height} = node.getBoundingClientRect(), {
+export function isTextVisible({textIndent, overflowX, overflowY}) {
+  // NOTE overflow:hidden is not needed if text-indent is huge, but how to define 'huge'?
+  if (parseFloat(textIndent) < 0 && overflowX === 'hidden' && overflowY === 'hidden') {
+    return false;
+  }
+
+  return true;
+}
+
+export function isNodeVisible(node, {width, height} = node.getBoundingClientRect(), {
   position,
   overflowX,
   overflowY,
@@ -39,7 +48,7 @@ export function isVisible(node, {width, height} = node.getBoundingClientRect(), 
   if (
     parent &&
     parent.nodeName !== 'HTML' &&
-    !isVisible(parent)
+    !isNodeVisible(parent)
   ) {
     return false;
   }

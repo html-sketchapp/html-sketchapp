@@ -102,8 +102,14 @@ function inlineStyles(node) {
 function getUseReplacement(node) {
   const href = node.href.baseVal;
   // TODO this will only work for internal references
-  const refNode = document.querySelector(href);
+  let refNode = null;
   let resultNode = null;
+
+  try {
+    refNode = document.querySelector(href);
+  } catch (e) {
+    // ignore
+  }
 
   if (refNode) {
     if (refNode instanceof SVGSymbolElement) {

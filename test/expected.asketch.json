@@ -63,7 +63,7 @@
         "height": 71,
         "width": 53,
         "x": 8,
-        "y": 4986.375
+        "y": 5086.375
       },
       "text": "pre-line\n\n\ntext\n",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -110,7 +110,7 @@
         "height": 75,
         "width": 70,
         "x": 8,
-        "y": 4895.375
+        "y": 4995.375
       },
       "text": "    pre \n\n\n    text \n  ",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -157,7 +157,7 @@
         "height": 17,
         "width": 90,
         "x": 8,
-        "y": 4861.375
+        "y": 4961.375
       },
       "text": "Default text !!",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -204,7 +204,7 @@
         "height": 26,
         "width": 119,
         "x": 8,
-        "y": 4814.46875
+        "y": 4914.46875
       },
       "text": "white-space",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -220,7 +220,7 @@
       "width": 133.75,
       "height": 133.1669921875,
       "x": 41.583335876464844,
-      "y": 4623.47900390625
+      "y": 4723.47900390625
     },
     {
       "_class": "text",
@@ -259,7 +259,7 @@
         "height": 21,
         "width": 119,
         "x": 8,
-        "y": 4549.84375
+        "y": 4649.84375
       },
       "text": "SVG via <use>",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -275,7 +275,7 @@
       "width": 133.74999237060547,
       "height": 133.1669921875,
       "x": 41.583335876464844,
-      "y": 4360.04150390625
+      "y": 4460.04150390625
     },
     {
       "_class": "text",
@@ -314,7 +314,7 @@
         "height": 21,
         "width": 128,
         "x": 8,
-        "y": 4286.40625
+        "y": 4386.40625
       },
       "text": "Inheritied styles",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -330,7 +330,7 @@
       "width": 133.74999237060547,
       "height": 133.1669921875,
       "x": 41.583335876464844,
-      "y": 4096.60400390625
+      "y": 4196.60400390625
     },
     {
       "_class": "text",
@@ -369,7 +369,7 @@
         "height": 21,
         "width": 134,
         "x": 8,
-        "y": 4022.96875
+        "y": 4122.96875
       },
       "text": "Embedded styles",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -416,7 +416,7 @@
         "height": 26,
         "width": 49,
         "x": 8,
-        "y": 3976.0625
+        "y": 4076.0625
       },
       "text": "SVG",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -584,7 +584,7 @@
         "height": 100,
         "width": 100,
         "x": 8,
-        "y": 3856.15625
+        "y": 3956.15625
       },
       "hasClickThrough": false,
       "clippingMaskMode": 0,
@@ -628,7 +628,7 @@
         "height": 17,
         "width": 71,
         "x": 8,
-        "y": 3856.15625
+        "y": 3956.15625
       },
       "text": "opacity 0.3",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -796,7 +796,7 @@
         "height": 100,
         "width": 100,
         "x": 8,
-        "y": 3756.15625
+        "y": 3856.15625
       },
       "hasClickThrough": false,
       "clippingMaskMode": 0,
@@ -840,7 +840,7 @@
         "height": 17,
         "width": 71,
         "x": 8,
-        "y": 3756.15625
+        "y": 3856.15625
       },
       "text": "opacity 0.8",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -887,7 +887,7 @@
         "height": 26,
         "width": 81,
         "x": 8,
-        "y": 3709.25
+        "y": 3809.25
       },
       "text": "Opacity",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -1055,7 +1055,7 @@
         "height": 100,
         "width": 100,
         "x": 112,
-        "y": 3589.34375
+        "y": 3689.34375
       },
       "hasClickThrough": false,
       "clippingMaskMode": 0,
@@ -1099,7 +1099,7 @@
         "height": 17,
         "width": 77,
         "x": 112,
-        "y": 3589.34375
+        "y": 3689.34375
       },
       "text": "inline-block",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -1267,7 +1267,7 @@
         "height": 100,
         "width": 100,
         "x": 8,
-        "y": 3589.34375
+        "y": 3689.34375
       },
       "hasClickThrough": false,
       "clippingMaskMode": 0,
@@ -1311,9 +1311,221 @@
         "height": 17,
         "width": 77,
         "x": 8,
-        "y": 3589.34375
+        "y": 3689.34375
       },
       "text": "inline-block",
+      "automaticallyDrawOnUnderlyingPath": false,
+      "dontSynchroniseWithSymbol": false,
+      "glyphBounds": "",
+      "heightIsClipped": false,
+      "lineSpacingBehaviour": 2,
+      "textBehaviour": 0
+    },
+    {
+      "_class": "shapeGroup",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "/html[1]/body[1]/div[@class=\"box\"]",
+      "nameIsFixed": false,
+      "resizingConstraint": 63,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 1,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
+      "layers": [
+        {
+          "_class": "rectangle",
+          "do_objectID": "pizza",
+          "exportOptions": {
+            "_class": "exportOptions",
+            "exportFormats": [],
+            "includedLayerIds": [],
+            "layerOptions": 0,
+            "shouldTrim": false
+          },
+          "isFlippedHorizontal": false,
+          "isFlippedVertical": false,
+          "isLocked": false,
+          "isVisible": true,
+          "layerListExpandedType": 0,
+          "name": "rectangle",
+          "nameIsFixed": false,
+          "resizingConstraint": 63,
+          "resizingType": 0,
+          "rotation": 0,
+          "shouldBreakMaskChain": false,
+          "layers": [],
+          "frame": {
+            "_class": "rect",
+            "constrainProportions": false,
+            "height": 100,
+            "width": 100,
+            "x": 0,
+            "y": 0
+          },
+          "path": {
+            "_class": "path",
+            "isClosed": true,
+            "pointRadiusBehaviour": 1,
+            "points": [
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 0}",
+                "curveMode": 1,
+                "curveTo": "{0, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 0}",
+                "curveMode": 1,
+                "curveTo": "{1, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 1}",
+                "curveMode": 1,
+                "curveTo": "{1, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 1}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 1}",
+                "curveMode": 1,
+                "curveTo": "{0, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 1}"
+              }
+            ]
+          },
+          "hasConvertedToNewRoundCorners": true,
+          "fixedRadius": 0,
+          "edited": false,
+          "booleanOperation": -1
+        }
+      ],
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 100,
+        "width": 100,
+        "x": 8,
+        "y": 3589.34375
+      },
+      "hasClickThrough": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
+      "windingRule": 1
+    },
+    {
+      "_class": "text",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "block",
+      "nameIsFixed": false,
+      "resizingConstraint": 47,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "style": {
+        "color": "rgb(0, 0, 0)",
+        "fontSize": 16,
+        "fontFamily": "Times New Roman",
+        "fontWeight": 400,
+        "textTransform": "none",
+        "textDecoration": "none",
+        "textAlign": "start"
+      },
+      "layers": [],
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 17,
+        "width": 35,
+        "x": 8,
+        "y": 3589.34375
+      },
+      "text": "block",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
       "glyphBounds": "",
@@ -1485,53 +1697,6 @@
       "clippingMaskMode": 0,
       "hasClippingMask": false,
       "windingRule": 1
-    },
-    {
-      "_class": "text",
-      "do_objectID": "pizza",
-      "exportOptions": {
-        "_class": "exportOptions",
-        "exportFormats": [],
-        "includedLayerIds": [],
-        "layerOptions": 0,
-        "shouldTrim": false
-      },
-      "isFlippedHorizontal": false,
-      "isFlippedVertical": false,
-      "isLocked": false,
-      "isVisible": true,
-      "layerListExpandedType": 0,
-      "name": "block",
-      "nameIsFixed": false,
-      "resizingConstraint": 47,
-      "resizingType": 0,
-      "rotation": 0,
-      "shouldBreakMaskChain": false,
-      "style": {
-        "color": "rgb(0, 0, 0)",
-        "fontSize": 16,
-        "fontFamily": "Times New Roman",
-        "fontWeight": 400,
-        "textTransform": "none",
-        "textDecoration": "none",
-        "textAlign": "start"
-      },
-      "layers": [],
-      "frame": {
-        "_class": "rect",
-        "constrainProportions": false,
-        "height": 17,
-        "width": 35,
-        "x": 8,
-        "y": 3489.34375
-      },
-      "text": "block",
-      "automaticallyDrawOnUnderlyingPath": false,
-      "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
-      "lineSpacingBehaviour": 2,
-      "textBehaviour": 0
     },
     {
       "_class": "text",
@@ -4972,7 +5137,7 @@
     "_class": "rect",
     "constrainProportions": false,
     "height": 784,
-    "width": 5038,
+    "width": 5138,
     "x": 0,
     "y": 0
   },
