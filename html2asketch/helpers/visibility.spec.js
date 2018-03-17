@@ -1,7 +1,7 @@
-import {isVisible} from './visibility';
+import {isNodeVisible, isTextVisible} from './visibility';
 import {JSDOM} from 'jsdom';
 
-test('correctly identifies visible nodes', () => {
+test('isNodeVisible: correctly identifies visible nodes', () => {
   const dom = new JSDOM(`
   <html>
   <head>
@@ -29,16 +29,16 @@ test('correctly identifies visible nodes', () => {
   });
 
   dom.window.eval(`
-  ${isVisible.toString()}
+  ${isNodeVisible.toString()}
 
   const nodesToCheck = Array.from(document.querySelectorAll('.check-me'));
-  window.invisibleNodes = nodesToCheck.filter(n => !isVisible(n));
+  window.invisibleNodes = nodesToCheck.filter(n => !isNodeVisible(n));
   `);
 
   expect(dom.window.invisibleNodes).toEqual([]);
 });
 
-test('correctly identifies not visible nodes', () => {
+test('isNodeVisible: correctly identifies not visible nodes', () => {
   const dom = new JSDOM(`
   <html>
   <head>
@@ -84,15 +84,53 @@ test('correctly identifies not visible nodes', () => {
   });
 
   dom.window.eval(`
-  ${isVisible.toString()}
+  ${isNodeVisible.toString()}
 
   const nodesToCheck = Array.from(document.querySelectorAll('.check-me'));
 
   // detach node .remove-me
   document.body.removeChild(document.querySelector('.remove-me'));
 
-  window.visibleNodes = nodesToCheck.filter(n => isVisible(n));
+  window.visibleNodes = nodesToCheck.filter(n => isNodeVisible(n));
   `);
 
   expect(dom.window.visibleNodes).toEqual([]);
+});
+
+test('isTextVisible: correctly identifies not visible text', () => {
+  const dom = new JSDOM(`
+  <html>
+  <head>
+  <style>
+    .one {
+      overflowX: hidden;
+      overflowY: hidden;
+      text-indent: -99999px;
+    }
+  </style>
+  </head>
+  <body>
+    <p class='one check-me'>text</p>
+  </body>
+  </html>
+  `, {
+    runScripts: 'outside-only'
+  });
+
+  // fix for offsetParent support in jsdom
+  Object.defineProperty(dom.window.HTMLElement.prototype, 'offsetParent', {
+    get() {
+      return this.parentNode;
+    }
+  });
+
+  dom.window.eval(`
+  ${isTextVisible.toString()}
+
+  const nodesToCheck = Array.from(document.querySelectorAll('.check-me'));
+
+  window.visibleText = nodesToCheck.filter(n => isTextVisible(getComputedStyle(n)));
+  `);
+
+  expect(dom.window.visibleText).toEqual([]);
 });

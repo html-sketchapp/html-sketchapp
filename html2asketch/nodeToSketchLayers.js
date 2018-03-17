@@ -9,7 +9,7 @@ import {parseBackgroundImage} from './helpers/background';
 import {getSVGString} from './helpers/svg';
 import {getGroupBCR} from './helpers/bcr';
 import {fixWhiteSpace} from './helpers/text';
-import {isVisible} from './helpers/visibility';
+import {isNodeVisible, isTextVisible} from './helpers/visibility';
 
 const DEFAULT_VALUES = {
   backgroundColor: 'rgba(0, 0, 0, 0)',
@@ -106,7 +106,7 @@ export default function nodeToSketchLayers(node) {
     return layers;
   }
 
-  if (!isVisible(node, bcr, styles)) {
+  if (!isNodeVisible(node, bcr, styles)) {
     return layers;
   }
 
@@ -212,6 +212,10 @@ export default function nodeToSketchLayers(node) {
     leaf.setName(createXPathFromElement(node));
 
     layers.push(leaf);
+  }
+
+  if (!isTextVisible(styles)) {
+    return layers;
   }
 
   const textStyle = new TextStyle({
