@@ -59,7 +59,7 @@ You can install html-sketchapp from npm:
 npm i @brainly/html-sketchapp
 ```
 
-This package comes with built version of the plugin, but you can always build it yourself from sources:
+You can download ready to use Sketch plugin from the ["Releases"](https://github.com/brainly/html-sketchapp/releases/latest) section, or build it yourself from the sources:
 
 ```
 npm i # install dependencies
