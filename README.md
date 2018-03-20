@@ -1,10 +1,10 @@
 # html-sketchapp [![Build Status](https://travis-ci.org/brainly/html-sketchapp.svg?branch=master)](https://travis-ci.org/brainly/html-sketchapp) [![npm version](https://badge.fury.io/js/%40brainly%2Fhtml-sketchapp.svg)](https://badge.fury.io/js/%40brainly%2Fhtml-sketchapp)
 
-*Experimental* HTML to Sketch export solution.
+HTML to Sketch export solution.
 
 ## What it can do?
 
-It turns HTML nodes into Sketch layers or symbols. Additionally, it allows to export shared text styles and document colors.
+html-sketchapp turns HTML nodes into Sketch layers or symbols. Additionally, it allows to export shared text styles and document colors.
 
 <img src="https://i.imgur.com/yPjMwFU.png" width="100%" />
 
@@ -18,21 +18,19 @@ The motivation behind this project was ability to easily share Front-End style g
 
 We were unable to quickly work around these limitations, so we created html-sketchapp.
 
-You can learn more about this project from the excellent article ["Sketching in the Browser"](https://medium.com/seek-blog/sketching-in-the-browser-33a7b7aa0526) by @markdalgleish.
+*You can learn more about this project from the excellent article ["Sketching in the Browser"](https://medium.com/seek-blog/sketching-in-the-browser-33a7b7aa0526) by @markdalgleish.*
 
-## Why experimental?
+## Limitations
 
-This project is a prototype that allowed us to export most of our Front-End style guide to Sketch. The main focus was on exporting the style guide and not on providing a complete solution, therefore there are quite a few known limitations:
+Comprehensive summary of what is, and what is not supported can be found [here](https://github.com/brainly/html-sketchapp/wiki/What's-supported%3F), but the TLDR is as follows:
 
-- not all CSS properties are supported (TODO)
-- not all values for supported CSS properties are supported (TODO)
-- not all types of images are supported (webp, external svg) (TODO)
-- resizing information is not generated (TODO)
-- all fonts have to be locally installed (not sure if that's fixable)
-- requires MacOS (Sketch's limitation)
-- [more details here](https://github.com/brainly/html-sketchapp/wiki/What's-supported%3F)
+- pseudoelements are not supported,
+- some CSS properties (e.g. overflow) are not supported or not fully supported,
+- not all types of images are supported (animated gifs, webp),
+- resizing information is not generated,
+- all fonts have to be locally installed.
 
-The good news is that most of the missing functionality should be fairly easy to add - feel free to contribute to this project.
+The good news is that all of those are fixable and that we welcome pull requests ❤️
 
 ## How does it work?
 
@@ -49,7 +47,7 @@ Why two parts? `html2asketch` and `asketch2sketch` are built in different techno
 - [html-sketchapp-example](https://github.com/brainly/html-sketchapp-example) - minimal script that takes an URL and produces a `page.asketch.json` file
 - [html-sketchapp-style-guide](https://github.com/brainly/html-sketchapp-style-guide) - script that takes parts of the Brainly style-guide and exports them as Sketch symbols, shared text styles and document colors. This script produces `document.asketch.json` and `page.asketch.json`.
 
-All `.asketch.json` files should be loaded to Sketch via the `asketch2sketch.sketchplugin` plugin provided in this repository.
+All `.asketch.json` files should be loaded to Sketch via the `asketch2sketch.sketchplugin` plugin.
 
 <img src="https://i.imgur.com/9eDm6NQ.png" width="450" alt="Installing Sketch plugin" title="Installing Sketch plugin" />
 
@@ -67,6 +65,7 @@ npm run build # build the plugin
 ```
 
 ## Projects using html-sketchapp
+
 - [html-sketchapp-cli](https://github.com/seek-oss/html-sketchapp-cli) - "Quickly generate Sketch libraries from HTML documents and living style guides."
 - [story2sketch](https://github.com/chrisvxd/story2sketch) - "Convert Storybook stories into Sketch symbols."
 
