@@ -40,6 +40,8 @@ Current solution consists of two parts. First one (`html2asketch`) runs in a bro
 
 Why two parts? `html2asketch` and `asketch2sketch` are built in different technologies and run in different environments. `html2asketch` is written in JavaScript and runs in a browser where it can easily extract all information from DOM nodes: their position, size, styles and children. Extracted information are then translated into Sketch's `document.json` and `page.json` files. Unfortunately, at the moment Sketch file format is not fully readable and some parts can't be easily generated from JavaScript (most notably text styling information which is saved as a binary blob). Additionally, the script running in the browser is limited by CORS and may not be able to download all of the images used on page. That's where we need `asketch2sketch` which is a Sketch plugin written in [cocoascript](http://developer.sketchapp.com/introduction/cocoascript/) (JavaScript + Objective-C). It "fixes" `.asketch.json` files (changes text styling information format, downloads and inlines images) and loads them into the Sketch app.
 
+*You can read more about `.asketch` format in the [wiki](https://github.com/brainly/html-sketchapp/wiki/Differences-between-.asketch-and-.sketch).*
+
 ## How do I run it?
 
 `html2asketch` is a library that you can use to create a script that extracts specific parts of your website and saves them as layers, shared text styles, document colors and symbols. There is no one right way of using `html2asketch`, but you can start by checking out the two examples that we provide:
