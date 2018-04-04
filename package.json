@@ -2,6 +2,7 @@
   "name": "@brainly/html-sketchapp",
   "version": "2.0.0",
   "description": "HTML to Sketch",
+  "keywords": ["sketch", "sketchapp", "css", "html"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/brainly/html-sketchapp.git"
