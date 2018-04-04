@@ -99,6 +99,10 @@
       height: 100px;
       background: red;
     }
+
+    .styled-svg {
+      border: solid red 2px;
+    }
   </style>
 </head>
 
@@ -214,6 +218,12 @@
   <h3>SVG via &lt;use&gt;</h3>
 
   <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
+    <use xlink:href="#svg-circles"></use>
+  </svg>
+
+  <h3>SVG with styled element</h3>
+
+  <svg class="styled-svg" width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
     <use xlink:href="#svg-circles"></use>
   </svg>
 

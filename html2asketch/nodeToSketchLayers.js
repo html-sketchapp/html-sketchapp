@@ -126,7 +126,8 @@ export default function nodeToSketchLayers(node) {
       height: childrenBCR.height,
       rawSVGString: getSVGString(node)
     }));
-    return layers;
+
+    // Since SVG elements can also be styled like any other element, we don't bail out early
   }
 
   // if layer has no background/shadow/border/etc. skip it
