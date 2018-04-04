@@ -1,6 +1,6 @@
 {
   "name": "@brainly/html-sketchapp",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "HTML to Sketch",
   "keywords": ["sketch", "sketchapp", "css", "html"],
   "repository": {
