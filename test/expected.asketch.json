@@ -215,14 +215,6 @@
       "textBehaviour": 0
     },
     {
-      "_class": "svg",
-      "rawSVGString": "<svg class=\"styled-svg\" width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 200 200\">\n    <svg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 24 24\" id=\"svg-circles\" style=\"font-family: &quot;Times New Roman&quot;; overflow: hidden;\">\n    <circle class=\"b\" cx=\"6.03\" cy=\"5.95\" r=\"2\" style=\"cx: 6.03px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"c\" cx=\"12.08\" cy=\"5.95\" r=\"2\" style=\"cx: 12.08px; cy: 5.95px; r: 2px; fill: rgb(83, 207, 146); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"5.95\" r=\"2\" style=\"cx: 18.08px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"d\" cx=\"6.03\" cy=\"11.93\" r=\"2\" style=\"cx: 6.03px; cy: 11.93px; r: 2px; fill: rgb(87, 178, 248); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"12.08\" cy=\"11.93\" r=\"2\" style=\"cx: 12.08px; cy: 11.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"e\" cx=\"18.08\" cy=\"11.93\" r=\"2\" style=\"cx: 18.08px; cy: 11.93px; r: 2px; fill: rgb(254, 200, 60); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"6.03\" cy=\"17.93\" r=\"2\" style=\"cx: 6.03px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"f\" cx=\"12.08\" cy=\"17.93\" r=\"2\" style=\"cx: 12.08px; cy: 17.93px; r: 2px; fill: rgb(255, 121, 107); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"17.93\" r=\"2\" style=\"cx: 18.08px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n  </svg>\n  </svg>",
-      "width": 133.75,
-      "height": 133.1669921875,
-      "x": 43.583335876464844,
-      "y": 4988.91650390625
-    },
-    {
       "_class": "shapeGroup",
       "do_objectID": "pizza",
       "exportOptions": {
@@ -251,10 +243,10 @@
             "isEnabled": true,
             "color": {
               "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 0
+              "red": 1,
+              "green": 0.7529411764705882,
+              "blue": 0.796078431372549,
+              "alpha": 1
             },
             "fillType": 0,
             "noiseIndex": 0,
@@ -386,6 +378,14 @@
       "clippingMaskMode": 0,
       "hasClippingMask": false,
       "windingRule": 1
+    },
+    {
+      "_class": "svg",
+      "rawSVGString": "<svg class=\"styled-svg\" width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 200 200\">\n    <svg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 24 24\" id=\"svg-circles\" style=\"font-family: &quot;Times New Roman&quot;; overflow: hidden;\">\n    <circle class=\"b\" cx=\"6.03\" cy=\"5.95\" r=\"2\" style=\"cx: 6.03px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"c\" cx=\"12.08\" cy=\"5.95\" r=\"2\" style=\"cx: 12.08px; cy: 5.95px; r: 2px; fill: rgb(83, 207, 146); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"5.95\" r=\"2\" style=\"cx: 18.08px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"d\" cx=\"6.03\" cy=\"11.93\" r=\"2\" style=\"cx: 6.03px; cy: 11.93px; r: 2px; fill: rgb(87, 178, 248); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"12.08\" cy=\"11.93\" r=\"2\" style=\"cx: 12.08px; cy: 11.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"e\" cx=\"18.08\" cy=\"11.93\" r=\"2\" style=\"cx: 18.08px; cy: 11.93px; r: 2px; fill: rgb(254, 200, 60); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"6.03\" cy=\"17.93\" r=\"2\" style=\"cx: 6.03px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"f\" cx=\"12.08\" cy=\"17.93\" r=\"2\" style=\"cx: 12.08px; cy: 17.93px; r: 2px; fill: rgb(255, 121, 107); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"17.93\" r=\"2\" style=\"cx: 18.08px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n  </svg>\n  </svg>",
+      "width": 133.75,
+      "height": 133.1669921875,
+      "x": 43.583335876464844,
+      "y": 4988.91650390625
     },
     {
       "_class": "text",
