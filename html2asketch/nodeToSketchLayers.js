@@ -112,23 +112,6 @@ export default function nodeToSketchLayers(node) {
 
   const leaf = new ShapeGroup({x, y, width, height});
   const isImage = node.nodeName === 'IMG' && node.currentSrc;
-  const isSVG = node.nodeName === 'svg';
-
-  if (isSVG) {
-    // sketch ignores padding and centerging as defined by viewBox and preserveAspectRatio when
-    // importing SVG, so instead of using BCR of the SVG, we are using BCR of its children
-    const childrenBCR = getGroupBCR(Array.from(node.children));
-
-    layers.push(new SVG({
-      x: childrenBCR.x,
-      y: childrenBCR.y,
-      width: childrenBCR.width,
-      height: childrenBCR.height,
-      rawSVGString: getSVGString(node)
-    }));
-
-    // Since SVG elements can also be styled like any other element, we don't bail out early
-  }
 
   // if layer has no background/shadow/border/etc. skip it
   if (isImage || !hasOnlyDefaultStyles(styles)) {
@@ -213,6 +196,24 @@ export default function nodeToSketchLayers(node) {
     leaf.setName(createXPathFromElement(node));
 
     layers.push(leaf);
+  }
+
+  const isSVG = node.nodeName === 'svg';
+
+  if (isSVG) {
+    // sketch ignores padding and centerging as defined by viewBox and preserveAspectRatio when
+    // importing SVG, so instead of using BCR of the SVG, we are using BCR of its children
+    const childrenBCR = getGroupBCR(Array.from(node.children));
+
+    layers.push(new SVG({
+      x: childrenBCR.x,
+      y: childrenBCR.y,
+      width: childrenBCR.width,
+      height: childrenBCR.height,
+      rawSVGString: getSVGString(node)
+    }));
+
+    return layers;
   }
 
   if (!isTextVisible(styles)) {
