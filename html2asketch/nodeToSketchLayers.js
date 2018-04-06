@@ -112,6 +112,7 @@ export default function nodeToSketchLayers(node) {
 
   const leaf = new ShapeGroup({x, y, width, height});
   const isImage = node.nodeName === 'IMG' && node.currentSrc;
+  const isSVG = node.nodeName === 'svg';
 
   // if layer has no background/shadow/border/etc. skip it
   if (isImage || !hasOnlyDefaultStyles(styles)) {
@@ -197,8 +198,6 @@ export default function nodeToSketchLayers(node) {
 
     layers.push(leaf);
   }
-
-  const isSVG = node.nodeName === 'svg';
 
   if (isSVG) {
     // sketch ignores padding and centerging as defined by viewBox and preserveAspectRatio when
