@@ -7,7 +7,7 @@ class Style {
     this._borders = [];
     this._shadows = [];
     this._innerShadows = [];
-    this._opacity = 1;
+    this._opacity = '1';
   }
 
   addColorFill(color, opacity) {

@@ -1,10 +1,10 @@
-import ShapeGroup from './shapeGroup';
 import Rectange from './rectangle';
-import createXPathFromElement from './helpers/createXPathFromElement';
+import SVG from './svg';
+import ShapeGroup from './shapeGroup';
 import Style from './style';
 import Text from './text';
 import TextStyle from './textStyle';
-import SVG from './svg';
+import createXPathFromElement from './helpers/createXPathFromElement';
 import {parseBackgroundImage} from './helpers/background';
 import {getSVGString} from './helpers/svg';
 import {getGroupBCR} from './helpers/bcr';
@@ -112,7 +112,7 @@ export default function nodeToSketchLayers(node, options) {
     return layers;
   }
 
-  const leaf = new ShapeGroup({x: left, y: top, width, height});
+  const shapeGroup = new ShapeGroup({x: left, y: top, width, height});
   const isImage = node.nodeName === 'IMG' && node.currentSrc;
   const isSVG = node.nodeName === 'svg';
 
@@ -128,7 +128,7 @@ export default function nodeToSketchLayers(node, options) {
       const absoluteUrl = new URL(node.currentSrc, location.href);
 
       style.addImageFill(absoluteUrl.href);
-      leaf.setFixedWidthAndHeight();
+      shapeGroup.setFixedWidthAndHeight();
     }
 
     // This should return a array when multiple background-images are supported
@@ -181,9 +181,17 @@ export default function nodeToSketchLayers(node, options) {
       }
     }
 
-    style.addOpacity(opacity);
+    if (!options || options.layerOpacity !== false) {
+      style.addOpacity(opacity);
+    }
 
-    leaf.setStyle(style);
+    shapeGroup.setStyle(style);
+
+    if (options && options.getRectangleName) {
+      shapeGroup.setName(options.getRectangleName(node));
+    } else {
+      shapeGroup.setName(createXPathFromElement(node));
+    }
 
     //TODO borderRadius can be expressed in different formats and use various units - for simplicity we assume "X%"
     const cornerRadius = {
@@ -195,10 +203,9 @@ export default function nodeToSketchLayers(node, options) {
 
     const rectangle = new Rectange({width, height, cornerRadius});
 
-    leaf.addLayer(rectangle);
-    leaf.setName(createXPathFromElement(node));
+    shapeGroup.addLayer(rectangle);
 
-    layers.push(leaf);
+    layers.push(shapeGroup);
   }
 
   if (isSVG) {
