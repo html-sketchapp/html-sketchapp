@@ -62,7 +62,7 @@ function isSVGDescendant(node) {
   return (node instanceof SVGElement) && node.matches('svg *');
 }
 
-export default function nodeToSketchLayers(node) {
+export default function nodeToSketchLayers(node, options) {
   const layers = [];
   const bcr = node.getBoundingClientRect();
   const {width, height, x, y} = bcr;
@@ -228,7 +228,8 @@ export default function nodeToSketchLayers(node) {
     color,
     textTransform,
     textDecoration: textDecorationLine,
-    textAlign: display === 'flex' || display === 'inline-flex' ? justifyContent : textAlign
+    textAlign: display === 'flex' || display === 'inline-flex' ? justifyContent : textAlign,
+    skipSystemFonts: options && options.skipSystemFonts
   });
 
   const rangeHelper = document.createRange();

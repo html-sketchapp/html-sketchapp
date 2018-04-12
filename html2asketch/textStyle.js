@@ -1,11 +1,49 @@
-// INPUT: "Helvetica Neue", Helvetica, Arial, sans-serif
+// Some websites or component libraries use font-family lists starting with OS-specific fonts.
+// If the option 'skipSystemFonts' is enabled, we skip those fonts to choose a font
+// Sketch is capable of.
+
+const SYSTEM_FONTS = [
+  // Apple
+  '-apple-system',
+  'BlinkMacSystemFont',
+
+  // Microsoft
+  'Segoe UI',
+
+  // Android
+  'Roboto'
+];
+
+// INPUT: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif
 // OUTPUT: Helvetica Neue
-function getFirstFont(fonts) {
-  let font = fonts.split(',')[0].trim();
+function getFirstFont(fonts, skipSystemFonts) {
+  let regularFont = undefined;
+  let systemFont = undefined;
 
-  font = font.replace(/^["']+|["']+$/g, '');
+  fonts.split(',').forEach(font => {
+    font = font.trim().replace(/^["']+|["']+$/g, '');
+    if (font === '') {
+      return;
+    }
 
-  return font;
+    // See above for a note on OS-specific fonts
+    if (!regularFont && (!skipSystemFonts || SYSTEM_FONTS.indexOf(font) < 0)) {
+      regularFont = font;
+    }
+    if (!systemFont) {
+      systemFont = font;
+    }
+  });
+
+  if (regularFont) {
+    return regularFont;
+  }
+
+  if (systemFont) {
+    return systemFont;
+  }
+
+  return '-apple-system';
 }
 
 class TextStyle {
@@ -18,11 +56,12 @@ class TextStyle {
     letterSpacing,
     textTransform,
     textDecoration,
-    textAlign
+    textAlign,
+    skipSystemFonts
   }) {
     this._color = color;
     this._fontSize = fontSize;
-    this._fontFamily = getFirstFont(fontFamily);
+    this._fontFamily = getFirstFont(fontFamily, skipSystemFonts);
     this._lineHeight = lineHeight;
     this._letterSpacing = letterSpacing;
     this._fontWeight = fontWeight;
