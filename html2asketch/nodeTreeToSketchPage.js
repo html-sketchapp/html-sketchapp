@@ -1,5 +1,5 @@
-import Artboard from './artboard';
-import Page from './page';
+import Artboard from './model/artboard';
+import Page from './model/page';
 import nodeTreeToSketchGroup from './nodeTreeToSketchGroup';
 
 export default function nodeTreeToSketchPage(node, options) {

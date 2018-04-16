@@ -1,4 +1,4 @@
-import {generateID} from './helpers/utils';
+import {generateID} from '../helpers/utils';
 
 class Base {
   constructor() {

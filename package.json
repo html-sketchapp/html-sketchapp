@@ -55,6 +55,8 @@
     "sketch-constants": "^1.1.0",
     "sketchapp-json-plugin": "^0.1.2"
   },
+  "main": "build/html2asketch/index",
+  "typings": "build/html2asketch/index",
   "files": ["asketch2sketch", "html2asketch", "build/html2asketch"],
   "bugs": {
     "url": "https://github.com/brainly/html-sketchapp/issues"

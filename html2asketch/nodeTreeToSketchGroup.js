@@ -1,6 +1,6 @@
+import Group from './model/group';
+import Style from './model/style';
 import nodeToSketchLayers from './nodeToSketchLayers';
-import Group from './group';
-import Style from './style';
 import {isNodeVisible} from './helpers/visibility';
 
 export default function nodeTreeToSketchGroup(node, options) {

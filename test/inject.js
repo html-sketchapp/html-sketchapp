@@ -1,5 +1,5 @@
 import nodeToSketchLayers from '../html2asketch/nodeToSketchLayers';
-import Page from '../html2asketch/page';
+import Page from '../html2asketch/model/page';
 
 function flatten(arr) {
   return [].concat(...arr);

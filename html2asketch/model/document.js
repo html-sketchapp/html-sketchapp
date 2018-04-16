@@ -1,4 +1,4 @@
-import {generateID, makeColorFromCSS} from './helpers/utils';
+import {generateID, makeColorFromCSS} from '../helpers/utils';
 
 function pageToPageReference(page) {
   return {
