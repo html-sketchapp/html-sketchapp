@@ -65,7 +65,9 @@ function isSVGDescendant(node) {
 export default function nodeToSketchLayers(node, options) {
   const layers = [];
   const bcr = node.getBoundingClientRect();
-  const {width, height, x, y} = bcr;
+  const {left, top} = bcr;
+  const width = bcr.right - bcr.left;
+  const height = bcr.bottom - bcr.top;
 
   const styles = getComputedStyle(node);
   const {
@@ -110,7 +112,7 @@ export default function nodeToSketchLayers(node, options) {
     return layers;
   }
 
-  const leaf = new ShapeGroup({x, y, width, height});
+  const leaf = new ShapeGroup({x: left, y: top, width, height});
   const isImage = node.nodeName === 'IMG' && node.currentSrc;
   const isSVG = node.nodeName === 'svg';
 
@@ -205,8 +207,8 @@ export default function nodeToSketchLayers(node, options) {
     const childrenBCR = getGroupBCR(Array.from(node.children));
 
     layers.push(new SVG({
-      x: childrenBCR.x,
-      y: childrenBCR.y,
+      x: childrenBCR.left,
+      y: childrenBCR.top,
       width: childrenBCR.width,
       height: childrenBCR.height,
       rawSVGString: getSVGString(node)
@@ -243,21 +245,22 @@ export default function nodeToSketchLayers(node, options) {
       const numberOfLines = textRanges.length;
       const textBCR = rangeHelper.getBoundingClientRect();
       const lineHeightInt = parseInt(lineHeight, 10);
+      const textBCRHeight = textBCR.bottom - textBCR.top;
       let fixY = 0;
 
       // center text inside a box
       // TODO it's possible now in sketch - fix it!
-      if (lineHeightInt && textBCR.height !== lineHeightInt * numberOfLines) {
-        fixY = (textBCR.height - lineHeightInt * numberOfLines) / 2;
+      if (lineHeightInt && textBCRHeight !== lineHeightInt * numberOfLines) {
+        fixY = (textBCRHeight - lineHeightInt * numberOfLines) / 2;
       }
 
       const textValue = fixWhiteSpace(textNode.nodeValue, whiteSpace);
 
       const text = new Text({
-        x: textBCR.x,
-        y: textBCR.y + fixY,
-        width: textBCR.width,
-        height: textBCR.height,
+        x: textBCR.left,
+        y: textBCR.top + fixY,
+        width: textBCR.right - textBCR.left,
+        height: textBCRHeight,
         text: textValue,
         style: textStyle,
         multiline: numberOfLines > 1
