@@ -4,8 +4,9 @@ const path = require('path');
 const jsdiff = require('variable-diff');
 
 const injectedScriptPath = './build/inject.bundle.js';
-const expectedPath = './expected.asketch.json';
 const testPageURL = 'file://' + path.resolve('./test-page.html');
+
+const tests = ['layers', 'page'];
 
 function removeRandomness(layer) {
   if (layer.do_objectID) {
@@ -53,24 +54,41 @@ puppeteer.launch({args}).then(async browser => {
     path: injectedScriptPath
   });
 
-  const asketchJSON = await page.evaluate('body2sketch.default(document.body)');
+  let anyError = false;
 
-  removeRandomness(asketchJSON);
+  await Promise.all(tests.map(async test => {
+    try {
+      const expectedPath = `./expected-${test}.asketch.json`;
+      const actualJSON = await page.evaluate(`body2sketch.${test}JSON(document.body)`);
 
-  // update file with expected output by uncommenting the two lines below
-  // fs.writeFileSync(path.resolve(__dirname, expectedPath), JSON.stringify(asketchJSON, null, 2));
-  // process.exit();
+      removeRandomness(actualJSON);
 
-  const expectedJSONBuffer = fs.readFileSync(path.resolve(__dirname, expectedPath));
-  const expectedAsketchJSON = JSON.parse(expectedJSONBuffer.toString());
+      // update file with expected output by uncommenting the two lines below
+      // fs.writeFileSync(path.resolve(__dirname, expectedPath), JSON.stringify(actualJSON, null, 2));
+      // if ('dummy test to make linter happy'.length) {
+      //   return;
+      // }
 
-  const diff = jsdiff(expectedAsketchJSON, asketchJSON);
+      const expectedJSONBuffer = fs.readFileSync(path.resolve(__dirname, expectedPath));
+      const expectedJSON = JSON.parse(expectedJSONBuffer.toString());
+
+      const diff = jsdiff(expectedJSON, actualJSON);
+
+      if (diff.changed) {
+        console.error(`E2E test "${test}": ❌ Oh no! That's not the expected output. See the diff below:`);
+        console.log(diff.text);
+        anyError = true;
+      }
+    } catch (error) {
+      console.error(`E2E test "${test}": ❌ Oh no! There was an error running the test:`);
+      console.error(error);
+      anyError = true;
+    }
+  }));
 
   browser.close();
 
-  if (diff.changed) {
-    console.error('E2E tests: ❌ Oh no! That\'s not the expected output. See the diff below:');
-    console.log(diff.text);
+  if (anyError) {
     process.exit(1);
   } else {
     console.log('E2E tests: ✅');
