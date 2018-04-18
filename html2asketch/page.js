@@ -15,8 +15,8 @@ class Page extends Base {
     obj.frame = {
       '_class': 'rect',
       'constrainProportions': false,
-      'height': this._width,
-      'width': this._height,
+      'height': this._height,
+      'width': this._width,
       'x': 0,
       'y': 0
     };
