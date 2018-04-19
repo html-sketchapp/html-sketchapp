@@ -2,8 +2,10 @@ import {getGroupBCR} from './bcr';
 
 test('returns default BCR if no nodes are provided', () => {
   expect(getGroupBCR([])).toEqual({
-    x: 0,
-    y: 0,
+    left: 0,
+    top: 0,
+    right: 0,
+    bottom: 0,
     width: 0,
     height: 0
   });
@@ -12,16 +14,20 @@ test('returns default BCR if no nodes are provided', () => {
 test('for a single node returns BCR of that node', () => {
   const node1 = {
     getBoundingClientRect: () => ({
-      x: 10,
-      y: 10,
+      left: 10,
+      top: 10,
+      right: 110,
+      bottom: 110,
       width: 100,
       height: 100
     })
   };
 
   expect(getGroupBCR([node1])).toEqual({
-    x: 10,
-    y: 10,
+    left: 10,
+    top: 10,
+    right: 110,
+    bottom: 110,
     width: 100,
     height: 100
   });
@@ -30,8 +36,10 @@ test('for a single node returns BCR of that node', () => {
 test('correctly calculates BCR of multiple nodes', () => {
   const node1 = {
     getBoundingClientRect: () => ({
-      x: 10,
-      y: 10,
+      left: 10,
+      top: 10,
+      right: 110,
+      bottom: 110,
       width: 100,
       height: 100
     })
@@ -39,8 +47,10 @@ test('correctly calculates BCR of multiple nodes', () => {
 
   const node2 = {
     getBoundingClientRect: () => ({
-      x: 5,
-      y: 50,
+      left: 5,
+      top: 50,
+      right: 155,
+      bottom: 100,
       width: 150,
       height: 50
     })
@@ -48,16 +58,20 @@ test('correctly calculates BCR of multiple nodes', () => {
 
   const node3 = {
     getBoundingClientRect: () => ({
-      x: 5,
-      y: 500,
+      left: 5,
+      top: 500,
+      right: 155,
+      bottom: 1000,
       width: 150,
       height: 500
     })
   };
 
   expect(getGroupBCR([node1, node2, node3])).toEqual({
-    x: 5,
-    y: 10,
+    left: 5,
+    top: 10,
+    right: 155,
+    bottom: 1000,
     width: 150,
     height: 990
   });

@@ -1,6 +1,6 @@
 {
   "name": "@brainly/html-sketchapp",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "HTML to Sketch",
   "keywords": [
     "sketch",
@@ -15,18 +15,25 @@
   "author": "Brainly - Konrad Dzwinel <konrad.dzwinel@brainly.com>",
   "license": "MIT",
   "scripts": {
+    "build": "npm run build-lib && npm run build-plugin",
+    "build-lib": "babel html2asketch --out-dir build/html2asketch -D",
+    "build-plugin": "skpm-build",
+    "watch": "concurrently \"npm run watch-lib\" \"npm run watch-plugin\"",
+    "watch-lib": "build-lib -- --watch",
+    "watch-plugin": "build-plugin -- --watch",
     "test": "npm run lint && npm run unit && npm run e2e",
     "unit": "jest",
     "lint": "eslint html2asketch/ asketch2sketch/ test/*.js",
     "e2e": "cd test && webpack --config ./webpack.config.js && node ./run.js",
-    "build": "skpm-build",
-    "watch": "skpm-build --run --watch"
+    "prepare": "npm run build && npm run test"
   },
   "engines": {
     "sketch": ">=3.0"
   },
   "devDependencies": {
     "@skpm/builder": "^0.4.2",
+    "concurrently": "^3.5.1",
+    "babel-cli": "^6.26.0",
     "babel-preset-airbnb": "^2.4.0",
     "eslint": "^4.16.0",
     "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v16.1.4",
@@ -40,7 +47,7 @@
   "skpm": {
     "name": "asketch2sketch",
     "manifest": "asketch2sketch/manifest.json",
-    "main": "asketch2sketch.sketchplugin"
+    "main": "build/asketch2sketch.sketchplugin"
   },
   "dependencies": {
     "murmur2js": "^1.0.0",
@@ -48,6 +55,9 @@
     "sketch-constants": "^1.1.0",
     "sketchapp-json-plugin": "^0.1.2"
   },
+  "main": "build/html2asketch/index",
+  "typings": "build/html2asketch/index",
+  "files": ["asketch2sketch", "html2asketch", "build/html2asketch"],
   "bugs": {
     "url": "https://github.com/brainly/html-sketchapp/issues"
   },

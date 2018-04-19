@@ -1,35 +1,33 @@
 // TODO: should probably also take into account children of each node
 export function getGroupBCR(nodes) {
   const groupBCR = nodes.reduce((result, node) => {
-    const {x, y, width, height} = node.getBoundingClientRect();
+    const bcr = node.getBoundingClientRect();
+    const {left, top, right, bottom} = bcr;
+    const width = bcr.right - bcr.left;
+    const height = bcr.bottom - bcr.top;
 
     if (width === 0 && height === 0) {
       return result;
     }
 
     if (!result) {
-      return {
-        startX: x,
-        startY: y,
-        endX: x + width,
-        endY: y + height
-      };
+      return {left, top, right, bottom};
     }
 
-    if (x < result.startX) {
-      result.startX = x;
+    if (left < result.left) {
+      result.left = left;
     }
 
-    if (y < result.startY) {
-      result.startY = y;
+    if (top < result.top) {
+      result.top = top;
     }
 
-    if (x + width > result.endX) {
-      result.endX = x + width;
+    if (right > result.right) {
+      result.right = right;
     }
 
-    if (y + height > result.endY) {
-      result.endY = y + height;
+    if (bottom > result.bottom) {
+      result.bottom = bottom;
     }
 
     return result;
@@ -37,17 +35,21 @@ export function getGroupBCR(nodes) {
 
   if (groupBCR === null) {
     return {
-      x: 0,
-      y: 0,
+      left: 0,
+      top: 0,
+      right: 0,
+      bottom: 0,
       width: 0,
       height: 0
     };
   }
 
   return {
-    x: groupBCR.startX,
-    y: groupBCR.startY,
-    width: groupBCR.endX - groupBCR.startX,
-    height: groupBCR.endY - groupBCR.startY
+    left: groupBCR.left,
+    top: groupBCR.top,
+    right: groupBCR.right,
+    bottom: groupBCR.bottom,
+    width: groupBCR.right - groupBCR.left,
+    height: groupBCR.bottom - groupBCR.top
   };
 }

@@ -1,5 +1,5 @@
-import {makeColorFill, makeImageFill, makeColorFromCSS} from './helpers/utils';
-import convertAngleToFromAndTo from './helpers/convertAngleToFromAndTo';
+import {makeColorFill, makeImageFill, makeColorFromCSS} from '../helpers/utils';
+import convertAngleToFromAndTo from '../helpers/convertAngleToFromAndTo';
 
 class Style {
   constructor() {
@@ -7,7 +7,7 @@ class Style {
     this._borders = [];
     this._shadows = [];
     this._innerShadows = [];
-    this._opacity = 1;
+    this._opacity = '1';
   }
 
   addColorFill(color, opacity) {

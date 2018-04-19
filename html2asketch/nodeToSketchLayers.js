@@ -1,10 +1,10 @@
-import ShapeGroup from './shapeGroup';
-import Rectange from './rectangle';
+import Rectange from './model/rectangle';
+import SVG from './model/svg';
+import ShapeGroup from './model/shapeGroup';
+import Style from './model/style';
+import Text from './model/text';
+import TextStyle from './model/textStyle';
 import createXPathFromElement from './helpers/createXPathFromElement';
-import Style from './style';
-import Text from './text';
-import TextStyle from './textStyle';
-import SVG from './svg';
 import {parseBackgroundImage} from './helpers/background';
 import {getSVGString} from './helpers/svg';
 import {getGroupBCR} from './helpers/bcr';
@@ -62,10 +62,12 @@ function isSVGDescendant(node) {
   return (node instanceof SVGElement) && node.matches('svg *');
 }
 
-export default function nodeToSketchLayers(node) {
+export default function nodeToSketchLayers(node, options) {
   const layers = [];
   const bcr = node.getBoundingClientRect();
-  const {width, height, x, y} = bcr;
+  const {left, top} = bcr;
+  const width = bcr.right - bcr.left;
+  const height = bcr.bottom - bcr.top;
 
   const styles = getComputedStyle(node);
   const {
@@ -110,7 +112,7 @@ export default function nodeToSketchLayers(node) {
     return layers;
   }
 
-  const leaf = new ShapeGroup({x, y, width, height});
+  const shapeGroup = new ShapeGroup({x: left, y: top, width, height});
   const isImage = node.nodeName === 'IMG' && node.currentSrc;
   const isSVG = node.nodeName === 'svg';
 
@@ -126,7 +128,7 @@ export default function nodeToSketchLayers(node) {
       const absoluteUrl = new URL(node.currentSrc, location.href);
 
       style.addImageFill(absoluteUrl.href);
-      leaf.setFixedWidthAndHeight();
+      shapeGroup.setFixedWidthAndHeight();
     }
 
     // This should return a array when multiple background-images are supported
@@ -179,9 +181,17 @@ export default function nodeToSketchLayers(node) {
       }
     }
 
-    style.addOpacity(opacity);
+    if (!options || options.layerOpacity !== false) {
+      style.addOpacity(opacity);
+    }
 
-    leaf.setStyle(style);
+    shapeGroup.setStyle(style);
+
+    if (options && options.getRectangleName) {
+      shapeGroup.setName(options.getRectangleName(node));
+    } else {
+      shapeGroup.setName(createXPathFromElement(node));
+    }
 
     //TODO borderRadius can be expressed in different formats and use various units - for simplicity we assume "X%"
     const cornerRadius = {
@@ -193,10 +203,9 @@ export default function nodeToSketchLayers(node) {
 
     const rectangle = new Rectange({width, height, cornerRadius});
 
-    leaf.addLayer(rectangle);
-    leaf.setName(createXPathFromElement(node));
+    shapeGroup.addLayer(rectangle);
 
-    layers.push(leaf);
+    layers.push(shapeGroup);
   }
 
   if (isSVG) {
@@ -205,8 +214,8 @@ export default function nodeToSketchLayers(node) {
     const childrenBCR = getGroupBCR(Array.from(node.children));
 
     layers.push(new SVG({
-      x: childrenBCR.x,
-      y: childrenBCR.y,
+      x: childrenBCR.left,
+      y: childrenBCR.top,
       width: childrenBCR.width,
       height: childrenBCR.height,
       rawSVGString: getSVGString(node)
@@ -228,7 +237,8 @@ export default function nodeToSketchLayers(node) {
     color,
     textTransform,
     textDecoration: textDecorationLine,
-    textAlign: display === 'flex' || display === 'inline-flex' ? justifyContent : textAlign
+    textAlign: display === 'flex' || display === 'inline-flex' ? justifyContent : textAlign,
+    skipSystemFonts: options && options.skipSystemFonts
   });
 
   const rangeHelper = document.createRange();
@@ -242,21 +252,22 @@ export default function nodeToSketchLayers(node) {
       const numberOfLines = textRanges.length;
       const textBCR = rangeHelper.getBoundingClientRect();
       const lineHeightInt = parseInt(lineHeight, 10);
+      const textBCRHeight = textBCR.bottom - textBCR.top;
       let fixY = 0;
 
       // center text inside a box
       // TODO it's possible now in sketch - fix it!
-      if (lineHeightInt && textBCR.height !== lineHeightInt * numberOfLines) {
-        fixY = (textBCR.height - lineHeightInt * numberOfLines) / 2;
+      if (lineHeightInt && textBCRHeight !== lineHeightInt * numberOfLines) {
+        fixY = (textBCRHeight - lineHeightInt * numberOfLines) / 2;
       }
 
       const textValue = fixWhiteSpace(textNode.nodeValue, whiteSpace);
 
       const text = new Text({
-        x: textBCR.x,
-        y: textBCR.y + fixY,
-        width: textBCR.width,
-        height: textBCR.height,
+        x: textBCR.left,
+        y: textBCR.top + fixY,
+        width: textBCR.right - textBCR.left,
+        height: textBCRHeight,
         text: textValue,
         style: textStyle,
         multiline: numberOfLines > 1

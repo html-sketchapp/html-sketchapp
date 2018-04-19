@@ -1,4 +1,4 @@
-import {generateID} from './helpers/utils';
+import {generateID} from '../helpers/utils';
 import Base from './base';
 import SymbolInstance from './symbolInstance';
 
