@@ -2,9 +2,11 @@ import Base from './base';
 
 class Artboard extends Base {
 
-  constructor({width, height}) {
+  constructor({x, y, width, height}) {
     super();
     this._class = 'artboard';
+    this._x = x;
+    this._y = y;
     this._width = width;
     this._height = height;
   }
@@ -17,8 +19,8 @@ class Artboard extends Base {
       'constrainProportions': false,
       'height': this._height,
       'width': this._width,
-      'x': 0,
-      'y': 0
+      'x': this._x,
+      'y': this._y
     };
 
     obj.style = {

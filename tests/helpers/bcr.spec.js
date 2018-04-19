@@ -1,4 +1,4 @@
-import {getGroupBCR} from './bcr';
+import {getGroupBCR} from '../../html2asketch/helpers/bcr';
 
 test('returns default BCR if no nodes are provided', () => {
   expect(getGroupBCR([])).toEqual({

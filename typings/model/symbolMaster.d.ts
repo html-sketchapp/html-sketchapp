@@ -1,5 +1,5 @@
-import Base from './base';
-import SymbolInstance from './symbolInstance';
+import Base from "./base";
+import SymbolInstance from "./symbolInstance";
 
 export interface SymbolMasterProps {
   x: number;

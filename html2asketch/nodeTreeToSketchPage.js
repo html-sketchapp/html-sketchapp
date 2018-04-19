@@ -13,8 +13,8 @@ export default function nodeTreeToSketchPage(node, options) {
 
   if (options && options.addArtboard) {
     const artboard = new Artboard({
-      x: rootGroup._x,
-      y: rootGroup._y,
+      x: 0,
+      y: 0,
       width: rootGroup._width,
       height: rootGroup._height
     });

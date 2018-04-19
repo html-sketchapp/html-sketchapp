@@ -2,6 +2,7 @@ import {generateID} from '../helpers/utils';
 
 class Base {
   constructor() {
+    this._class = null;
     this._layers = [];
     this._style = null;
     this._objectID = generateID();

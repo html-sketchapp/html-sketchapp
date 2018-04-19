@@ -21,11 +21,12 @@
     "watch": "concurrently \"npm run watch-lib\" \"npm run watch-plugin\"",
     "watch-lib": "build-lib -- --watch",
     "watch-plugin": "build-plugin -- --watch",
-    "test": "npm run lint && npm run unit && npm run e2e",
+    "test": "npm run lint && npm run tslint && npm run unit && npm run e2e",
     "unit": "jest",
     "lint": "eslint html2asketch/ asketch2sketch/ test/*.js",
-    "e2e": "cd test && webpack --config ./webpack.config.js && node ./run.js",
-    "prepare": "npm run build && npm run test"
+    "e2e": "cd e2e && webpack --config ./webpack.config.js && node ./run.js",
+    "prepare": "npm run build && npm run test",
+    "tslint": "tslint -c tslint.json typings/*.d.ts typings/**/*.d.ts"
   },
   "engines": {
     "sketch": ">=3.0"
@@ -38,11 +39,15 @@
     "eslint": "^4.16.0",
     "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v16.1.4",
     "jest": "^21.2.1",
+    "jest-cli": "^21.2.1",
     "jsdom": "^11.6.2",
     "puppeteer": "^1.1.1",
     "skpm": "^1.0.12",
     "variable-diff": "^1.1.0",
-    "webpack-cli": "^2.0.12"
+    "webpack": "^4.0.0",
+    "webpack-cli": "^2.0.12",
+    "typescript": "^2.8.3",
+    "tslint": "^5.9.1"
   },
   "skpm": {
     "name": "asketch2sketch",
@@ -56,7 +61,7 @@
     "sketchapp-json-plugin": "^0.1.2"
   },
   "main": "build/html2asketch/index",
-  "typings": "build/html2asketch/index",
+  "typings": "typings/",
   "files": [
     "asketch2sketch",
     "html2asketch",

@@ -1,4 +1,4 @@
-import SymbolInstance from './symbolInstance';
+import SymbolInstance from '../../html2asketch/model/symbolInstance';
 
 test('sets symbolID', () => {
   const symbolID = 'pizza';

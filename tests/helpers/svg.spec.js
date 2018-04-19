@@ -1,4 +1,4 @@
-import {getSVGString} from './svg';
+import {getSVGString} from '../../html2asketch/helpers/svg';
 import {JSDOM} from 'jsdom';
 
 // unsuported by jsdom

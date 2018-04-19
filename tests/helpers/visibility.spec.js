@@ -1,4 +1,4 @@
-import {isNodeVisible, isTextVisible} from './visibility';
+import {isNodeVisible, isTextVisible} from '../../html2asketch/helpers/visibility';
 import {JSDOM} from 'jsdom';
 
 test('isNodeVisible: correctly identifies visible nodes', () => {

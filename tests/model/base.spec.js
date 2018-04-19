@@ -1,4 +1,4 @@
-import Base from './base';
+import Base from '../../html2asketch/model/base';
 
 class Base2 extends Base {
   constructor() {

@@ -1,4 +1,4 @@
-import SymbolMaster from './symbolMaster';
+import SymbolMaster from '../../html2asketch/model/symbolMaster';
 
 test('toJSON() generates deterministic symbolIDs', () => {
   const symbolMaster = new SymbolMaster({x: 200, y: 300});
