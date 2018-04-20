@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const jsdiff = require('variable-diff');
 
-const injectedScriptPath = './build/inject.bundle.js';
+const injectedScriptPath = './dist/inject.bundle.js';
 const testPageURL = 'file://' + path.resolve('./test-page.html');
 
 const tests = ['layers', 'page'];

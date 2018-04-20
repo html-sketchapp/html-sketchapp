@@ -3,5 +3,5 @@
 .editorconfig
 node_modules/
 playground/
-test/build/
+e2e/dist/
 build/
