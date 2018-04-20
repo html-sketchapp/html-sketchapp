@@ -96,3 +96,13 @@ export const makeImageFill = (url, patternFillType = 1) => {
 
   return result;
 };
+
+export const resizingConstraintValues = {
+  top: 31,
+  right: 62,
+  bottom: 55,
+  left: 59,
+  width: 61,
+  height: 47,
+  none: 63
+};

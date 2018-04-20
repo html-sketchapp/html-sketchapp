@@ -29,7 +29,7 @@ class Text extends Base {
     obj.text = this._text;
     obj.style = this._style.toJSON();
 
-    obj.resizingConstraint = 47;
+    obj.resizingConstraint = this.setResizingConstraints('height');
     obj.automaticallyDrawOnUnderlyingPath = false;
     obj.dontSynchroniseWithSymbol = false;
     obj.glyphBounds = '';
