@@ -61,8 +61,6 @@ puppeteer.launch({args}).then(async browser => {
       const expectedPath = `./expected-${test}.asketch.json`;
       const actualJSON = await page.evaluate(`body2sketch.${test}JSON(document.body)`);
 
-      removeRandomness(actualJSON);
-
       // update file with expected output by uncommenting the two lines below
       // fs.writeFileSync(path.resolve(__dirname, expectedPath), JSON.stringify(actualJSON, null, 2));
       // if ('dummy test to make linter happy'.length) {
@@ -72,6 +70,8 @@ puppeteer.launch({args}).then(async browser => {
       const expectedJSONBuffer = fs.readFileSync(path.resolve(__dirname, expectedPath));
       const expectedJSON = JSON.parse(expectedJSONBuffer.toString());
 
+      removeRandomness(actualJSON);
+      removeRandomness(expectedJSON);
       const diff = jsdiff(expectedJSON, actualJSON);
 
       if (diff.changed) {
