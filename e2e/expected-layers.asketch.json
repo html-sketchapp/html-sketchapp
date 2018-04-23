@@ -1,6 +1,6 @@
 {
   "_class": "page",
-  "do_objectID": "pizza",
+  "do_objectID": "3e5a8542-80a3-4b9f-a2bd-024e0655a52e",
   "exportOptions": {
     "_class": "exportOptions",
     "exportFormats": [],
@@ -28,7 +28,7 @@
   "layers": [
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "36dfc4b5-d27e-48e8-999d-e021910cd8f4",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -61,7 +61,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 71,
-        "width": 53,
+        "width": 53.75,
         "x": 8,
         "y": 5353.8125
       },
@@ -75,7 +75,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "7f74c764-de4d-44bc-9801-67e4fda65aa9",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -108,7 +108,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 75,
-        "width": 70,
+        "width": 70.203125,
         "x": 8,
         "y": 5262.8125
       },
@@ -122,7 +122,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "0556b549-5df4-41c5-a353-b02a774affaf",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -155,7 +155,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 90,
+        "width": 90.609375,
         "x": 8,
         "y": 5228.8125
       },
@@ -169,7 +169,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "8f341303-2c62-4fe7-aa94-0f17f51dfa29",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -202,7 +202,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 26,
-        "width": 119,
+        "width": 119.96875,
         "x": 8,
         "y": 5181.90625
       },
@@ -216,7 +216,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "40347b31-b0c7-47af-a8ab-cc472c6290f2",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -285,7 +285,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "6b689bf5-ccfa-467e-9a05-547c8a00344a",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -389,7 +389,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "c491e734-8c23-43f8-b27f-46bed13882c6",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -422,7 +422,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 21,
-        "width": 196,
+        "width": 196.953125,
         "x": 8,
         "y": 4913.28125
       },
@@ -444,7 +444,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "997f3669-7709-4d3a-ae68-51eb5bafb65a",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -477,7 +477,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 21,
-        "width": 119,
+        "width": 119.046875,
         "x": 8,
         "y": 4649.84375
       },
@@ -499,7 +499,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "44a101a0-a8e4-489e-87c7-64257965484a",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -532,7 +532,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 21,
-        "width": 128,
+        "width": 128.359375,
         "x": 8,
         "y": 4386.40625
       },
@@ -554,7 +554,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "bf16a2e6-a661-4876-82db-f5d3299a6b6d",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -587,7 +587,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 21,
-        "width": 134,
+        "width": 134.609375,
         "x": 8,
         "y": 4122.96875
       },
@@ -601,7 +601,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "c8b99900-b79f-4d56-8f2d-401baa7c4995",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -634,7 +634,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 26,
-        "width": 49,
+        "width": 49.34375,
         "x": 8,
         "y": 4076.0625
       },
@@ -648,7 +648,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "c8f01125-a17b-447d-a8cf-dbc55849adaf",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -717,7 +717,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "8651d7a9-63bc-454b-84ff-bd40344d1363",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -813,7 +813,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "3a7d2bfb-23e0-4c19-b3fc-4588c0e4790e",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -846,7 +846,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 71,
+        "width": 71.09375,
         "x": 8,
         "y": 3956.15625
       },
@@ -860,7 +860,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "8a5996cd-a0c7-488f-85e1-7ce4c61378ba",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -929,7 +929,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "a0bee41f-aba9-4850-87d5-ce49025965da",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -1025,7 +1025,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "f1cf089c-93c6-427a-bf61-1a3c525d91a8",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -1058,7 +1058,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 71,
+        "width": 71.09375,
         "x": 8,
         "y": 3856.15625
       },
@@ -1072,7 +1072,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "90db549a-83cd-4db0-85d7-0e578c95f16f",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -1105,7 +1105,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 26,
-        "width": 81,
+        "width": 81.328125,
         "x": 8,
         "y": 3809.25
       },
@@ -1119,7 +1119,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "efba38c2-de00-4ce2-9125-91cc69e95f97",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -1188,7 +1188,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "a932dd84-35ce-4cc8-a5b0-d9be358d7557",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -1284,7 +1284,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "795d79d8-87c3-47a9-84b2-09fbc13e2eef",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -1317,7 +1317,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 77,
+        "width": 77.3125,
         "x": 112,
         "y": 3689.34375
       },
@@ -1331,7 +1331,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "af55993d-e4be-43d9-905c-8fc3b5b7d095",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -1400,7 +1400,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "46c6a7f2-a593-4e71-86d9-85a151c12fcc",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -1496,7 +1496,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "83b98fd7-ceb7-4a04-8d6f-4c539168c78d",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -1529,7 +1529,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 77,
+        "width": 77.3125,
         "x": 8,
         "y": 3689.34375
       },
@@ -1543,7 +1543,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "9a92f40d-c651-49a0-90b1-e20c608fa51c",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -1612,7 +1612,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "e345085a-4a73-48d7-a51f-3b9526f04a7f",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -1708,7 +1708,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "d4eac981-a5b7-4057-8e8c-beb8fe02b5dc",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -1741,7 +1741,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 35,
+        "width": 35.546875,
         "x": 8,
         "y": 3589.34375
       },
@@ -1755,7 +1755,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "fec5b026-a490-467b-a710-7a0fb6e3d39a",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -1824,7 +1824,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "e159889e-48bb-43d5-9305-e9bd3c659155",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -1920,7 +1920,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "677572e5-a61a-4101-aeb2-5bbf51ef3d14",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -1953,7 +1953,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 26,
-        "width": 92,
+        "width": 92.453125,
         "x": 8,
         "y": 3342.4375
       },
@@ -1967,7 +1967,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "3881d35b-bba4-41f8-a58a-b6aceb94aeff",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -2000,7 +2000,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 69,
+        "width": 69.765625,
         "x": 722.234375,
         "y": 3304.53125
       },
@@ -2014,7 +2014,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "56358661-b6b6-4cc6-be37-b13fa2a038a8",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -2047,7 +2047,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 52,
+        "width": 52.015625,
         "x": 8,
         "y": 3270.53125
       },
@@ -2061,7 +2061,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "168fb5df-4159-496a-8dda-85563ea8720a",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -2094,7 +2094,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 58,
+        "width": 58.21875,
         "x": 8,
         "y": 3236.53125
       },
@@ -2108,7 +2108,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "ffb0ad3e-985b-4aa8-a913-b477d594463c",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -2141,7 +2141,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 88,
+        "width": 88.453125,
         "x": 355.765625,
         "y": 3202.53125
       },
@@ -2155,7 +2155,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "1323eed3-85ef-4f88-9f97-64a3b41a677a",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -2189,7 +2189,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 33,
-        "width": 122,
+        "width": 122.46875,
         "x": 8,
         "y": 3132.03125
       },
@@ -2203,7 +2203,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "7e0ef991-f693-467e-b015-1c3430ba55cc",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -2237,7 +2237,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 217,
+        "width": 217.34375,
         "x": 8,
         "y": 3084.53125
       },
@@ -2251,7 +2251,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "35b60515-86ec-419e-8bac-59514d026caa",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -2284,7 +2284,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 56,
+        "width": 56.4375,
         "x": 8,
         "y": 3050.53125
       },
@@ -2298,7 +2298,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "74ab97d8-12e4-4ab8-b709-03c27d17c1c3",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -2345,7 +2345,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "8ae4d748-04cd-4df9-90ae-b9842dd17e1f",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -2462,7 +2462,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "0a788293-816d-4bb2-bea3-d9211bdd1122",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -2558,7 +2558,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "a5b72365-5e43-44d5-869e-46af42b56bba",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -2627,7 +2627,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "1d7b587a-0625-4025-970d-457b27defb3e",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -2723,7 +2723,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "822e9bf5-4bb6-499e-94f8-3ea1644ecb4b",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -2768,8 +2768,8 @@
             "image": {
               "_class": "MSJSONOriginalDataReference",
               "_ref_class": "MSImageData",
-              "_ref": "images/haribo",
-              "url": "blue.jpg"
+              "_ref": "images/ea36531d-3fcb-43f2-be60-0394ccdf567f",
+              "url": "file:///E:/work/alva/html-sketchapp/e2e/assets/blue.jpg"
             },
             "noiseIndex": 0,
             "noiseIntensity": 0,
@@ -2807,7 +2807,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "aeff6920-da01-4c7a-aa6e-110ba1637fa1",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -2903,7 +2903,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "528c72b4-8c72-4bd2-970b-22a85435dc7c",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -2936,7 +2936,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 26,
-        "width": 126,
+        "width": 126.265625,
         "x": 8,
         "y": 2336.8125
       },
@@ -2950,7 +2950,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "11fdd85c-d4f9-4e8d-804a-0210a6909cd5",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -3019,7 +3019,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "05c8ebc4-5f9e-4c19-86dd-fcca2433de35",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -3115,7 +3115,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "1a14a855-b2f7-4277-a146-cf61eb96a0b6",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -3148,7 +3148,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 84,
+        "width": 84.859375,
         "x": 10,
         "y": 2214.90625
       },
@@ -3162,7 +3162,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "68da4d22-7e33-4530-9203-ee20e6804040",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -3231,7 +3231,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "6e20e06a-6d8a-47e2-8158-cc7637d5950b",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -3327,7 +3327,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "08c06d95-ae65-4aa1-97ba-d97a2003334b",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -3360,7 +3360,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 84,
+        "width": 84.859375,
         "x": 10,
         "y": 2110.90625
       },
@@ -3374,7 +3374,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "5873e47b-a1ed-4664-9f61-05ffca15b17a",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -3443,7 +3443,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "ddaceaeb-a9ba-48db-a51e-edbbb4ebc185",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -3539,7 +3539,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "d02c7673-b89c-46c8-922b-86021b8b20ab",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -3572,7 +3572,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 41,
+        "width": 41.75,
         "x": 12,
         "y": 2004.90625
       },
@@ -3586,7 +3586,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "cb960e1f-7abb-4d30-a0e4-8701c539ebf1",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -3655,7 +3655,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "62c3061d-9b76-4699-ba78-529dce94105b",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -3751,7 +3751,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "6fd20270-ba29-4236-80b4-12e816455833",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -3784,7 +3784,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 41,
+        "width": 41.75,
         "x": 10,
         "y": 1898.90625
       },
@@ -3798,7 +3798,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "ab391c01-0cad-45c1-8597-9b9bcf565642",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -3831,7 +3831,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 26,
-        "width": 73,
+        "width": 73.3125,
         "x": 8,
         "y": 1850
       },
@@ -3845,7 +3845,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "f9c20232-e51b-4bdf-9aeb-8cc78a79d727",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -3890,8 +3890,8 @@
             "image": {
               "_class": "MSJSONOriginalDataReference",
               "_ref_class": "MSImageData",
-              "_ref": "images/haribo",
-              "url": "red.png"
+              "_ref": "images/ae4168fa-f9d8-414f-9ccb-2b083e819b1e",
+              "url": "file:///E:/work/alva/html-sketchapp/e2e/assets/red.png"
             },
             "noiseIndex": 0,
             "noiseIntensity": 0,
@@ -3929,7 +3929,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "f25b460e-002a-4ff1-99fd-0bbab07f4e01",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -4025,7 +4025,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "af700ea2-ba62-4037-915d-f7425d056a59",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -4058,7 +4058,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 21,
-        "width": 45,
+        "width": 45.359375,
         "x": 8,
         "y": 1485.375
       },
@@ -4072,7 +4072,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "6e85ecb0-2b54-4a64-818c-5ff4a9a58d5f",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -4117,8 +4117,8 @@
             "image": {
               "_class": "MSJSONOriginalDataReference",
               "_ref_class": "MSImageData",
-              "_ref": "images/haribo",
-              "url": "green.svg"
+              "_ref": "images/7f74b6ad-8c4b-4e29-ad54-b3cfacc043ce",
+              "url": "file:///E:/work/alva/html-sketchapp/e2e/assets/green.svg"
             },
             "noiseIndex": 0,
             "noiseIntensity": 0,
@@ -4156,7 +4156,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "da20752c-7fb4-499e-b6ef-c7568c543879",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -4252,7 +4252,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "d3d591f5-f2de-4584-96e7-07d4eb1abcc9",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -4285,7 +4285,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 21,
-        "width": 38,
+        "width": 38.46875,
         "x": 8,
         "y": 1121.9375
       },
@@ -4299,7 +4299,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "95880d24-f112-48e1-8574-f8bfa5c81f12",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -4344,8 +4344,8 @@
             "image": {
               "_class": "MSJSONOriginalDataReference",
               "_ref_class": "MSImageData",
-              "_ref": "images/haribo",
-              "url": "yellow.gif"
+              "_ref": "images/46da0fef-22d8-48a9-b6a7-fca5280f9269",
+              "url": "file:///E:/work/alva/html-sketchapp/e2e/assets/yellow.gif"
             },
             "noiseIndex": 0,
             "noiseIntensity": 0,
@@ -4383,7 +4383,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "b62025f7-f674-4f49-b936-364b0c9e6d00",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -4479,7 +4479,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "05e5f919-ec5e-46fb-8622-919f43488842",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -4512,7 +4512,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 21,
-        "width": 33,
+        "width": 33.25,
         "x": 8,
         "y": 908.5
       },
@@ -4526,7 +4526,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "c156b845-0ac9-497e-93db-218f939171cb",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -4571,8 +4571,8 @@
             "image": {
               "_class": "MSJSONOriginalDataReference",
               "_ref_class": "MSImageData",
-              "_ref": "images/haribo",
-              "url": "red.png"
+              "_ref": "images/5ff5b96c-0233-4721-a624-86632d74855f",
+              "url": "file:///E:/work/alva/html-sketchapp/e2e/assets/red.png"
             },
             "noiseIndex": 0,
             "noiseIntensity": 0,
@@ -4610,7 +4610,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "d84ed486-6c7b-4659-94eb-b74ae42311de",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -4706,7 +4706,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "e4b1c107-8e41-417a-960b-19a6991d49ef",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -4739,7 +4739,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 21,
-        "width": 39,
+        "width": 39.484375,
         "x": 8,
         "y": 545.0625
       },
@@ -4753,7 +4753,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "e9a66f9d-b7af-460a-a9b2-7f64c0f5e9c0",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -4798,8 +4798,8 @@
             "image": {
               "_class": "MSJSONOriginalDataReference",
               "_ref_class": "MSImageData",
-              "_ref": "images/haribo",
-              "url": "blue.jpg"
+              "_ref": "images/25d4fb52-0f64-4896-ab39-ced4261c6e57",
+              "url": "file:///E:/work/alva/html-sketchapp/e2e/assets/blue.jpg"
             },
             "noiseIndex": 0,
             "noiseIntensity": 0,
@@ -4837,7 +4837,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "c0a63626-be3c-4a27-ada7-b2fcb909e7f6",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -4933,7 +4933,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "46728f6d-a8fb-4650-8186-e99e1c3d5cc7",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -4966,7 +4966,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 21,
-        "width": 35,
+        "width": 35.328125,
         "x": 8,
         "y": 256.625
       },
@@ -4980,7 +4980,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "3d6d6aa3-5f24-4881-a4b6-cb6840875975",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -5013,7 +5013,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 26,
-        "width": 63,
+        "width": 63.984375,
         "x": 8,
         "y": 209.71875
       },
@@ -5027,7 +5027,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "e1c2bb05-6c3d-4395-b6d1-4b8344a78d50",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -5060,7 +5060,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 22,
-        "width": 96,
+        "width": 96.09375,
         "x": 8,
         "y": 166.8125
       },
@@ -5074,7 +5074,7 @@
     },
     {
       "_class": "shapeGroup",
-      "do_objectID": "pizza",
+      "do_objectID": "57eacbfa-0478-43ad-ae7c-2d1d87a8982f",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -5164,7 +5164,7 @@
       "layers": [
         {
           "_class": "rectangle",
-          "do_objectID": "pizza",
+          "do_objectID": "fb6ed094-ce63-4d8d-981a-38e964599208",
           "exportOptions": {
             "_class": "exportOptions",
             "exportFormats": [],
@@ -5260,7 +5260,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "9c899966-780f-4596-b230-d9695ae6babf",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -5293,7 +5293,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 76,
+        "width": 76.875,
         "x": 8,
         "y": 66.8125
       },
@@ -5307,7 +5307,7 @@
     },
     {
       "_class": "text",
-      "do_objectID": "pizza",
+      "do_objectID": "e295feff-9391-4e17-b3d9-8c13bb62afe0",
       "exportOptions": {
         "_class": "exportOptions",
         "exportFormats": [],
@@ -5340,7 +5340,7 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 26,
-        "width": 81,
+        "width": 81.375,
         "x": 8,
         "y": 19.90625
       },
