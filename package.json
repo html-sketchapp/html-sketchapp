@@ -1,6 +1,6 @@
 {
   "name": "@brainly/html-sketchapp",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "HTML to Sketch",
   "keywords": [
     "sketch",
@@ -65,7 +65,11 @@
   "files": [
     "asketch2sketch",
     "html2asketch",
-    "build/html2asketch"
+    "build/html2asketch",
+    "README.md",
+    "LICENSE.md",
+    "package.json",
+    "package-lock.json"
   ],
   "bugs": {
     "url": "https://github.com/brainly/html-sketchapp/issues"
