@@ -18,7 +18,9 @@ The motivation behind this project was ability to easily share Front-End style g
 
 We were unable to quickly work around these limitations, so we created html-sketchapp.
 
-*You can learn more about this project from the excellent article ["Sketching in the Browser"](https://medium.com/seek-blog/sketching-in-the-browser-33a7b7aa0526) by @markdalgleish.*
+You can learn more about this project from:
+- [our wiki](https://github.com/brainly/html-sketchapp/wiki),
+- and the excellent article ["Sketching in the Browser"](https://medium.com/seek-blog/sketching-in-the-browser-33a7b7aa0526) by @markdalgleish.
 
 ## Limitations
 
@@ -32,32 +34,32 @@ Comprehensive summary of what is, and what is not supported can be found [here](
 
 The good news is that all of those are fixable and that we welcome pull requests ❤️
 
-## How does it work?
-
-Ideally, this project should be an, OS independent, NodeJS library that allows to create valid Sketch files. Unfortunately, it's not possible at this point due to Sketch format limitations.
-
-Current solution consists of two parts. First one (`html2asketch`) runs in a browser (either regular or headless) and creates an *almost* valid Sketch file (`page.asketch.json` and `document.asketch.json`). Second one (`asketch2sketch`) is a Sketch plugin that takes `asketch.json` files and imports them into Sketch.
-
-Why two parts? `html2asketch` and `asketch2sketch` are built in different technologies and run in different environments. `html2asketch` is written in JavaScript and runs in a browser where it can easily extract all information from DOM nodes: their position, size, styles and children. Extracted information are then translated into Sketch's `document.json` and `page.json` files. Unfortunately, at the moment Sketch file format is not fully readable and some parts can't be easily generated from JavaScript (most notably text styling information which is saved as a binary blob). Additionally, the script running in the browser is limited by CORS and may not be able to download all of the images used on page. That's where we need `asketch2sketch` which is a Sketch plugin written in [cocoascript](http://developer.sketchapp.com/introduction/cocoascript/) (JavaScript + Objective-C). It "fixes" `.asketch.json` files (changes text styling information format, downloads and inlines images) and loads them into the Sketch app.
-
-*You can read more about `.asketch` format in the [wiki](https://github.com/brainly/html-sketchapp/wiki/Differences-between-.asketch-and-.sketch).*
-
 ## How do I run it?
 
-`html2asketch` is a library that you can use to create a script that extracts specific parts of your website and saves them as layers, shared text styles, document colors and symbols. There is no one right way of using `html2asketch`, but you can start by checking out the two examples that we provide:
+### Install html-sketchapp
+
+You can get stable version of html-sketchapp from NPM.
+
+```sh
+npm i @brainly/html-sketchapp
+```
+
+### Create .asketch files
+
+`html2asketch` is a library that you can use to create a script that extracts specific parts of your website and saves them as layers, shared text styles, document colors and symbols. Your script then can be run in a regular or a headless browser.
+
+There is no one right way of using `html2asketch`, but you can start by checking out the ["Usage Examples"](https://github.com/brainly/html-sketchapp/wiki/Usage-Examples) section of the wiki or the two example projects that we provide:
 
 - [html-sketchapp-example](https://github.com/brainly/html-sketchapp-example) - minimal script that takes an URL and produces a `page.asketch.json` file
 - [html-sketchapp-style-guide](https://github.com/brainly/html-sketchapp-style-guide) - script that takes parts of the Brainly style-guide and exports them as Sketch symbols, shared text styles and document colors. This script produces `document.asketch.json` and `page.asketch.json`.
 
+*If you are wondering what are, and why we need `.asketch` files, plese see our [wiki](https://github.com/brainly/html-sketchapp/wiki/How-does-it-work%3F).*
+
+### Import .asketch files to Sketch
+
 All `.asketch.json` files should be loaded to Sketch via the `asketch2sketch.sketchplugin` plugin.
 
 <img src="https://i.imgur.com/9eDm6NQ.png" width="450" alt="Installing Sketch plugin" title="Installing Sketch plugin" />
-
-You can install html-sketchapp from npm:
-
-```
-npm i @brainly/html-sketchapp
-```
 
 You can download ready to use Sketch plugin from the ["Releases"](https://github.com/brainly/html-sketchapp/releases/latest) section, or build it yourself from the sources:
 
