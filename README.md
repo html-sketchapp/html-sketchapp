@@ -2,6 +2,10 @@
 
 HTML to Sketch export solution.
 
+<div align="center">
+  <img alt="html-sketchapp" src="https://i.imgur.com/xQ1lqlV.png" height="100" />
+</div>
+
 ## What it can do?
 
 html-sketchapp turns HTML nodes into Sketch layers or symbols. Additionally, it allows to export shared text styles and document colors.
