@@ -97,6 +97,8 @@ export const makeImageFill = (url, patternFillType = 1) => {
   return result;
 };
 
+export const calculateResizingConstraintValues = (first, ...rest) => rest.reduce((acc, item) => acc & item, first);
+
 export const resizingConstraintValues = {
   top: 31,
   right: 62,

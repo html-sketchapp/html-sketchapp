@@ -1,4 +1,4 @@
-import {generateID, resizingConstraintValues} from '../helpers/utils';
+import {generateID, resizingConstraintValues, calculateResizingConstraintValues} from '../helpers/utils';
 
 class Base {
   constructor() {
@@ -7,17 +7,15 @@ class Base {
     this._style = null;
     this._objectID = generateID();
     this._name = '';
-    this.setResizingConstraints('none');
+    this.setResizingConstraint(resizingConstraintValues.none);
   }
 
   setFixedWidthAndHeight() {
-    this.setResizingConstraints('width', 'height');
+    this.setResizingConstraint(resizingConstraintValues.width, resizingConstraintValues.height);
   }
 
-  setResizingConstraints(first, ...rest) {
-    const rCV = resizingConstraintValues;
-
-    return this._resizingConstant = rest.reduce((acc, item) => acc & rCV[item], rCV[first]);
+  setResizingConstraint(...constraints) {
+    this._resizingConstraint = calculateResizingConstraintValues(...constraints);
   }
 
   getID() {
@@ -58,8 +56,7 @@ class Base {
       'layerListExpandedType': 0,
       'name': this._name || this._class,
       'nameIsFixed': false,
-      'resizesContent': this._resizingConstant === resizingConstraintValues.none ? 0 : 1,
-      'resizingConstraint': this._resizingConstant,
+      'resizingConstraint': this._resizingConstraint,
       'resizingType': 0,
       'rotation': 0,
       'shouldBreakMaskChain': false,
