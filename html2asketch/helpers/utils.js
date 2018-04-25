@@ -97,14 +97,7 @@ export const makeImageFill = (url, patternFillType = 1) => {
   return result;
 };
 
-const containsAllItems = (badCombination, args) => {
-  for (let i = 0; i < badCombination.length; i++) {
-    if (!args.includes(badCombination[i])) {
-      return false;
-    }
-  }
-  return true;
-};
+const containsAllItems = (needles, haystack) => needles.every(needle => haystack.includes(needle));
 
 export const calculateResizingConstraintValues = (first, ...rest) => {
   const {top, right, bottom, left, width, height} = resizingConstraintValues;

@@ -15,9 +15,7 @@
   "layerListExpandedType": 0,
   "name": "Test Page",
   "nameIsFixed": false,
-  "resizingConstraint": [
-    63
-  ],
+  "resizingConstraint": 63,
   "resizingType": 0,
   "rotation": 0,
   "shouldBreakMaskChain": false,
@@ -233,9 +231,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/svg[@class=\"styled-svg\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        63
-      ],
+      "resizingConstraint": 63,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -304,9 +300,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -392,9 +386,7 @@
       "height": 133.1669921875,
       "x": 43.583335876464844,
       "y": 4988.91650390625,
-      "resizingConstraint": [
-        63
-      ]
+      "resizingConstraint": 63
     },
     {
       "_class": "text",
@@ -450,9 +442,7 @@
       "height": 133.1669921875,
       "x": 41.583335876464844,
       "y": 4723.47900390625,
-      "resizingConstraint": [
-        63
-      ]
+      "resizingConstraint": 63
     },
     {
       "_class": "text",
@@ -508,9 +498,7 @@
       "height": 133.1669921875,
       "x": 41.583335876464844,
       "y": 4460.04150390625,
-      "resizingConstraint": [
-        63
-      ]
+      "resizingConstraint": 63
     },
     {
       "_class": "text",
@@ -566,9 +554,7 @@
       "height": 133.1669921875,
       "x": 41.583335876464844,
       "y": 4196.60400390625,
-      "resizingConstraint": [
-        63
-      ]
+      "resizingConstraint": 63
     },
     {
       "_class": "text",
@@ -681,9 +667,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/div[@class=\"box\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        63
-      ],
+      "resizingConstraint": 63,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -752,9 +736,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -897,9 +879,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/div[@class=\"box\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        63
-      ],
+      "resizingConstraint": 63,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -968,9 +948,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -1160,9 +1138,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/div[@class=\"box\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        63
-      ],
+      "resizingConstraint": 63,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -1231,9 +1207,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -1376,9 +1350,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/div[@class=\"box\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        63
-      ],
+      "resizingConstraint": 63,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -1447,9 +1419,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -1592,9 +1562,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/div[@class=\"box\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        63
-      ],
+      "resizingConstraint": 63,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -1663,9 +1631,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -1808,9 +1774,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/div[@class=\"box\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        63
-      ],
+      "resizingConstraint": 63,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -1879,9 +1843,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -2402,9 +2364,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/div[@class=\"bg-gradient\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        63
-      ],
+      "resizingConstraint": 63,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -2521,9 +2481,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -2619,9 +2577,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/div[@class=\"bg-color\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        63
-      ],
+      "resizingConstraint": 63,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -2690,9 +2646,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -2788,9 +2742,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/div[@class=\"bg-image\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        63
-      ],
+      "resizingConstraint": 63,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -2874,9 +2826,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -3019,9 +2969,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/div[@class=\"border border-radius2\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        63
-      ],
+      "resizingConstraint": 63,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -3090,9 +3038,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -3235,9 +3181,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/div[@class=\"border border-radius\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        63
-      ],
+      "resizingConstraint": 63,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -3306,9 +3250,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -3451,9 +3393,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/div[@class=\"border border1\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        63
-      ],
+      "resizingConstraint": 63,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -3522,9 +3462,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -3667,9 +3605,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/div[@class=\"border\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        63
-      ],
+      "resizingConstraint": 63,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -3738,9 +3674,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -3930,10 +3864,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/img[@class=\"image\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        61,
-        47
-      ],
+      "resizingConstraint": 45,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -4017,9 +3948,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -4162,10 +4091,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/img[@class=\"image\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        61,
-        47
-      ],
+      "resizingConstraint": 45,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -4249,9 +4175,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -4394,10 +4318,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/img[@class=\"image\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        61,
-        47
-      ],
+      "resizingConstraint": 45,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -4481,9 +4402,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -4626,10 +4545,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/img[@class=\"image\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        61,
-        47
-      ],
+      "resizingConstraint": 45,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -4713,9 +4629,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -4858,10 +4772,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/img[@class=\"image\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        61,
-        47
-      ],
+      "resizingConstraint": 45,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -4945,9 +4856,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
@@ -5184,9 +5093,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/div[@class=\"shadow\"]",
       "nameIsFixed": false,
-      "resizingConstraint": [
-        63
-      ],
+      "resizingConstraint": 63,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -5276,9 +5183,7 @@
           "layerListExpandedType": 0,
           "name": "rectangle",
           "nameIsFixed": false,
-          "resizingConstraint": [
-            63
-          ],
+          "resizingConstraint": 63,
           "resizingType": 0,
           "rotation": 0,
           "shouldBreakMaskChain": false,
