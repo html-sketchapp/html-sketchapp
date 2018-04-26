@@ -385,7 +385,8 @@
       "width": 133.75,
       "height": 133.1669921875,
       "x": 43.583335876464844,
-      "y": 4988.91650390625
+      "y": 4988.91650390625,
+      "resizingConstraint": 63
     },
     {
       "_class": "text",
@@ -440,7 +441,8 @@
       "width": 133.75,
       "height": 133.1669921875,
       "x": 41.583335876464844,
-      "y": 4723.47900390625
+      "y": 4723.47900390625,
+      "resizingConstraint": 63
     },
     {
       "_class": "text",
@@ -495,7 +497,8 @@
       "width": 133.74999237060547,
       "height": 133.1669921875,
       "x": 41.583335876464844,
-      "y": 4460.04150390625
+      "y": 4460.04150390625,
+      "resizingConstraint": 63
     },
     {
       "_class": "text",
@@ -550,7 +553,8 @@
       "width": 133.74999237060547,
       "height": 133.1669921875,
       "x": 41.583335876464844,
-      "y": 4196.60400390625
+      "y": 4196.60400390625,
+      "resizingConstraint": 63
     },
     {
       "_class": "text",
@@ -3860,7 +3864,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/img[@class=\"image\"]",
       "nameIsFixed": false,
-      "resizingConstraint": 12,
+      "resizingConstraint": 45,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -4087,7 +4091,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/img[@class=\"image\"]",
       "nameIsFixed": false,
-      "resizingConstraint": 12,
+      "resizingConstraint": 45,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -4314,7 +4318,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/img[@class=\"image\"]",
       "nameIsFixed": false,
-      "resizingConstraint": 12,
+      "resizingConstraint": 45,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -4541,7 +4545,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/img[@class=\"image\"]",
       "nameIsFixed": false,
-      "resizingConstraint": 12,
+      "resizingConstraint": 45,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
@@ -4768,7 +4772,7 @@
       "layerListExpandedType": 0,
       "name": "/html[1]/body[1]/img[@class=\"image\"]",
       "nameIsFixed": false,
-      "resizingConstraint": 12,
+      "resizingConstraint": 45,
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,

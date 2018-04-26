@@ -13,6 +13,7 @@ function makeNativeSVGLayer(layer) {
   svgLayer.frame().setY(layer.y);
   svgLayer.frame().setWidth(layer.width);
   svgLayer.frame().setHeight(layer.height);
+  svgLayer.resizingConstraint = layer.resizingConstraint;
 
   return svgLayer;
 }

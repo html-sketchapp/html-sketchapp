@@ -23,7 +23,8 @@
     "watch-plugin": "npm run build-plugin -- --watch --run",
     "test": "npm run lint && npm run tslint && npm run unit && npm run e2e",
     "unit": "jest",
-    "lint": "eslint html2asketch/ asketch2sketch/ test/*.js",
+    "lint": "eslint html2asketch/ asketch2sketch/ tests/ e2e/*.js",
+    "lint-fix": "npm run lint -- --fix",
     "e2e": "cd e2e && webpack --config ./webpack.config.js && node ./run.js",
     "prepare": "npm run build && npm run test",
     "tslint": "tslint -c tslint.json typings/*.d.ts typings/**/*.d.ts"
