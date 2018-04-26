@@ -1,4 +1,4 @@
-import {generateID, resizingConstraintValues, calculateResizingConstraintValues} from '../helpers/utils';
+import {generateID, RESIZING_CONSTRAINTS, calculateResizingConstraintValue} from '../helpers/utils';
 
 class Base {
   constructor() {
@@ -7,15 +7,15 @@ class Base {
     this._style = null;
     this._objectID = generateID();
     this._name = '';
-    this.setResizingConstraint(resizingConstraintValues.none);
+    this.setResizingConstraint(RESIZING_CONSTRAINTS.NONE);
   }
 
   setFixedWidthAndHeight() {
-    this.setResizingConstraint(resizingConstraintValues.width, resizingConstraintValues.height);
+    this.setResizingConstraint(RESIZING_CONSTRAINTS.WIDTH, RESIZING_CONSTRAINTS.HEIGHT);
   }
 
   setResizingConstraint(...constraints) {
-    this._resizingConstraint = calculateResizingConstraintValues(...constraints);
+    this._resizingConstraint = calculateResizingConstraintValue(...constraints);
   }
 
   getID() {

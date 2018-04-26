@@ -1,32 +1,29 @@
-import {calculateResizingConstraintValues, resizingConstraintValues} from '../../html2asketch/helpers/utils';
+import {calculateResizingConstraintValue, RESIZING_CONSTRAINTS} from '../../html2asketch/helpers/utils';
 
 test('reduce series of numbers to their bitwise AND value', () => {
-  const { top, left, height } = resizingConstraintValues;
-  const input = [left, height]
-  const output = top & left & height;
+  const {TOP, LEFT, HEIGHT} = RESIZING_CONSTRAINTS;
+  const input = [LEFT, HEIGHT];
+  const output = TOP & LEFT & HEIGHT;
 
-  expect(calculateResizingConstraintValues(top, ...input)).toEqual(output);
+  expect(calculateResizingConstraintValue(TOP, ...input)).toEqual(output);
 });
 
-test('given undefined values will return 0', () => {
-  const { top, wat, none } = resizingConstraintValues;
-  const output = 0;
+test('given undefined values will throw', () => {
+  const {TOP, wat} = RESIZING_CONSTRAINTS;
 
-  expect(calculateResizingConstraintValues(top, wat)).toEqual(output);
+  expect(() => calculateResizingConstraintValue(TOP, wat)).toThrow();
 });
 
 describe('when given invalid combinations', () => {
   test('will throw when top, bottom & height are specified', () => {
-    const { top, bottom, height } = resizingConstraintValues;
-    const input = [bottom, height]
+    const {TOP, BOTTOM, HEIGHT} = RESIZING_CONSTRAINTS;
 
-    expect(() => calculateResizingConstraintValues(top, ...input)).toThrow();
+    expect(() => calculateResizingConstraintValue(TOP, BOTTOM, HEIGHT)).toThrow();
   });
 
   test('will throw when left, right & width are specified', () => {
-    const { left, right, width } = resizingConstraintValues;
-    const input = [right, width]
+    const {LEFT, RIGHT, WIDTH} = RESIZING_CONSTRAINTS;
 
-    expect(() => calculateResizingConstraintValues(left, ...input)).toThrow();
+    expect(() => calculateResizingConstraintValue(LEFT, RIGHT, WIDTH)).toThrow();
   });
 });

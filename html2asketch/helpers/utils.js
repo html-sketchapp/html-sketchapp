@@ -99,27 +99,30 @@ export const makeImageFill = (url, patternFillType = 1) => {
 
 const containsAllItems = (needles, haystack) => needles.every(needle => haystack.includes(needle));
 
-export const calculateResizingConstraintValues = (first, ...rest) => {
-  const {top, right, bottom, left, width, height} = resizingConstraintValues;
-  const args = [first, ...rest];
-  const noHeight = [top, bottom, height];
-  const noWidth = [left, right, width];
+export const calculateResizingConstraintValue = (...args) => {
+  const noHeight =
+    [RESIZING_CONSTRAINTS.TOP, RESIZING_CONSTRAINTS.BOTTOM, RESIZING_CONSTRAINTS.HEIGHT];
+  const noWidth =
+    [RESIZING_CONSTRAINTS.LEFT, RESIZING_CONSTRAINTS.RIGHT, RESIZING_CONSTRAINTS.WIDTH];
+  const validValues = Object.values(RESIZING_CONSTRAINTS);
 
-  if (containsAllItems(noHeight, args)) {
+  if (!args.every(arg => validValues.includes(arg))) {
+    throw new Error('Unknown resizing constraint');
+  } else if (containsAllItems(noHeight, args)) {
     throw new Error('Can\'t fix height when top & bottom are fixed');
   } else if (containsAllItems(noWidth, args)) {
     throw new Error('Can\'t fix width when left & right are fixed');
   }
 
-  return rest.reduce((acc, item) => acc & item, first);
+  return args.length > 0 ? args.reduce((acc, item) => acc & item, args[0]) : RESIZING_CONSTRAINTS.NONE;
 };
 
-export const resizingConstraintValues = {
-  top: 31,
-  right: 62,
-  bottom: 55,
-  left: 59,
-  width: 61,
-  height: 47,
-  none: 63
+export const RESIZING_CONSTRAINTS = {
+  TOP: 31,
+  RIGHT: 62,
+  BOTTOM: 55,
+  LEFT: 59,
+  WIDTH: 61,
+  HEIGHT: 47,
+  NONE: 63
 };
