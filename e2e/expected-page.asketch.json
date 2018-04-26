@@ -821,7 +821,7 @@
                   "layerListExpandedType": 0,
                   "name": "/html[1]/body[1]/img[@class=\"image\"]",
                   "nameIsFixed": false,
-                  "resizingConstraint": 12,
+                  "resizingConstraint": 45,
                   "resizingType": 0,
                   "rotation": 0,
                   "shouldBreakMaskChain": false,
@@ -1150,7 +1150,7 @@
                   "layerListExpandedType": 0,
                   "name": "/html[1]/body[1]/img[@class=\"image\"]",
                   "nameIsFixed": false,
-                  "resizingConstraint": 12,
+                  "resizingConstraint": 45,
                   "resizingType": 0,
                   "rotation": 0,
                   "shouldBreakMaskChain": false,
@@ -1479,7 +1479,7 @@
                   "layerListExpandedType": 0,
                   "name": "/html[1]/body[1]/img[@class=\"image\"]",
                   "nameIsFixed": false,
-                  "resizingConstraint": 12,
+                  "resizingConstraint": 45,
                   "resizingType": 0,
                   "rotation": 0,
                   "shouldBreakMaskChain": false,
@@ -1808,7 +1808,7 @@
                   "layerListExpandedType": 0,
                   "name": "/html[1]/body[1]/img[@class=\"image\"]",
                   "nameIsFixed": false,
-                  "resizingConstraint": 12,
+                  "resizingConstraint": 45,
                   "resizingType": 0,
                   "rotation": 0,
                   "shouldBreakMaskChain": false,
@@ -2137,7 +2137,7 @@
                   "layerListExpandedType": 0,
                   "name": "/html[1]/body[1]/img[@class=\"image\"]",
                   "nameIsFixed": false,
-                  "resizingConstraint": 12,
+                  "resizingConstraint": 45,
                   "resizingType": 0,
                   "rotation": 0,
                   "shouldBreakMaskChain": false,
@@ -7025,7 +7025,8 @@
                   "width": 133.74999237060547,
                   "height": 133.1669921875,
                   "x": 33.583335876464844,
-                  "y": 32.91650390625
+                  "y": 32.91650390625,
+                  "resizingConstraint": 63
                 },
                 {
                   "_class": "group",
@@ -7783,7 +7784,8 @@
                   "width": 133.74999237060547,
                   "height": 133.1669921875,
                   "x": 33.583335876464844,
-                  "y": 32.91650390625
+                  "y": 32.91650390625,
+                  "resizingConstraint": 63
                 },
                 {
                   "_class": "group",
@@ -8390,7 +8392,8 @@
                   "width": 133.75,
                   "height": 133.1669921875,
                   "x": 33.583335876464844,
-                  "y": 32.91650390625
+                  "y": 32.91650390625,
+                  "resizingConstraint": 63
                 },
                 {
                   "_class": "group",
@@ -9213,7 +9216,8 @@
                   "width": 133.75,
                   "height": 133.1669921875,
                   "x": 35.583335876464844,
-                  "y": 34.91650390625
+                  "y": 34.91650390625,
+                  "resizingConstraint": 63
                 },
                 {
                   "_class": "group",

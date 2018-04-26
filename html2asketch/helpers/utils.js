@@ -96,3 +96,30 @@ export const makeImageFill = (url, patternFillType = 1) => {
 
   return result;
 };
+
+const containsAllItems = (needles, haystack) => needles.every(needle => haystack.includes(needle));
+
+export const calculateResizingConstraintValues = (first, ...rest) => {
+  const {top, right, bottom, left, width, height} = resizingConstraintValues;
+  const args = [first, ...rest];
+  const noHeight = [top, bottom, height];
+  const noWidth = [left, right, width];
+
+  if (containsAllItems(noHeight, args)) {
+    throw new Error('Can\'t fix height when top & bottom are fixed');
+  } else if (containsAllItems(noWidth, args)) {
+    throw new Error('Can\'t fix width when left & right are fixed');
+  }
+
+  return rest.reduce((acc, item) => acc & item, first);
+};
+
+export const resizingConstraintValues = {
+  top: 31,
+  right: 62,
+  bottom: 55,
+  left: 59,
+  width: 61,
+  height: 47,
+  none: 63
+};
