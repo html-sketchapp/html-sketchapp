@@ -12,12 +12,14 @@ export default function nodeTreeToSketchGroup(node, options) {
   // Collect layers for the node level itself
   const layers = nodeToSketchLayers(node, {...options, layerOpacity: false}) || [];
 
-  // Recursively collect child groups for child nodes
-  Array.from(node.children).forEach(childNode => {
-    if (isNodeVisible(childNode)) {
-      layers.push(nodeTreeToSketchGroup(childNode, options));
-    }
-  });
+  if (node.nodeName !== 'svg') {
+    // Recursively collect child groups for child nodes
+    Array.from(node.children).forEach(childNode => {
+      if (isNodeVisible(childNode)) {
+        layers.push(nodeTreeToSketchGroup(childNode, options));
+      }
+    });
+  }
 
   // Now build a group for all these children
 
