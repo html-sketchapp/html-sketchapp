@@ -15,6 +15,12 @@ export default function nodeTreeToSketchGroup(node, options) {
   // Recursively collect child groups for child nodes
   Array.from(node.children).forEach(childNode => {
     if (isNodeVisible(childNode)) {
+      // Traverse the shadow DOM if present
+      if (childNode.shadowRoot) {
+        Array.from(childNode.shadowRoot.children)
+          .map(nodeTreeToSketchGroup)
+          .forEach(layer => layers.push(layer));
+      }
       layers.push(nodeTreeToSketchGroup(childNode, options));
     }
   });

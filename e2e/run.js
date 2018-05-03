@@ -50,6 +50,35 @@ puppeteer.launch({args}).then(async browser => {
     waitUntil: 'networkidle0'
   });
 
+  await page.on('console', msg => console.log('PAGE LOG:', msg.text()));
+
+  await page.addScriptTag({
+    content: `
+      class TestEl extends HTMLElement {
+        constructor() {
+          super();
+          this.attachShadow({ mode: 'open' });
+        }
+
+        connectedCallback() {
+          this.shadowRoot.innerHTML = \`
+            <style>
+              button {
+                background: #53cf92;
+                font: Helvetica, Arial, sans-serif;
+                padding: 5px 10px;
+              }
+            </style>
+
+            <button>Click me! <slot></slot></button>
+          \`;
+        }
+      }
+
+      customElements.define('test-el', TestEl);
+    `
+  });
+
   await page.addScriptTag({
     path: injectedScriptPath
   });
@@ -76,7 +105,8 @@ puppeteer.launch({args}).then(async browser => {
 
       if (diff.changed) {
         console.error(`E2E test "${test}": ❌ Oh no! That's not the expected output. See the diff below:`);
-        console.log(diff.text);
+        // console.log(diff.text);
+        fs.writeFileSync('./actual.asketch.json', JSON.stringify(actualJSON));
         anyError = true;
       }
     } catch (error) {

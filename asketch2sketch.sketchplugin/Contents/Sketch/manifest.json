@@ -1,0 +1,26 @@
+{
+  "compatibleVersion": 3,
+  "bundleVersion": 1,
+  "commands": [
+    {
+      "name": "From *Almost* Sketch to Sketch",
+      "identifier": "asketch2sketch",
+      "script": "asketch2sketch.js"
+    }
+  ],
+  "menu": {
+    "isRoot": true,
+    "title": "output",
+    "items": [
+      "asketch2sketch"
+    ]
+  },
+  "version": "2.0.2",
+  "description": "HTML to Sketch",
+  "homepage": "https://github.com/brainly/html-sketchapp#readme",
+  "name": "asketch2sketch",
+  "disableCocoaScriptPreprocessor": true,
+  "appcast": "https://raw.githubusercontent.com/brainly/html-sketchapp/master/.appcast.xml",
+  "author": "Brainly - Konrad Dzwinel",
+  "authorEmail": "konrad.dzwinel@brainly.com"
+}
