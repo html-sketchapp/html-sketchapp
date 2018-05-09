@@ -58,19 +58,27 @@ puppeteer.launch({args}).then(async browser => {
         constructor() {
           super();
           this.attachShadow({ mode: 'open' });
+          console.log('test-el constructed');
         }
 
         connectedCallback() {
           this.shadowRoot.innerHTML = \`
             <style>
+              :host {
+                display: block;
+                font-family: Optimist, Arial, sans-serif;
+              }
               button {
                 background: #53cf92;
-                font: Helvetica, Arial, sans-serif;
-                padding: 5px 10px;
+                border-radius: 4px;
+                color: white;
+                font-family: Optimist, Arial, sans-serif;
+                font-size: 16px;
+                padding: 10px;
               }
             </style>
-
-            <button>Click me! <slot></slot></button>
+            <h1>My custom button</h1>
+            <button>Shadow content -> <slot></slot></button>
           \`;
         }
       }
@@ -103,10 +111,11 @@ puppeteer.launch({args}).then(async browser => {
 
       const diff = jsdiff(expectedJSON, actualJSON);
 
+      fs.writeFileSync(`./actual-${test}.asketch.json`, JSON.stringify(actualJSON));
+
       if (diff.changed) {
         console.error(`E2E test "${test}": ❌ Oh no! That's not the expected output. See the diff below:`);
         // console.log(diff.text);
-        fs.writeFileSync('./actual.asketch.json', JSON.stringify(actualJSON));
         anyError = true;
       }
     } catch (error) {
