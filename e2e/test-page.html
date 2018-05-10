@@ -110,11 +110,138 @@
 
 <body>
 
+  <h2>Shadow</h2>
+
+  <div class='shadow'>box shadow</div>
+  <span class='text-shadow'>text shadow</span>
+
+  <h2>Image</h2>
+
+  <h3>JPG</h3>
+  <img src='./assets/blue.jpg' class='image' />
+  <h3>PNG</h3>
+  <img src='./assets/red.png' class='image' />
+  <h3>GIF</h3>
+  <img src='./assets/yellow.gif' class='image' />
+  <h3>SVG</h3>
+  <img src='./assets/green.svg' class='image' />
+  <h3>srcset</h3>
+  <img srcset='./assets/yellow.gif, ./assets/red.png 2x' class='image' />
+
+  <h2>Border</h2>
+  <div class='border'>border</div>
+  <div class='border border1'>border</div>
+  <div class='border border-radius'>border radius</div>
+  <div class='border border-radius2'>border radius</div>
+
+  <h2>Background</h2>
+  <div class='bg-image'></div>
+  <div class='bg-color'></div>
+  <div class='bg-gradient'></div>
+
+  <h2>Font</h2>
+  <p class='font1'>Font one</p>
+  <p class='font2'>Font two</p>
+  <p class='font3'>Font three</p>
+  <p class='font4'>Font four</p>
+  <p class='font5'>Font five</p>
+  <p class='font6'>Font six</p>
+  <p class='font7'>Font seven</p>
+
+  <h2>Visibility</h2>
+  <div class='box' style='display:none'>none</div>
+  <div class='box' style='visibility:hidden'>hidden</div>
+  <div class='box' style='clip: rect(0 0 0 0); position:absolute'>hidden<div>hidden child</div></div>
+  <noscript>hidden</noscript>
+  <div class='box' style='text-indent: -999px; overflow: hidden'>text</div>
+  <div class='box' style='display: block'>block</div>
+  <div class='box' style='display: inline-block'>inline-block</div>
+  <div class='box' style='display: inline-block'>inline-block</div>
+
+  <h2>Opacity</h2>
+  <div class='box' style='opacity: 0.8'>opacity 0.8</div>
+  <div class='box' style='opacity: 0.3'>opacity 0.3</div>
+
+  <h2>SVG</h2>
+
+  <h3>Embedded styles</h3>
+
+  <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+    <defs>
+      <style>
+        .b {
+          fill: #020a1a;
+        }
+        .c {
+          fill: #53cf92;
+        }
+        .d {
+          fill: #57b2f8;
+        }
+        .e {
+          fill: #fec83c;
+        }
+        .f {
+          fill: #ff796b;
+        }
+      </style>
+    </defs>
+    <title>all_1</title>
+    <circle class="b" cx="6.03" cy="5.95" r="2" />
+    <circle class="c" cx="12.08" cy="5.95" r="2" />
+    <circle class="b" cx="18.08" cy="5.95" r="2" />
+    <circle class="d" cx="6.03" cy="11.93" r="2" />
+    <circle class="b" cx="12.08" cy="11.93" r="2" />
+    <circle class="e" cx="18.08" cy="11.93" r="2" />
+    <circle class="b" cx="6.03" cy="17.93" r="2" />
+    <circle class="f" cx="12.08" cy="17.93" r="2" />
+    <circle class="b" cx="18.08" cy="17.93" r="2" />
+  </svg>
+
+  <h3>Inheritied styles</h3>
+
+  <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"
+    id='svg-circles'>
+    <circle class="b" cx="6.03" cy="5.95" r="2" />
+    <circle class="c" cx="12.08" cy="5.95" r="2" />
+    <circle class="b" cx="18.08" cy="5.95" r="2" />
+    <circle class="d" cx="6.03" cy="11.93" r="2" />
+    <circle class="b" cx="12.08" cy="11.93" r="2" />
+    <circle class="e" cx="18.08" cy="11.93" r="2" />
+    <circle class="b" cx="6.03" cy="17.93" r="2" />
+    <circle class="f" cx="12.08" cy="17.93" r="2" />
+    <circle class="b" cx="18.08" cy="17.93" r="2" />
+  </svg>
+
+  <h3>SVG via &lt;use&gt;</h3>
+
+  <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
+    <use xlink:href="#svg-circles"></use>
+  </svg>
+
+  <h3>SVG with styled element</h3>
+
+  <svg class="styled-svg" width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
+    <use xlink:href="#svg-circles"></use>
+  </svg>
+
+  <h2>white-space</h2>
+
+  <p>  Default      text !! </p>
+  <pre>
+    pre 
+
+
+    text 
+  </pre>
+  <p style='white-space: pre-line'>  pre-line 
+
+
+ text 
+  </p>
   
   <h2>Shadow DOM</h2>
   <test-el>Slotted content</test-el>
-
-  <button class="styled-svg box font8"><span>Hello world</span></button>
 
 
 </body>

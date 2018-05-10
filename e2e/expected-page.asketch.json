@@ -7021,7 +7021,7 @@
               "layers": [
                 {
                   "_class": "svg",
-                  "rawSVGString": "<svg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 24 24\">\n    <defs>\n      <style>\n        .b {\n          fill: #020a1a;\n        }\n\n        .c {\n          fill: #53cf92;\n        }\n\n        .d {\n          fill: #57b2f8;\n        }\n\n        .e {\n          fill: #fec83c;\n        }\n\n        .f {\n          fill: #ff796b;\n        }\n      </style>\n    </defs>\n    <title>all_1</title>\n    <circle class=\"b\" cx=\"6.03\" cy=\"5.95\" r=\"2\" style=\"cx: 6.03px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"c\" cx=\"12.08\" cy=\"5.95\" r=\"2\" style=\"cx: 12.08px; cy: 5.95px; r: 2px; fill: rgb(83, 207, 146); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"5.95\" r=\"2\" style=\"cx: 18.08px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"d\" cx=\"6.03\" cy=\"11.93\" r=\"2\" style=\"cx: 6.03px; cy: 11.93px; r: 2px; fill: rgb(87, 178, 248); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"12.08\" cy=\"11.93\" r=\"2\" style=\"cx: 12.08px; cy: 11.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"e\" cx=\"18.08\" cy=\"11.93\" r=\"2\" style=\"cx: 18.08px; cy: 11.93px; r: 2px; fill: rgb(254, 200, 60); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"6.03\" cy=\"17.93\" r=\"2\" style=\"cx: 6.03px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"f\" cx=\"12.08\" cy=\"17.93\" r=\"2\" style=\"cx: 12.08px; cy: 17.93px; r: 2px; fill: rgb(255, 121, 107); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"17.93\" r=\"2\" style=\"cx: 18.08px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n  </svg>",
+                  "rawSVGString": "<svg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 24 24\">\n    <defs>\n      <style>\n        .b {\n          fill: #020a1a;\n        }\n        .c {\n          fill: #53cf92;\n        }\n        .d {\n          fill: #57b2f8;\n        }\n        .e {\n          fill: #fec83c;\n        }\n        .f {\n          fill: #ff796b;\n        }\n      </style>\n    </defs>\n    <title>all_1</title>\n    <circle class=\"b\" cx=\"6.03\" cy=\"5.95\" r=\"2\" style=\"cx: 6.03px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"c\" cx=\"12.08\" cy=\"5.95\" r=\"2\" style=\"cx: 12.08px; cy: 5.95px; r: 2px; fill: rgb(83, 207, 146); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"5.95\" r=\"2\" style=\"cx: 18.08px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"d\" cx=\"6.03\" cy=\"11.93\" r=\"2\" style=\"cx: 6.03px; cy: 11.93px; r: 2px; fill: rgb(87, 178, 248); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"12.08\" cy=\"11.93\" r=\"2\" style=\"cx: 12.08px; cy: 11.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"e\" cx=\"18.08\" cy=\"11.93\" r=\"2\" style=\"cx: 18.08px; cy: 11.93px; r: 2px; fill: rgb(254, 200, 60); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"6.03\" cy=\"17.93\" r=\"2\" style=\"cx: 6.03px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"f\" cx=\"12.08\" cy=\"17.93\" r=\"2\" style=\"cx: 12.08px; cy: 17.93px; r: 2px; fill: rgb(255, 121, 107); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"17.93\" r=\"2\" style=\"cx: 18.08px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n  </svg>",
                   "width": 133.74999237060547,
                   "height": 133.1669921875,
                   "x": 33.583335876464844,
@@ -10121,12 +10121,669 @@
               "clippingMaskMode": 0,
               "hasClippingMask": false,
               "windingRule": 1
+            },
+            {
+              "_class": "group",
+              "do_objectID": "pizza",
+              "exportOptions": {
+                "_class": "exportOptions",
+                "exportFormats": [],
+                "includedLayerIds": [],
+                "layerOptions": 0,
+                "shouldTrim": false
+              },
+              "isFlippedHorizontal": false,
+              "isFlippedVertical": false,
+              "isLocked": false,
+              "isVisible": true,
+              "layerListExpandedType": 0,
+              "name": "(h2)",
+              "nameIsFixed": false,
+              "resizingConstraint": 63,
+              "resizingType": 0,
+              "rotation": 0,
+              "shouldBreakMaskChain": false,
+              "style": {
+                "_class": "style",
+                "fills": [],
+                "borders": [],
+                "shadows": [],
+                "innerShadows": [],
+                "endDecorationType": 0,
+                "miterLimit": 10,
+                "startDecorationType": 0,
+                "contextSettings": {
+                  "_class": "graphicsContextSettings",
+                  "blendMode": 0,
+                  "opacity": "1"
+                }
+              },
+              "layers": [
+                {
+                  "_class": "text",
+                  "do_objectID": "pizza",
+                  "exportOptions": {
+                    "_class": "exportOptions",
+                    "exportFormats": [],
+                    "includedLayerIds": [],
+                    "layerOptions": 0,
+                    "shouldTrim": false
+                  },
+                  "isFlippedHorizontal": false,
+                  "isFlippedVertical": false,
+                  "isLocked": false,
+                  "isVisible": true,
+                  "layerListExpandedType": 0,
+                  "name": "Shadow DOM",
+                  "nameIsFixed": false,
+                  "resizingConstraint": 47,
+                  "resizingType": 0,
+                  "rotation": 0,
+                  "shouldBreakMaskChain": false,
+                  "style": {
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 24,
+                    "fontFamily": "Times New Roman",
+                    "fontWeight": 700,
+                    "textTransform": "none",
+                    "textDecoration": "none",
+                    "textAlign": "start"
+                  },
+                  "layers": [],
+                  "frame": {
+                    "_class": "rect",
+                    "constrainProportions": false,
+                    "height": 26,
+                    "width": 146,
+                    "x": 0,
+                    "y": 0
+                  },
+                  "text": "Shadow DOM",
+                  "automaticallyDrawOnUnderlyingPath": false,
+                  "dontSynchroniseWithSymbol": false,
+                  "glyphBounds": "",
+                  "heightIsClipped": false,
+                  "lineSpacingBehaviour": 2,
+                  "textBehaviour": 0
+                }
+              ],
+              "frame": {
+                "_class": "rect",
+                "constrainProportions": false,
+                "height": 27,
+                "width": 784,
+                "x": 0,
+                "y": 5425.8125
+              },
+              "hasClickThrough": false,
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
+              "windingRule": 1
+            },
+            {
+              "_class": "group",
+              "do_objectID": "pizza",
+              "exportOptions": {
+                "_class": "exportOptions",
+                "exportFormats": [],
+                "includedLayerIds": [],
+                "layerOptions": 0,
+                "shouldTrim": false
+              },
+              "isFlippedHorizontal": false,
+              "isFlippedVertical": false,
+              "isLocked": false,
+              "isVisible": true,
+              "layerListExpandedType": 0,
+              "name": "(style)",
+              "nameIsFixed": false,
+              "resizingConstraint": 63,
+              "resizingType": 0,
+              "rotation": 0,
+              "shouldBreakMaskChain": false,
+              "style": {
+                "_class": "style",
+                "fills": [],
+                "borders": [],
+                "shadows": [],
+                "innerShadows": [],
+                "endDecorationType": 0,
+                "miterLimit": 10,
+                "startDecorationType": 0,
+                "contextSettings": {
+                  "_class": "graphicsContextSettings",
+                  "blendMode": 0,
+                  "opacity": "1"
+                }
+              },
+              "layers": [],
+              "frame": {
+                "_class": "rect",
+                "constrainProportions": false,
+                "height": 0,
+                "width": 0,
+                "x": -8,
+                "y": -19.90625
+              },
+              "hasClickThrough": false,
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
+              "windingRule": 1
+            },
+            {
+              "_class": "group",
+              "do_objectID": "pizza",
+              "exportOptions": {
+                "_class": "exportOptions",
+                "exportFormats": [],
+                "includedLayerIds": [],
+                "layerOptions": 0,
+                "shouldTrim": false
+              },
+              "isFlippedHorizontal": false,
+              "isFlippedVertical": false,
+              "isLocked": false,
+              "isVisible": true,
+              "layerListExpandedType": 0,
+              "name": "(h1)",
+              "nameIsFixed": false,
+              "resizingConstraint": 63,
+              "resizingType": 0,
+              "rotation": 0,
+              "shouldBreakMaskChain": false,
+              "style": {
+                "_class": "style",
+                "fills": [],
+                "borders": [],
+                "shadows": [],
+                "innerShadows": [],
+                "endDecorationType": 0,
+                "miterLimit": 10,
+                "startDecorationType": 0,
+                "contextSettings": {
+                  "_class": "graphicsContextSettings",
+                  "blendMode": 0,
+                  "opacity": "1"
+                }
+              },
+              "layers": [
+                {
+                  "_class": "text",
+                  "do_objectID": "pizza",
+                  "exportOptions": {
+                    "_class": "exportOptions",
+                    "exportFormats": [],
+                    "includedLayerIds": [],
+                    "layerOptions": 0,
+                    "shouldTrim": false
+                  },
+                  "isFlippedHorizontal": false,
+                  "isFlippedVertical": false,
+                  "isLocked": false,
+                  "isVisible": true,
+                  "layerListExpandedType": 0,
+                  "name": "My custom button",
+                  "nameIsFixed": false,
+                  "resizingConstraint": 47,
+                  "resizingType": 0,
+                  "rotation": 0,
+                  "shouldBreakMaskChain": false,
+                  "style": {
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 32,
+                    "fontFamily": "Optimist",
+                    "fontWeight": 700,
+                    "textTransform": "none",
+                    "textDecoration": "none",
+                    "textAlign": "start"
+                  },
+                  "layers": [],
+                  "frame": {
+                    "_class": "rect",
+                    "constrainProportions": false,
+                    "height": 42,
+                    "width": 273,
+                    "x": 0,
+                    "y": 0
+                  },
+                  "text": "My custom button",
+                  "automaticallyDrawOnUnderlyingPath": false,
+                  "dontSynchroniseWithSymbol": false,
+                  "glyphBounds": "",
+                  "heightIsClipped": false,
+                  "lineSpacingBehaviour": 2,
+                  "textBehaviour": 0
+                }
+              ],
+              "frame": {
+                "_class": "rect",
+                "constrainProportions": false,
+                "height": 42,
+                "width": 784,
+                "x": 0,
+                "y": 5474.25
+              },
+              "hasClickThrough": false,
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
+              "windingRule": 1
+            },
+            {
+              "_class": "group",
+              "do_objectID": "pizza",
+              "exportOptions": {
+                "_class": "exportOptions",
+                "exportFormats": [],
+                "includedLayerIds": [],
+                "layerOptions": 0,
+                "shouldTrim": false
+              },
+              "isFlippedHorizontal": false,
+              "isFlippedVertical": false,
+              "isLocked": false,
+              "isVisible": true,
+              "layerListExpandedType": 0,
+              "name": "(button)",
+              "nameIsFixed": false,
+              "resizingConstraint": 63,
+              "resizingType": 0,
+              "rotation": 0,
+              "shouldBreakMaskChain": false,
+              "style": {
+                "_class": "style",
+                "fills": [],
+                "borders": [],
+                "shadows": [],
+                "innerShadows": [],
+                "endDecorationType": 0,
+                "miterLimit": 10,
+                "startDecorationType": 0,
+                "contextSettings": {
+                  "_class": "graphicsContextSettings",
+                  "blendMode": 0,
+                  "opacity": "1"
+                }
+              },
+              "layers": [
+                {
+                  "_class": "shapeGroup",
+                  "do_objectID": "pizza",
+                  "exportOptions": {
+                    "_class": "exportOptions",
+                    "exportFormats": [],
+                    "includedLayerIds": [],
+                    "layerOptions": 0,
+                    "shouldTrim": false
+                  },
+                  "isFlippedHorizontal": false,
+                  "isFlippedVertical": false,
+                  "isLocked": false,
+                  "isVisible": true,
+                  "layerListExpandedType": 0,
+                  "name": "/button[1]",
+                  "nameIsFixed": false,
+                  "resizingConstraint": 63,
+                  "resizingType": 0,
+                  "rotation": 0,
+                  "shouldBreakMaskChain": false,
+                  "style": {
+                    "_class": "style",
+                    "fills": [
+                      {
+                        "_class": "fill",
+                        "isEnabled": true,
+                        "color": {
+                          "_class": "color",
+                          "red": 0.3254901960784314,
+                          "green": 0.8117647058823529,
+                          "blue": 0.5725490196078431,
+                          "alpha": 1
+                        },
+                        "fillType": 0,
+                        "noiseIndex": 0,
+                        "noiseIntensity": 0,
+                        "patternFillType": 1,
+                        "patternTileScale": 1
+                      }
+                    ],
+                    "borders": [
+                      {
+                        "_class": "border",
+                        "isEnabled": true,
+                        "color": {
+                          "_class": "color",
+                          "red": 0.8470588235294118,
+                          "green": 0.8470588235294118,
+                          "blue": 0.8470588235294118,
+                          "alpha": 1
+                        },
+                        "fillType": 0,
+                        "position": 1,
+                        "thickness": 1
+                      }
+                    ],
+                    "shadows": [],
+                    "innerShadows": [],
+                    "endDecorationType": 0,
+                    "miterLimit": 10,
+                    "startDecorationType": 0,
+                    "contextSettings": {
+                      "_class": "graphicsContextSettings",
+                      "blendMode": 0,
+                      "opacity": "1"
+                    }
+                  },
+                  "layers": [
+                    {
+                      "_class": "rectangle",
+                      "do_objectID": "pizza",
+                      "exportOptions": {
+                        "_class": "exportOptions",
+                        "exportFormats": [],
+                        "includedLayerIds": [],
+                        "layerOptions": 0,
+                        "shouldTrim": false
+                      },
+                      "isFlippedHorizontal": false,
+                      "isFlippedVertical": false,
+                      "isLocked": false,
+                      "isVisible": true,
+                      "layerListExpandedType": 0,
+                      "name": "rectangle",
+                      "nameIsFixed": false,
+                      "resizingConstraint": 63,
+                      "resizingType": 0,
+                      "rotation": 0,
+                      "shouldBreakMaskChain": false,
+                      "layers": [],
+                      "frame": {
+                        "_class": "rect",
+                        "constrainProportions": false,
+                        "height": 43,
+                        "width": 268,
+                        "x": 0,
+                        "y": 0
+                      },
+                      "path": {
+                        "_class": "path",
+                        "isClosed": true,
+                        "pointRadiusBehaviour": 1,
+                        "points": [
+                          {
+                            "_class": "curvePoint",
+                            "cornerRadius": 4,
+                            "curveFrom": "{0, 0}",
+                            "curveMode": 1,
+                            "curveTo": "{0, 0}",
+                            "hasCurveFrom": false,
+                            "hasCurveTo": false,
+                            "point": "{0, 0}"
+                          },
+                          {
+                            "_class": "curvePoint",
+                            "cornerRadius": 4,
+                            "curveFrom": "{1, 0}",
+                            "curveMode": 1,
+                            "curveTo": "{1, 0}",
+                            "hasCurveFrom": false,
+                            "hasCurveTo": false,
+                            "point": "{1, 0}"
+                          },
+                          {
+                            "_class": "curvePoint",
+                            "cornerRadius": 4,
+                            "curveFrom": "{1, 1}",
+                            "curveMode": 1,
+                            "curveTo": "{1, 1}",
+                            "hasCurveFrom": false,
+                            "hasCurveTo": false,
+                            "point": "{1, 1}"
+                          },
+                          {
+                            "_class": "curvePoint",
+                            "cornerRadius": 4,
+                            "curveFrom": "{0, 1}",
+                            "curveMode": 1,
+                            "curveTo": "{0, 1}",
+                            "hasCurveFrom": false,
+                            "hasCurveTo": false,
+                            "point": "{0, 1}"
+                          }
+                        ]
+                      },
+                      "hasConvertedToNewRoundCorners": true,
+                      "fixedRadius": 0,
+                      "edited": false,
+                      "booleanOperation": -1
+                    }
+                  ],
+                  "frame": {
+                    "_class": "rect",
+                    "constrainProportions": false,
+                    "height": 43,
+                    "width": 268,
+                    "x": 0,
+                    "y": 0
+                  },
+                  "hasClickThrough": false,
+                  "clippingMaskMode": 0,
+                  "hasClippingMask": false,
+                  "windingRule": 1
+                },
+                {
+                  "_class": "text",
+                  "do_objectID": "pizza",
+                  "exportOptions": {
+                    "_class": "exportOptions",
+                    "exportFormats": [],
+                    "includedLayerIds": [],
+                    "layerOptions": 0,
+                    "shouldTrim": false
+                  },
+                  "isFlippedHorizontal": false,
+                  "isFlippedVertical": false,
+                  "isLocked": false,
+                  "isVisible": true,
+                  "layerListExpandedType": 0,
+                  "name": "Shadow content ->",
+                  "nameIsFixed": false,
+                  "resizingConstraint": 47,
+                  "resizingType": 0,
+                  "rotation": 0,
+                  "shouldBreakMaskChain": false,
+                  "style": {
+                    "color": "rgb(255, 255, 255)",
+                    "fontSize": 16,
+                    "fontFamily": "Optimist",
+                    "fontWeight": 400,
+                    "textTransform": "none",
+                    "textDecoration": "none",
+                    "textAlign": "center"
+                  },
+                  "layers": [],
+                  "frame": {
+                    "_class": "rect",
+                    "constrainProportions": false,
+                    "height": 21,
+                    "width": 137,
+                    "x": 11.015625,
+                    "y": 11
+                  },
+                  "text": "Shadow content ->",
+                  "automaticallyDrawOnUnderlyingPath": false,
+                  "dontSynchroniseWithSymbol": false,
+                  "glyphBounds": "",
+                  "heightIsClipped": false,
+                  "lineSpacingBehaviour": 2,
+                  "textBehaviour": 0
+                },
+                {
+                  "_class": "group",
+                  "do_objectID": "pizza",
+                  "exportOptions": {
+                    "_class": "exportOptions",
+                    "exportFormats": [],
+                    "includedLayerIds": [],
+                    "layerOptions": 0,
+                    "shouldTrim": false
+                  },
+                  "isFlippedHorizontal": false,
+                  "isFlippedVertical": false,
+                  "isLocked": false,
+                  "isVisible": true,
+                  "layerListExpandedType": 0,
+                  "name": "(slot)",
+                  "nameIsFixed": false,
+                  "resizingConstraint": 63,
+                  "resizingType": 0,
+                  "rotation": 0,
+                  "shouldBreakMaskChain": false,
+                  "style": {
+                    "_class": "style",
+                    "fills": [],
+                    "borders": [],
+                    "shadows": [],
+                    "innerShadows": [],
+                    "endDecorationType": 0,
+                    "miterLimit": 10,
+                    "startDecorationType": 0,
+                    "contextSettings": {
+                      "_class": "graphicsContextSettings",
+                      "blendMode": 0,
+                      "opacity": "1"
+                    }
+                  },
+                  "layers": [],
+                  "frame": {
+                    "_class": "rect",
+                    "constrainProportions": false,
+                    "height": 0,
+                    "width": 0,
+                    "x": -8,
+                    "y": -5557.59375
+                  },
+                  "hasClickThrough": false,
+                  "clippingMaskMode": 0,
+                  "hasClippingMask": false,
+                  "windingRule": 1
+                }
+              ],
+              "frame": {
+                "_class": "rect",
+                "constrainProportions": false,
+                "height": 43,
+                "width": 268,
+                "x": 0,
+                "y": 5537.6875
+              },
+              "hasClickThrough": false,
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
+              "windingRule": 1
+            },
+            {
+              "_class": "group",
+              "do_objectID": "pizza",
+              "exportOptions": {
+                "_class": "exportOptions",
+                "exportFormats": [],
+                "includedLayerIds": [],
+                "layerOptions": 0,
+                "shouldTrim": false
+              },
+              "isFlippedHorizontal": false,
+              "isFlippedVertical": false,
+              "isLocked": false,
+              "isVisible": true,
+              "layerListExpandedType": 0,
+              "name": "(test-el)",
+              "nameIsFixed": false,
+              "resizingConstraint": 63,
+              "resizingType": 0,
+              "rotation": 0,
+              "shouldBreakMaskChain": false,
+              "style": {
+                "_class": "style",
+                "fills": [],
+                "borders": [],
+                "shadows": [],
+                "innerShadows": [],
+                "endDecorationType": 0,
+                "miterLimit": 10,
+                "startDecorationType": 0,
+                "contextSettings": {
+                  "_class": "graphicsContextSettings",
+                  "blendMode": 0,
+                  "opacity": "1"
+                }
+              },
+              "layers": [
+                {
+                  "_class": "text",
+                  "do_objectID": "pizza",
+                  "exportOptions": {
+                    "_class": "exportOptions",
+                    "exportFormats": [],
+                    "includedLayerIds": [],
+                    "layerOptions": 0,
+                    "shouldTrim": false
+                  },
+                  "isFlippedHorizontal": false,
+                  "isFlippedVertical": false,
+                  "isLocked": false,
+                  "isVisible": true,
+                  "layerListExpandedType": 0,
+                  "name": "Slotted content",
+                  "nameIsFixed": false,
+                  "resizingConstraint": 47,
+                  "resizingType": 0,
+                  "rotation": 0,
+                  "shouldBreakMaskChain": false,
+                  "style": {
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 16,
+                    "fontFamily": "Optimist",
+                    "fontWeight": 400,
+                    "textTransform": "none",
+                    "textDecoration": "none",
+                    "textAlign": "start"
+                  },
+                  "layers": [],
+                  "frame": {
+                    "_class": "rect",
+                    "constrainProportions": false,
+                    "height": 21,
+                    "width": 108,
+                    "x": 148.859375,
+                    "y": 74.4375
+                  },
+                  "text": "Slotted content",
+                  "automaticallyDrawOnUnderlyingPath": false,
+                  "dontSynchroniseWithSymbol": false,
+                  "glyphBounds": "",
+                  "heightIsClipped": false,
+                  "lineSpacingBehaviour": 2,
+                  "textBehaviour": 0
+                }
+              ],
+              "frame": {
+                "_class": "rect",
+                "constrainProportions": false,
+                "height": 106.4375,
+                "width": 784,
+                "x": 0,
+                "y": 5474.25
+              },
+              "hasClickThrough": false,
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
+              "windingRule": 1
             }
           ],
           "frame": {
             "_class": "rect",
             "constrainProportions": false,
-            "height": 5405.90625,
+            "height": 5580.6875,
             "width": 784,
             "x": 8,
             "y": 19.90625
@@ -10140,7 +10797,7 @@
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
-        "height": 5405.90625,
+        "height": 5580.6875,
         "width": 784,
         "x": 0,
         "y": 0
@@ -10162,7 +10819,7 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 5405.90625,
+    "height": 5580.6875,
     "width": 784,
     "x": 0,
     "y": 0

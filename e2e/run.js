@@ -4,6 +4,7 @@ const path = require('path');
 const jsdiff = require('variable-diff');
 
 const injectedScriptPath = './dist/inject.bundle.js';
+const shadowDOMScriptPath = './test-el.js';
 const testPageURL = 'file://' + path.resolve('./test-page.html');
 
 const tests = ['layers', 'page'];
@@ -53,38 +54,7 @@ puppeteer.launch({args}).then(async browser => {
   await page.on('console', msg => console.log('PAGE LOG:', msg.text()));
 
   await page.addScriptTag({
-    content: `
-      class TestEl extends HTMLElement {
-        constructor() {
-          super();
-          this.attachShadow({ mode: 'open' });
-          console.log('test-el constructed');
-        }
-
-        connectedCallback() {
-          this.shadowRoot.innerHTML = \`
-            <style>
-              :host {
-                display: block;
-                font-family: Optimist, Arial, sans-serif;
-              }
-              button {
-                background: #53cf92;
-                border-radius: 4px;
-                color: white;
-                font-family: Optimist, Arial, sans-serif;
-                font-size: 16px;
-                padding: 10px;
-              }
-            </style>
-            <h1>My custom button</h1>
-            <button>Shadow content -> <slot></slot></button>
-          \`;
-        }
-      }
-
-      customElements.define('test-el', TestEl);
-    `
+    path: shadowDOMScriptPath
   });
 
   await page.addScriptTag({
@@ -110,8 +80,6 @@ puppeteer.launch({args}).then(async browser => {
       const expectedJSON = JSON.parse(expectedJSONBuffer.toString());
 
       const diff = jsdiff(expectedJSON, actualJSON);
-
-      fs.writeFileSync(`./actual-${test}.asketch.json`, JSON.stringify(actualJSON));
 
       if (diff.changed) {
         console.error(`E2E test "${test}": ❌ Oh no! That's not the expected output. See the diff below:`);
