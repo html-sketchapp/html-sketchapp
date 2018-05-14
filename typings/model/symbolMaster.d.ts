@@ -15,5 +15,7 @@ export interface GetSymbolInstanceProps {
 
 export default class SymbolMaster extends Base {
   constructor(props: SymbolMasterProps);
+  public setId(id: string);
+  public addLayer(layer: Base);
   public getSymbolInstance(props: GetSymbolInstanceProps): SymbolInstance;
 }

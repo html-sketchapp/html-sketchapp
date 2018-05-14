@@ -11,6 +11,10 @@ class SymbolMaster extends Base {
     this._symbolID = generateID();
   }
 
+  setId(id) {
+    this._symbolID = id;
+  }
+
   getSymbolInstance({x, y, width, height}) {
     return new SymbolInstance({x, y, width, height, symbolID: this._symbolID});
   }
