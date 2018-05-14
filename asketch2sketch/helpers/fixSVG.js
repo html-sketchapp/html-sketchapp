@@ -9,10 +9,16 @@ function makeNativeSVGLayer(layer) {
   svgImporter.prepareToImportFromData(svgData);
   const svgLayer = svgImporter.importAsLayer();
 
-  svgLayer.frame().setX(layer.x);
-  svgLayer.frame().setY(layer.y);
-  svgLayer.frame().setWidth(layer.width);
-  svgLayer.frame().setHeight(layer.height);
+  svgLayer.rect = {
+    origin: {
+      x: layer.x,
+      y: layer.y
+    },
+    size: {
+      width: layer.width,
+      height: layer.height
+    }
+  };
   svgLayer.resizingConstraint = layer.resizingConstraint;
 
   return svgLayer;
