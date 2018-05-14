@@ -1,8 +1,8 @@
+import UI from 'sketch/ui';
 import {fromSJSONDictionary} from 'sketchapp-json-plugin';
 import {fixTextLayer, fixSharedTextStyle} from './helpers/fixFont';
 import fixImageFill from './helpers/fixImageFill';
 import fixSVGLayer from './helpers/fixSVG';
-import showDialog from './helpers/showDialog';
 import zoomToFit from './helpers/zoomToFit';
 
 function removeExistingLayers(context) {
@@ -157,9 +157,13 @@ export default function asketch2sketch(context) {
       .forEach(layer => layer && page.addLayer(layer));
 
     if (failingLayers.length === 1) {
-      showDialog('One layer couldn\'t be imported and was skipped.');
+      UI.alert('asketch2sketch', 'One layer couldn\'t be imported and was skipped.');
     } else if (failingLayers.length > 1) {
-      showDialog(`${failingLayers.length} layers couldn't be imported and were skipped.`);
+      UI.alert('asketch2sketch', `${failingLayers.length} layers couldn't be imported and were skipped.`);
+    } else {
+      const emojis = ['👌', '👍', '✨', '😍', '🍾', '🤩', '🎉', '👏', '💪', '🤘', '💅', '🏆', '🚀'];
+
+      UI.message(`Import successful ${emojis[Math.floor(emojis.length * Math.random())]}`);
     }
 
     zoomToFit(context);
