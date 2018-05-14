@@ -77,7 +77,7 @@ class Base {
       'resizingType': 0,
       'rotation': 0,
       'shouldBreakMaskChain': false,
-      userInfo: this._userInfo ? this._userInfo.toJSON() : undefined,
+      userInfo: this._userInfo ? this._userInfo : undefined,
       style: this._style ? this._style.toJSON() : undefined,
       layers: this._layers.map(layer => layer.toJSON())
     };
