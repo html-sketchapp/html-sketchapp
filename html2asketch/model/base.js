@@ -1,5 +1,7 @@
 import {generateID, RESIZING_CONSTRAINTS, calculateResizingConstraintValue} from '../helpers/utils';
 
+const DEFAULT_USER_INFO_SCOPE = 'html-sketchapp';
+
 class Base {
   constructor() {
     this._class = null;
@@ -7,6 +9,7 @@ class Base {
     this._style = null;
     this._objectID = generateID();
     this._name = '';
+    this._userInfo = null;
     this.setResizingConstraint(RESIZING_CONSTRAINTS.NONE);
   }
 
@@ -20,6 +23,20 @@ class Base {
 
   getID() {
     return this._objectID;
+  }
+
+  // scope defines which Sketch plugin will have access to provided data via Settings.setLayerSettingForKey
+  // you should set it to the plugin id e.g. "com.bohemiancoding.sketch.textplugin"
+  // by default however we use "html-sketchapp" here which won't work directly with any plugin
+  // but can still be accessed via native plugin API: layer.userInfo()['html-sketchapp']
+  setUserInfo(key, value, scope = DEFAULT_USER_INFO_SCOPE) {
+    this._userInfo = this._userInfo || {};
+    this._userInfo[scope] = this._userInfo[scope] || {};
+    this._userInfo[scope][key] = value;
+  }
+
+  getUserInfo(key, scope = DEFAULT_USER_INFO_SCOPE) {
+    return this._userInfo && this._userInfo[scope] && this._userInfo[scope][key];
   }
 
   setName(name) {
@@ -60,6 +77,7 @@ class Base {
       'resizingType': 0,
       'rotation': 0,
       'shouldBreakMaskChain': false,
+      userInfo: this._userInfo ? this._userInfo.toJSON() : undefined,
       style: this._style ? this._style.toJSON() : undefined,
       layers: this._layers.map(layer => layer.toJSON())
     };
