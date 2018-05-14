@@ -45,6 +45,7 @@
     "NSMutableAttributedString": false,
     "MSSVGImporter": false,
     "COSAlertWindow": false,
-    "NSMakeRect": false
+    "NSMakeRect": false,
+    "NSBundle": false
   }
 }
