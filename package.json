@@ -43,7 +43,7 @@
     "jest-cli": "^21.2.1",
     "jsdom": "^11.6.2",
     "puppeteer": "^1.1.1",
-    "skpm": "^1.0.12",
+    "skpm": "^1.0.15",
     "variable-diff": "^1.1.0",
     "webpack": "^4.0.0",
     "webpack-cli": "^2.0.12",
