@@ -63,9 +63,16 @@ function removeSharedTextStyles(document) {
 }
 
 function addSharedTextStyle(document, style) {
-  const textStyles = document.documentData().layerTextStyles();
+  const container = context.document.documentData().layerTextStyles();
 
-  textStyles.addSharedStyleWithName_firstInstance(style.name, fromSJSONDictionary(style.value));
+  if (container.addSharedStyleWithName_firstInstance) {
+    container.addSharedStyleWithName_firstInstance(style.name, fromSJSONDictionary(style.value));
+  } else {
+    // addSharedStyleWithName_firstInstance was removed in Sketch 50
+    const s = MSSharedStyle.alloc().initWithName_firstInstance(style.name, fromSJSONDictionary(style.value));
+
+    container.addSharedObject(s);
+  }
 }
 
 function removeSharedColors(document) {
