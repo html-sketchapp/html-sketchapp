@@ -46,6 +46,7 @@
     "MSSVGImporter": false,
     "COSAlertWindow": false,
     "NSMakeRect": false,
-    "NSBundle": false
+    "NSBundle": false,
+    "MSSharedStyle": false
   }
 }
