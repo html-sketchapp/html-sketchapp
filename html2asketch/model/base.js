@@ -26,9 +26,9 @@ class Base {
   }
 
   // scope defines which Sketch plugin will have access to provided data via Settings.setLayerSettingForKey
-  // you should set it to the plugin id e.g. "com.bohemiancoding.sketch.textplugin"
+  // you should set it to the plugin ID e.g. "com.bohemiancoding.sketch.testplugin"
   // by default however we use "html-sketchapp" here which won't work directly with any plugin
-  // but can still be accessed via native plugin API: layer.userInfo()['html-sketchapp']
+  // but can still be accessed via native API: layer.userInfo()['html-sketchapp']
   setUserInfo(key, value, scope = DEFAULT_USER_INFO_SCOPE) {
     this._userInfo = this._userInfo || {};
     this._userInfo[scope] = this._userInfo[scope] || {};
