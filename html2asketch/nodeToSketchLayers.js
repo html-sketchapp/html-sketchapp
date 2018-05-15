@@ -113,6 +113,13 @@ export default function nodeToSketchLayers(node, options) {
   }
 
   const shapeGroup = new ShapeGroup({x: left, y: top, width, height});
+
+  if (options && options.getRectangleName) {
+    shapeGroup.setName(options.getRectangleName(node));
+  } else {
+    shapeGroup.setName(createXPathFromElement(node));
+  }
+
   const isImage = node.nodeName === 'IMG' && node.currentSrc;
   const isSVG = node.nodeName === 'svg';
 
@@ -187,12 +194,6 @@ export default function nodeToSketchLayers(node, options) {
 
     shapeGroup.setStyle(style);
 
-    if (options && options.getRectangleName) {
-      shapeGroup.setName(options.getRectangleName(node));
-    } else {
-      shapeGroup.setName(createXPathFromElement(node));
-    }
-
     //TODO borderRadius can be expressed in different formats and use various units - for simplicity we assume "X%"
     const cornerRadius = {
       topLeft: fixBorderRadius(borderTopLeftRadius, width, height),
@@ -212,14 +213,21 @@ export default function nodeToSketchLayers(node, options) {
     // sketch ignores padding and centerging as defined by viewBox and preserveAspectRatio when
     // importing SVG, so instead of using BCR of the SVG, we are using BCR of its children
     const childrenBCR = getGroupBCR(Array.from(node.children));
-
-    layers.push(new SVG({
+    const svgLayer = new SVG({
       x: childrenBCR.left,
       y: childrenBCR.top,
       width: childrenBCR.width,
       height: childrenBCR.height,
       rawSVGString: getSVGString(node)
-    }));
+    });
+
+    // helper layer that's a placeholder for the original space taken by the SVG
+    // when exporting SVGs as symbols it helps maintain expected size
+    shapeGroup.setStyle(new Style());
+    shapeGroup.addLayer(new Rectange({width, height}));
+    layers.push(shapeGroup);
+
+    layers.push(svgLayer);
 
     return layers;
   }
