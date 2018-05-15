@@ -4,6 +4,8 @@ import SymbolInstance from "./symbolInstance";
 export interface SymbolMasterProps {
   x: number;
   y: number;
+  width?: number;
+  height?: number;
 }
 
 export interface GetSymbolInstanceProps {

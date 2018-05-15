@@ -221,12 +221,6 @@ export default function nodeToSketchLayers(node, options) {
       rawSVGString: getSVGString(node)
     });
 
-    // helper layer that's a placeholder for the original space taken by the SVG
-    // when exporting SVGs as symbols it helps maintain expected size
-    shapeGroup.setStyle(new Style());
-    shapeGroup.addLayer(new Rectange({width, height}));
-    layers.push(shapeGroup);
-
     layers.push(svgLayer);
 
     return layers;
