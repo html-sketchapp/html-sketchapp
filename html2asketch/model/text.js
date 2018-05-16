@@ -31,14 +31,16 @@ class Text extends Base {
     obj.text = this._text;
     obj.style = this._style.toJSON();
 
+    // text nodes don't have child layers
+    delete obj.layers;
+
     obj.automaticallyDrawOnUnderlyingPath = false;
     obj.dontSynchroniseWithSymbol = false;
-    obj.glyphBounds = '';
-    obj.heightIsClipped = false;
     obj.lineSpacingBehaviour = 2;
     // 1 - width is set to Fixed
     // 0 - width is set to Auto - this helps us avoid issues with browser setting too small width causing line to break
     obj.textBehaviour = this._multiline ? 1 : 0;
+
     return obj;
   }
 }

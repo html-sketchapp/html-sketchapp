@@ -56,7 +56,7 @@ class Base {
       throw new Error('Class not set.');
     }
 
-    return {
+    const result = {
       '_class': this._class,
       'do_objectID': this._objectID,
       'exportOptions': {
@@ -77,10 +77,18 @@ class Base {
       'resizingType': 0,
       'rotation': 0,
       'shouldBreakMaskChain': false,
-      userInfo: this._userInfo ? this._userInfo : undefined,
-      style: this._style ? this._style.toJSON() : undefined,
       layers: this._layers.map(layer => layer.toJSON())
     };
+
+    if (this._userInfo) {
+      result.userInfo = this._userInfo;
+    }
+
+    if (this._style) {
+      result.style = this._style.toJSON();
+    }
+
+    return result;
   }
 }
 
