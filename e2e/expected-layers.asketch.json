@@ -19,12 +19,6 @@
   "resizingType": 0,
   "rotation": 0,
   "shouldBreakMaskChain": false,
-  "style": {
-    "_class": "style",
-    "endDecorationType": 0,
-    "miterLimit": 10,
-    "startDecorationType": 0
-  },
   "layers": [
     {
       "_class": "text",
@@ -52,11 +46,10 @@
         "fontSize": 16,
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -68,8 +61,6 @@
       "text": "pre-line\n\n\ntext\n",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 1
     },
@@ -99,11 +90,10 @@
         "fontSize": 13,
         "fontFamily": "monospace",
         "fontWeight": 400,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -115,8 +105,6 @@
       "text": "    pre \n\n\n    text \n  ",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 1
     },
@@ -146,11 +134,10 @@
         "fontSize": 16,
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -162,8 +149,6 @@
       "text": "Default text !!",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 1
     },
@@ -193,11 +178,10 @@
         "fontSize": 24,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -209,8 +193,6 @@
       "text": "white-space",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -235,53 +217,6 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 1,
-              "green": 0.7529411764705882,
-              "blue": 0.796078431372549,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [
-          {
-            "_class": "border",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 1,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "position": 1,
-            "thickness": 2
-          }
-        ],
-        "shadows": [],
-        "innerShadows": [],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
       "layers": [
         {
           "_class": "rectangle",
@@ -366,6 +301,53 @@
           "booleanOperation": -1
         }
       ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 1,
+              "green": 0.7529411764705882,
+              "blue": 0.796078431372549,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 1,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 2
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -414,11 +396,10 @@
         "fontSize": 18,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -430,8 +411,6 @@
       "text": "SVG with styled element",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -470,11 +449,10 @@
         "fontSize": 18,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -486,8 +464,6 @@
       "text": "SVG via <use>",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -526,11 +502,10 @@
         "fontSize": 18,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -542,8 +517,6 @@
       "text": "Inheritied styles",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -582,11 +555,10 @@
         "fontSize": 18,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -598,8 +570,6 @@
       "text": "Embedded styles",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -629,11 +599,10 @@
         "fontSize": 24,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -645,8 +614,6 @@
       "text": "SVG",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -671,6 +638,90 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "layers": [
+        {
+          "_class": "rectangle",
+          "do_objectID": "pizza",
+          "exportOptions": {
+            "_class": "exportOptions",
+            "exportFormats": [],
+            "includedLayerIds": [],
+            "layerOptions": 0,
+            "shouldTrim": false
+          },
+          "isFlippedHorizontal": false,
+          "isFlippedVertical": false,
+          "isLocked": false,
+          "isVisible": true,
+          "layerListExpandedType": 0,
+          "name": "rectangle",
+          "nameIsFixed": false,
+          "resizingConstraint": 63,
+          "resizingType": 0,
+          "rotation": 0,
+          "shouldBreakMaskChain": false,
+          "layers": [],
+          "frame": {
+            "_class": "rect",
+            "constrainProportions": false,
+            "height": 100,
+            "width": 100,
+            "x": 0,
+            "y": 0
+          },
+          "path": {
+            "_class": "path",
+            "isClosed": true,
+            "pointRadiusBehaviour": 1,
+            "points": [
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 0}",
+                "curveMode": 1,
+                "curveTo": "{0, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 0}",
+                "curveMode": 1,
+                "curveTo": "{1, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 1}",
+                "curveMode": 1,
+                "curveTo": "{1, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 1}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 1}",
+                "curveMode": 1,
+                "curveTo": "{0, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 1}"
+              }
+            ]
+          },
+          "hasConvertedToNewRoundCorners": true,
+          "fixedRadius": 0,
+          "edited": false,
+          "booleanOperation": -1
+        }
+      ],
       "style": {
         "_class": "style",
         "fills": [
@@ -718,6 +769,84 @@
           "opacity": "0.3"
         }
       },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 100,
+        "width": 100,
+        "x": 8,
+        "y": 4683.03125
+      },
+      "hasClickThrough": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
+      "windingRule": 1
+    },
+    {
+      "_class": "text",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "opacity 0.3",
+      "nameIsFixed": false,
+      "resizingConstraint": 47,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "style": {
+        "color": "rgb(0, 0, 0)",
+        "fontSize": 16,
+        "fontFamily": "Times New Roman",
+        "fontWeight": 400,
+        "textDecoration": "none",
+        "textAlign": "start",
+        "textTransform": "none"
+      },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 17,
+        "width": 71,
+        "x": 8,
+        "y": 4683.03125
+      },
+      "text": "opacity 0.3",
+      "automaticallyDrawOnUnderlyingPath": false,
+      "dontSynchroniseWithSymbol": false,
+      "lineSpacingBehaviour": 2,
+      "textBehaviour": 0
+    },
+    {
+      "_class": "shapeGroup",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "/html[1]/body[1]/div[@class=\"box\"]",
+      "nameIsFixed": false,
+      "resizingConstraint": 63,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
       "layers": [
         {
           "_class": "rectangle",
@@ -802,87 +931,6 @@
           "booleanOperation": -1
         }
       ],
-      "frame": {
-        "_class": "rect",
-        "constrainProportions": false,
-        "height": 100,
-        "width": 100,
-        "x": 8,
-        "y": 4683.03125
-      },
-      "hasClickThrough": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
-      "windingRule": 1
-    },
-    {
-      "_class": "text",
-      "do_objectID": "pizza",
-      "exportOptions": {
-        "_class": "exportOptions",
-        "exportFormats": [],
-        "includedLayerIds": [],
-        "layerOptions": 0,
-        "shouldTrim": false
-      },
-      "isFlippedHorizontal": false,
-      "isFlippedVertical": false,
-      "isLocked": false,
-      "isVisible": true,
-      "layerListExpandedType": 0,
-      "name": "opacity 0.3",
-      "nameIsFixed": false,
-      "resizingConstraint": 47,
-      "resizingType": 0,
-      "rotation": 0,
-      "shouldBreakMaskChain": false,
-      "style": {
-        "color": "rgb(0, 0, 0)",
-        "fontSize": 16,
-        "fontFamily": "Times New Roman",
-        "fontWeight": 400,
-        "textTransform": "none",
-        "textDecoration": "none",
-        "textAlign": "start"
-      },
-      "layers": [],
-      "frame": {
-        "_class": "rect",
-        "constrainProportions": false,
-        "height": 17,
-        "width": 71,
-        "x": 8,
-        "y": 4683.03125
-      },
-      "text": "opacity 0.3",
-      "automaticallyDrawOnUnderlyingPath": false,
-      "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
-      "lineSpacingBehaviour": 2,
-      "textBehaviour": 0
-    },
-    {
-      "_class": "shapeGroup",
-      "do_objectID": "pizza",
-      "exportOptions": {
-        "_class": "exportOptions",
-        "exportFormats": [],
-        "includedLayerIds": [],
-        "layerOptions": 0,
-        "shouldTrim": false
-      },
-      "isFlippedHorizontal": false,
-      "isFlippedVertical": false,
-      "isLocked": false,
-      "isVisible": true,
-      "layerListExpandedType": 0,
-      "name": "/html[1]/body[1]/div[@class=\"box\"]",
-      "nameIsFixed": false,
-      "resizingConstraint": 63,
-      "resizingType": 0,
-      "rotation": 0,
-      "shouldBreakMaskChain": false,
       "style": {
         "_class": "style",
         "fills": [
@@ -930,90 +978,6 @@
           "opacity": "0.8"
         }
       },
-      "layers": [
-        {
-          "_class": "rectangle",
-          "do_objectID": "pizza",
-          "exportOptions": {
-            "_class": "exportOptions",
-            "exportFormats": [],
-            "includedLayerIds": [],
-            "layerOptions": 0,
-            "shouldTrim": false
-          },
-          "isFlippedHorizontal": false,
-          "isFlippedVertical": false,
-          "isLocked": false,
-          "isVisible": true,
-          "layerListExpandedType": 0,
-          "name": "rectangle",
-          "nameIsFixed": false,
-          "resizingConstraint": 63,
-          "resizingType": 0,
-          "rotation": 0,
-          "shouldBreakMaskChain": false,
-          "layers": [],
-          "frame": {
-            "_class": "rect",
-            "constrainProportions": false,
-            "height": 100,
-            "width": 100,
-            "x": 0,
-            "y": 0
-          },
-          "path": {
-            "_class": "path",
-            "isClosed": true,
-            "pointRadiusBehaviour": 1,
-            "points": [
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{0, 0}",
-                "curveMode": 1,
-                "curveTo": "{0, 0}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{0, 0}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{1, 0}",
-                "curveMode": 1,
-                "curveTo": "{1, 0}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{1, 0}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{1, 1}",
-                "curveMode": 1,
-                "curveTo": "{1, 1}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{1, 1}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{0, 1}",
-                "curveMode": 1,
-                "curveTo": "{0, 1}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{0, 1}"
-              }
-            ]
-          },
-          "hasConvertedToNewRoundCorners": true,
-          "fixedRadius": 0,
-          "edited": false,
-          "booleanOperation": -1
-        }
-      ],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -1053,11 +1017,10 @@
         "fontSize": 16,
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -1069,8 +1032,6 @@
       "text": "opacity 0.8",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -1100,11 +1061,10 @@
         "fontSize": 24,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -1116,8 +1076,6 @@
       "text": "Opacity",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -1142,53 +1100,6 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 1,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [
-          {
-            "_class": "border",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "position": 1,
-            "thickness": 0
-          }
-        ],
-        "shadows": [],
-        "innerShadows": [],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
       "layers": [
         {
           "_class": "rectangle",
@@ -1273,6 +1184,53 @@
           "booleanOperation": -1
         }
       ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 1,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -1312,11 +1270,10 @@
         "fontSize": 16,
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -1328,8 +1285,6 @@
       "text": "inline-block",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -1354,53 +1309,6 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 1,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [
-          {
-            "_class": "border",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "position": 1,
-            "thickness": 0
-          }
-        ],
-        "shadows": [],
-        "innerShadows": [],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
       "layers": [
         {
           "_class": "rectangle",
@@ -1485,6 +1393,53 @@
           "booleanOperation": -1
         }
       ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 1,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -1524,11 +1479,10 @@
         "fontSize": 16,
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -1540,8 +1494,6 @@
       "text": "inline-block",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -1566,53 +1518,6 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 1,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [
-          {
-            "_class": "border",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "position": 1,
-            "thickness": 0
-          }
-        ],
-        "shadows": [],
-        "innerShadows": [],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
       "layers": [
         {
           "_class": "rectangle",
@@ -1697,6 +1602,53 @@
           "booleanOperation": -1
         }
       ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 1,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -1736,11 +1688,10 @@
         "fontSize": 16,
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -1752,8 +1703,6 @@
       "text": "block",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -1778,53 +1727,6 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 1,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [
-          {
-            "_class": "border",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "position": 1,
-            "thickness": 0
-          }
-        ],
-        "shadows": [],
-        "innerShadows": [],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
       "layers": [
         {
           "_class": "rectangle",
@@ -1909,6 +1811,53 @@
           "booleanOperation": -1
         }
       ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 1,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -1948,11 +1897,10 @@
         "fontSize": 24,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -1964,8 +1912,6 @@
       "text": "Visibility",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -1995,11 +1941,10 @@
         "fontSize": 16,
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "right"
+        "textAlign": "right",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -2011,8 +1956,6 @@
       "text": "Font seven",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -2042,11 +1985,10 @@
         "fontSize": 16,
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
-        "textTransform": "none",
         "textDecoration": "line-through",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -2058,8 +2000,6 @@
       "text": "Font six",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -2089,11 +2029,10 @@
         "fontSize": 16,
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
-        "textTransform": "none",
         "textDecoration": "underline",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -2105,8 +2044,6 @@
       "text": "Font five",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -2136,11 +2073,10 @@
         "fontSize": 16,
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
-        "textTransform": "uppercase",
         "textDecoration": "none",
-        "textAlign": "center"
+        "textAlign": "center",
+        "textTransform": "uppercase"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -2152,8 +2088,6 @@
       "text": "Font four",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -2184,11 +2118,10 @@
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
         "lineHeight": 40,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -2200,8 +2133,6 @@
       "text": "Font three",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -2231,12 +2162,11 @@
         "fontSize": 16,
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
-        "letterSpacing": 20,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "letterSpacing": 20,
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -2248,8 +2178,6 @@
       "text": "Font two",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -2279,11 +2207,10 @@
         "fontSize": 16,
         "fontFamily": "CourierNew",
         "fontWeight": 400,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -2295,8 +2222,6 @@
       "text": "Font one",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -2326,11 +2251,10 @@
         "fontSize": 24,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -2342,8 +2266,6 @@
       "text": "Font",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -2368,6 +2290,90 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "layers": [
+        {
+          "_class": "rectangle",
+          "do_objectID": "pizza",
+          "exportOptions": {
+            "_class": "exportOptions",
+            "exportFormats": [],
+            "includedLayerIds": [],
+            "layerOptions": 0,
+            "shouldTrim": false
+          },
+          "isFlippedHorizontal": false,
+          "isFlippedVertical": false,
+          "isLocked": false,
+          "isVisible": true,
+          "layerListExpandedType": 0,
+          "name": "rectangle",
+          "nameIsFixed": false,
+          "resizingConstraint": 63,
+          "resizingType": 0,
+          "rotation": 0,
+          "shouldBreakMaskChain": false,
+          "layers": [],
+          "frame": {
+            "_class": "rect",
+            "constrainProportions": false,
+            "height": 200,
+            "width": 200,
+            "x": 0,
+            "y": 0
+          },
+          "path": {
+            "_class": "path",
+            "isClosed": true,
+            "pointRadiusBehaviour": 1,
+            "points": [
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 0}",
+                "curveMode": 1,
+                "curveTo": "{0, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 0}",
+                "curveMode": 1,
+                "curveTo": "{1, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 1}",
+                "curveMode": 1,
+                "curveTo": "{1, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 1}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 1}",
+                "curveMode": 1,
+                "curveTo": "{0, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 1}"
+              }
+            ]
+          },
+          "hasConvertedToNewRoundCorners": true,
+          "fixedRadius": 0,
+          "edited": false,
+          "booleanOperation": -1
+        }
+      ],
       "style": {
         "_class": "style",
         "fills": [
@@ -2463,6 +2469,40 @@
           "opacity": "1"
         }
       },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 200,
+        "width": 200,
+        "x": 8,
+        "y": 3510.59375
+      },
+      "hasClickThrough": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
+      "windingRule": 1
+    },
+    {
+      "_class": "shapeGroup",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "/html[1]/body[1]/div[@class=\"bg-color\"]",
+      "nameIsFixed": false,
+      "resizingConstraint": 63,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
       "layers": [
         {
           "_class": "rectangle",
@@ -2547,40 +2587,6 @@
           "booleanOperation": -1
         }
       ],
-      "frame": {
-        "_class": "rect",
-        "constrainProportions": false,
-        "height": 200,
-        "width": 200,
-        "x": 8,
-        "y": 3510.59375
-      },
-      "hasClickThrough": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
-      "windingRule": 1
-    },
-    {
-      "_class": "shapeGroup",
-      "do_objectID": "pizza",
-      "exportOptions": {
-        "_class": "exportOptions",
-        "exportFormats": [],
-        "includedLayerIds": [],
-        "layerOptions": 0,
-        "shouldTrim": false
-      },
-      "isFlippedHorizontal": false,
-      "isFlippedVertical": false,
-      "isLocked": false,
-      "isVisible": true,
-      "layerListExpandedType": 0,
-      "name": "/html[1]/body[1]/div[@class=\"bg-color\"]",
-      "nameIsFixed": false,
-      "resizingConstraint": 63,
-      "resizingType": 0,
-      "rotation": 0,
-      "shouldBreakMaskChain": false,
       "style": {
         "_class": "style",
         "fills": [
@@ -2628,6 +2634,40 @@
           "opacity": "1"
         }
       },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 200,
+        "width": 200,
+        "x": 8,
+        "y": 3310.59375
+      },
+      "hasClickThrough": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
+      "windingRule": 1
+    },
+    {
+      "_class": "shapeGroup",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "/html[1]/body[1]/div[@class=\"bg-image\"]",
+      "nameIsFixed": false,
+      "resizingConstraint": 63,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
       "layers": [
         {
           "_class": "rectangle",
@@ -2712,40 +2752,6 @@
           "booleanOperation": -1
         }
       ],
-      "frame": {
-        "_class": "rect",
-        "constrainProportions": false,
-        "height": 200,
-        "width": 200,
-        "x": 8,
-        "y": 3310.59375
-      },
-      "hasClickThrough": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
-      "windingRule": 1
-    },
-    {
-      "_class": "shapeGroup",
-      "do_objectID": "pizza",
-      "exportOptions": {
-        "_class": "exportOptions",
-        "exportFormats": [],
-        "includedLayerIds": [],
-        "layerOptions": 0,
-        "shouldTrim": false
-      },
-      "isFlippedHorizontal": false,
-      "isFlippedVertical": false,
-      "isLocked": false,
-      "isVisible": true,
-      "layerListExpandedType": 0,
-      "name": "/html[1]/body[1]/div[@class=\"bg-image\"]",
-      "nameIsFixed": false,
-      "resizingConstraint": 63,
-      "resizingType": 0,
-      "rotation": 0,
-      "shouldBreakMaskChain": false,
       "style": {
         "_class": "style",
         "fills": [
@@ -2808,90 +2814,6 @@
           "opacity": "1"
         }
       },
-      "layers": [
-        {
-          "_class": "rectangle",
-          "do_objectID": "pizza",
-          "exportOptions": {
-            "_class": "exportOptions",
-            "exportFormats": [],
-            "includedLayerIds": [],
-            "layerOptions": 0,
-            "shouldTrim": false
-          },
-          "isFlippedHorizontal": false,
-          "isFlippedVertical": false,
-          "isLocked": false,
-          "isVisible": true,
-          "layerListExpandedType": 0,
-          "name": "rectangle",
-          "nameIsFixed": false,
-          "resizingConstraint": 63,
-          "resizingType": 0,
-          "rotation": 0,
-          "shouldBreakMaskChain": false,
-          "layers": [],
-          "frame": {
-            "_class": "rect",
-            "constrainProportions": false,
-            "height": 200,
-            "width": 200,
-            "x": 0,
-            "y": 0
-          },
-          "path": {
-            "_class": "path",
-            "isClosed": true,
-            "pointRadiusBehaviour": 1,
-            "points": [
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{0, 0}",
-                "curveMode": 1,
-                "curveTo": "{0, 0}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{0, 0}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{1, 0}",
-                "curveMode": 1,
-                "curveTo": "{1, 0}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{1, 0}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{1, 1}",
-                "curveMode": 1,
-                "curveTo": "{1, 1}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{1, 1}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{0, 1}",
-                "curveMode": 1,
-                "curveTo": "{0, 1}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{0, 1}"
-              }
-            ]
-          },
-          "hasConvertedToNewRoundCorners": true,
-          "fixedRadius": 0,
-          "edited": false,
-          "booleanOperation": -1
-        }
-      ],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -2931,11 +2853,10 @@
         "fontSize": 24,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -2947,8 +2868,6 @@
       "text": "Background",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -2973,53 +2892,6 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 0
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [
-          {
-            "_class": "border",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 1,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "position": 1,
-            "thickness": 2
-          }
-        ],
-        "shadows": [],
-        "innerShadows": [],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
       "layers": [
         {
           "_class": "rectangle",
@@ -3104,6 +2976,53 @@
           "booleanOperation": -1
         }
       ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 1,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 2
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -3143,11 +3062,10 @@
         "fontSize": 16,
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -3159,8 +3077,6 @@
       "text": "border radius",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -3185,53 +3101,6 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 0
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [
-          {
-            "_class": "border",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 1,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "position": 1,
-            "thickness": 2
-          }
-        ],
-        "shadows": [],
-        "innerShadows": [],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
       "layers": [
         {
           "_class": "rectangle",
@@ -3316,6 +3185,53 @@
           "booleanOperation": -1
         }
       ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 1,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 2
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -3355,11 +3271,10 @@
         "fontSize": 16,
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -3371,8 +3286,6 @@
       "text": "border radius",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -3397,53 +3310,6 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 0
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [
-          {
-            "_class": "border",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 1,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "position": 1,
-            "thickness": 4
-          }
-        ],
-        "shadows": [],
-        "innerShadows": [],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
       "layers": [
         {
           "_class": "rectangle",
@@ -3528,6 +3394,53 @@
           "booleanOperation": -1
         }
       ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 1,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 4
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -3567,11 +3480,10 @@
         "fontSize": 16,
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -3583,8 +3495,6 @@
       "text": "border",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -3609,53 +3519,6 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 0
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [
-          {
-            "_class": "border",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 1,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "position": 1,
-            "thickness": 2
-          }
-        ],
-        "shadows": [],
-        "innerShadows": [],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
       "layers": [
         {
           "_class": "rectangle",
@@ -3740,6 +3603,53 @@
           "booleanOperation": -1
         }
       ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 1,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 2
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -3779,11 +3689,10 @@
         "fontSize": 16,
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -3795,8 +3704,6 @@
       "text": "border",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -3826,11 +3733,10 @@
         "fontSize": 24,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -3842,8 +3748,6 @@
       "text": "Border",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -3868,68 +3772,6 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 0
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          },
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "fillType": 4,
-            "image": {
-              "_class": "MSJSONOriginalDataReference",
-              "_ref_class": "MSImageData",
-              "_ref": "images/haribo",
-              "url": "svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgo8c3ZnCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4wIgogICB3aWR0aD0iMTAwIgogICBoZWlnaHQ9IjEwMCIKICAgaWQ9InN2ZzcwMTEiPgogIDxkZWZzCiAgICAgaWQ9ImRlZnM3MDEzIiAvPgogIDxnCiAgICAgaWQ9ImxheWVyMSI+CiAgICA8cGF0aAogICAgICAgZD0iTSA5MS44NjI4ODksNC40MzgzMjM3IEMgNDguMjcwOTksODYuNzAyNDIgNDguMjcwOTksODYuNzAyNDIgNDguMjcwOTksODYuNzAyNDIgTCA1LjExOTQxNDEsNTguMTYxODE3IgogICAgICAgc3R5bGU9ImZpbGw6bm9uZTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2U6IzAwODAwMDtzdHJva2Utd2lkdGg6MTguMzUwOTk5ODM7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICAgIGlkPSJwYXRoNzAxOSIgLz4KICA8L2c+Cjwvc3ZnPgo="
-            },
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [
-          {
-            "_class": "border",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "position": 1,
-            "thickness": 0
-          }
-        ],
-        "shadows": [],
-        "innerShadows": [],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
       "layers": [
         {
           "_class": "rectangle",
@@ -4014,6 +3856,68 @@
           "booleanOperation": -1
         }
       ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          },
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "fillType": 4,
+            "image": {
+              "_class": "MSJSONOriginalDataReference",
+              "_ref_class": "MSImageData",
+              "_ref": "images/haribo",
+              "url": "svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgo8c3ZnCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4wIgogICB3aWR0aD0iMTAwIgogICBoZWlnaHQ9IjEwMCIKICAgaWQ9InN2ZzcwMTEiPgogIDxkZWZzCiAgICAgaWQ9ImRlZnM3MDEzIiAvPgogIDxnCiAgICAgaWQ9ImxheWVyMSI+CiAgICA8cGF0aAogICAgICAgZD0iTSA5MS44NjI4ODksNC40MzgzMjM3IEMgNDguMjcwOTksODYuNzAyNDIgNDguMjcwOTksODYuNzAyNDIgNDguMjcwOTksODYuNzAyNDIgTCA1LjExOTQxNDEsNTguMTYxODE3IgogICAgICAgc3R5bGU9ImZpbGw6bm9uZTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2U6IzAwODAwMDtzdHJva2Utd2lkdGg6MTguMzUwOTk5ODM7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICAgIGlkPSJwYXRoNzAxOSIgLz4KICA8L2c+Cjwvc3ZnPgo="
+            },
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -4053,11 +3957,10 @@
         "fontSize": 18,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -4069,8 +3972,6 @@
       "text": "plaintext SVG data: URL",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -4095,68 +3996,6 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 0
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          },
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "fillType": 4,
-            "image": {
-              "_class": "MSJSONOriginalDataReference",
-              "_ref_class": "MSImageData",
-              "_ref": "images/haribo",
-              "url": "svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgo8c3ZnCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4wIgogICB3aWR0aD0iMTAwIgogICBoZWlnaHQ9IjEwMCIKICAgaWQ9InN2ZzcwMTEiPgogIDxkZWZzCiAgICAgaWQ9ImRlZnM3MDEzIiAvPgogIDxnCiAgICAgaWQ9ImxheWVyMSI+CiAgICA8cGF0aAogICAgICAgZD0iTSA5MS44NjI4ODksNC40MzgzMjM3IEMgNDguMjcwOTksODYuNzAyNDIgNDguMjcwOTksODYuNzAyNDIgNDguMjcwOTksODYuNzAyNDIgTCA1LjExOTQxNDEsNTguMTYxODE3IgogICAgICAgc3R5bGU9ImZpbGw6bm9uZTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2U6IzAwODAwMDtzdHJva2Utd2lkdGg6MTguMzUwOTk5ODM7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICAgIGlkPSJwYXRoNzAxOSIgLz4KICA8L2c+Cjwvc3ZnPgo="
-            },
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [
-          {
-            "_class": "border",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "position": 1,
-            "thickness": 0
-          }
-        ],
-        "shadows": [],
-        "innerShadows": [],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
       "layers": [
         {
           "_class": "rectangle",
@@ -4241,6 +4080,68 @@
           "booleanOperation": -1
         }
       ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          },
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "fillType": 4,
+            "image": {
+              "_class": "MSJSONOriginalDataReference",
+              "_ref_class": "MSImageData",
+              "_ref": "images/haribo",
+              "url": "svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgo8c3ZnCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4wIgogICB3aWR0aD0iMTAwIgogICBoZWlnaHQ9IjEwMCIKICAgaWQ9InN2ZzcwMTEiPgogIDxkZWZzCiAgICAgaWQ9ImRlZnM3MDEzIiAvPgogIDxnCiAgICAgaWQ9ImxheWVyMSI+CiAgICA8cGF0aAogICAgICAgZD0iTSA5MS44NjI4ODksNC40MzgzMjM3IEMgNDguMjcwOTksODYuNzAyNDIgNDguMjcwOTksODYuNzAyNDIgNDguMjcwOTksODYuNzAyNDIgTCA1LjExOTQxNDEsNTguMTYxODE3IgogICAgICAgc3R5bGU9ImZpbGw6bm9uZTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2U6IzAwODAwMDtzdHJva2Utd2lkdGg6MTguMzUwOTk5ODM7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICAgIGlkPSJwYXRoNzAxOSIgLz4KICA8L2c+Cjwvc3ZnPgo="
+            },
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -4280,11 +4181,10 @@
         "fontSize": 18,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -4296,8 +4196,6 @@
       "text": "base64 SVG data: URL",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -4322,6 +4220,90 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "layers": [
+        {
+          "_class": "rectangle",
+          "do_objectID": "pizza",
+          "exportOptions": {
+            "_class": "exportOptions",
+            "exportFormats": [],
+            "includedLayerIds": [],
+            "layerOptions": 0,
+            "shouldTrim": false
+          },
+          "isFlippedHorizontal": false,
+          "isFlippedVertical": false,
+          "isLocked": false,
+          "isVisible": true,
+          "layerListExpandedType": 0,
+          "name": "rectangle",
+          "nameIsFixed": false,
+          "resizingConstraint": 63,
+          "resizingType": 0,
+          "rotation": 0,
+          "shouldBreakMaskChain": false,
+          "layers": [],
+          "frame": {
+            "_class": "rect",
+            "constrainProportions": false,
+            "height": 300,
+            "width": 300,
+            "x": 0,
+            "y": 0
+          },
+          "path": {
+            "_class": "path",
+            "isClosed": true,
+            "pointRadiusBehaviour": 1,
+            "points": [
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 0}",
+                "curveMode": 1,
+                "curveTo": "{0, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 0}",
+                "curveMode": 1,
+                "curveTo": "{1, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 1}",
+                "curveMode": 1,
+                "curveTo": "{1, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 1}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 1}",
+                "curveMode": 1,
+                "curveTo": "{0, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 1}"
+              }
+            ]
+          },
+          "hasConvertedToNewRoundCorners": true,
+          "fixedRadius": 0,
+          "edited": false,
+          "booleanOperation": -1
+        }
+      ],
       "style": {
         "_class": "style",
         "fills": [
@@ -4384,6 +4366,84 @@
           "opacity": "1"
         }
       },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 300,
+        "width": 300,
+        "x": 8,
+        "y": 1526.09375
+      },
+      "hasClickThrough": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
+      "windingRule": 1
+    },
+    {
+      "_class": "text",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "srcset",
+      "nameIsFixed": false,
+      "resizingConstraint": 47,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "style": {
+        "color": "rgb(0, 0, 0)",
+        "fontSize": 18,
+        "fontFamily": "Times New Roman",
+        "fontWeight": 700,
+        "textDecoration": "none",
+        "textAlign": "start",
+        "textTransform": "none"
+      },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 21,
+        "width": 45,
+        "x": 8,
+        "y": 1485.375
+      },
+      "text": "srcset",
+      "automaticallyDrawOnUnderlyingPath": false,
+      "dontSynchroniseWithSymbol": false,
+      "lineSpacingBehaviour": 2,
+      "textBehaviour": 0
+    },
+    {
+      "_class": "shapeGroup",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "/html[1]/body[1]/img[@class=\"image\"]",
+      "nameIsFixed": false,
+      "resizingConstraint": 45,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
       "layers": [
         {
           "_class": "rectangle",
@@ -4468,87 +4528,6 @@
           "booleanOperation": -1
         }
       ],
-      "frame": {
-        "_class": "rect",
-        "constrainProportions": false,
-        "height": 300,
-        "width": 300,
-        "x": 8,
-        "y": 1526.09375
-      },
-      "hasClickThrough": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
-      "windingRule": 1
-    },
-    {
-      "_class": "text",
-      "do_objectID": "pizza",
-      "exportOptions": {
-        "_class": "exportOptions",
-        "exportFormats": [],
-        "includedLayerIds": [],
-        "layerOptions": 0,
-        "shouldTrim": false
-      },
-      "isFlippedHorizontal": false,
-      "isFlippedVertical": false,
-      "isLocked": false,
-      "isVisible": true,
-      "layerListExpandedType": 0,
-      "name": "srcset",
-      "nameIsFixed": false,
-      "resizingConstraint": 47,
-      "resizingType": 0,
-      "rotation": 0,
-      "shouldBreakMaskChain": false,
-      "style": {
-        "color": "rgb(0, 0, 0)",
-        "fontSize": 18,
-        "fontFamily": "Times New Roman",
-        "fontWeight": 700,
-        "textTransform": "none",
-        "textDecoration": "none",
-        "textAlign": "start"
-      },
-      "layers": [],
-      "frame": {
-        "_class": "rect",
-        "constrainProportions": false,
-        "height": 21,
-        "width": 45,
-        "x": 8,
-        "y": 1485.375
-      },
-      "text": "srcset",
-      "automaticallyDrawOnUnderlyingPath": false,
-      "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
-      "lineSpacingBehaviour": 2,
-      "textBehaviour": 0
-    },
-    {
-      "_class": "shapeGroup",
-      "do_objectID": "pizza",
-      "exportOptions": {
-        "_class": "exportOptions",
-        "exportFormats": [],
-        "includedLayerIds": [],
-        "layerOptions": 0,
-        "shouldTrim": false
-      },
-      "isFlippedHorizontal": false,
-      "isFlippedVertical": false,
-      "isLocked": false,
-      "isVisible": true,
-      "layerListExpandedType": 0,
-      "name": "/html[1]/body[1]/img[@class=\"image\"]",
-      "nameIsFixed": false,
-      "resizingConstraint": 45,
-      "resizingType": 0,
-      "rotation": 0,
-      "shouldBreakMaskChain": false,
       "style": {
         "_class": "style",
         "fills": [
@@ -4611,90 +4590,6 @@
           "opacity": "1"
         }
       },
-      "layers": [
-        {
-          "_class": "rectangle",
-          "do_objectID": "pizza",
-          "exportOptions": {
-            "_class": "exportOptions",
-            "exportFormats": [],
-            "includedLayerIds": [],
-            "layerOptions": 0,
-            "shouldTrim": false
-          },
-          "isFlippedHorizontal": false,
-          "isFlippedVertical": false,
-          "isLocked": false,
-          "isVisible": true,
-          "layerListExpandedType": 0,
-          "name": "rectangle",
-          "nameIsFixed": false,
-          "resizingConstraint": 63,
-          "resizingType": 0,
-          "rotation": 0,
-          "shouldBreakMaskChain": false,
-          "layers": [],
-          "frame": {
-            "_class": "rect",
-            "constrainProportions": false,
-            "height": 300,
-            "width": 300,
-            "x": 0,
-            "y": 0
-          },
-          "path": {
-            "_class": "path",
-            "isClosed": true,
-            "pointRadiusBehaviour": 1,
-            "points": [
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{0, 0}",
-                "curveMode": 1,
-                "curveTo": "{0, 0}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{0, 0}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{1, 0}",
-                "curveMode": 1,
-                "curveTo": "{1, 0}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{1, 0}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{1, 1}",
-                "curveMode": 1,
-                "curveTo": "{1, 1}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{1, 1}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{0, 1}",
-                "curveMode": 1,
-                "curveTo": "{0, 1}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{0, 1}"
-              }
-            ]
-          },
-          "hasConvertedToNewRoundCorners": true,
-          "fixedRadius": 0,
-          "edited": false,
-          "booleanOperation": -1
-        }
-      ],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -4734,11 +4629,10 @@
         "fontSize": 18,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -4750,8 +4644,6 @@
       "text": "SVG",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -4776,68 +4668,6 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 0
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          },
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "fillType": 4,
-            "image": {
-              "_class": "MSJSONOriginalDataReference",
-              "_ref_class": "MSImageData",
-              "_ref": "images/haribo",
-              "url": "yellow.gif"
-            },
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [
-          {
-            "_class": "border",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "position": 1,
-            "thickness": 0
-          }
-        ],
-        "shadows": [],
-        "innerShadows": [],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
       "layers": [
         {
           "_class": "rectangle",
@@ -4922,6 +4752,68 @@
           "booleanOperation": -1
         }
       ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          },
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "fillType": 4,
+            "image": {
+              "_class": "MSJSONOriginalDataReference",
+              "_ref_class": "MSImageData",
+              "_ref": "images/haribo",
+              "url": "yellow.gif"
+            },
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -4961,11 +4853,10 @@
         "fontSize": 18,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -4977,8 +4868,6 @@
       "text": "GIF",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -5003,68 +4892,6 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 0
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          },
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "fillType": 4,
-            "image": {
-              "_class": "MSJSONOriginalDataReference",
-              "_ref_class": "MSImageData",
-              "_ref": "images/haribo",
-              "url": "red.png"
-            },
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [
-          {
-            "_class": "border",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "position": 1,
-            "thickness": 0
-          }
-        ],
-        "shadows": [],
-        "innerShadows": [],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
       "layers": [
         {
           "_class": "rectangle",
@@ -5149,6 +4976,68 @@
           "booleanOperation": -1
         }
       ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          },
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "fillType": 4,
+            "image": {
+              "_class": "MSJSONOriginalDataReference",
+              "_ref_class": "MSImageData",
+              "_ref": "images/haribo",
+              "url": "red.png"
+            },
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -5188,11 +5077,10 @@
         "fontSize": 18,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -5204,8 +5092,6 @@
       "text": "PNG",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -5230,68 +5116,6 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 0
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          },
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "fillType": 4,
-            "image": {
-              "_class": "MSJSONOriginalDataReference",
-              "_ref_class": "MSImageData",
-              "_ref": "images/haribo",
-              "url": "blue.jpg"
-            },
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [
-          {
-            "_class": "border",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "position": 1,
-            "thickness": 0
-          }
-        ],
-        "shadows": [],
-        "innerShadows": [],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
       "layers": [
         {
           "_class": "rectangle",
@@ -5376,6 +5200,68 @@
           "booleanOperation": -1
         }
       ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          },
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "fillType": 4,
+            "image": {
+              "_class": "MSJSONOriginalDataReference",
+              "_ref_class": "MSImageData",
+              "_ref": "images/haribo",
+              "url": "blue.jpg"
+            },
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -5415,11 +5301,10 @@
         "fontSize": 18,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -5431,8 +5316,6 @@
       "text": "JPG",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -5462,11 +5345,10 @@
         "fontSize": 24,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -5478,8 +5360,6 @@
       "text": "Image",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -5509,11 +5389,10 @@
         "fontSize": 20,
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -5525,8 +5404,6 @@
       "text": "text shadow",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -5551,74 +5428,6 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0.5019607843137255,
-              "green": 0.5019607843137255,
-              "blue": 0.5019607843137255,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [
-          {
-            "_class": "border",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "fillType": 0,
-            "position": 1,
-            "thickness": 0
-          }
-        ],
-        "shadows": [
-          {
-            "_class": "shadow",
-            "isEnabled": true,
-            "blurRadius": 5,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 1
-            },
-            "contextSettings": {
-              "_class": "graphicsContextSettings",
-              "blendMode": 0,
-              "opacity": 1
-            },
-            "offsetX": 0,
-            "offsetY": 0,
-            "spread": 2
-          }
-        ],
-        "innerShadows": [],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
       "layers": [
         {
           "_class": "rectangle",
@@ -5703,6 +5512,74 @@
           "booleanOperation": -1
         }
       ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0.5019607843137255,
+              "green": 0.5019607843137255,
+              "blue": 0.5019607843137255,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [
+          {
+            "_class": "shadow",
+            "isEnabled": true,
+            "blurRadius": "5",
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "contextSettings": {
+              "_class": "graphicsContextSettings",
+              "blendMode": 0,
+              "opacity": 1
+            },
+            "offsetX": "0",
+            "offsetY": "0",
+            "spread": "2"
+          }
+        ],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -5742,11 +5619,10 @@
         "fontSize": 16,
         "fontFamily": "Times New Roman",
         "fontWeight": 400,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -5758,8 +5634,6 @@
       "text": "box shadow",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     },
@@ -5789,11 +5663,10 @@
         "fontSize": 24,
         "fontFamily": "Times New Roman",
         "fontWeight": 700,
-        "textTransform": "none",
         "textDecoration": "none",
-        "textAlign": "start"
+        "textAlign": "start",
+        "textTransform": "none"
       },
-      "layers": [],
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -5805,8 +5678,6 @@
       "text": "Shadow",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
-      "glyphBounds": "",
-      "heightIsClipped": false,
       "lineSpacingBehaviour": 2,
       "textBehaviour": 0
     }
@@ -5818,6 +5689,12 @@
     "width": 784,
     "x": 0,
     "y": 0
+  },
+  "style": {
+    "_class": "style",
+    "endDecorationType": 0,
+    "miterLimit": 10,
+    "startDecorationType": 0
   },
   "horizontalRulerData": {
     "_class": "rulerData",
