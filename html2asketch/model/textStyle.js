@@ -71,17 +71,25 @@ class TextStyle {
   }
 
   toJSON() {
-    return {
+    const result = {
       'color': this._color,
       'fontSize': this._fontSize,
       'fontFamily': this._fontFamily,
       'fontWeight': this._fontWeight,
       'lineHeight': this._lineHeight,
-      'letterSpacing': this._letterSpacing,
-      'textTransform': this._textTransform,
       'textDecoration': this._textDecoration,
       'textAlign': this._textAlign
     };
+
+    if (this._letterSpacing !== undefined) {
+      result.letterSpacing = this._letterSpacing;
+    }
+
+    if (this._textTransform !== undefined) {
+      result.textTransform = this._textTransform;
+    }
+
+    return result;
   }
 }
 
