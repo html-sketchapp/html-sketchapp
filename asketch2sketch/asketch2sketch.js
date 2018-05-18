@@ -19,29 +19,43 @@ function removeExistingLayers(context) {
   }
 }
 
-function fixLayer(layer) {
+function getNativeLayer(failingLayers, layer) {
   if (layer._class === 'text') {
     fixTextLayer(layer);
   } else if (layer._class === 'svg') {
     fixSVGLayer(layer);
-    return;
   } else {
     fixImageFill(layer);
   }
 
-  if (layer.layers) {
-    layer.layers.forEach(fixLayer);
-  }
-}
+  // Create native object for the current layer, ignore the children for now
+  // this alows us to catch and ignore failing layers and finish the import
+  const children = layer.layers;
+  let nativeObj = null;
 
-function getNativeLayer(layer) {
-  fixLayer(layer);
+  layer.layers = [];
 
   try {
-    return fromSJSONDictionary(layer);
+    nativeObj = fromSJSONDictionary(layer);
   } catch (e) {
-    throw new Error('Layer decoding failed - ' + e);
+    failingLayers.push(layer.name);
+
+    console.log('Layer failed to import: ' + layer.name);
+    return null;
   }
+
+  // Get native object for all child layers and append them to the current object
+  if (children && children.length) {
+    children.forEach(child => {
+      const nativeChild = getNativeLayer(failingLayers, child);
+
+      if (nativeChild) {
+        nativeObj.addLayer(nativeChild);
+      }
+    });
+  }
+
+  return nativeObj;
 }
 
 function removeSharedTextStyles(document) {
@@ -136,23 +150,16 @@ export default function asketch2sketch(context) {
 
     page.name = asketchPage.name;
 
-    let failedLayers = 0;
+    const failingLayers = [];
 
-    asketchPage.layers.forEach(layer => {
-      try {
-        const nativeLayer = getNativeLayer(layer);
+    asketchPage.layers
+      .map(getNativeLayer.bind(null, failingLayers))
+      .forEach(layer => layer && page.addLayer(layer));
 
-        page.addLayer(nativeLayer);
-      } catch (e) {
-        failedLayers++;
-        console.log('Layer couldn\'t be created: ' + layer.name, e);
-      }
-    });
-
-    if (failedLayers === 1) {
+    if (failingLayers.length === 1) {
       showDialog('One layer couldn\'t be imported and was skipped.');
-    } else if (failedLayers > 1) {
-      showDialog(`${failedLayers} layers couldn't be imported and were skipped.`);
+    } else if (failingLayers.length > 1) {
+      showDialog(`${failingLayers.length} layers couldn't be imported and were skipped.`);
     }
 
     zoomToFit(context);

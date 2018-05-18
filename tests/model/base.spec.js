@@ -1,4 +1,5 @@
 import Base from '../../html2asketch/model/base';
+import {RESIZING_CONSTRAINTS} from '../../html2asketch/helpers/utils';
 
 class Base2 extends Base {
   constructor() {
@@ -60,4 +61,23 @@ test('setStyle', () => {
   });
 
   expect(a.toJSON().style).toBe(style);
+});
+
+test('setResizingConstraint', () => {
+  const a = new Base2();
+  const {TOP, LEFT} = RESIZING_CONSTRAINTS;
+  const resizingConstraint = [TOP, LEFT];
+
+  a.setResizingConstraint(...resizingConstraint);
+
+  expect(a.toJSON().resizingConstraint).toBe(TOP & LEFT);
+});
+
+test('setFixedWidthAndHeight', () => {
+  const a = new Base2();
+  const {WIDTH, HEIGHT} = RESIZING_CONSTRAINTS;
+
+  a.setFixedWidthAndHeight();
+
+  expect(a.toJSON().resizingConstraint).toBe(WIDTH & HEIGHT);
 });

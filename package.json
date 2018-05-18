@@ -1,6 +1,6 @@
 {
   "name": "@brainly/html-sketchapp",
-  "version": "2.1.0",
+  "version": "3.1.0",
   "description": "HTML to Sketch",
   "keywords": [
     "sketch",
@@ -20,10 +20,11 @@
     "build-plugin": "skpm-build",
     "watch": "concurrently \"npm run watch-lib\" \"npm run watch-plugin\"",
     "watch-lib": "npm run build-lib -- --watch",
-    "watch-plugin": "npm run build-plugin -- --watch",
+    "watch-plugin": "npm run build-plugin -- --watch --run",
     "test": "npm run lint && npm run tslint && npm run unit && npm run e2e",
     "unit": "jest",
-    "lint": "eslint html2asketch/ asketch2sketch/ test/*.js",
+    "lint": "eslint html2asketch/ asketch2sketch/ tests/ e2e/*.js",
+    "lint-fix": "npm run lint -- --fix",
     "e2e": "cd e2e && webpack --config ./webpack.config.js && node ./run.js",
     "prepare": "npm run build && npm run test",
     "tslint": "tslint -c tslint.json typings/*.d.ts typings/**/*.d.ts"
@@ -65,7 +66,11 @@
   "files": [
     "asketch2sketch",
     "html2asketch",
-    "build/html2asketch"
+    "build/html2asketch",
+    "README.md",
+    "LICENSE.md",
+    "package.json",
+    "package-lock.json"
   ],
   "bugs": {
     "url": "https://github.com/brainly/html-sketchapp/issues"

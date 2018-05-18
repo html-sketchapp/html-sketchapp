@@ -46,11 +46,14 @@ export default function zoomToFit(context) {
     return result;
   }, null);
 
+  if (!rect) {
+    return;
+  }
+
   const x = rect.minX;
   const y = rect.minY;
   const width = rect.maxX - rect.minX;
   const height = rect.maxY - rect.minY;
 
   view.zoomToFitRect(NSMakeRect(x, y, width, height));
-
 }

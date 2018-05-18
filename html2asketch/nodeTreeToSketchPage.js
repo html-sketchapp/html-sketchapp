@@ -30,7 +30,7 @@ export default function nodeTreeToSketchPage(node, options) {
     page.addLayer(rootGroup);
   }
 
-  if (options.pageName) {
+  if (options && options.pageName) {
     page.setName(options.pageName);
   }
 
