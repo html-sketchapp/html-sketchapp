@@ -1,7 +1,7 @@
 class TestEl extends HTMLElement {
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' });
+    this.attachShadow({mode: 'open'});
     console.log('test-el constructed');
   }
 
