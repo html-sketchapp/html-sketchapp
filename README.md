@@ -76,6 +76,7 @@ npm run build # build the plugin
 
 - [html-sketchapp-cli](https://github.com/seek-oss/html-sketchapp-cli) - "Quickly generate Sketch libraries from HTML documents and living style guides."
 - [story2sketch](https://github.com/chrisvxd/story2sketch) - "Convert Storybook stories into Sketch symbols."
+- [UIengine](https://github.com/dennisreimann/uiengine) - "Workbench for UI-driven development."
 
 ## Standing on the shoulders of giants :heart:
 
