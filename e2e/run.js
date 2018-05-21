@@ -83,7 +83,7 @@ puppeteer.launch({args}).then(async browser => {
 
       if (diff.changed) {
         console.error(`E2E test "${test}": ❌ Oh no! That's not the expected output. See the diff below:`);
-        // console.log(diff.text);
+        console.log(diff.text);
         anyError = true;
       }
     } catch (error) {
