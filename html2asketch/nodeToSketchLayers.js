@@ -29,7 +29,7 @@ function shadowStringToObject(shadowStr) {
       offsetX: parseInt(matches[2], 10),
       offsetY: parseInt(matches[3], 10),
       blur: parseInt(matches[4], 10),
-      spread: parseInt(matches[5] 10)
+      spread: parseInt(matches[5], 10)
     };
   }
 
