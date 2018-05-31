@@ -54,10 +54,6 @@ puppeteer.launch({args}).then(async browser => {
   await page.on('console', msg => console.log('PAGE LOG:', msg.text()));
 
   await page.addScriptTag({
-    path: shadowDOMScriptPath
-  });
-
-  await page.addScriptTag({
     path: injectedScriptPath
   });
 
