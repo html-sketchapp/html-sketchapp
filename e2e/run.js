@@ -4,7 +4,6 @@ const path = require('path');
 const jsdiff = require('variable-diff');
 
 const injectedScriptPath = './dist/inject.bundle.js';
-const shadowDOMScriptPath = './test-el.js';
 const testPageURL = 'file://' + path.resolve('./test-page.html');
 
 const tests = ['layers', 'page'];
