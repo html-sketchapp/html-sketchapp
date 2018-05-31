@@ -65,37 +65,44 @@ export const makeColorFill = (cssColor, alpha) => ({
   patternTileScale: 1
 });
 
-// patternFillType - 0 1 2 3
-export const makeImageFill = (url, patternFillType = 1) => {
-  const result = {
-    _class: 'fill',
-    isEnabled: true,
-    fillType: FillType.Pattern,
-    image: {
-      _class: 'MSJSONOriginalDataReference',
-      _ref_class: 'MSImageData',
-      _ref: `images/${generateID()}`
-    },
-    noiseIndex: 0,
-    noiseIntensity: 0,
-    patternFillType,
-    patternTileScale: 1
-  };
+const ensureBase64DataURL = url => {
+  const imageData = url.match(/data:(.+?)(;(.+))?,(.+)/i);
 
-  if (url.indexOf('data:') === 0) {
-    const imageData = url.match(/data:.+;base64,(.+)/i);
+  if (imageData && imageData[3] !== 'base64') {
+    // Solve for an NSURL bug that can't handle plaintext data: URLs
+    const type = imageData[1];
+    const data = decodeURIComponent(imageData[4]);
+    const encodingMatch = imageData[3] && imageData[3].match(/^charset=(.*)/);
+    let buffer;
 
-    if (imageData && imageData[1]) {
-      result.image.data = {_data: imageData[1]};
+    if (encodingMatch) {
+      buffer = Buffer.from(data, encodingMatch[1]);
     } else {
-      return null;
+      buffer = Buffer.from(data);
     }
-  } else {
-    result.image.url = url;
+
+    return `data:${type};base64,${buffer.toString('base64')}`;
   }
 
-  return result;
+  return url;
 };
+
+// patternFillType - 0 1 2 3
+export const makeImageFill = (url, patternFillType = 1) => ({
+  _class: 'fill',
+  isEnabled: true,
+  fillType: FillType.Pattern,
+  image: {
+    _class: 'MSJSONOriginalDataReference',
+    _ref_class: 'MSImageData',
+    _ref: `images/${generateID()}`,
+    url: url.indexOf('data:') === 0 ? ensureBase64DataURL(url) : url
+  },
+  noiseIndex: 0,
+  noiseIntensity: 0,
+  patternFillType,
+  patternTileScale: 1
+});
 
 const containsAllItems = (needles, haystack) => needles.every(needle => haystack.includes(needle));
 
