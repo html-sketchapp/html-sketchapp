@@ -8342,8 +8342,8 @@
                   "frame": {
                     "_class": "rect",
                     "constrainProportions": false,
-                    "height": 42,
-                    "width": 273,
+                    "height": 36,
+                    "width": 275,
                     "x": 0,
                     "y": 0
                   },
@@ -8449,8 +8449,8 @@
                       "frame": {
                         "_class": "rect",
                         "constrainProportions": false,
-                        "height": 43,
-                        "width": 268,
+                        "height": 40,
+                        "width": 267,
                         "x": 0,
                         "y": 0
                       },
@@ -8510,10 +8510,10 @@
                   "frame": {
                     "_class": "rect",
                     "constrainProportions": false,
-                    "height": 43,
-                    "width": 268,
+                    "height": 40,
+                    "width": 267,
                     "x": 0,
-                    "y": 63.4375
+                    "y": 58.4375
                   },
                   "hasClickThrough": false,
                   "clippingMaskMode": 0,
@@ -8554,10 +8554,10 @@
                   "frame": {
                     "_class": "rect",
                     "constrainProportions": false,
-                    "height": 21,
-                    "width": 137,
-                    "x": 11.015625,
-                    "y": 74.4375
+                    "height": 17,
+                    "width": 138,
+                    "x": 11,
+                    "y": 69.4375
                   },
                   "text": "Shadow content ->",
                   "automaticallyDrawOnUnderlyingPath": false,
@@ -8601,10 +8601,10 @@
                   "frame": {
                     "_class": "rect",
                     "constrainProportions": false,
-                    "height": 21,
-                    "width": 108,
-                    "x": 148.859375,
-                    "y": 74.4375
+                    "height": 17,
+                    "width": 106,
+                    "x": 149.3125,
+                    "y": 69.4375
                   },
                   "text": "Slotted content",
                   "automaticallyDrawOnUnderlyingPath": false,
@@ -8618,7 +8618,7 @@
               "frame": {
                 "_class": "rect",
                 "constrainProportions": false,
-                "height": 106.4375,
+                "height": 98.4375,
                 "width": 784,
                 "x": 0,
                 "y": 5474.25
@@ -8699,8 +8699,8 @@
                   "frame": {
                     "_class": "rect",
                     "constrainProportions": false,
-                    "height": 42,
-                    "width": 273,
+                    "height": 36,
+                    "width": 275,
                     "x": 0,
                     "y": 0
                   },
@@ -8716,7 +8716,7 @@
               "frame": {
                 "_class": "rect",
                 "constrainProportions": false,
-                "height": 42,
+                "height": 37,
                 "width": 784,
                 "x": 0,
                 "y": 5474.25
@@ -8857,8 +8857,8 @@
                       "frame": {
                         "_class": "rect",
                         "constrainProportions": false,
-                        "height": 43,
-                        "width": 268,
+                        "height": 40,
+                        "width": 267,
                         "x": 0,
                         "y": 0
                       },
@@ -8918,8 +8918,8 @@
                   "frame": {
                     "_class": "rect",
                     "constrainProportions": false,
-                    "height": 43,
-                    "width": 268,
+                    "height": 40,
+                    "width": 267,
                     "x": 0,
                     "y": 0
                   },
@@ -8962,9 +8962,9 @@
                   "frame": {
                     "_class": "rect",
                     "constrainProportions": false,
-                    "height": 21,
-                    "width": 137,
-                    "x": 11.015625,
+                    "height": 17,
+                    "width": 138,
+                    "x": 11,
                     "y": 11
                   },
                   "text": "Shadow content ->",
@@ -9018,7 +9018,7 @@
                     "height": 0,
                     "width": 0,
                     "x": -8,
-                    "y": -5557.59375
+                    "y": -5552.59375
                   },
                   "hasClickThrough": false,
                   "clippingMaskMode": 0,
@@ -9029,10 +9029,10 @@
               "frame": {
                 "_class": "rect",
                 "constrainProportions": false,
-                "height": 43,
-                "width": 268,
+                "height": 40,
+                "width": 267,
                 "x": 0,
-                "y": 5537.6875
+                "y": 5532.6875
               },
               "hasClickThrough": false,
               "clippingMaskMode": 0,
@@ -9043,7 +9043,7 @@
           "frame": {
             "_class": "rect",
             "constrainProportions": false,
-            "height": 5580.6875,
+            "height": 5572.6875,
             "width": 784,
             "x": 8,
             "y": 19.90625
@@ -9057,7 +9057,7 @@
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
-        "height": 5580.6875,
+        "height": 5572.6875,
         "width": 784,
         "x": 0,
         "y": 0
@@ -9079,7 +9079,7 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 5580.6875,
+    "height": 5572.6875,
     "width": 784,
     "x": 0,
     "y": 0

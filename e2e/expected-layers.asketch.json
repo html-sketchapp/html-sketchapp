@@ -60,8 +60,8 @@
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
-        "height": 42,
-        "width": 273,
+        "height": 36,
+        "width": 275,
         "x": 8,
         "y": 5494.15625
       },
@@ -167,8 +167,8 @@
           "frame": {
             "_class": "rect",
             "constrainProportions": false,
-            "height": 43,
-            "width": 268,
+            "height": 40,
+            "width": 267,
             "x": 0,
             "y": 0
           },
@@ -228,10 +228,10 @@
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
-        "height": 43,
-        "width": 268,
+        "height": 40,
+        "width": 267,
         "x": 8,
-        "y": 5557.59375
+        "y": 5552.59375
       },
       "hasClickThrough": false,
       "clippingMaskMode": 0,
@@ -272,10 +272,10 @@
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
-        "height": 21,
-        "width": 137,
-        "x": 19.015625,
-        "y": 5568.59375
+        "height": 17,
+        "width": 138,
+        "x": 19,
+        "y": 5563.59375
       },
       "text": "Shadow content ->",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -319,10 +319,10 @@
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
-        "height": 21,
-        "width": 108,
-        "x": 156.859375,
-        "y": 5568.59375
+        "height": 17,
+        "width": 106,
+        "x": 157.3125,
+        "y": 5563.59375
       },
       "text": "Slotted content",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -5713,7 +5713,7 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 5581,
+    "height": 5573,
     "width": 784,
     "x": 0,
     "y": 0
