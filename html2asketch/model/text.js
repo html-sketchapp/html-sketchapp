@@ -1,5 +1,5 @@
 import Base from './base';
-import {RESIZING_CONSTRAINTS, calculateResizingConstraintValue} from '../helpers/utils';
+import {RESIZING_CONSTRAINTS} from '../helpers/utils';
 
 class Text extends Base {
   constructor({x, y, width, height, text, style, multiline}) {
@@ -13,6 +13,7 @@ class Text extends Base {
     this._name = text;
     this._style = style;
     this._multiline = multiline;
+    this.setResizingConstraint(RESIZING_CONSTRAINTS.HEIGHT);
   }
 
   toJSON() {
@@ -30,7 +31,6 @@ class Text extends Base {
     obj.text = this._text;
     obj.style = this._style.toJSON();
 
-    obj.resizingConstraint = calculateResizingConstraintValue(RESIZING_CONSTRAINTS.HEIGHT);
     obj.automaticallyDrawOnUnderlyingPath = false;
     obj.dontSynchroniseWithSymbol = false;
     obj.glyphBounds = '';
