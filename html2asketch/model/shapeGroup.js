@@ -4,10 +4,14 @@ class ShapeGroup extends Base {
   constructor({x, y, width, height}) {
     super();
     this._class = 'shapeGroup';
-    this._x = x;
-    this._y = y;
     this._width = width;
     this._height = height;
+    this.setPosition({x, y});
+  }
+
+  setPosition({x, y}) {
+    this._x = x;
+    this._y = y;
   }
 
   toJSON() {
@@ -23,8 +27,6 @@ class ShapeGroup extends Base {
     };
 
     obj.hasClickThrough = false;
-    obj.clippingMaskMode = 0;
-    obj.hasClippingMask = false;
     obj.windingRule = 1;
 
     return obj;

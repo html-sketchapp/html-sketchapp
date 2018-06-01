@@ -1,7 +1,8 @@
 import UI from 'sketch/ui';
 import {fromSJSONDictionary} from 'sketchapp-json-plugin';
 import {fixTextLayer, fixSharedTextStyle} from './helpers/fixFont';
-import fixImageFill from './helpers/fixImageFill';
+import fixImageFillsInLayer from './helpers/fixImageFill';
+import fixBitmap from './helpers/fixBitmap';
 import fixSVGLayer from './helpers/fixSVG';
 import zoomToFit from './helpers/zoomToFit';
 
@@ -24,8 +25,10 @@ function getNativeLayer(failingLayers, layer) {
     fixTextLayer(layer);
   } else if (layer._class === 'svg') {
     fixSVGLayer(layer);
+  } else if (layer._class === 'bitmap') {
+    fixBitmap(layer);
   } else {
-    fixImageFill(layer);
+    fixImageFillsInLayer(layer);
   }
 
   // Create native object for the current layer, ignore the children for now
