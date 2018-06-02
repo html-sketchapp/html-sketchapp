@@ -26,10 +26,10 @@ function shadowStringToObject(shadowStr) {
   if (matches && matches.length === 7) {
     shadowObj = {
       color: matches[1],
-      offsetX: matches[2],
-      offsetY: matches[3],
-      blur: matches[4],
-      spread: matches[5]
+      offsetX: parseInt(matches[2], 10),
+      offsetY: parseInt(matches[3], 10),
+      blur: parseInt(matches[4], 10),
+      spread: parseInt(matches[5], 10)
     };
   }
 
