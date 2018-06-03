@@ -5552,7 +5552,7 @@
           {
             "_class": "shadow",
             "isEnabled": true,
-            "blurRadius": "5",
+            "blurRadius": 5,
             "color": {
               "_class": "color",
               "red": 0,
@@ -5565,9 +5565,9 @@
               "blendMode": 0,
               "opacity": 1
             },
-            "offsetX": "0",
-            "offsetY": "0",
-            "spread": "2"
+            "offsetX": 0,
+            "offsetY": 0,
+            "spread": 2
           }
         ],
         "innerShadows": [],
