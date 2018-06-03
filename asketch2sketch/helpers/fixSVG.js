@@ -9,11 +9,26 @@ function makeNativeSVGLayer(layer) {
   svgImporter.prepareToImportFromData(svgData);
   const svgLayer = svgImporter.importAsLayer();
 
-  svgLayer.frame().setX(layer.x);
-  svgLayer.frame().setY(layer.y);
-  svgLayer.frame().setWidth(layer.width);
-  svgLayer.frame().setHeight(layer.height);
   svgLayer.resizingConstraint = layer.resizingConstraint;
+
+  const currentSize = svgLayer.rect().size;
+  const scale = Math.min(layer.width / currentSize.width, layer.height / currentSize.height);
+
+  if (scale !== 1) {
+    // scaling instead of resizing (changing width and height directly) recalculates border radius
+    svgLayer.multiplyBy(scale);
+  }
+
+  svgLayer.rect = {
+    origin: {
+      x: layer.x,
+      y: layer.y
+    },
+    size: {
+      width: layer.width,
+      height: layer.height
+    }
+  };
 
   return svgLayer;
 }
