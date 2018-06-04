@@ -69,9 +69,8 @@ const weightOfFont = font => {
 
 const fontNamesForFamilyName = familyName => {
   const manager = NSFontManager.sharedFontManager();
-  const members = NSArray.arrayWithArray(
-    manager.availableMembersOfFontFamily(familyName)
-  );
+  const members = NSArray.arrayWithArray(manager.availableMembersOfFontFamily(familyName));
+
   const results = [];
 
   for (let i = 0; i < members.length; i += 1) {
@@ -101,8 +100,8 @@ const findFont = style => {
   const defaultFontWeight = NSFontWeightRegular;
   const defaultFontSize = 14;
 
-  let fontSize = defaultFontSize;
-  let fontWeight = defaultFontWeight;
+  const fontSize = style.fontSize ? style.fontSize : defaultFontSize;
+  let fontWeight = style.fontWeight ? FONT_WEIGHTS[style.fontWeight] : defaultFontWeight;
   // Default to Helvetica if fonts are missing
   let familyName =
     // Must use two equals (==) for compatibility with Cocoascript
@@ -111,20 +110,12 @@ const findFont = style => {
   let isItalic = false;
   let isCondensed = false;
 
-  if (style.fontSize) {
-    fontSize = style.fontSize;
-  }
-
   if (style.fontFamily) {
     familyName = style.fontFamily;
   }
 
   if (style.fontStyle) {
     isItalic = FONT_STYLES[style.fontStyle] || false;
-  }
-
-  if (style.fontWeight) {
-    fontWeight = FONT_WEIGHTS[style.fontWeight] || NSFontWeightRegular;
   }
 
   let didFindFont = false;
@@ -149,9 +140,7 @@ const findFont = style => {
           symbolicTraits |= NSFontCondensedTrait;
         }
 
-        fontDescriptor = fontDescriptor.fontDescriptorWithSymbolicTraits(
-          symbolicTraits
-        );
+        fontDescriptor = fontDescriptor.fontDescriptorWithSymbolicTraits(symbolicTraits);
         font = NSFont.fontWithDescriptor_size(fontDescriptor, fontSize);
       }
     }
@@ -182,15 +171,10 @@ const findFont = style => {
   for (let i = 0; i < fontNames.length; i += 1) {
     const match = NSFont.fontWithName_size(fontNames[i], fontSize);
 
-    if (
-      isItalic === isItalicFont(match) &&
-      isCondensed === isCondensedFont(match)
-    ) {
+    if (isItalic === isItalicFont(match) && isCondensed === isCondensedFont(match)) {
       const testWeight = weightOfFont(match);
 
-      if (
-        Math.abs(testWeight - fontWeight) < Math.abs(closestWeight - fontWeight)
-      ) {
+      if (Math.abs(testWeight - fontWeight) < Math.abs(closestWeight - fontWeight)) {
         font = match;
 
         closestWeight = testWeight;

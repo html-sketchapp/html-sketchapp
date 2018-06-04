@@ -3,6 +3,7 @@ import {generateID, makeColorFromCSS} from './utils';
 import {TextAlignment} from 'sketch-constants';
 import {toSJSON} from 'sketchapp-json-plugin';
 import findFont from './findFont';
+import getSketchVersion from './getSketchVersion';
 
 const TEXT_ALIGN = {
   auto: TextAlignment.Left,
@@ -52,36 +53,40 @@ function makeParagraphStyle(textStyle) {
 function encodeSketchJSON(sketchObj) {
   const encoded = toSJSON(sketchObj);
 
-  return JSON.parse(encoded);
+  return encoded ? JSON.parse(encoded) : {};
 }
 
 // This shouldn't need to call into Sketch, but it does currently, which is bad for perf :(
 function createStringAttributes(textStyles) {
   const font = findFont(textStyles);
 
-  const color = makeColorFromCSS(textStyles.color || 'black');
-
   const attribs = {
     MSAttributedStringFontAttribute: font.fontDescriptor(),
     NSFont: font,
     NSParagraphStyle: makeParagraphStyle(textStyles),
-    NSColor: NSColor.colorWithDeviceRed_green_blue_alpha(
+    NSUnderline: TEXT_DECORATION_UNDERLINE[textStyles.textDecoration] || 0,
+    NSStrikethrough: TEXT_DECORATION_LINETHROUGH[textStyles.textDecoration] || 0
+  };
+
+  const color = makeColorFromCSS(textStyles.color || 'black');
+
+  if (getSketchVersion() >= 50) {
+    attribs.MSAttributedStringColorAttribute = color;
+  } else {
+    attribs.NSColor = NSColor.colorWithDeviceRed_green_blue_alpha(
       color.red,
       color.green,
       color.blue,
       color.alpha
-    ),
-    NSUnderline: TEXT_DECORATION_UNDERLINE[textStyles.textDecoration] || 0,
-    NSStrikethrough: TEXT_DECORATION_LINETHROUGH[textStyles.textDecoration] || 0
-  };
+    );
+  }
 
   if (textStyles.letterSpacing !== undefined) {
     attribs.NSKern = textStyles.letterSpacing;
   }
 
   if (textStyles.textTransform !== undefined) {
-    attribs.MSAttributedStringTextTransformAttribute =
-      TEXT_TRANSFORM[textStyles.textTransform] * 1;
+    attribs.MSAttributedStringTextTransformAttribute = TEXT_TRANSFORM[textStyles.textTransform] * 1;
   }
 
   return attribs;
@@ -92,10 +97,7 @@ function createAttributedString(textNode) {
 
   const attribs = createStringAttributes(textStyles);
 
-  return NSAttributedString.attributedStringWithString_attributes_(
-    content,
-    attribs
-  );
+  return NSAttributedString.attributedStringWithString_attributes_(content, attribs);
 }
 
 function makeEncodedAttributedString(textNodes) {
@@ -109,9 +111,7 @@ function makeEncodedAttributedString(textNodes) {
 
   const encodedAttribStr = MSAttributedString.encodeAttributedString(fullStr);
 
-  const msAttribStr = MSAttributedString.alloc().initWithEncodedAttributedString(
-    encodedAttribStr
-  );
+  const msAttribStr = MSAttributedString.alloc().initWithEncodedAttributedString(encodedAttribStr);
 
   return encodeSketchJSON(msAttribStr);
 }
