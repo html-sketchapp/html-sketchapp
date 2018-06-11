@@ -230,13 +230,6 @@ export default function nodeToSketchLayers(node, options) {
     return layers;
   }
 
-  // Traverse the shadow DOM if present
-  if (node.shadowRoot) {
-    Array.from(node.shadowRoot.children)
-      .map(nodeToSketchLayers)
-      .forEach(child => layers.push(...child));
-  }
-
   const textStyle = new TextStyle({
     fontFamily,
     fontSize: parseInt(fontSize, 10),

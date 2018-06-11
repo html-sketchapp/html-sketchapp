@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>html-sketchapp — Shadow DOM e2e test</title>
+    <style>
+      .shadow {
+        width: 100px;
+        height: 100px;
+        background: gray;
+        box-shadow: 0 0 5px 2px black;
+      }
+  
+      .text-shadow {
+        font-size: 20px;
+        text-shadow: 0 0 5px gray;
+      }
+  
+      .image {
+        width: 300px;
+      }
+  
+      .border {
+        width: 100px;
+        height: 100px;
+        border: solid red 2px;
+      }
+  
+      .border1 {
+        width: 100px;
+        height: 100px;
+        border: dashed blue 4px;
+      }
+  
+      .border-radius {
+        border-radius: 50%;
+      }
+  
+      .border-radius2 {
+        border-radius: 10px;
+      }
+  
+      .bg-image {
+        width: 200px;
+        height: 200px;
+        background: url(./assets/blue.jpg);
+        background-size: cover;
+      }
+  
+      .bg-color {
+        width: 200px;
+        height: 200px;
+        background: green;
+      }
+  
+      .bg-gradient {
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(red, yellow);
+      }
+  
+      .font1 {
+        font-family: CourierNew;
+        color: red;
+      }
+  
+      .font2 {
+        letter-spacing: 20px;
+        color: green;
+      }
+  
+      .font3 {
+        font-size: 30px;
+        line-height: 40px;
+        color: blue;
+      }
+  
+      .font4 {
+        text-transform: uppercase;
+        text-align: center;
+      }
+  
+      .font5 {
+        text-decoration: underline;
+      }
+  
+      .font6 {
+        text-decoration: line-through;
+      }
+  
+      .font7 {
+        text-align: right;
+      }
+  
+      .box {
+        width: 100px;
+        height: 100px;
+        background: red;
+      }
+  
+      .styled-svg {
+        border: solid red 2px;
+        background: pink;
+      }
+    </style>
+    <script>
+      class TestEl extends HTMLElement {
+        constructor() {
+          super();
+          this.attachShadow({mode: 'open'});
+          console.log('test-el constructed');
+        }
+  
+        connectedCallback() {
+          this.shadowRoot.innerHTML = `
+            <style>
+              :host {
+                display: block;
+                font-family: Optimist, Arial, sans-serif;
+              }
+              button {
+                background: #53cf92;
+                border-radius: 4px;
+                color: white;
+                font-family: Optimist, Arial, sans-serif;
+                font-size: 16px;
+                padding: 10px;
+              }
+            </style>
+            <h1>My custom button</h1>
+            <button>Shadow content -> <slot></slot></button>
+          `;
+        }
+      }
+
+      customElements.define('test-el', TestEl);
+    </script>
+  </head>
+
+  <body>
+    <h2>Shadow DOM</h2>
+    <test-el>Slotted content</test-el>
+  </body>
+</html>
