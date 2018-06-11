@@ -275,7 +275,7 @@ export default function nodeToSketchLayers(node, options) {
     fontSize: parseInt(fontSize, 10),
     lineHeight: lineHeight !== 'normal' ? parseInt(lineHeight, 10) : undefined,
     letterSpacing: letterSpacing !== 'normal' ? parseFloat(letterSpacing) : undefined,
-    fontWeight: parseInt(fontWeight, 10),
+    fontWeight: fontWeight === 'bold' ? 700 : parseInt(fontWeight, 10),
     color,
     textTransform,
     textDecoration: textDecorationLine,
