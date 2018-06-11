@@ -18,22 +18,37 @@ const DEFAULT_VALUES = {
   boxShadow: 'none'
 };
 
-function shadowStringToObject(shadowStr) {
-  let shadowObj = {};
-  const matches =
-    shadowStr.match(/^([a-z0-9#., ()]+) ([-]?[0-9.]+)px ([-]?[0-9.]+)px ([-]?[0-9.]+)px ([-]?[0-9.]+)px ?(inset)?$/i);
+function shadowStringToObjects(shadowStr) {
+  const shadowStrings = shadowStr.split(/x, |t, /).map(
+    (str, i, array) => {
+      if(i + 1 < array.length) {
+        if(str.match(/inse$/)) {
+          return str + 't';
+        } else if(str.match(/p$/)) {
+          return str + 'x';
+        }
+      }
+      return str;
+    }
+  );
 
-  if (matches && matches.length === 7) {
-    shadowObj = {
-      color: matches[1],
-      offsetX: parseInt(matches[2], 10),
-      offsetY: parseInt(matches[3], 10),
-      blur: parseInt(matches[4], 10),
-      spread: parseInt(matches[5], 10)
-    };
-  }
+  let shadowObjects = [];
 
-  return shadowObj;
+  shadowStrings.forEach(string => {
+    const matches =
+      string.match(/^([a-z0-9#., ()]+) ([-]?[0-9.]+)px ([-]?[0-9.]+)px ([-]?[0-9.]+)px ([-]?[0-9.]+)px ?(inset)?$/i);
+
+    if (matches && matches.length === 7) {
+      shadowObjects.push({
+        color: matches[1],
+        offsetX: parseInt(matches[2], 10),
+        offsetY: parseInt(matches[3], 10),
+        blur: parseInt(matches[4], 10),
+        spread: parseInt(matches[5], 10)
+      });
+    }
+  })
+  return shadowObjects;
 }
 
 function hasOnlyDefaultStyles(styles) {
@@ -158,16 +173,17 @@ export default function nodeToSketchLayers(node, options) {
     }
 
     if (boxShadow !== DEFAULT_VALUES.boxShadow) {
-      const shadowObj = shadowStringToObject(boxShadow);
-
-      if (boxShadow.indexOf('inset') !== -1) {
-        if (borderWidth.indexOf(' ') === -1) {
-          shadowObj.spread += parseInt(borderWidth, 10);
+      const shadowObjects = shadowStringToObjects(boxShadow);
+      shadowObjects.forEach(shadowObject => {
+        if (boxShadow.indexOf('inset') !== -1) {
+          if (borderWidth.indexOf(' ') === -1) {
+            shadowObject.spread += parseInt(borderWidth, 10);
+          }
+          style.addInnerShadow(shadowObject);
+        } else {
+          style.addShadow(shadowObject);
         }
-        style.addInnerShadow(shadowObj);
-      } else {
-        style.addShadow(shadowObj);
-      }
+      })
     }
 
     // support for one-side borders (using inner shadow because Sketch doesn't support that)
@@ -175,16 +191,16 @@ export default function nodeToSketchLayers(node, options) {
       style.addBorder({color: borderColor, thickness: parseInt(borderWidth, 10)});
     } else {
       if (borderTopWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderTopColor + ' 0px ' + borderTopWidth + ' 0px 0px inset'));
+        style.addInnerShadow(shadowStringToObjects(borderTopColor + ' 0px ' + borderTopWidth + ' 0px 0px inset')[0]);
       }
       if (borderRightWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderRightColor + ' -' + borderRightWidth + ' 0px 0px 0px inset'));
+        style.addInnerShadow(shadowStringToObjects(borderRightColor + ' -' + borderRightWidth + ' 0px 0px 0px inset')[0]);
       }
       if (borderBottomWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderBottomColor + ' 0px -' + borderBottomWidth + ' 0px 0px inset'));
+        style.addInnerShadow(shadowStringToObjects(borderBottomColor + ' 0px -' + borderBottomWidth + ' 0px 0px inset')[0]);
       }
       if (borderLeftWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderLeftColor + ' ' + borderLeftWidth + ' 0px 0px 0px inset'));
+        style.addInnerShadow(shadowStringToObjects(borderLeftColor + ' ' + borderLeftWidth + ' 0px 0px 0px inset')[0]);
       }
     }
 
