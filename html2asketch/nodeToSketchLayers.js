@@ -21,10 +21,10 @@ const DEFAULT_VALUES = {
 function shadowStringToObjects(shadowStr) {
   const shadowStrings = shadowStr.split(/x, |t, /).map(
     (str, i, array) => {
-      if(i + 1 < array.length) {
-        if(str.match(/inse$/)) {
+      if (i + 1 < array.length) {
+        if (str.match(/inse$/)) {
           return str + 't';
-        } else if(str.match(/p$/)) {
+        } else if (str.match(/p$/)) {
           return str + 'x';
         }
       }
@@ -32,7 +32,7 @@ function shadowStringToObjects(shadowStr) {
     }
   );
 
-  let shadowObjects = [];
+  const shadowObjects = [];
 
   shadowStrings.forEach(string => {
     const matches =
@@ -47,7 +47,7 @@ function shadowStringToObjects(shadowStr) {
         spread: parseInt(matches[5], 10)
       });
     }
-  })
+  });
   return shadowObjects;
 }
 
@@ -174,6 +174,7 @@ export default function nodeToSketchLayers(node, options) {
 
     if (boxShadow !== DEFAULT_VALUES.boxShadow) {
       const shadowObjects = shadowStringToObjects(boxShadow);
+
       shadowObjects.forEach(shadowObject => {
         if (boxShadow.indexOf('inset') !== -1) {
           if (borderWidth.indexOf(' ') === -1) {
@@ -183,7 +184,7 @@ export default function nodeToSketchLayers(node, options) {
         } else {
           style.addShadow(shadowObject);
         }
-      })
+      });
     }
 
     // support for one-side borders (using inner shadow because Sketch doesn't support that)
@@ -191,16 +192,24 @@ export default function nodeToSketchLayers(node, options) {
       style.addBorder({color: borderColor, thickness: parseInt(borderWidth, 10)});
     } else {
       if (borderTopWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObjects(borderTopColor + ' 0px ' + borderTopWidth + ' 0px 0px inset')[0]);
+        style.addInnerShadow(
+          shadowStringToObjects(borderTopColor + ' 0px ' + borderTopWidth + ' 0px 0px inset')[0]
+        );
       }
       if (borderRightWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObjects(borderRightColor + ' -' + borderRightWidth + ' 0px 0px 0px inset')[0]);
+        style.addInnerShadow(
+          shadowStringToObjects(borderRightColor + ' -' + borderRightWidth + ' 0px 0px 0px inset')[0]
+        );
       }
       if (borderBottomWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObjects(borderBottomColor + ' 0px -' + borderBottomWidth + ' 0px 0px inset')[0]);
+        style.addInnerShadow(
+          shadowStringToObjects(borderBottomColor + ' 0px -' + borderBottomWidth + ' 0px 0px inset')[0]
+        );
       }
       if (borderLeftWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObjects(borderLeftColor + ' ' + borderLeftWidth + ' 0px 0px 0px inset')[0]);
+        style.addInnerShadow(
+          shadowStringToObjects(borderLeftColor + ' ' + borderLeftWidth + ' 0px 0px 0px inset')[0]
+        );
       }
     }
 
