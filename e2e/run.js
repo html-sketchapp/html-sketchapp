@@ -50,6 +50,8 @@ puppeteer.launch({args}).then(async browser => {
     waitUntil: 'networkidle0'
   });
 
+  await page.on('console', msg => console.log('PAGE LOG:', msg.text()));
+
   await page.addScriptTag({
     path: injectedScriptPath
   });
