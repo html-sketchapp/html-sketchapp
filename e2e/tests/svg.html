@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>html-sketchapp - SVG</title>
+  <style>
+    .styled-svg {
+      border: solid red 2px;
+      background: pink;
+    }
+
+  </style>
+</head>
+
+<body>
+  <h3>Embedded styles</h3>
+
+  <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+    <defs>
+      <style>
+        .b {
+          fill: #020a1a;
+        }
+
+        .c {
+          fill: #53cf92;
+        }
+
+        .d {
+          fill: #57b2f8;
+        }
+
+        .e {
+          fill: #fec83c;
+        }
+
+        .f {
+          fill: #ff796b;
+        }
+      </style>
+    </defs>
+    <title>all_1</title>
+    <circle class="b" cx="6.03" cy="5.95" r="2" />
+    <circle class="c" cx="12.08" cy="5.95" r="2" />
+    <circle class="b" cx="18.08" cy="5.95" r="2" />
+    <circle class="d" cx="6.03" cy="11.93" r="2" />
+    <circle class="b" cx="12.08" cy="11.93" r="2" />
+    <circle class="e" cx="18.08" cy="11.93" r="2" />
+    <circle class="b" cx="6.03" cy="17.93" r="2" />
+    <circle class="f" cx="12.08" cy="17.93" r="2" />
+    <circle class="b" cx="18.08" cy="17.93" r="2" />
+  </svg>
+
+  <h3>Inheritied styles</h3>
+
+  <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"
+    id='svg-circles'>
+    <circle class="b" cx="6.03" cy="5.95" r="2" />
+    <circle class="c" cx="12.08" cy="5.95" r="2" />
+    <circle class="b" cx="18.08" cy="5.95" r="2" />
+    <circle class="d" cx="6.03" cy="11.93" r="2" />
+    <circle class="b" cx="12.08" cy="11.93" r="2" />
+    <circle class="e" cx="18.08" cy="11.93" r="2" />
+    <circle class="b" cx="6.03" cy="17.93" r="2" />
+    <circle class="f" cx="12.08" cy="17.93" r="2" />
+    <circle class="b" cx="18.08" cy="17.93" r="2" />
+  </svg>
+
+  <h3>SVG via &lt;use&gt;</h3>
+
+  <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
+    <use xlink:href="#svg-circles"></use>
+  </svg>
+
+  <h3>SVG with styled element</h3>
+
+  <svg class="styled-svg" width="200" height="200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 200 200">
+    <use xlink:href="#svg-circles"></use>
+  </svg>
+</body>
+
+</html>

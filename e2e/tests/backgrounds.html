@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>html-sketchapp - Backgrounds</title>
+  <style>
+    .bg-image {
+      width: 200px;
+      height: 200px;
+      background: url(./assets/blue.jpg);
+      background-size: cover;
+    }
+
+    .bg-color {
+      width: 200px;
+      height: 200px;
+      background: green;
+    }
+
+    .bg-gradient {
+      width: 200px;
+      height: 200px;
+      background: linear-gradient(red, yellow);
+    }
+
+    .bg-sprite-1 {
+      width: 100px;
+      height: 100px;
+      background: url(./assets/chess.png) no-repeat;
+      background-position: -300px -100px;
+    }
+
+    .bg-sprite-2 {
+      width: 100px;
+      height: 100px;
+      background: url(./assets/chess.png) no-repeat;
+      background-position: -500px 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='bg-image'></div>
+  <div class='bg-color'></div>
+  <div class='bg-gradient'></div>
+  <div class='bg-sprite-1'></div>
+  <div class='bg-sprite-2'></div>
+</body>
+
+</html>

@@ -1,19 +1,20 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
-    <title>html-sketchapp — Shadow DOM e2e test</title>
-    <script>
-      class TestEl extends HTMLElement {
-        constructor() {
-          super();
-          this.attachShadow({mode: 'open'});
-          console.log('test-el constructed');
-        }
-  
-        connectedCallback() {
-          this.shadowRoot.innerHTML = `
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>html-sketchapp — Shadow DOM</title>
+  <script>
+    class TestEl extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({mode: 'open'});
+        console.log('test-el constructed');
+      }
+
+      connectedCallback() {
+        this.shadowRoot.innerHTML = `
             <style>
               :host {
                 display: block;
@@ -31,15 +32,16 @@
             <h1>My custom button</h1>
             <button>Shadow content -> <slot></slot></button>
           `;
-        }
       }
+    }
 
-      customElements.define('test-el', TestEl);
-    </script>
-  </head>
+    customElements.define('test-el', TestEl);
+  </script>
+</head>
 
-  <body>
-    <h2>Shadow DOM</h2>
-    <test-el>Slotted content</test-el>
-  </body>
+<body>
+  <h2>Shadow DOM</h2>
+  <test-el>Slotted content</test-el>
+</body>
+
 </html>

@@ -2,55 +2,52 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
 const jsdiff = require('variable-diff');
+const removeRandomness = require('./src/removeRandomness');
+const mkDirByPathSync = require('./src/mkDirByPathSync');
+const argv = require('minimist')(process.argv.slice(2));
 
+const fixExpectations = argv.hasOwnProperty('fix');
+const debug = argv.hasOwnProperty('debug');
+
+const TESTS_FOLDER = './tests';
 const injectedScriptPath = './dist/inject.bundle.js';
-const testPageURL = 'file://' + path.resolve('./test-page.html');
-
-const tests = ['layers', 'page'];
-
-function removeRandomness(layer) {
-  if (layer.do_objectID) {
-    layer.do_objectID = 'pizza';
-  }
-
-  if (layer.image) {
-    if (layer.image._ref) {
-      layer.image._ref = 'images/haribo';
-    }
-
-    if (layer.image.url) {
-      layer.image.url = path.basename(layer.image.url);
-    }
-  }
-
-  // for some reason only width differs between local and travis
-  if (layer.frame && layer.frame.width) {
-    layer.frame.width = Math.floor(layer.frame.width);
-  }
-
-  // we need to go deeper
-
-  if (layer.style && layer.style.fills) {
-    layer.style.fills.forEach(removeRandomness);
-  }
-
-  if (layer.layers) {
-    layer.layers.forEach(removeRandomness);
-  }
-}
 
 const isTravis = 'TRAVIS' in process.env && 'CI' in process.env;
 const args = isTravis ? ['--no-sandbox', '--disable-setuid-sandbox'] : [];
 
-puppeteer.launch({args}).then(async browser => {
-  const page = await browser.newPage();
+const testedMehtods = ['nodeToSketchLayers', 'nodeTreeToSketchPage'];
 
-  await page.setViewport({width: 800, height: 600});
+let testBrowser = null;
+let testPage = null;
+
+function getPuppeteerPage() {
+  if (testPage !== null) {
+    return testPage;
+  }
+
+  return puppeteer.launch({args}).then(async browser => {
+    const page = await browser.newPage();
+
+    await page.setViewport({width: 800, height: 600});
+    await page.on('console', msg => console.log('PAGE LOG:', msg.text()));
+
+    testBrowser = browser;
+    testPage = page;
+
+    return page;
+  });
+}
+
+async function runTest(file) {
+  const testPageURL = 'file://' + path.resolve(TESTS_FOLDER, file);
+
+  console.log(`🔍 Processing ${file}`);
+
+  const page = await getPuppeteerPage();
+
   await page.goto(testPageURL, {
     waitUntil: 'networkidle0'
   });
-
-  await page.on('console', msg => console.log('PAGE LOG:', msg.text()));
 
   await page.addScriptTag({
     path: injectedScriptPath
@@ -58,18 +55,26 @@ puppeteer.launch({args}).then(async browser => {
 
   let anyError = false;
 
-  await Promise.all(tests.map(async test => {
+  await Promise.all(testedMehtods.map(async method => {
     try {
-      const expectedPath = `./expected-${test}.asketch.json`;
-      const actualJSON = await page.evaluate(`body2sketch.${test}JSON(document.body)`);
+      const expectedPath = `./expected/${method}/${file}.asketch.json`;
+      const actualJSON = await page.evaluate(`body2sketch.${method}Test(document.body)`);
 
-      removeRandomness(actualJSON);
+      if (!debug) {
+        removeRandomness(actualJSON);
+      }
 
-      // update file with expected output by uncommenting the two lines below
-      // fs.writeFileSync(path.resolve(__dirname, expectedPath), JSON.stringify(actualJSON, null, 2));
-      // if ('dummy test to make linter happy'.length) {
-      //   return;
-      // }
+      if (fixExpectations) {
+        fs.writeFileSync(path.resolve(__dirname, expectedPath), JSON.stringify(actualJSON, null, 2));
+        return;
+      } else if (debug) {
+        const validDir = `./valid/${method}`;
+        const outputPath = `${validDir}/${file}.asketch.json`;
+
+        mkDirByPathSync(validDir);
+        fs.writeFileSync(path.resolve(__dirname, outputPath), JSON.stringify(actualJSON, null, 2));
+        return;
+      }
 
       const expectedJSONBuffer = fs.readFileSync(path.resolve(__dirname, expectedPath));
       const expectedJSON = JSON.parse(expectedJSONBuffer.toString());
@@ -77,22 +82,55 @@ puppeteer.launch({args}).then(async browser => {
       const diff = jsdiff(expectedJSON, actualJSON);
 
       if (diff.changed) {
-        console.error(`E2E test "${test}": ❌ Oh no! That's not the expected output. See the diff below:`);
+        console.error(`❌ E2E test "${file}"/"${method}" failed.`);
+        console.error('Oh no! That\'s not the expected output. See the diff below:');
         console.log(diff.text);
         anyError = true;
       }
     } catch (error) {
-      console.error(`E2E test "${test}": ❌ Oh no! There was an error running the test:`);
+      console.error(`❌ E2E test "${file}"/"${method}" failed.`);
+      console.error('Oh no! There was an error running the test:');
       console.error(error);
       anyError = true;
     }
   }));
 
-  browser.close();
-
   if (anyError) {
-    process.exit(1);
-  } else {
-    console.log('E2E tests: ✅');
+    throw new Error();
   }
+}
+
+if (fixExpectations && debug) {
+  console.log('😵 You can\'t --fix and --debug at the same time');
+  process.exit(1);
+} else if (fixExpectations) {
+  console.log('🔧 Overriding expected values');
+} else if (debug) {
+  console.log('🔧 Generating valid .asketch.json files');
+}
+
+const testResults = fs.readdirSync(TESTS_FOLDER)
+  .filter(file => {
+    if (isTravis && file === 'shadow-dom.html') {
+      // shadow DOM test is extremely flaky, for now we just skip it on CI
+      return false;
+    }
+
+    return file.endsWith('.html');
+  })
+  .reduce((promise, file) => promise.then(() => runTest(file)), Promise.resolve());
+
+testResults.then(() => {
+  if (testBrowser) {
+    testBrowser.close();
+  }
+
+  console.log('E2E tests: ✅');
+}).catch(() => {
+  if (testBrowser) {
+    testBrowser.close();
+  }
+
+  console.log('E2E tests: ❌');
+  process.exit(1);
 });

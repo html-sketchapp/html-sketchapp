@@ -1,0 +1,950 @@
+{
+  "_class": "page",
+  "do_objectID": "pizza",
+  "exportOptions": {
+    "_class": "exportOptions",
+    "exportFormats": [],
+    "includedLayerIds": [],
+    "layerOptions": 0,
+    "shouldTrim": false
+  },
+  "isFlippedHorizontal": false,
+  "isFlippedVertical": false,
+  "isLocked": false,
+  "isVisible": true,
+  "layerListExpandedType": 0,
+  "name": "page",
+  "nameIsFixed": false,
+  "resizingConstraint": 63,
+  "resizingType": 0,
+  "rotation": 0,
+  "shouldBreakMaskChain": false,
+  "layers": [
+    {
+      "_class": "artboard",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "artboard",
+      "nameIsFixed": false,
+      "resizingConstraint": 63,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "layers": [
+        {
+          "_class": "group",
+          "do_objectID": "pizza",
+          "exportOptions": {
+            "_class": "exportOptions",
+            "exportFormats": [],
+            "includedLayerIds": [],
+            "layerOptions": 0,
+            "shouldTrim": false
+          },
+          "isFlippedHorizontal": false,
+          "isFlippedVertical": false,
+          "isLocked": false,
+          "isVisible": true,
+          "layerListExpandedType": 0,
+          "name": "(body)",
+          "nameIsFixed": false,
+          "resizingConstraint": 63,
+          "resizingType": 0,
+          "rotation": 0,
+          "shouldBreakMaskChain": false,
+          "layers": [
+            {
+              "_class": "group",
+              "do_objectID": "pizza",
+              "exportOptions": {
+                "_class": "exportOptions",
+                "exportFormats": [],
+                "includedLayerIds": [],
+                "layerOptions": 0,
+                "shouldTrim": false
+              },
+              "isFlippedHorizontal": false,
+              "isFlippedVertical": false,
+              "isLocked": false,
+              "isVisible": true,
+              "layerListExpandedType": 0,
+              "name": "(h3)",
+              "nameIsFixed": false,
+              "resizingConstraint": 63,
+              "resizingType": 0,
+              "rotation": 0,
+              "shouldBreakMaskChain": false,
+              "layers": [
+                {
+                  "_class": "text",
+                  "do_objectID": "pizza",
+                  "exportOptions": {
+                    "_class": "exportOptions",
+                    "exportFormats": [],
+                    "includedLayerIds": [],
+                    "layerOptions": 0,
+                    "shouldTrim": false
+                  },
+                  "isFlippedHorizontal": false,
+                  "isFlippedVertical": false,
+                  "isLocked": false,
+                  "isVisible": true,
+                  "layerListExpandedType": 0,
+                  "name": "Embedded styles",
+                  "nameIsFixed": false,
+                  "resizingConstraint": 47,
+                  "resizingType": 0,
+                  "rotation": 0,
+                  "shouldBreakMaskChain": false,
+                  "clippingMaskMode": 0,
+                  "hasClippingMask": false,
+                  "style": {
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 18,
+                    "fontFamily": "Times New Roman",
+                    "fontWeight": 700,
+                    "textDecoration": "none",
+                    "textAlign": "start",
+                    "textTransform": "none"
+                  },
+                  "frame": {
+                    "_class": "rect",
+                    "constrainProportions": false,
+                    "height": 21,
+                    "width": 134,
+                    "x": 0,
+                    "y": 0
+                  },
+                  "text": "Embedded styles",
+                  "automaticallyDrawOnUnderlyingPath": false,
+                  "dontSynchroniseWithSymbol": false,
+                  "lineSpacingBehaviour": 2,
+                  "textBehaviour": 0
+                }
+              ],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
+              "style": {
+                "_class": "style",
+                "fills": [],
+                "borders": [],
+                "shadows": [],
+                "innerShadows": [],
+                "endDecorationType": 0,
+                "miterLimit": 10,
+                "startDecorationType": 0,
+                "contextSettings": {
+                  "_class": "graphicsContextSettings",
+                  "blendMode": 0,
+                  "opacity": "1"
+                }
+              },
+              "frame": {
+                "_class": "rect",
+                "constrainProportions": false,
+                "height": 22,
+                "width": 784,
+                "x": 0,
+                "y": 0
+              },
+              "hasClickThrough": false,
+              "windingRule": 1
+            },
+            {
+              "_class": "group",
+              "do_objectID": "pizza",
+              "exportOptions": {
+                "_class": "exportOptions",
+                "exportFormats": [],
+                "includedLayerIds": [],
+                "layerOptions": 0,
+                "shouldTrim": false
+              },
+              "isFlippedHorizontal": false,
+              "isFlippedVertical": false,
+              "isLocked": false,
+              "isVisible": true,
+              "layerListExpandedType": 0,
+              "name": "(svg)",
+              "nameIsFixed": false,
+              "resizingConstraint": 63,
+              "resizingType": 0,
+              "rotation": 0,
+              "shouldBreakMaskChain": false,
+              "layers": [
+                {
+                  "_class": "svg",
+                  "rawSVGString": "<svg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 24 24\">\n    <defs>\n      <style>\n        .b {\n          fill: #020a1a;\n        }\n\n        .c {\n          fill: #53cf92;\n        }\n\n        .d {\n          fill: #57b2f8;\n        }\n\n        .e {\n          fill: #fec83c;\n        }\n\n        .f {\n          fill: #ff796b;\n        }\n      </style>\n    </defs>\n    <title>all_1</title>\n    <circle class=\"b\" cx=\"6.03\" cy=\"5.95\" r=\"2\" style=\"cx: 6.03px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"c\" cx=\"12.08\" cy=\"5.95\" r=\"2\" style=\"cx: 12.08px; cy: 5.95px; r: 2px; fill: rgb(83, 207, 146); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"5.95\" r=\"2\" style=\"cx: 18.08px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"d\" cx=\"6.03\" cy=\"11.93\" r=\"2\" style=\"cx: 6.03px; cy: 11.93px; r: 2px; fill: rgb(87, 178, 248); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"12.08\" cy=\"11.93\" r=\"2\" style=\"cx: 12.08px; cy: 11.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"e\" cx=\"18.08\" cy=\"11.93\" r=\"2\" style=\"cx: 18.08px; cy: 11.93px; r: 2px; fill: rgb(254, 200, 60); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"6.03\" cy=\"17.93\" r=\"2\" style=\"cx: 6.03px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"f\" cx=\"12.08\" cy=\"17.93\" r=\"2\" style=\"cx: 12.08px; cy: 17.93px; r: 2px; fill: rgb(255, 121, 107); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"17.93\" r=\"2\" style=\"cx: 18.08px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n  </svg>",
+                  "width": 133.74999237060547,
+                  "height": 133.16667938232422,
+                  "x": 33.583335876464844,
+                  "y": 32.916664123535156,
+                  "resizingConstraint": 63
+                }
+              ],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
+              "style": {
+                "_class": "style",
+                "fills": [],
+                "borders": [],
+                "shadows": [],
+                "innerShadows": [],
+                "endDecorationType": 0,
+                "miterLimit": 10,
+                "startDecorationType": 0,
+                "contextSettings": {
+                  "_class": "graphicsContextSettings",
+                  "blendMode": 0,
+                  "opacity": "1"
+                }
+              },
+              "frame": {
+                "_class": "rect",
+                "constrainProportions": false,
+                "height": 200,
+                "width": 200,
+                "x": 0,
+                "y": 40.71875
+              },
+              "hasClickThrough": false,
+              "windingRule": 1
+            },
+            {
+              "_class": "group",
+              "do_objectID": "pizza",
+              "exportOptions": {
+                "_class": "exportOptions",
+                "exportFormats": [],
+                "includedLayerIds": [],
+                "layerOptions": 0,
+                "shouldTrim": false
+              },
+              "isFlippedHorizontal": false,
+              "isFlippedVertical": false,
+              "isLocked": false,
+              "isVisible": true,
+              "layerListExpandedType": 0,
+              "name": "(h3)",
+              "nameIsFixed": false,
+              "resizingConstraint": 63,
+              "resizingType": 0,
+              "rotation": 0,
+              "shouldBreakMaskChain": false,
+              "layers": [
+                {
+                  "_class": "text",
+                  "do_objectID": "pizza",
+                  "exportOptions": {
+                    "_class": "exportOptions",
+                    "exportFormats": [],
+                    "includedLayerIds": [],
+                    "layerOptions": 0,
+                    "shouldTrim": false
+                  },
+                  "isFlippedHorizontal": false,
+                  "isFlippedVertical": false,
+                  "isLocked": false,
+                  "isVisible": true,
+                  "layerListExpandedType": 0,
+                  "name": "Inheritied styles",
+                  "nameIsFixed": false,
+                  "resizingConstraint": 47,
+                  "resizingType": 0,
+                  "rotation": 0,
+                  "shouldBreakMaskChain": false,
+                  "clippingMaskMode": 0,
+                  "hasClippingMask": false,
+                  "style": {
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 18,
+                    "fontFamily": "Times New Roman",
+                    "fontWeight": 700,
+                    "textDecoration": "none",
+                    "textAlign": "start",
+                    "textTransform": "none"
+                  },
+                  "frame": {
+                    "_class": "rect",
+                    "constrainProportions": false,
+                    "height": 21,
+                    "width": 128,
+                    "x": 0,
+                    "y": 0
+                  },
+                  "text": "Inheritied styles",
+                  "automaticallyDrawOnUnderlyingPath": false,
+                  "dontSynchroniseWithSymbol": false,
+                  "lineSpacingBehaviour": 2,
+                  "textBehaviour": 0
+                }
+              ],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
+              "style": {
+                "_class": "style",
+                "fills": [],
+                "borders": [],
+                "shadows": [],
+                "innerShadows": [],
+                "endDecorationType": 0,
+                "miterLimit": 10,
+                "startDecorationType": 0,
+                "contextSettings": {
+                  "_class": "graphicsContextSettings",
+                  "blendMode": 0,
+                  "opacity": "1"
+                }
+              },
+              "frame": {
+                "_class": "rect",
+                "constrainProportions": false,
+                "height": 22,
+                "width": 784,
+                "x": 0,
+                "y": 263.4375
+              },
+              "hasClickThrough": false,
+              "windingRule": 1
+            },
+            {
+              "_class": "group",
+              "do_objectID": "pizza",
+              "exportOptions": {
+                "_class": "exportOptions",
+                "exportFormats": [],
+                "includedLayerIds": [],
+                "layerOptions": 0,
+                "shouldTrim": false
+              },
+              "isFlippedHorizontal": false,
+              "isFlippedVertical": false,
+              "isLocked": false,
+              "isVisible": true,
+              "layerListExpandedType": 0,
+              "name": "(svg)",
+              "nameIsFixed": false,
+              "resizingConstraint": 63,
+              "resizingType": 0,
+              "rotation": 0,
+              "shouldBreakMaskChain": false,
+              "layers": [
+                {
+                  "_class": "svg",
+                  "rawSVGString": "<svg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 24 24\" id=\"svg-circles\">\n    <circle class=\"b\" cx=\"6.03\" cy=\"5.95\" r=\"2\" style=\"cx: 6.03px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"c\" cx=\"12.08\" cy=\"5.95\" r=\"2\" style=\"cx: 12.08px; cy: 5.95px; r: 2px; fill: rgb(83, 207, 146); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"5.95\" r=\"2\" style=\"cx: 18.08px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"d\" cx=\"6.03\" cy=\"11.93\" r=\"2\" style=\"cx: 6.03px; cy: 11.93px; r: 2px; fill: rgb(87, 178, 248); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"12.08\" cy=\"11.93\" r=\"2\" style=\"cx: 12.08px; cy: 11.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"e\" cx=\"18.08\" cy=\"11.93\" r=\"2\" style=\"cx: 18.08px; cy: 11.93px; r: 2px; fill: rgb(254, 200, 60); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"6.03\" cy=\"17.93\" r=\"2\" style=\"cx: 6.03px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"f\" cx=\"12.08\" cy=\"17.93\" r=\"2\" style=\"cx: 12.08px; cy: 17.93px; r: 2px; fill: rgb(255, 121, 107); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"17.93\" r=\"2\" style=\"cx: 18.08px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n  </svg>",
+                  "width": 133.74999237060547,
+                  "height": 133.16668701171875,
+                  "x": 33.583335876464844,
+                  "y": 32.916656494140625,
+                  "resizingConstraint": 63
+                }
+              ],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
+              "style": {
+                "_class": "style",
+                "fills": [],
+                "borders": [],
+                "shadows": [],
+                "innerShadows": [],
+                "endDecorationType": 0,
+                "miterLimit": 10,
+                "startDecorationType": 0,
+                "contextSettings": {
+                  "_class": "graphicsContextSettings",
+                  "blendMode": 0,
+                  "opacity": "1"
+                }
+              },
+              "frame": {
+                "_class": "rect",
+                "constrainProportions": false,
+                "height": 200,
+                "width": 200,
+                "x": 0,
+                "y": 304.15625
+              },
+              "hasClickThrough": false,
+              "windingRule": 1
+            },
+            {
+              "_class": "group",
+              "do_objectID": "pizza",
+              "exportOptions": {
+                "_class": "exportOptions",
+                "exportFormats": [],
+                "includedLayerIds": [],
+                "layerOptions": 0,
+                "shouldTrim": false
+              },
+              "isFlippedHorizontal": false,
+              "isFlippedVertical": false,
+              "isLocked": false,
+              "isVisible": true,
+              "layerListExpandedType": 0,
+              "name": "(h3)",
+              "nameIsFixed": false,
+              "resizingConstraint": 63,
+              "resizingType": 0,
+              "rotation": 0,
+              "shouldBreakMaskChain": false,
+              "layers": [
+                {
+                  "_class": "text",
+                  "do_objectID": "pizza",
+                  "exportOptions": {
+                    "_class": "exportOptions",
+                    "exportFormats": [],
+                    "includedLayerIds": [],
+                    "layerOptions": 0,
+                    "shouldTrim": false
+                  },
+                  "isFlippedHorizontal": false,
+                  "isFlippedVertical": false,
+                  "isLocked": false,
+                  "isVisible": true,
+                  "layerListExpandedType": 0,
+                  "name": "SVG via <use>",
+                  "nameIsFixed": false,
+                  "resizingConstraint": 47,
+                  "resizingType": 0,
+                  "rotation": 0,
+                  "shouldBreakMaskChain": false,
+                  "clippingMaskMode": 0,
+                  "hasClippingMask": false,
+                  "style": {
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 18,
+                    "fontFamily": "Times New Roman",
+                    "fontWeight": 700,
+                    "textDecoration": "none",
+                    "textAlign": "start",
+                    "textTransform": "none"
+                  },
+                  "frame": {
+                    "_class": "rect",
+                    "constrainProportions": false,
+                    "height": 21,
+                    "width": 119,
+                    "x": 0,
+                    "y": 0
+                  },
+                  "text": "SVG via <use>",
+                  "automaticallyDrawOnUnderlyingPath": false,
+                  "dontSynchroniseWithSymbol": false,
+                  "lineSpacingBehaviour": 2,
+                  "textBehaviour": 0
+                }
+              ],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
+              "style": {
+                "_class": "style",
+                "fills": [],
+                "borders": [],
+                "shadows": [],
+                "innerShadows": [],
+                "endDecorationType": 0,
+                "miterLimit": 10,
+                "startDecorationType": 0,
+                "contextSettings": {
+                  "_class": "graphicsContextSettings",
+                  "blendMode": 0,
+                  "opacity": "1"
+                }
+              },
+              "frame": {
+                "_class": "rect",
+                "constrainProportions": false,
+                "height": 22,
+                "width": 784,
+                "x": 0,
+                "y": 526.875
+              },
+              "hasClickThrough": false,
+              "windingRule": 1
+            },
+            {
+              "_class": "group",
+              "do_objectID": "pizza",
+              "exportOptions": {
+                "_class": "exportOptions",
+                "exportFormats": [],
+                "includedLayerIds": [],
+                "layerOptions": 0,
+                "shouldTrim": false
+              },
+              "isFlippedHorizontal": false,
+              "isFlippedVertical": false,
+              "isLocked": false,
+              "isVisible": true,
+              "layerListExpandedType": 0,
+              "name": "(svg)",
+              "nameIsFixed": false,
+              "resizingConstraint": 63,
+              "resizingType": 0,
+              "rotation": 0,
+              "shouldBreakMaskChain": false,
+              "layers": [
+                {
+                  "_class": "svg",
+                  "rawSVGString": "<svg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 200 200\">\n    <svg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 24 24\" id=\"svg-circles\" style=\"font-family: &quot;Times New Roman&quot;; overflow: hidden;\">\n    <circle class=\"b\" cx=\"6.03\" cy=\"5.95\" r=\"2\" style=\"cx: 6.03px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"c\" cx=\"12.08\" cy=\"5.95\" r=\"2\" style=\"cx: 12.08px; cy: 5.95px; r: 2px; fill: rgb(83, 207, 146); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"5.95\" r=\"2\" style=\"cx: 18.08px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"d\" cx=\"6.03\" cy=\"11.93\" r=\"2\" style=\"cx: 6.03px; cy: 11.93px; r: 2px; fill: rgb(87, 178, 248); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"12.08\" cy=\"11.93\" r=\"2\" style=\"cx: 12.08px; cy: 11.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"e\" cx=\"18.08\" cy=\"11.93\" r=\"2\" style=\"cx: 18.08px; cy: 11.93px; r: 2px; fill: rgb(254, 200, 60); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"6.03\" cy=\"17.93\" r=\"2\" style=\"cx: 6.03px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"f\" cx=\"12.08\" cy=\"17.93\" r=\"2\" style=\"cx: 12.08px; cy: 17.93px; r: 2px; fill: rgb(255, 121, 107); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"17.93\" r=\"2\" style=\"cx: 18.08px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n  </svg>\n  </svg>",
+                  "width": 133.75,
+                  "height": 133.16668701171875,
+                  "x": 33.583335876464844,
+                  "y": 32.91668701171875,
+                  "resizingConstraint": 63
+                }
+              ],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
+              "style": {
+                "_class": "style",
+                "fills": [],
+                "borders": [],
+                "shadows": [],
+                "innerShadows": [],
+                "endDecorationType": 0,
+                "miterLimit": 10,
+                "startDecorationType": 0,
+                "contextSettings": {
+                  "_class": "graphicsContextSettings",
+                  "blendMode": 0,
+                  "opacity": "1"
+                }
+              },
+              "frame": {
+                "_class": "rect",
+                "constrainProportions": false,
+                "height": 200,
+                "width": 200,
+                "x": 0,
+                "y": 567.59375
+              },
+              "hasClickThrough": false,
+              "windingRule": 1
+            },
+            {
+              "_class": "group",
+              "do_objectID": "pizza",
+              "exportOptions": {
+                "_class": "exportOptions",
+                "exportFormats": [],
+                "includedLayerIds": [],
+                "layerOptions": 0,
+                "shouldTrim": false
+              },
+              "isFlippedHorizontal": false,
+              "isFlippedVertical": false,
+              "isLocked": false,
+              "isVisible": true,
+              "layerListExpandedType": 0,
+              "name": "(h3)",
+              "nameIsFixed": false,
+              "resizingConstraint": 63,
+              "resizingType": 0,
+              "rotation": 0,
+              "shouldBreakMaskChain": false,
+              "layers": [
+                {
+                  "_class": "text",
+                  "do_objectID": "pizza",
+                  "exportOptions": {
+                    "_class": "exportOptions",
+                    "exportFormats": [],
+                    "includedLayerIds": [],
+                    "layerOptions": 0,
+                    "shouldTrim": false
+                  },
+                  "isFlippedHorizontal": false,
+                  "isFlippedVertical": false,
+                  "isLocked": false,
+                  "isVisible": true,
+                  "layerListExpandedType": 0,
+                  "name": "SVG with styled element",
+                  "nameIsFixed": false,
+                  "resizingConstraint": 47,
+                  "resizingType": 0,
+                  "rotation": 0,
+                  "shouldBreakMaskChain": false,
+                  "clippingMaskMode": 0,
+                  "hasClippingMask": false,
+                  "style": {
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 18,
+                    "fontFamily": "Times New Roman",
+                    "fontWeight": 700,
+                    "textDecoration": "none",
+                    "textAlign": "start",
+                    "textTransform": "none"
+                  },
+                  "frame": {
+                    "_class": "rect",
+                    "constrainProportions": false,
+                    "height": 21,
+                    "width": 196,
+                    "x": 0,
+                    "y": 0
+                  },
+                  "text": "SVG with styled element",
+                  "automaticallyDrawOnUnderlyingPath": false,
+                  "dontSynchroniseWithSymbol": false,
+                  "lineSpacingBehaviour": 2,
+                  "textBehaviour": 0
+                }
+              ],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
+              "style": {
+                "_class": "style",
+                "fills": [],
+                "borders": [],
+                "shadows": [],
+                "innerShadows": [],
+                "endDecorationType": 0,
+                "miterLimit": 10,
+                "startDecorationType": 0,
+                "contextSettings": {
+                  "_class": "graphicsContextSettings",
+                  "blendMode": 0,
+                  "opacity": "1"
+                }
+              },
+              "frame": {
+                "_class": "rect",
+                "constrainProportions": false,
+                "height": 22,
+                "width": 784,
+                "x": 0,
+                "y": 790.3125
+              },
+              "hasClickThrough": false,
+              "windingRule": 1
+            },
+            {
+              "_class": "group",
+              "do_objectID": "pizza",
+              "exportOptions": {
+                "_class": "exportOptions",
+                "exportFormats": [],
+                "includedLayerIds": [],
+                "layerOptions": 0,
+                "shouldTrim": false
+              },
+              "isFlippedHorizontal": false,
+              "isFlippedVertical": false,
+              "isLocked": false,
+              "isVisible": true,
+              "layerListExpandedType": 0,
+              "name": "(svg)",
+              "nameIsFixed": false,
+              "resizingConstraint": 63,
+              "resizingType": 0,
+              "rotation": 0,
+              "shouldBreakMaskChain": false,
+              "layers": [
+                {
+                  "_class": "shapeGroup",
+                  "do_objectID": "pizza",
+                  "exportOptions": {
+                    "_class": "exportOptions",
+                    "exportFormats": [],
+                    "includedLayerIds": [],
+                    "layerOptions": 0,
+                    "shouldTrim": false
+                  },
+                  "isFlippedHorizontal": false,
+                  "isFlippedVertical": false,
+                  "isLocked": false,
+                  "isVisible": true,
+                  "layerListExpandedType": 0,
+                  "name": "/html[1]/body[1]/svg[@class=\"styled-svg\"]",
+                  "nameIsFixed": false,
+                  "resizingConstraint": 63,
+                  "resizingType": 0,
+                  "rotation": 0,
+                  "shouldBreakMaskChain": false,
+                  "layers": [
+                    {
+                      "_class": "rectangle",
+                      "do_objectID": "pizza",
+                      "exportOptions": {
+                        "_class": "exportOptions",
+                        "exportFormats": [],
+                        "includedLayerIds": [],
+                        "layerOptions": 0,
+                        "shouldTrim": false
+                      },
+                      "isFlippedHorizontal": false,
+                      "isFlippedVertical": false,
+                      "isLocked": false,
+                      "isVisible": true,
+                      "layerListExpandedType": 0,
+                      "name": "rectangle",
+                      "nameIsFixed": false,
+                      "resizingConstraint": 63,
+                      "resizingType": 0,
+                      "rotation": 0,
+                      "shouldBreakMaskChain": false,
+                      "layers": [],
+                      "clippingMaskMode": 0,
+                      "hasClippingMask": false,
+                      "frame": {
+                        "_class": "rect",
+                        "constrainProportions": false,
+                        "height": 204,
+                        "width": 204,
+                        "x": 0,
+                        "y": 0
+                      },
+                      "path": {
+                        "_class": "path",
+                        "isClosed": true,
+                        "pointRadiusBehaviour": 1,
+                        "points": [
+                          {
+                            "_class": "curvePoint",
+                            "cornerRadius": 0,
+                            "curveFrom": "{0, 0}",
+                            "curveMode": 1,
+                            "curveTo": "{0, 0}",
+                            "hasCurveFrom": false,
+                            "hasCurveTo": false,
+                            "point": "{0, 0}"
+                          },
+                          {
+                            "_class": "curvePoint",
+                            "cornerRadius": 0,
+                            "curveFrom": "{1, 0}",
+                            "curveMode": 1,
+                            "curveTo": "{1, 0}",
+                            "hasCurveFrom": false,
+                            "hasCurveTo": false,
+                            "point": "{1, 0}"
+                          },
+                          {
+                            "_class": "curvePoint",
+                            "cornerRadius": 0,
+                            "curveFrom": "{1, 1}",
+                            "curveMode": 1,
+                            "curveTo": "{1, 1}",
+                            "hasCurveFrom": false,
+                            "hasCurveTo": false,
+                            "point": "{1, 1}"
+                          },
+                          {
+                            "_class": "curvePoint",
+                            "cornerRadius": 0,
+                            "curveFrom": "{0, 1}",
+                            "curveMode": 1,
+                            "curveTo": "{0, 1}",
+                            "hasCurveFrom": false,
+                            "hasCurveTo": false,
+                            "point": "{0, 1}"
+                          }
+                        ]
+                      },
+                      "hasConvertedToNewRoundCorners": true,
+                      "fixedRadius": 0,
+                      "edited": false,
+                      "booleanOperation": -1
+                    }
+                  ],
+                  "clippingMaskMode": 0,
+                  "hasClippingMask": false,
+                  "style": {
+                    "_class": "style",
+                    "fills": [
+                      {
+                        "_class": "fill",
+                        "isEnabled": true,
+                        "color": {
+                          "_class": "color",
+                          "red": 1,
+                          "green": 0.7529411764705882,
+                          "blue": 0.796078431372549,
+                          "alpha": 1
+                        },
+                        "fillType": 0,
+                        "noiseIndex": 0,
+                        "noiseIntensity": 0,
+                        "patternFillType": 1,
+                        "patternTileScale": 1
+                      }
+                    ],
+                    "borders": [
+                      {
+                        "_class": "border",
+                        "isEnabled": true,
+                        "color": {
+                          "_class": "color",
+                          "red": 1,
+                          "green": 0,
+                          "blue": 0,
+                          "alpha": 1
+                        },
+                        "fillType": 0,
+                        "position": 1,
+                        "thickness": 2
+                      }
+                    ],
+                    "shadows": [],
+                    "innerShadows": [],
+                    "endDecorationType": 0,
+                    "miterLimit": 10,
+                    "startDecorationType": 0,
+                    "contextSettings": {
+                      "_class": "graphicsContextSettings",
+                      "blendMode": 0,
+                      "opacity": "1"
+                    }
+                  },
+                  "frame": {
+                    "_class": "rect",
+                    "constrainProportions": false,
+                    "height": 204,
+                    "width": 204,
+                    "x": 0,
+                    "y": 0
+                  },
+                  "hasClickThrough": false,
+                  "windingRule": 1
+                },
+                {
+                  "_class": "svg",
+                  "rawSVGString": "<svg class=\"styled-svg\" width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 200 200\">\n    <svg width=\"200\" height=\"200\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 24 24\" id=\"svg-circles\" style=\"font-family: &quot;Times New Roman&quot;; overflow: hidden;\">\n    <circle class=\"b\" cx=\"6.03\" cy=\"5.95\" r=\"2\" style=\"cx: 6.03px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"c\" cx=\"12.08\" cy=\"5.95\" r=\"2\" style=\"cx: 12.08px; cy: 5.95px; r: 2px; fill: rgb(83, 207, 146); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"5.95\" r=\"2\" style=\"cx: 18.08px; cy: 5.95px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"d\" cx=\"6.03\" cy=\"11.93\" r=\"2\" style=\"cx: 6.03px; cy: 11.93px; r: 2px; fill: rgb(87, 178, 248); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"12.08\" cy=\"11.93\" r=\"2\" style=\"cx: 12.08px; cy: 11.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"e\" cx=\"18.08\" cy=\"11.93\" r=\"2\" style=\"cx: 18.08px; cy: 11.93px; r: 2px; fill: rgb(254, 200, 60); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"6.03\" cy=\"17.93\" r=\"2\" style=\"cx: 6.03px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"f\" cx=\"12.08\" cy=\"17.93\" r=\"2\" style=\"cx: 12.08px; cy: 17.93px; r: 2px; fill: rgb(255, 121, 107); font-family: &quot;Times New Roman&quot;;\"></circle>\n    <circle class=\"b\" cx=\"18.08\" cy=\"17.93\" r=\"2\" style=\"cx: 18.08px; cy: 17.93px; r: 2px; fill: rgb(2, 10, 26); font-family: &quot;Times New Roman&quot;;\"></circle>\n  </svg>\n  </svg>",
+                  "width": 133.75,
+                  "height": 133.16668701171875,
+                  "x": 35.583335876464844,
+                  "y": 34.91668701171875,
+                  "resizingConstraint": 63
+                }
+              ],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
+              "style": {
+                "_class": "style",
+                "fills": [],
+                "borders": [],
+                "shadows": [],
+                "innerShadows": [],
+                "endDecorationType": 0,
+                "miterLimit": 10,
+                "startDecorationType": 0,
+                "contextSettings": {
+                  "_class": "graphicsContextSettings",
+                  "blendMode": 0,
+                  "opacity": "1"
+                }
+              },
+              "frame": {
+                "_class": "rect",
+                "constrainProportions": false,
+                "height": 204,
+                "width": 204,
+                "x": 0,
+                "y": 831.03125
+              },
+              "hasClickThrough": false,
+              "windingRule": 1
+            }
+          ],
+          "clippingMaskMode": 0,
+          "hasClippingMask": false,
+          "style": {
+            "_class": "style",
+            "fills": [],
+            "borders": [],
+            "shadows": [],
+            "innerShadows": [],
+            "endDecorationType": 0,
+            "miterLimit": 10,
+            "startDecorationType": 0,
+            "contextSettings": {
+              "_class": "graphicsContextSettings",
+              "blendMode": 0,
+              "opacity": "1"
+            }
+          },
+          "frame": {
+            "_class": "rect",
+            "constrainProportions": false,
+            "height": 1039.03125,
+            "width": 784,
+            "x": 8,
+            "y": 18.71875
+          },
+          "hasClickThrough": false,
+          "windingRule": 1
+        }
+      ],
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 1039.03125,
+        "width": 784,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "_class": "style",
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0
+      },
+      "horizontalRulerData": {
+        "_class": "rulerData",
+        "base": 0,
+        "guides": []
+      },
+      "verticalRulerData": {
+        "_class": "rulerData",
+        "base": 0,
+        "guides": []
+      },
+      "hasClickThrough": true,
+      "includeInCloudUpload": true
+    }
+  ],
+  "clippingMaskMode": 0,
+  "hasClippingMask": false,
+  "frame": {
+    "_class": "rect",
+    "constrainProportions": false,
+    "height": 1039.03125,
+    "width": 784,
+    "x": 0,
+    "y": 0
+  },
+  "style": {
+    "_class": "style",
+    "endDecorationType": 0,
+    "miterLimit": 10,
+    "startDecorationType": 0
+  },
+  "horizontalRulerData": {
+    "_class": "rulerData",
+    "base": 0,
+    "guides": []
+  },
+  "verticalRulerData": {
+    "_class": "rulerData",
+    "base": 0,
+    "guides": []
+  },
+  "hasClickThrough": true,
+  "includeInCloudUpload": true
+}
