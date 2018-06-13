@@ -11,6 +11,7 @@ class Base {
     this._name = '';
     this._userInfo = null;
     this.setResizingConstraint(RESIZING_CONSTRAINTS.NONE);
+    this.setHasClippingMask(false);
   }
 
   setFixedWidthAndHeight() {
@@ -51,6 +52,10 @@ class Base {
     this._style = style;
   }
 
+  setHasClippingMask(hasClippingMask) {
+    this._hasClippingMask = hasClippingMask;
+  }
+
   toJSON() {
     if (!this._class) {
       throw new Error('Class not set.');
@@ -77,7 +82,9 @@ class Base {
       'resizingType': 0,
       'rotation': 0,
       'shouldBreakMaskChain': false,
-      layers: this._layers.map(layer => layer.toJSON())
+      'layers': this._layers.map(layer => layer.toJSON()),
+      'clippingMaskMode': 0,
+      'hasClippingMask': this._hasClippingMask
     };
 
     if (this._userInfo) {

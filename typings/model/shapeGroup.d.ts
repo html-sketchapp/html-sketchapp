@@ -7,6 +7,12 @@ export interface ShapeGroupProps {
   height: number;
 }
 
+export interface Position {
+  x: number;
+  y: number;
+}
+
 export default class ShapeGroup extends Base {
   constructor(props: ShapeGroupProps);
+  public setPosition(position: Position): void;
 }
