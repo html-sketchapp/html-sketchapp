@@ -6400,6 +6400,8 @@
               "rotation": 0,
               "shouldBreakMaskChain": false,
               "layers": [],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
               "style": {
                 "_class": "style",
                 "fills": [],
@@ -6421,11 +6423,9 @@
                 "height": 100,
                 "width": 100,
                 "x": 0,
-                "y": 4096.3125
+                "y": 4371.3125
               },
               "hasClickThrough": false,
-              "clippingMaskMode": 0,
-              "hasClippingMask": false,
               "windingRule": 1
             },
             {
@@ -6450,6 +6450,8 @@
               "rotation": 0,
               "shouldBreakMaskChain": false,
               "layers": [],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
               "style": {
                 "_class": "style",
                 "fills": [],
@@ -6471,11 +6473,9 @@
                 "height": 100,
                 "width": 100,
                 "x": 0,
-                "y": 4196.3125
+                "y": 4471.3125
               },
               "hasClickThrough": false,
-              "clippingMaskMode": 0,
-              "hasClippingMask": false,
               "windingRule": 1
             },
             {
