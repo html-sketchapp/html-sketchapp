@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>html-sketchapp - Visibility</title>
+  <style>
+    .shadow {
+      width: 100px;
+      height: 100px;
+      background: gray;
+      box-shadow: 0 0 5px 2px black;
+    }
+
+    .text-shadow {
+      font-size: 20px;
+      text-shadow: 0 0 5px gray;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='box' style='display:none'>none</div>
+  <div class='box' style='visibility:hidden'>hidden</div>
+  <div class='box' style='clip: rect(0 0 0 0); position:absolute'>hidden
+    <div>hidden child</div>
+  </div>
+  <noscript>hidden</noscript>
+  <div class='box' style='text-indent: -999px; overflow: hidden'>text</div>
+  <div class='box' style='display: block'>block</div>
+  <div class='box' style='display: inline-block'>inline-block</div>
+  <div class='box' style='display: inline-block'>inline-block</div>
+</body>
+
+</html>

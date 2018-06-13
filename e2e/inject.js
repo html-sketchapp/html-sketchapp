@@ -4,7 +4,7 @@ function flatten(arr) {
   return [].concat(...arr);
 }
 
-export function layersJSON(startNode) {
+export function nodeToSketchLayersTest(startNode) {
   const page = new HtmlSketchApp.Page({
     width: document.body.offsetWidth,
     height: document.body.offsetHeight
@@ -28,7 +28,7 @@ export function layersJSON(startNode) {
   return page.toJSON();
 }
 
-export function pageJSON(startNode) {
+export function nodeTreeToSketchPageTest(startNode) {
   const page = HtmlSketchApp.nodeTreeToSketchPage(startNode, {
     addArtboard: true
   });
