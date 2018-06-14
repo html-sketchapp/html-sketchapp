@@ -322,9 +322,10 @@
                         "thickness": 0
                       }
                     ],
-                    "shadows": [
+                    "shadows": [],
+                    "innerShadows": [
                       {
-                        "_class": "shadow",
+                        "_class": "innerShadow",
                         "isEnabled": true,
                         "blurRadius": 5,
                         "color": {
@@ -342,9 +343,28 @@
                         "offsetX": 0,
                         "offsetY": 0,
                         "spread": 2
+                      },
+                      {
+                        "_class": "innerShadow",
+                        "isEnabled": true,
+                        "blurRadius": 5,
+                        "color": {
+                          "_class": "color",
+                          "red": 1,
+                          "green": 0,
+                          "blue": 0,
+                          "alpha": 1
+                        },
+                        "contextSettings": {
+                          "_class": "graphicsContextSettings",
+                          "blendMode": 0,
+                          "opacity": 1
+                        },
+                        "offsetX": 0,
+                        "offsetY": 0,
+                        "spread": 2
                       }
                     ],
-                    "innerShadows": [],
                     "endDecorationType": 0,
                     "miterLimit": 10,
                     "startDecorationType": 0,
