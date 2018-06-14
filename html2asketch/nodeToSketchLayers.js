@@ -6,6 +6,7 @@ import Text from './model/text';
 import TextStyle from './model/textStyle';
 import createXPathFromElement from './helpers/createXPathFromElement';
 import {parseBackgroundImage} from './helpers/background';
+import {splitShadowString, shadowStringToObject} from './helpers/shadow';
 import {getSVGString} from './helpers/svg';
 import {getGroupBCR} from './helpers/bcr';
 import {fixWhiteSpace} from './helpers/text';
@@ -17,39 +18,6 @@ const DEFAULT_VALUES = {
   borderWidth: '0px',
   boxShadow: 'none'
 };
-
-function shadowStringToObjects(shadowStr) {
-  const shadowStrings = shadowStr.split(/x, |t, /).map(
-    (str, i, array) => {
-      if (i + 1 < array.length) {
-        if (str.match(/inse$/)) {
-          return str + 't';
-        } else if (str.match(/p$/)) {
-          return str + 'x';
-        }
-      }
-      return str;
-    }
-  );
-
-  const shadowObjects = [];
-
-  shadowStrings.forEach(string => {
-    const matches =
-      string.match(/^([a-z0-9#., ()]+) ([-]?[0-9.]+)px ([-]?[0-9.]+)px ([-]?[0-9.]+)px ([-]?[0-9.]+)px ?(inset)?$/i);
-
-    if (matches && matches.length === 7) {
-      shadowObjects.push({
-        color: matches[1],
-        offsetX: parseInt(matches[2], 10),
-        offsetY: parseInt(matches[3], 10),
-        blur: parseInt(matches[4], 10),
-        spread: parseInt(matches[5], 10)
-      });
-    }
-  });
-  return shadowObjects;
-}
 
 function hasOnlyDefaultStyles(styles) {
   return Object.keys(DEFAULT_VALUES).every(key => {
@@ -173,7 +141,7 @@ export default function nodeToSketchLayers(node, options) {
     }
 
     if (boxShadow !== DEFAULT_VALUES.boxShadow) {
-      const shadowObjects = shadowStringToObjects(boxShadow);
+      const shadowObjects = splitShadowString(boxShadow).map(str => shadowStringToObject(str));
 
       shadowObjects.forEach(shadowObject => {
         if (boxShadow.indexOf('inset') !== -1) {
@@ -192,24 +160,16 @@ export default function nodeToSketchLayers(node, options) {
       style.addBorder({color: borderColor, thickness: parseInt(borderWidth, 10)});
     } else {
       if (borderTopWidth !== '0px') {
-        style.addInnerShadow(
-          shadowStringToObjects(borderTopColor + ' 0px ' + borderTopWidth + ' 0px 0px inset')[0]
-        );
+        style.addInnerShadow(shadowStringToObject(borderTopColor + ' 0px ' + borderTopWidth + ' 0px 0px inset'));
       }
       if (borderRightWidth !== '0px') {
-        style.addInnerShadow(
-          shadowStringToObjects(borderRightColor + ' -' + borderRightWidth + ' 0px 0px 0px inset')[0]
-        );
+        style.addInnerShadow(shadowStringToObject(borderRightColor + ' -' + borderRightWidth + ' 0px 0px 0px inset'));
       }
       if (borderBottomWidth !== '0px') {
-        style.addInnerShadow(
-          shadowStringToObjects(borderBottomColor + ' 0px -' + borderBottomWidth + ' 0px 0px inset')[0]
-        );
+        style.addInnerShadow(shadowStringToObject(borderBottomColor + ' 0px -' + borderBottomWidth + ' 0px 0px inset'));
       }
       if (borderLeftWidth !== '0px') {
-        style.addInnerShadow(
-          shadowStringToObjects(borderLeftColor + ' ' + borderLeftWidth + ' 0px 0px 0px inset')[0]
-        );
+        style.addInnerShadow(shadowStringToObject(borderLeftColor + ' ' + borderLeftWidth + ' 0px 0px 0px inset'));
       }
     }
 
