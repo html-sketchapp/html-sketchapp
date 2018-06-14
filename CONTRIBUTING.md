@@ -7,7 +7,7 @@ If anything is unclear or you run into some issues, please feel free to ask ques
 
 - [ ] Make sure that similar issue hasn't been reported before
 - If you are reporting a bug:
-  - [ ] let us know what Skech version you are using
+  - [ ] let us know what Sketch version you are using
   - [ ] make a screenshot of how output looks in the browser
   - [ ] make a screenshot of how output looks in Sketch
   - [ ] provide a minimal example (either jsbin or website where it can be tested)
