@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/brainly/html-sketchapp.git"
   },
-  "author": "Brainly - Konrad Dzwinel <konrad.dzwinel@brainly.com>",
+  "author": "Brainly - Konrad Dzwinel <kdzwinel@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "npm run build-lib && npm run build-plugin",
