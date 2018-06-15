@@ -7,7 +7,11 @@ function makeNativeSVGLayer(layer) {
   const svgImporter = MSSVGImporter.svgImporter();
 
   svgImporter.prepareToImportFromData(svgData);
-  const svgLayer = svgImporter.importAsLayer();
+  let svgLayer = svgImporter.importAsLayer();
+
+  while (svgLayer && svgLayer.layers().length === 1 && svgLayer.class() instanceof MSLayerGroup) {
+    svgLayer = svgLayer.layers()[0];
+  }
 
   svgLayer.resizingConstraint = layer.resizingConstraint;
 
