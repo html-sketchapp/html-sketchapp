@@ -194,7 +194,8 @@
       "height": 133.16668701171875,
       "x": 43.583335876464844,
       "y": 884.6666870117188,
-      "resizingConstraint": 63
+      "resizingConstraint": 63,
+      "hasClippingMask": false
     },
     {
       "_class": "text",
@@ -249,7 +250,8 @@
       "height": 133.16668701171875,
       "x": 41.583335876464844,
       "y": 619.2291870117188,
-      "resizingConstraint": 63
+      "resizingConstraint": 63,
+      "hasClippingMask": false
     },
     {
       "_class": "text",
@@ -304,7 +306,8 @@
       "height": 133.16668701171875,
       "x": 41.583335876464844,
       "y": 355.7916564941406,
-      "resizingConstraint": 63
+      "resizingConstraint": 63,
+      "hasClippingMask": false
     },
     {
       "_class": "text",
@@ -359,7 +362,8 @@
       "height": 133.16667938232422,
       "x": 41.583335876464844,
       "y": 92.35416412353516,
-      "resizingConstraint": 63
+      "resizingConstraint": 63,
+      "hasClippingMask": false
     },
     {
       "_class": "text",

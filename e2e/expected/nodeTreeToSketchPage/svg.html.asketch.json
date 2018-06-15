@@ -190,7 +190,8 @@
                   "height": 133.16667938232422,
                   "x": 33.583335876464844,
                   "y": 32.916664123535156,
-                  "resizingConstraint": 63
+                  "resizingConstraint": 63,
+                  "hasClippingMask": false
                 }
               ],
               "clippingMaskMode": 0,
@@ -347,7 +348,8 @@
                   "height": 133.16668701171875,
                   "x": 33.583335876464844,
                   "y": 32.916656494140625,
-                  "resizingConstraint": 63
+                  "resizingConstraint": 63,
+                  "hasClippingMask": false
                 }
               ],
               "clippingMaskMode": 0,
@@ -504,7 +506,8 @@
                   "height": 133.16668701171875,
                   "x": 33.583335876464844,
                   "y": 32.91668701171875,
-                  "resizingConstraint": 63
+                  "resizingConstraint": 63,
+                  "hasClippingMask": false
                 }
               ],
               "clippingMaskMode": 0,
@@ -828,7 +831,8 @@
                   "height": 133.16668701171875,
                   "x": 35.583335876464844,
                   "y": 34.91668701171875,
-                  "resizingConstraint": 63
+                  "resizingConstraint": 63,
+                  "hasClippingMask": false
                 }
               ],
               "clippingMaskMode": 0,

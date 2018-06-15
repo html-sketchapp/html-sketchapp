@@ -6,6 +6,7 @@
 
 ## My change breaks tests
 
+First make sure that you run `npm run build`.
 If you made a legit change that breaks e2e tests, please run `npm run e2e-fix` which will override files from `/expected` folder with new values.
 
 If your change unexpectedly breaks tests, see "I want to debug tests" section below.
