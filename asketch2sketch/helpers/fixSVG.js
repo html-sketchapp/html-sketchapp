@@ -14,6 +14,7 @@ function makeNativeSVGLayer(layer) {
   }
 
   svgLayer.resizingConstraint = layer.resizingConstraint;
+  svgLayer.hasClippingMask = layer.hasClippingMask;
 
   const currentSize = svgLayer.rect().size;
   const scale = Math.min(layer.width / currentSize.width, layer.height / currentSize.height);
