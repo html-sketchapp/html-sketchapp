@@ -261,6 +261,7 @@ export default function nodeToSketchLayers(node, options) {
       rawSVGString: getSVGString(node)
     });
 
+    shapeGroup.setHasClippingMask(false);
     layers.push(svgLayer);
 
     return layers;
