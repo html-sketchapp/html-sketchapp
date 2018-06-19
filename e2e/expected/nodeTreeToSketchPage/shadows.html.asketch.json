@@ -231,10 +231,9 @@
                         "thickness": 0
                       }
                     ],
-                    "shadows": [],
-                    "innerShadows": [
+                    "shadows": [
                       {
-                        "_class": "innerShadow",
+                        "_class": "shadow",
                         "isEnabled": true,
                         "blurRadius": 5,
                         "color": {
@@ -252,7 +251,9 @@
                         "offsetX": 0,
                         "offsetY": 0,
                         "spread": 2
-                      },
+                      }
+                    ],
+                    "innerShadows": [
                       {
                         "_class": "innerShadow",
                         "isEnabled": true,

@@ -126,10 +126,12 @@ export default function nodeToSketchLayers(node, options) {
     }
 
     if (boxShadow !== DEFAULT_VALUES.boxShadow) {
-      const shadowObjects = splitShadowString(boxShadow).map(str => shadowStringToObject(str));
+      const shadowStrings = splitShadowString(boxShadow);
 
-      shadowObjects.forEach(shadowObject => {
-        if (boxShadow.indexOf('inset') !== -1) {
+      shadowStrings.forEach(shadowString => {
+        const shadowObject = shadowStringToObject(shadowString);
+
+        if (shadowString.indexOf('inset') !== -1) {
           if (borderWidth.indexOf(' ') === -1) {
             shadowObject.spread += parseInt(borderWidth, 10);
           }
