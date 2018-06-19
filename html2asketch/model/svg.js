@@ -19,7 +19,8 @@ class SVG extends Base {
       height: this._height,
       x: this._x,
       y: this._y,
-      resizingConstraint: this._resizingConstraint
+      resizingConstraint: this._resizingConstraint,
+      hasClippingMask: this._hasClippingMask
     };
   }
 }

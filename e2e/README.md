@@ -1,7 +1,20 @@
 # E2E test for html-sketchapp
 
-This test runs html2asketch on `test-page.html` (via Puppeteer) and compares resulting `.asketch.json` file with the `expected.asketch.json`.
+`npm run e2e` runs `nodeToSketchLayers` and `nodeTreeToSketchPage` methods on all test pages from the `/tests` folder (using Puppeteer) and compares resulting JSON with the expected output from the `/expected` folder.
 
-If you made a legit change that breaks this test please update `expected.asketch.json` (see `run.js` for details).
+⚠️ Note that `.asketch.json` files from the `/expected` folder are not valid `.asketch.json` files (importing them via plugin will fail). Random values are replaced with hardcoded strings (e.g. objectIDs), and some values are rounded to reduce test flakiness. If you want to generate valid files, please see "I want to debug tests" section below.
 
-⚠️ Note that `expected.asketch.json` file is not a valid `.asketch.json` file. Random values are replaced with hardcoded strings (e.g. objectIDs), and some values are rounded to reduce test flakiness.
+## My change breaks tests
+
+First make sure that you run `npm run build`.
+If you made a legit change that breaks e2e tests, please run `npm run e2e-fix` which will override files from `/expected` folder with new values.
+
+If your change unexpectedly breaks tests, see "I want to debug tests" section below.
+
+## I want to add new test cases
+
+Please create a new HTML file in `/tests` or add your test cases to the existing HTML files (whichever makes more sense). After that, you can generate new `/expected` files with `npm run e2e-fix`.
+
+## I want to debug tests
+
+You can use `npm run e2e-debug` to generate valid `.asketch.json` files (see `/valid` folder) that can be imported to Sketch via plugin. You can also add `console.log`s to the HTML pages being tested - they should show up when running `npm run e2e`. If you are stuck ask for help in the PR!

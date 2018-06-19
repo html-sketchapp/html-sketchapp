@@ -1,0 +1,341 @@
+{
+  "_class": "page",
+  "do_objectID": "pizza",
+  "exportOptions": {
+    "_class": "exportOptions",
+    "exportFormats": [],
+    "includedLayerIds": [],
+    "layerOptions": 0,
+    "shouldTrim": false
+  },
+  "isFlippedHorizontal": false,
+  "isFlippedVertical": false,
+  "isLocked": false,
+  "isVisible": true,
+  "layerListExpandedType": 0,
+  "name": "page",
+  "nameIsFixed": false,
+  "resizingConstraint": 63,
+  "resizingType": 0,
+  "rotation": 0,
+  "shouldBreakMaskChain": false,
+  "layers": [
+    {
+      "_class": "artboard",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "artboard",
+      "nameIsFixed": false,
+      "resizingConstraint": 63,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "layers": [
+        {
+          "_class": "group",
+          "do_objectID": "pizza",
+          "exportOptions": {
+            "_class": "exportOptions",
+            "exportFormats": [],
+            "includedLayerIds": [],
+            "layerOptions": 0,
+            "shouldTrim": false
+          },
+          "isFlippedHorizontal": false,
+          "isFlippedVertical": false,
+          "isLocked": false,
+          "isVisible": true,
+          "layerListExpandedType": 0,
+          "name": "(body)",
+          "nameIsFixed": false,
+          "resizingConstraint": 63,
+          "resizingType": 0,
+          "rotation": 0,
+          "shouldBreakMaskChain": false,
+          "layers": [
+            {
+              "_class": "group",
+              "do_objectID": "pizza",
+              "exportOptions": {
+                "_class": "exportOptions",
+                "exportFormats": [],
+                "includedLayerIds": [],
+                "layerOptions": 0,
+                "shouldTrim": false
+              },
+              "isFlippedHorizontal": false,
+              "isFlippedVertical": false,
+              "isLocked": false,
+              "isVisible": true,
+              "layerListExpandedType": 0,
+              "name": "(h2)",
+              "nameIsFixed": false,
+              "resizingConstraint": 63,
+              "resizingType": 0,
+              "rotation": 0,
+              "shouldBreakMaskChain": false,
+              "layers": [
+                {
+                  "_class": "text",
+                  "do_objectID": "pizza",
+                  "exportOptions": {
+                    "_class": "exportOptions",
+                    "exportFormats": [],
+                    "includedLayerIds": [],
+                    "layerOptions": 0,
+                    "shouldTrim": false
+                  },
+                  "isFlippedHorizontal": false,
+                  "isFlippedVertical": false,
+                  "isLocked": false,
+                  "isVisible": true,
+                  "layerListExpandedType": 0,
+                  "name": "Shadow DOM",
+                  "nameIsFixed": false,
+                  "resizingConstraint": 47,
+                  "resizingType": 0,
+                  "rotation": 0,
+                  "shouldBreakMaskChain": false,
+                  "style": {
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 24,
+                    "fontFamily": "Times New Roman",
+                    "fontWeight": 700,
+                    "textDecoration": "none",
+                    "textAlign": "start",
+                    "textTransform": "none"
+                  },
+                  "frame": {
+                    "_class": "rect",
+                    "constrainProportions": false,
+                    "height": 26,
+                    "width": 146,
+                    "x": 0,
+                    "y": 0
+                  },
+                  "text": "Shadow DOM",
+                  "automaticallyDrawOnUnderlyingPath": false,
+                  "dontSynchroniseWithSymbol": false,
+                  "lineSpacingBehaviour": 2,
+                  "textBehaviour": 0
+                }
+              ],
+              "style": {
+                "_class": "style",
+                "fills": [],
+                "borders": [],
+                "shadows": [],
+                "innerShadows": [],
+                "endDecorationType": 0,
+                "miterLimit": 10,
+                "startDecorationType": 0,
+                "contextSettings": {
+                  "_class": "graphicsContextSettings",
+                  "blendMode": 0,
+                  "opacity": "1"
+                }
+              },
+              "frame": {
+                "_class": "rect",
+                "constrainProportions": false,
+                "height": 27,
+                "width": 784,
+                "x": 0,
+                "y": 0
+              },
+              "hasClickThrough": false,
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
+              "windingRule": 1
+            },
+            {
+              "_class": "group",
+              "do_objectID": "pizza",
+              "exportOptions": {
+                "_class": "exportOptions",
+                "exportFormats": [],
+                "includedLayerIds": [],
+                "layerOptions": 0,
+                "shouldTrim": false
+              },
+              "isFlippedHorizontal": false,
+              "isFlippedVertical": false,
+              "isLocked": false,
+              "isVisible": true,
+              "layerListExpandedType": 0,
+              "name": "(test-el)",
+              "nameIsFixed": false,
+              "resizingConstraint": 63,
+              "resizingType": 0,
+              "rotation": 0,
+              "shouldBreakMaskChain": false,
+              "layers": [
+                {
+                  "_class": "text",
+                  "do_objectID": "pizza",
+                  "exportOptions": {
+                    "_class": "exportOptions",
+                    "exportFormats": [],
+                    "includedLayerIds": [],
+                    "layerOptions": 0,
+                    "shouldTrim": false
+                  },
+                  "isFlippedHorizontal": false,
+                  "isFlippedVertical": false,
+                  "isLocked": false,
+                  "isVisible": true,
+                  "layerListExpandedType": 0,
+                  "name": "Slotted content",
+                  "nameIsFixed": false,
+                  "resizingConstraint": 47,
+                  "resizingType": 0,
+                  "rotation": 0,
+                  "shouldBreakMaskChain": false,
+                  "style": {
+                    "color": "rgb(0, 0, 0)",
+                    "fontSize": 16,
+                    "fontFamily": "Optimist",
+                    "fontWeight": 400,
+                    "textDecoration": "none",
+                    "textAlign": "start",
+                    "textTransform": "none"
+                  },
+                  "frame": {
+                    "_class": "rect",
+                    "constrainProportions": false,
+                    "height": 17,
+                    "width": 106,
+                    "x": 149.3125,
+                    "y": 69.4375
+                  },
+                  "text": "Slotted content",
+                  "automaticallyDrawOnUnderlyingPath": false,
+                  "dontSynchroniseWithSymbol": false,
+                  "lineSpacingBehaviour": 2,
+                  "textBehaviour": 0
+                }
+              ],
+              "style": {
+                "_class": "style",
+                "fills": [],
+                "borders": [],
+                "shadows": [],
+                "innerShadows": [],
+                "endDecorationType": 0,
+                "miterLimit": 10,
+                "startDecorationType": 0,
+                "contextSettings": {
+                  "_class": "graphicsContextSettings",
+                  "blendMode": 0,
+                  "opacity": "1"
+                }
+              },
+              "frame": {
+                "_class": "rect",
+                "constrainProportions": false,
+                "height": 98.4375,
+                "width": 784,
+                "x": 0,
+                "y": 48.4375
+              },
+              "hasClickThrough": false,
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
+              "windingRule": 1
+            }
+          ],
+          "style": {
+            "_class": "style",
+            "fills": [],
+            "borders": [],
+            "shadows": [],
+            "innerShadows": [],
+            "endDecorationType": 0,
+            "miterLimit": 10,
+            "startDecorationType": 0,
+            "contextSettings": {
+              "_class": "graphicsContextSettings",
+              "blendMode": 0,
+              "opacity": "1"
+            }
+          },
+          "frame": {
+            "_class": "rect",
+            "constrainProportions": false,
+            "height": 146.875,
+            "width": 784,
+            "x": 8,
+            "y": 19.90625
+          },
+          "hasClickThrough": false,
+          "clippingMaskMode": 0,
+          "hasClippingMask": false,
+          "windingRule": 1
+        }
+      ],
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 146.875,
+        "width": 784,
+        "x": 0,
+        "y": 0
+      },
+      "style": {
+        "_class": "style",
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0
+      },
+      "horizontalRulerData": {
+        "_class": "rulerData",
+        "base": 0,
+        "guides": []
+      },
+      "verticalRulerData": {
+        "_class": "rulerData",
+        "base": 0,
+        "guides": []
+      },
+      "hasClickThrough": true,
+      "includeInCloudUpload": true
+    }
+  ],
+  "frame": {
+    "_class": "rect",
+    "constrainProportions": false,
+    "height": 146.875,
+    "width": 784,
+    "x": 0,
+    "y": 0
+  },
+  "style": {
+    "_class": "style",
+    "endDecorationType": 0,
+    "miterLimit": 10,
+    "startDecorationType": 0
+  },
+  "horizontalRulerData": {
+    "_class": "rulerData",
+    "base": 0,
+    "guides": []
+  },
+  "verticalRulerData": {
+    "_class": "rulerData",
+    "base": 0,
+    "guides": []
+  },
+  "hasClickThrough": true,
+  "includeInCloudUpload": true
+}

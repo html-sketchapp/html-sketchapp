@@ -1,0 +1,1618 @@
+{
+  "_class": "page",
+  "do_objectID": "pizza",
+  "exportOptions": {
+    "_class": "exportOptions",
+    "exportFormats": [],
+    "includedLayerIds": [],
+    "layerOptions": 0,
+    "shouldTrim": false
+  },
+  "isFlippedHorizontal": false,
+  "isFlippedVertical": false,
+  "isLocked": false,
+  "isVisible": true,
+  "layerListExpandedType": 0,
+  "name": "html-sketchapp - Images",
+  "nameIsFixed": false,
+  "resizingConstraint": 63,
+  "resizingType": 0,
+  "rotation": 0,
+  "shouldBreakMaskChain": false,
+  "layers": [
+    {
+      "_class": "shapeGroup",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "/html[1]/body[1]/img[@class=\"image\"]",
+      "nameIsFixed": false,
+      "resizingConstraint": 45,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "layers": [
+        {
+          "_class": "rectangle",
+          "do_objectID": "pizza",
+          "exportOptions": {
+            "_class": "exportOptions",
+            "exportFormats": [],
+            "includedLayerIds": [],
+            "layerOptions": 0,
+            "shouldTrim": false
+          },
+          "isFlippedHorizontal": false,
+          "isFlippedVertical": false,
+          "isLocked": false,
+          "isVisible": true,
+          "layerListExpandedType": 0,
+          "name": "rectangle",
+          "nameIsFixed": false,
+          "resizingConstraint": 63,
+          "resizingType": 0,
+          "rotation": 0,
+          "shouldBreakMaskChain": false,
+          "layers": [],
+          "frame": {
+            "_class": "rect",
+            "constrainProportions": false,
+            "height": 300,
+            "width": 300,
+            "x": 0,
+            "y": 0
+          },
+          "path": {
+            "_class": "path",
+            "isClosed": true,
+            "pointRadiusBehaviour": 1,
+            "points": [
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 0}",
+                "curveMode": 1,
+                "curveTo": "{0, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 0}",
+                "curveMode": 1,
+                "curveTo": "{1, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 1}",
+                "curveMode": 1,
+                "curveTo": "{1, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 1}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 1}",
+                "curveMode": 1,
+                "curveTo": "{0, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 1}"
+              }
+            ]
+          },
+          "hasConvertedToNewRoundCorners": true,
+          "fixedRadius": 0,
+          "edited": false,
+          "booleanOperation": -1
+        }
+      ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          },
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "fillType": 4,
+            "image": {
+              "_class": "MSJSONOriginalDataReference",
+              "_ref_class": "MSImageData",
+              "_ref": "images/haribo",
+              "url": "svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgo8c3ZnCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4wIgogICB3aWR0aD0iMTAwIgogICBoZWlnaHQ9IjEwMCIKICAgaWQ9InN2ZzcwMTEiPgogIDxkZWZzCiAgICAgaWQ9ImRlZnM3MDEzIiAvPgogIDxnCiAgICAgaWQ9ImxheWVyMSI+CiAgICA8cGF0aAogICAgICAgZD0iTSA5MS44NjI4ODksNC40MzgzMjM3IEMgNDguMjcwOTksODYuNzAyNDIgNDguMjcwOTksODYuNzAyNDIgNDguMjcwOTksODYuNzAyNDIgTCA1LjExOTQxNDEsNTguMTYxODE3IgogICAgICAgc3R5bGU9ImZpbGw6bm9uZTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2U6IzAwODAwMDtzdHJva2Utd2lkdGg6MTguMzUwOTk5ODM7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICAgIGlkPSJwYXRoNzAxOSIgLz4KICA8L2c+Cjwvc3ZnPgo="
+            },
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 300,
+        "width": 300,
+        "x": 8,
+        "y": 2090.0625
+      },
+      "hasClickThrough": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
+      "windingRule": 1
+    },
+    {
+      "_class": "text",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "plaintext SVG data: URL",
+      "nameIsFixed": false,
+      "resizingConstraint": 47,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "style": {
+        "color": "rgb(0, 0, 0)",
+        "fontSize": 18,
+        "fontFamily": "Times New Roman",
+        "fontWeight": 700,
+        "textDecoration": "none",
+        "textAlign": "start",
+        "textTransform": "none"
+      },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 21,
+        "width": 204,
+        "x": 8,
+        "y": 2049.34375
+      },
+      "text": "plaintext SVG data: URL",
+      "automaticallyDrawOnUnderlyingPath": false,
+      "dontSynchroniseWithSymbol": false,
+      "lineSpacingBehaviour": 2,
+      "textBehaviour": 0
+    },
+    {
+      "_class": "shapeGroup",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "/html[1]/body[1]/img[@class=\"image\"]",
+      "nameIsFixed": false,
+      "resizingConstraint": 45,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "layers": [
+        {
+          "_class": "rectangle",
+          "do_objectID": "pizza",
+          "exportOptions": {
+            "_class": "exportOptions",
+            "exportFormats": [],
+            "includedLayerIds": [],
+            "layerOptions": 0,
+            "shouldTrim": false
+          },
+          "isFlippedHorizontal": false,
+          "isFlippedVertical": false,
+          "isLocked": false,
+          "isVisible": true,
+          "layerListExpandedType": 0,
+          "name": "rectangle",
+          "nameIsFixed": false,
+          "resizingConstraint": 63,
+          "resizingType": 0,
+          "rotation": 0,
+          "shouldBreakMaskChain": false,
+          "layers": [],
+          "frame": {
+            "_class": "rect",
+            "constrainProportions": false,
+            "height": 300,
+            "width": 300,
+            "x": 0,
+            "y": 0
+          },
+          "path": {
+            "_class": "path",
+            "isClosed": true,
+            "pointRadiusBehaviour": 1,
+            "points": [
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 0}",
+                "curveMode": 1,
+                "curveTo": "{0, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 0}",
+                "curveMode": 1,
+                "curveTo": "{1, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 1}",
+                "curveMode": 1,
+                "curveTo": "{1, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 1}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 1}",
+                "curveMode": 1,
+                "curveTo": "{0, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 1}"
+              }
+            ]
+          },
+          "hasConvertedToNewRoundCorners": true,
+          "fixedRadius": 0,
+          "edited": false,
+          "booleanOperation": -1
+        }
+      ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          },
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "fillType": 4,
+            "image": {
+              "_class": "MSJSONOriginalDataReference",
+              "_ref_class": "MSImageData",
+              "_ref": "images/haribo",
+              "url": "svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgo8c3ZnCiAgIHhtbG5zOnN2Zz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgdmVyc2lvbj0iMS4wIgogICB3aWR0aD0iMTAwIgogICBoZWlnaHQ9IjEwMCIKICAgaWQ9InN2ZzcwMTEiPgogIDxkZWZzCiAgICAgaWQ9ImRlZnM3MDEzIiAvPgogIDxnCiAgICAgaWQ9ImxheWVyMSI+CiAgICA8cGF0aAogICAgICAgZD0iTSA5MS44NjI4ODksNC40MzgzMjM3IEMgNDguMjcwOTksODYuNzAyNDIgNDguMjcwOTksODYuNzAyNDIgNDguMjcwOTksODYuNzAyNDIgTCA1LjExOTQxNDEsNTguMTYxODE3IgogICAgICAgc3R5bGU9ImZpbGw6bm9uZTtmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2U6IzAwODAwMDtzdHJva2Utd2lkdGg6MTguMzUwOTk5ODM7c3Ryb2tlLWxpbmVjYXA6YnV0dDtzdHJva2UtbGluZWpvaW46bWl0ZXI7c3Ryb2tlLW1pdGVybGltaXQ6NDtzdHJva2UtZGFzaGFycmF5Om5vbmU7c3Ryb2tlLW9wYWNpdHk6MSIKICAgICAgIGlkPSJwYXRoNzAxOSIgLz4KICA8L2c+Cjwvc3ZnPgo="
+            },
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 300,
+        "width": 300,
+        "x": 8,
+        "y": 1726.625
+      },
+      "hasClickThrough": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
+      "windingRule": 1
+    },
+    {
+      "_class": "text",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "base64 SVG data: URL",
+      "nameIsFixed": false,
+      "resizingConstraint": 47,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "style": {
+        "color": "rgb(0, 0, 0)",
+        "fontSize": 18,
+        "fontFamily": "Times New Roman",
+        "fontWeight": 700,
+        "textDecoration": "none",
+        "textAlign": "start",
+        "textTransform": "none"
+      },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 21,
+        "width": 187,
+        "x": 8,
+        "y": 1685.90625
+      },
+      "text": "base64 SVG data: URL",
+      "automaticallyDrawOnUnderlyingPath": false,
+      "dontSynchroniseWithSymbol": false,
+      "lineSpacingBehaviour": 2,
+      "textBehaviour": 0
+    },
+    {
+      "_class": "shapeGroup",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "/html[1]/body[1]/img[@class=\"image\"]",
+      "nameIsFixed": false,
+      "resizingConstraint": 45,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "layers": [
+        {
+          "_class": "rectangle",
+          "do_objectID": "pizza",
+          "exportOptions": {
+            "_class": "exportOptions",
+            "exportFormats": [],
+            "includedLayerIds": [],
+            "layerOptions": 0,
+            "shouldTrim": false
+          },
+          "isFlippedHorizontal": false,
+          "isFlippedVertical": false,
+          "isLocked": false,
+          "isVisible": true,
+          "layerListExpandedType": 0,
+          "name": "rectangle",
+          "nameIsFixed": false,
+          "resizingConstraint": 63,
+          "resizingType": 0,
+          "rotation": 0,
+          "shouldBreakMaskChain": false,
+          "layers": [],
+          "frame": {
+            "_class": "rect",
+            "constrainProportions": false,
+            "height": 300,
+            "width": 300,
+            "x": 0,
+            "y": 0
+          },
+          "path": {
+            "_class": "path",
+            "isClosed": true,
+            "pointRadiusBehaviour": 1,
+            "points": [
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 0}",
+                "curveMode": 1,
+                "curveTo": "{0, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 0}",
+                "curveMode": 1,
+                "curveTo": "{1, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 1}",
+                "curveMode": 1,
+                "curveTo": "{1, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 1}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 1}",
+                "curveMode": 1,
+                "curveTo": "{0, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 1}"
+              }
+            ]
+          },
+          "hasConvertedToNewRoundCorners": true,
+          "fixedRadius": 0,
+          "edited": false,
+          "booleanOperation": -1
+        }
+      ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          },
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "fillType": 4,
+            "image": {
+              "_class": "MSJSONOriginalDataReference",
+              "_ref_class": "MSImageData",
+              "_ref": "images/haribo",
+              "url": "red.png"
+            },
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 300,
+        "width": 300,
+        "x": 8,
+        "y": 1363.1875
+      },
+      "hasClickThrough": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
+      "windingRule": 1
+    },
+    {
+      "_class": "text",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "srcset",
+      "nameIsFixed": false,
+      "resizingConstraint": 47,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "style": {
+        "color": "rgb(0, 0, 0)",
+        "fontSize": 18,
+        "fontFamily": "Times New Roman",
+        "fontWeight": 700,
+        "textDecoration": "none",
+        "textAlign": "start",
+        "textTransform": "none"
+      },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 21,
+        "width": 45,
+        "x": 8,
+        "y": 1322.46875
+      },
+      "text": "srcset",
+      "automaticallyDrawOnUnderlyingPath": false,
+      "dontSynchroniseWithSymbol": false,
+      "lineSpacingBehaviour": 2,
+      "textBehaviour": 0
+    },
+    {
+      "_class": "shapeGroup",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "/html[1]/body[1]/img[@class=\"image\"]",
+      "nameIsFixed": false,
+      "resizingConstraint": 45,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "layers": [
+        {
+          "_class": "rectangle",
+          "do_objectID": "pizza",
+          "exportOptions": {
+            "_class": "exportOptions",
+            "exportFormats": [],
+            "includedLayerIds": [],
+            "layerOptions": 0,
+            "shouldTrim": false
+          },
+          "isFlippedHorizontal": false,
+          "isFlippedVertical": false,
+          "isLocked": false,
+          "isVisible": true,
+          "layerListExpandedType": 0,
+          "name": "rectangle",
+          "nameIsFixed": false,
+          "resizingConstraint": 63,
+          "resizingType": 0,
+          "rotation": 0,
+          "shouldBreakMaskChain": false,
+          "layers": [],
+          "frame": {
+            "_class": "rect",
+            "constrainProportions": false,
+            "height": 300,
+            "width": 300,
+            "x": 0,
+            "y": 0
+          },
+          "path": {
+            "_class": "path",
+            "isClosed": true,
+            "pointRadiusBehaviour": 1,
+            "points": [
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 0}",
+                "curveMode": 1,
+                "curveTo": "{0, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 0}",
+                "curveMode": 1,
+                "curveTo": "{1, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 1}",
+                "curveMode": 1,
+                "curveTo": "{1, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 1}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 1}",
+                "curveMode": 1,
+                "curveTo": "{0, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 1}"
+              }
+            ]
+          },
+          "hasConvertedToNewRoundCorners": true,
+          "fixedRadius": 0,
+          "edited": false,
+          "booleanOperation": -1
+        }
+      ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          },
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "fillType": 4,
+            "image": {
+              "_class": "MSJSONOriginalDataReference",
+              "_ref_class": "MSImageData",
+              "_ref": "images/haribo",
+              "url": "green.svg"
+            },
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 300,
+        "width": 300,
+        "x": 8,
+        "y": 999.75
+      },
+      "hasClickThrough": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
+      "windingRule": 1
+    },
+    {
+      "_class": "text",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "SVG",
+      "nameIsFixed": false,
+      "resizingConstraint": 47,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "style": {
+        "color": "rgb(0, 0, 0)",
+        "fontSize": 18,
+        "fontFamily": "Times New Roman",
+        "fontWeight": 700,
+        "textDecoration": "none",
+        "textAlign": "start",
+        "textTransform": "none"
+      },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 21,
+        "width": 38,
+        "x": 8,
+        "y": 959.03125
+      },
+      "text": "SVG",
+      "automaticallyDrawOnUnderlyingPath": false,
+      "dontSynchroniseWithSymbol": false,
+      "lineSpacingBehaviour": 2,
+      "textBehaviour": 0
+    },
+    {
+      "_class": "shapeGroup",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "/html[1]/body[1]/img[@class=\"image\"]",
+      "nameIsFixed": false,
+      "resizingConstraint": 45,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "layers": [
+        {
+          "_class": "rectangle",
+          "do_objectID": "pizza",
+          "exportOptions": {
+            "_class": "exportOptions",
+            "exportFormats": [],
+            "includedLayerIds": [],
+            "layerOptions": 0,
+            "shouldTrim": false
+          },
+          "isFlippedHorizontal": false,
+          "isFlippedVertical": false,
+          "isLocked": false,
+          "isVisible": true,
+          "layerListExpandedType": 0,
+          "name": "rectangle",
+          "nameIsFixed": false,
+          "resizingConstraint": 63,
+          "resizingType": 0,
+          "rotation": 0,
+          "shouldBreakMaskChain": false,
+          "layers": [],
+          "frame": {
+            "_class": "rect",
+            "constrainProportions": false,
+            "height": 150,
+            "width": 300,
+            "x": 0,
+            "y": 0
+          },
+          "path": {
+            "_class": "path",
+            "isClosed": true,
+            "pointRadiusBehaviour": 1,
+            "points": [
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 0}",
+                "curveMode": 1,
+                "curveTo": "{0, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 0}",
+                "curveMode": 1,
+                "curveTo": "{1, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 1}",
+                "curveMode": 1,
+                "curveTo": "{1, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 1}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 1}",
+                "curveMode": 1,
+                "curveTo": "{0, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 1}"
+              }
+            ]
+          },
+          "hasConvertedToNewRoundCorners": true,
+          "fixedRadius": 0,
+          "edited": false,
+          "booleanOperation": -1
+        }
+      ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          },
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "fillType": 4,
+            "image": {
+              "_class": "MSJSONOriginalDataReference",
+              "_ref_class": "MSImageData",
+              "_ref": "images/haribo",
+              "url": "yellow.gif"
+            },
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 150,
+        "width": 300,
+        "x": 8,
+        "y": 786.3125
+      },
+      "hasClickThrough": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
+      "windingRule": 1
+    },
+    {
+      "_class": "text",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "GIF",
+      "nameIsFixed": false,
+      "resizingConstraint": 47,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "style": {
+        "color": "rgb(0, 0, 0)",
+        "fontSize": 18,
+        "fontFamily": "Times New Roman",
+        "fontWeight": 700,
+        "textDecoration": "none",
+        "textAlign": "start",
+        "textTransform": "none"
+      },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 21,
+        "width": 33,
+        "x": 8,
+        "y": 745.59375
+      },
+      "text": "GIF",
+      "automaticallyDrawOnUnderlyingPath": false,
+      "dontSynchroniseWithSymbol": false,
+      "lineSpacingBehaviour": 2,
+      "textBehaviour": 0
+    },
+    {
+      "_class": "shapeGroup",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "/html[1]/body[1]/img[@class=\"image\"]",
+      "nameIsFixed": false,
+      "resizingConstraint": 45,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "layers": [
+        {
+          "_class": "rectangle",
+          "do_objectID": "pizza",
+          "exportOptions": {
+            "_class": "exportOptions",
+            "exportFormats": [],
+            "includedLayerIds": [],
+            "layerOptions": 0,
+            "shouldTrim": false
+          },
+          "isFlippedHorizontal": false,
+          "isFlippedVertical": false,
+          "isLocked": false,
+          "isVisible": true,
+          "layerListExpandedType": 0,
+          "name": "rectangle",
+          "nameIsFixed": false,
+          "resizingConstraint": 63,
+          "resizingType": 0,
+          "rotation": 0,
+          "shouldBreakMaskChain": false,
+          "layers": [],
+          "frame": {
+            "_class": "rect",
+            "constrainProportions": false,
+            "height": 300,
+            "width": 300,
+            "x": 0,
+            "y": 0
+          },
+          "path": {
+            "_class": "path",
+            "isClosed": true,
+            "pointRadiusBehaviour": 1,
+            "points": [
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 0}",
+                "curveMode": 1,
+                "curveTo": "{0, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 0}",
+                "curveMode": 1,
+                "curveTo": "{1, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 1}",
+                "curveMode": 1,
+                "curveTo": "{1, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 1}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 1}",
+                "curveMode": 1,
+                "curveTo": "{0, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 1}"
+              }
+            ]
+          },
+          "hasConvertedToNewRoundCorners": true,
+          "fixedRadius": 0,
+          "edited": false,
+          "booleanOperation": -1
+        }
+      ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          },
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "fillType": 4,
+            "image": {
+              "_class": "MSJSONOriginalDataReference",
+              "_ref_class": "MSImageData",
+              "_ref": "images/haribo",
+              "url": "red.png"
+            },
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 300,
+        "width": 300,
+        "x": 8,
+        "y": 422.875
+      },
+      "hasClickThrough": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
+      "windingRule": 1
+    },
+    {
+      "_class": "text",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "PNG",
+      "nameIsFixed": false,
+      "resizingConstraint": 47,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "style": {
+        "color": "rgb(0, 0, 0)",
+        "fontSize": 18,
+        "fontFamily": "Times New Roman",
+        "fontWeight": 700,
+        "textDecoration": "none",
+        "textAlign": "start",
+        "textTransform": "none"
+      },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 21,
+        "width": 39,
+        "x": 8,
+        "y": 382.15625
+      },
+      "text": "PNG",
+      "automaticallyDrawOnUnderlyingPath": false,
+      "dontSynchroniseWithSymbol": false,
+      "lineSpacingBehaviour": 2,
+      "textBehaviour": 0
+    },
+    {
+      "_class": "shapeGroup",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "/html[1]/body[1]/img[@class=\"image\"]",
+      "nameIsFixed": false,
+      "resizingConstraint": 45,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "layers": [
+        {
+          "_class": "rectangle",
+          "do_objectID": "pizza",
+          "exportOptions": {
+            "_class": "exportOptions",
+            "exportFormats": [],
+            "includedLayerIds": [],
+            "layerOptions": 0,
+            "shouldTrim": false
+          },
+          "isFlippedHorizontal": false,
+          "isFlippedVertical": false,
+          "isLocked": false,
+          "isVisible": true,
+          "layerListExpandedType": 0,
+          "name": "rectangle",
+          "nameIsFixed": false,
+          "resizingConstraint": 63,
+          "resizingType": 0,
+          "rotation": 0,
+          "shouldBreakMaskChain": false,
+          "layers": [],
+          "frame": {
+            "_class": "rect",
+            "constrainProportions": false,
+            "height": 300,
+            "width": 300,
+            "x": 0,
+            "y": 0
+          },
+          "path": {
+            "_class": "path",
+            "isClosed": true,
+            "pointRadiusBehaviour": 1,
+            "points": [
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 0}",
+                "curveMode": 1,
+                "curveTo": "{0, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 0}",
+                "curveMode": 1,
+                "curveTo": "{1, 0}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 0}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{1, 1}",
+                "curveMode": 1,
+                "curveTo": "{1, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{1, 1}"
+              },
+              {
+                "_class": "curvePoint",
+                "cornerRadius": 0,
+                "curveFrom": "{0, 1}",
+                "curveMode": 1,
+                "curveTo": "{0, 1}",
+                "hasCurveFrom": false,
+                "hasCurveTo": false,
+                "point": "{0, 1}"
+              }
+            ]
+          },
+          "hasConvertedToNewRoundCorners": true,
+          "fixedRadius": 0,
+          "edited": false,
+          "booleanOperation": -1
+        }
+      ],
+      "style": {
+        "_class": "style",
+        "fills": [
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 0
+            },
+            "fillType": 0,
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          },
+          {
+            "_class": "fill",
+            "isEnabled": true,
+            "fillType": 4,
+            "image": {
+              "_class": "MSJSONOriginalDataReference",
+              "_ref_class": "MSImageData",
+              "_ref": "images/haribo",
+              "url": "blue.jpg"
+            },
+            "noiseIndex": 0,
+            "noiseIntensity": 0,
+            "patternFillType": 1,
+            "patternTileScale": 1
+          }
+        ],
+        "borders": [
+          {
+            "_class": "border",
+            "isEnabled": true,
+            "color": {
+              "_class": "color",
+              "red": 0,
+              "green": 0,
+              "blue": 0,
+              "alpha": 1
+            },
+            "fillType": 0,
+            "position": 1,
+            "thickness": 0
+          }
+        ],
+        "shadows": [],
+        "innerShadows": [],
+        "endDecorationType": 0,
+        "miterLimit": 10,
+        "startDecorationType": 0,
+        "contextSettings": {
+          "_class": "graphicsContextSettings",
+          "blendMode": 0,
+          "opacity": "1"
+        }
+      },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 300,
+        "width": 300,
+        "x": 8,
+        "y": 59.4375
+      },
+      "hasClickThrough": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
+      "windingRule": 1
+    },
+    {
+      "_class": "text",
+      "do_objectID": "pizza",
+      "exportOptions": {
+        "_class": "exportOptions",
+        "exportFormats": [],
+        "includedLayerIds": [],
+        "layerOptions": 0,
+        "shouldTrim": false
+      },
+      "isFlippedHorizontal": false,
+      "isFlippedVertical": false,
+      "isLocked": false,
+      "isVisible": true,
+      "layerListExpandedType": 0,
+      "name": "JPG",
+      "nameIsFixed": false,
+      "resizingConstraint": 47,
+      "resizingType": 0,
+      "rotation": 0,
+      "shouldBreakMaskChain": false,
+      "style": {
+        "color": "rgb(0, 0, 0)",
+        "fontSize": 18,
+        "fontFamily": "Times New Roman",
+        "fontWeight": 700,
+        "textDecoration": "none",
+        "textAlign": "start",
+        "textTransform": "none"
+      },
+      "frame": {
+        "_class": "rect",
+        "constrainProportions": false,
+        "height": 21,
+        "width": 35,
+        "x": 8,
+        "y": 18.71875
+      },
+      "text": "JPG",
+      "automaticallyDrawOnUnderlyingPath": false,
+      "dontSynchroniseWithSymbol": false,
+      "lineSpacingBehaviour": 2,
+      "textBehaviour": 0
+    }
+  ],
+  "frame": {
+    "_class": "rect",
+    "constrainProportions": false,
+    "height": 2375,
+    "width": 784,
+    "x": 0,
+    "y": 0
+  },
+  "style": {
+    "_class": "style",
+    "endDecorationType": 0,
+    "miterLimit": 10,
+    "startDecorationType": 0
+  },
+  "horizontalRulerData": {
+    "_class": "rulerData",
+    "base": 0,
+    "guides": []
+  },
+  "verticalRulerData": {
+    "_class": "rulerData",
+    "base": 0,
+    "guides": []
+  },
+  "hasClickThrough": true,
+  "includeInCloudUpload": true
+}

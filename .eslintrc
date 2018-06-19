@@ -47,6 +47,7 @@
     "COSAlertWindow": false,
     "NSMakeRect": false,
     "NSBundle": false,
-    "MSSharedStyle": false
+    "MSSharedStyle": false,
+    "MSLayerGroup": false
   }
 }

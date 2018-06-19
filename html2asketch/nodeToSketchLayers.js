@@ -1,6 +1,8 @@
-import Rectange from './model/rectangle';
+import Rectangle from './model/rectangle';
+import Bitmap from './model/bitmap';
 import SVG from './model/svg';
 import ShapeGroup from './model/shapeGroup';
+import Group from './model/group';
 import Style from './model/style';
 import Text from './model/text';
 import TextStyle from './model/textStyle';
@@ -56,6 +58,8 @@ export default function nodeToSketchLayers(node, options) {
   const {
     backgroundColor,
     backgroundImage,
+    backgroundPositionX,
+    backgroundPositionY,
     borderColor,
     borderWidth,
     borderTopWidth,
@@ -121,25 +125,6 @@ export default function nodeToSketchLayers(node, options) {
       shapeGroup.setFixedWidthAndHeight();
     }
 
-    // This should return a array when multiple background-images are supported
-    const backgroundImageResult = parseBackgroundImage(backgroundImage);
-
-    if (backgroundImageResult) {
-      switch (backgroundImageResult.type) {
-        case 'Image':
-          style.addImageFill(backgroundImageResult.value);
-          break;
-        case 'LinearGradient':
-          style.addGradientFill(backgroundImageResult.value);
-          break;
-        default:
-          // Unsupported types:
-          // - radial gradient
-          // - multiple background-image
-          break;
-      }
-    }
-
     if (boxShadow !== DEFAULT_VALUES.boxShadow) {
       const shadowObjects = splitShadowString(boxShadow).map(str => shadowStringToObject(str));
 
@@ -187,11 +172,66 @@ export default function nodeToSketchLayers(node, options) {
       bottomRight: fixBorderRadius(borderBottomRightRadius, width, height)
     };
 
-    const rectangle = new Rectange({width, height, cornerRadius});
+    const rectangle = new Rectangle({width, height, cornerRadius});
 
     shapeGroup.addLayer(rectangle);
 
-    layers.push(shapeGroup);
+    // This should return a array when multiple background-images are supported
+    const backgroundImageResult = parseBackgroundImage(backgroundImage);
+
+    let layer = shapeGroup;
+
+    if (backgroundImageResult) {
+
+      switch (backgroundImageResult.type) {
+        case 'Image': {
+          const img = new Image();
+
+          img.src = backgroundImageResult.value;
+
+          const bitmapX = parseInt(backgroundPositionX, 10);
+          const bitmapY = parseInt(backgroundPositionY, 10);
+
+          if (bitmapX === 0 && bitmapY === 0 && img.width <= width && img.height <= height) {
+            // background image fits entirely inside the node, so we can represent it with a (cheaper) image fill
+            style.addImageFill(backgroundImageResult.value);
+          } else {
+            // use a Group(Shape + Bitmap) to correctly represent clipping of the background image
+            const bm = new Bitmap({
+              url: backgroundImageResult.value,
+              x: bitmapX,
+              y: bitmapY,
+              width: img.width,
+              height: img.height
+            });
+
+            bm.setName('background-image');
+            shapeGroup.setHasClippingMask(true);
+
+            const group = new Group({x: left, y: top, width, height});
+
+            // position is relative to the group
+            shapeGroup.setPosition({x: 0, y: 0});
+            group.addLayer(shapeGroup);
+            group.addLayer(bm);
+
+            layer = group;
+          }
+
+          break;
+        }
+        case 'LinearGradient':
+          style.addGradientFill(backgroundImageResult.value);
+          break;
+        default:
+          // Unsupported types:
+          // - radial gradient
+          // - multiple background-image
+          break;
+      }
+    }
+
+    layers.push(layer);
   }
 
   if (isSVG) {

@@ -18,7 +18,11 @@ export function isNodeVisible(node, {width, height} = node.getBoundingClientRect
 } = getComputedStyle(node)) {
   // skip node when display is set to none for itself or an ancestor
   // helps us catch things such as <noscript>
-  if (node.tagName !== 'BODY' && node.offsetParent === null && position !== 'fixed') {
+  // HTMLSlotElement has a null offsetParent, but should still be visible
+  if (node.tagName !== 'BODY' &&
+      node.offsetParent === null &&
+      position !== 'fixed' &&
+      node.tagName.toLowerCase() !== 'slot') {
     return false;
   }
 
@@ -39,7 +43,7 @@ export function isNodeVisible(node, {width, height} = node.getBoundingClientRect
   }
 
   // node is detached from the DOM
-  if (!document.contains(node)) {
+  if (!node.isConnected) {
     return false;
   }
 

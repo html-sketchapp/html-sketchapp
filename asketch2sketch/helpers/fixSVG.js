@@ -7,9 +7,14 @@ function makeNativeSVGLayer(layer) {
   const svgImporter = MSSVGImporter.svgImporter();
 
   svgImporter.prepareToImportFromData(svgData);
-  const svgLayer = svgImporter.importAsLayer();
+  let svgLayer = svgImporter.importAsLayer();
+
+  while (svgLayer && svgLayer.layers().length === 1 && svgLayer.class() instanceof MSLayerGroup) {
+    svgLayer = svgLayer.layers()[0];
+  }
 
   svgLayer.resizingConstraint = layer.resizingConstraint;
+  svgLayer.hasClippingMask = layer.hasClippingMask;
 
   const currentSize = svgLayer.rect().size;
   const scale = Math.min(layer.width / currentSize.width, layer.height / currentSize.height);
