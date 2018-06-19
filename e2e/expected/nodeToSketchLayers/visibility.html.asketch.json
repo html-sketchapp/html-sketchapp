@@ -64,6 +64,8 @@
           "rotation": 0,
           "shouldBreakMaskChain": false,
           "layers": [],
+          "clippingMaskMode": 0,
+          "hasClippingMask": false,
           "frame": {
             "_class": "rect",
             "constrainProportions": false,
@@ -125,6 +127,8 @@
           "booleanOperation": -1
         }
       ],
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "_class": "style",
         "fills": [
@@ -181,8 +185,6 @@
         "y": 308
       },
       "hasClickThrough": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
       "windingRule": 1
     },
     {
@@ -206,6 +208,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 16,
@@ -273,6 +277,8 @@
           "rotation": 0,
           "shouldBreakMaskChain": false,
           "layers": [],
+          "clippingMaskMode": 0,
+          "hasClippingMask": false,
           "frame": {
             "_class": "rect",
             "constrainProportions": false,
@@ -334,6 +340,8 @@
           "booleanOperation": -1
         }
       ],
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "_class": "style",
         "fills": [
@@ -390,8 +398,6 @@
         "y": 308
       },
       "hasClickThrough": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
       "windingRule": 1
     },
     {
@@ -415,6 +421,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 16,
@@ -482,6 +490,8 @@
           "rotation": 0,
           "shouldBreakMaskChain": false,
           "layers": [],
+          "clippingMaskMode": 0,
+          "hasClippingMask": false,
           "frame": {
             "_class": "rect",
             "constrainProportions": false,
@@ -543,6 +553,8 @@
           "booleanOperation": -1
         }
       ],
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "_class": "style",
         "fills": [
@@ -599,8 +611,6 @@
         "y": 208
       },
       "hasClickThrough": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
       "windingRule": 1
     },
     {
@@ -624,6 +634,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 16,
@@ -691,6 +703,8 @@
           "rotation": 0,
           "shouldBreakMaskChain": false,
           "layers": [],
+          "clippingMaskMode": 0,
+          "hasClippingMask": false,
           "frame": {
             "_class": "rect",
             "constrainProportions": false,
@@ -752,6 +766,8 @@
           "booleanOperation": -1
         }
       ],
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "_class": "style",
         "fills": [
@@ -808,11 +824,11 @@
         "y": 108
       },
       "hasClickThrough": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
       "windingRule": 1
     }
   ],
+  "clippingMaskMode": 0,
+  "hasClippingMask": false,
   "frame": {
     "_class": "rect",
     "constrainProportions": false,

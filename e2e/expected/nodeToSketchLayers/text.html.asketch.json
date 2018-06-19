@@ -41,6 +41,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 16,
@@ -85,6 +87,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 16,
@@ -129,6 +133,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 16,
@@ -173,6 +179,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 16,
@@ -217,6 +225,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 255)",
         "fontSize": 30,
@@ -262,6 +272,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 128, 0)",
         "fontSize": 16,
@@ -307,6 +319,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(255, 0, 0)",
         "fontSize": 16,
@@ -331,6 +345,8 @@
       "textBehaviour": 0
     }
   ],
+  "clippingMaskMode": 0,
+  "hasClippingMask": false,
   "frame": {
     "_class": "rect",
     "constrainProportions": false,

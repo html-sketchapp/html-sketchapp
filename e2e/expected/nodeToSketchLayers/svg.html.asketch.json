@@ -64,6 +64,8 @@
           "rotation": 0,
           "shouldBreakMaskChain": false,
           "layers": [],
+          "clippingMaskMode": 0,
+          "hasClippingMask": false,
           "frame": {
             "_class": "rect",
             "constrainProportions": false,
@@ -125,6 +127,8 @@
           "booleanOperation": -1
         }
       ],
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "_class": "style",
         "fills": [
@@ -181,8 +185,6 @@
         "y": 849.75
       },
       "hasClickThrough": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
       "windingRule": 1
     },
     {
@@ -192,7 +194,8 @@
       "height": 133.16668701171875,
       "x": 43.583335876464844,
       "y": 884.6666870117188,
-      "resizingConstraint": 63
+      "resizingConstraint": 63,
+      "hasClippingMask": false
     },
     {
       "_class": "text",
@@ -215,6 +218,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 18,
@@ -245,7 +250,8 @@
       "height": 133.16668701171875,
       "x": 41.583335876464844,
       "y": 619.2291870117188,
-      "resizingConstraint": 63
+      "resizingConstraint": 63,
+      "hasClippingMask": false
     },
     {
       "_class": "text",
@@ -268,6 +274,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 18,
@@ -298,7 +306,8 @@
       "height": 133.16668701171875,
       "x": 41.583335876464844,
       "y": 355.7916564941406,
-      "resizingConstraint": 63
+      "resizingConstraint": 63,
+      "hasClippingMask": false
     },
     {
       "_class": "text",
@@ -321,6 +330,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 18,
@@ -351,7 +362,8 @@
       "height": 133.16667938232422,
       "x": 41.583335876464844,
       "y": 92.35416412353516,
-      "resizingConstraint": 63
+      "resizingConstraint": 63,
+      "hasClippingMask": false
     },
     {
       "_class": "text",
@@ -374,6 +386,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 18,
@@ -398,6 +412,8 @@
       "textBehaviour": 0
     }
   ],
+  "clippingMaskMode": 0,
+  "hasClippingMask": false,
   "frame": {
     "_class": "rect",
     "constrainProportions": false,

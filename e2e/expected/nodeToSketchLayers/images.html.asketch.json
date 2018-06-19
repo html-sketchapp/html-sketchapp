@@ -64,6 +64,8 @@
           "rotation": 0,
           "shouldBreakMaskChain": false,
           "layers": [],
+          "clippingMaskMode": 0,
+          "hasClippingMask": false,
           "frame": {
             "_class": "rect",
             "constrainProportions": false,
@@ -125,6 +127,8 @@
           "booleanOperation": -1
         }
       ],
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "_class": "style",
         "fills": [
@@ -196,8 +200,6 @@
         "y": 2090.0625
       },
       "hasClickThrough": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
       "windingRule": 1
     },
     {
@@ -221,6 +223,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 18,
@@ -288,6 +292,8 @@
           "rotation": 0,
           "shouldBreakMaskChain": false,
           "layers": [],
+          "clippingMaskMode": 0,
+          "hasClippingMask": false,
           "frame": {
             "_class": "rect",
             "constrainProportions": false,
@@ -349,6 +355,8 @@
           "booleanOperation": -1
         }
       ],
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "_class": "style",
         "fills": [
@@ -420,8 +428,6 @@
         "y": 1726.625
       },
       "hasClickThrough": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
       "windingRule": 1
     },
     {
@@ -445,6 +451,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 18,
@@ -512,6 +520,8 @@
           "rotation": 0,
           "shouldBreakMaskChain": false,
           "layers": [],
+          "clippingMaskMode": 0,
+          "hasClippingMask": false,
           "frame": {
             "_class": "rect",
             "constrainProportions": false,
@@ -573,6 +583,8 @@
           "booleanOperation": -1
         }
       ],
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "_class": "style",
         "fills": [
@@ -644,8 +656,6 @@
         "y": 1363.1875
       },
       "hasClickThrough": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
       "windingRule": 1
     },
     {
@@ -669,6 +679,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 18,
@@ -736,6 +748,8 @@
           "rotation": 0,
           "shouldBreakMaskChain": false,
           "layers": [],
+          "clippingMaskMode": 0,
+          "hasClippingMask": false,
           "frame": {
             "_class": "rect",
             "constrainProportions": false,
@@ -797,6 +811,8 @@
           "booleanOperation": -1
         }
       ],
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "_class": "style",
         "fills": [
@@ -868,8 +884,6 @@
         "y": 999.75
       },
       "hasClickThrough": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
       "windingRule": 1
     },
     {
@@ -893,6 +907,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 18,
@@ -960,6 +976,8 @@
           "rotation": 0,
           "shouldBreakMaskChain": false,
           "layers": [],
+          "clippingMaskMode": 0,
+          "hasClippingMask": false,
           "frame": {
             "_class": "rect",
             "constrainProportions": false,
@@ -1021,6 +1039,8 @@
           "booleanOperation": -1
         }
       ],
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "_class": "style",
         "fills": [
@@ -1092,8 +1112,6 @@
         "y": 786.3125
       },
       "hasClickThrough": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
       "windingRule": 1
     },
     {
@@ -1117,6 +1135,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 18,
@@ -1184,6 +1204,8 @@
           "rotation": 0,
           "shouldBreakMaskChain": false,
           "layers": [],
+          "clippingMaskMode": 0,
+          "hasClippingMask": false,
           "frame": {
             "_class": "rect",
             "constrainProportions": false,
@@ -1245,6 +1267,8 @@
           "booleanOperation": -1
         }
       ],
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "_class": "style",
         "fills": [
@@ -1316,8 +1340,6 @@
         "y": 422.875
       },
       "hasClickThrough": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
       "windingRule": 1
     },
     {
@@ -1341,6 +1363,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 18,
@@ -1408,6 +1432,8 @@
           "rotation": 0,
           "shouldBreakMaskChain": false,
           "layers": [],
+          "clippingMaskMode": 0,
+          "hasClippingMask": false,
           "frame": {
             "_class": "rect",
             "constrainProportions": false,
@@ -1469,6 +1495,8 @@
           "booleanOperation": -1
         }
       ],
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "_class": "style",
         "fills": [
@@ -1540,8 +1568,6 @@
         "y": 59.4375
       },
       "hasClickThrough": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
       "windingRule": 1
     },
     {
@@ -1565,6 +1591,8 @@
       "resizingType": 0,
       "rotation": 0,
       "shouldBreakMaskChain": false,
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "style": {
         "color": "rgb(0, 0, 0)",
         "fontSize": 18,
@@ -1589,6 +1617,8 @@
       "textBehaviour": 0
     }
   ],
+  "clippingMaskMode": 0,
+  "hasClippingMask": false,
   "frame": {
     "_class": "rect",
     "constrainProportions": false,

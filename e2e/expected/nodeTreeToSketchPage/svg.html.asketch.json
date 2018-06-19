@@ -107,6 +107,8 @@
                   "resizingType": 0,
                   "rotation": 0,
                   "shouldBreakMaskChain": false,
+                  "clippingMaskMode": 0,
+                  "hasClippingMask": false,
                   "style": {
                     "color": "rgb(0, 0, 0)",
                     "fontSize": 18,
@@ -131,6 +133,8 @@
                   "textBehaviour": 0
                 }
               ],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
               "style": {
                 "_class": "style",
                 "fills": [],
@@ -155,8 +159,6 @@
                 "y": 0
               },
               "hasClickThrough": false,
-              "clippingMaskMode": 0,
-              "hasClippingMask": false,
               "windingRule": 1
             },
             {
@@ -188,9 +190,12 @@
                   "height": 133.16667938232422,
                   "x": 33.583335876464844,
                   "y": 32.916664123535156,
-                  "resizingConstraint": 63
+                  "resizingConstraint": 63,
+                  "hasClippingMask": false
                 }
               ],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
               "style": {
                 "_class": "style",
                 "fills": [],
@@ -215,8 +220,6 @@
                 "y": 40.71875
               },
               "hasClickThrough": false,
-              "clippingMaskMode": 0,
-              "hasClippingMask": false,
               "windingRule": 1
             },
             {
@@ -262,6 +265,8 @@
                   "resizingType": 0,
                   "rotation": 0,
                   "shouldBreakMaskChain": false,
+                  "clippingMaskMode": 0,
+                  "hasClippingMask": false,
                   "style": {
                     "color": "rgb(0, 0, 0)",
                     "fontSize": 18,
@@ -286,6 +291,8 @@
                   "textBehaviour": 0
                 }
               ],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
               "style": {
                 "_class": "style",
                 "fills": [],
@@ -310,8 +317,6 @@
                 "y": 263.4375
               },
               "hasClickThrough": false,
-              "clippingMaskMode": 0,
-              "hasClippingMask": false,
               "windingRule": 1
             },
             {
@@ -343,9 +348,12 @@
                   "height": 133.16668701171875,
                   "x": 33.583335876464844,
                   "y": 32.916656494140625,
-                  "resizingConstraint": 63
+                  "resizingConstraint": 63,
+                  "hasClippingMask": false
                 }
               ],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
               "style": {
                 "_class": "style",
                 "fills": [],
@@ -370,8 +378,6 @@
                 "y": 304.15625
               },
               "hasClickThrough": false,
-              "clippingMaskMode": 0,
-              "hasClippingMask": false,
               "windingRule": 1
             },
             {
@@ -417,6 +423,8 @@
                   "resizingType": 0,
                   "rotation": 0,
                   "shouldBreakMaskChain": false,
+                  "clippingMaskMode": 0,
+                  "hasClippingMask": false,
                   "style": {
                     "color": "rgb(0, 0, 0)",
                     "fontSize": 18,
@@ -441,6 +449,8 @@
                   "textBehaviour": 0
                 }
               ],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
               "style": {
                 "_class": "style",
                 "fills": [],
@@ -465,8 +475,6 @@
                 "y": 526.875
               },
               "hasClickThrough": false,
-              "clippingMaskMode": 0,
-              "hasClippingMask": false,
               "windingRule": 1
             },
             {
@@ -498,9 +506,12 @@
                   "height": 133.16668701171875,
                   "x": 33.583335876464844,
                   "y": 32.91668701171875,
-                  "resizingConstraint": 63
+                  "resizingConstraint": 63,
+                  "hasClippingMask": false
                 }
               ],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
               "style": {
                 "_class": "style",
                 "fills": [],
@@ -525,8 +536,6 @@
                 "y": 567.59375
               },
               "hasClickThrough": false,
-              "clippingMaskMode": 0,
-              "hasClippingMask": false,
               "windingRule": 1
             },
             {
@@ -572,6 +581,8 @@
                   "resizingType": 0,
                   "rotation": 0,
                   "shouldBreakMaskChain": false,
+                  "clippingMaskMode": 0,
+                  "hasClippingMask": false,
                   "style": {
                     "color": "rgb(0, 0, 0)",
                     "fontSize": 18,
@@ -596,6 +607,8 @@
                   "textBehaviour": 0
                 }
               ],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
               "style": {
                 "_class": "style",
                 "fills": [],
@@ -620,8 +633,6 @@
                 "y": 790.3125
               },
               "hasClickThrough": false,
-              "clippingMaskMode": 0,
-              "hasClippingMask": false,
               "windingRule": 1
             },
             {
@@ -690,6 +701,8 @@
                       "rotation": 0,
                       "shouldBreakMaskChain": false,
                       "layers": [],
+                      "clippingMaskMode": 0,
+                      "hasClippingMask": false,
                       "frame": {
                         "_class": "rect",
                         "constrainProportions": false,
@@ -751,6 +764,8 @@
                       "booleanOperation": -1
                     }
                   ],
+                  "clippingMaskMode": 0,
+                  "hasClippingMask": false,
                   "style": {
                     "_class": "style",
                     "fills": [
@@ -807,8 +822,6 @@
                     "y": 0
                   },
                   "hasClickThrough": false,
-                  "clippingMaskMode": 0,
-                  "hasClippingMask": false,
                   "windingRule": 1
                 },
                 {
@@ -818,9 +831,12 @@
                   "height": 133.16668701171875,
                   "x": 35.583335876464844,
                   "y": 34.91668701171875,
-                  "resizingConstraint": 63
+                  "resizingConstraint": 63,
+                  "hasClippingMask": false
                 }
               ],
+              "clippingMaskMode": 0,
+              "hasClippingMask": false,
               "style": {
                 "_class": "style",
                 "fills": [],
@@ -845,11 +861,11 @@
                 "y": 831.03125
               },
               "hasClickThrough": false,
-              "clippingMaskMode": 0,
-              "hasClippingMask": false,
               "windingRule": 1
             }
           ],
+          "clippingMaskMode": 0,
+          "hasClippingMask": false,
           "style": {
             "_class": "style",
             "fills": [],
@@ -874,11 +890,11 @@
             "y": 18.71875
           },
           "hasClickThrough": false,
-          "clippingMaskMode": 0,
-          "hasClippingMask": false,
           "windingRule": 1
         }
       ],
+      "clippingMaskMode": 0,
+      "hasClippingMask": false,
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
@@ -907,6 +923,8 @@
       "includeInCloudUpload": true
     }
   ],
+  "clippingMaskMode": 0,
+  "hasClippingMask": false,
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
