@@ -64,6 +64,14 @@ function isSVGDescendant(node) {
   return (node instanceof SVGElement) && node.matches('svg *');
 }
 
+function parseFontWeight(fontWeight) {
+  // Support 'bold' and 'normal' for Electron compatibility.
+  if (fontWeight === 'bold' || fontWeight === 'normal') {
+    return fontWeight;
+  }
+  return parseInt(fontWeight, 10);
+}
+
 export default function nodeToSketchLayers(node, options) {
   const layers = [];
   const bcr = node.getBoundingClientRect();
@@ -275,7 +283,7 @@ export default function nodeToSketchLayers(node, options) {
     fontSize: parseInt(fontSize, 10),
     lineHeight: lineHeight !== 'normal' ? parseInt(lineHeight, 10) : undefined,
     letterSpacing: letterSpacing !== 'normal' ? parseFloat(letterSpacing) : undefined,
-    fontWeight: fontWeight === 'bold' ? 700 : parseInt(fontWeight, 10),
+    fontWeight: parseFontWeight(fontWeight),
     color,
     textTransform,
     textDecoration: textDecorationLine,
