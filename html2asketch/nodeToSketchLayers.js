@@ -64,6 +64,20 @@ function isSVGDescendant(node) {
   return (node instanceof SVGElement) && node.matches('svg *');
 }
 
+/**
+ * @param {string} fontWeight font weight as provided by the browser
+ * @return {number} normalized font weight
+ */
+function parseFontWeight(fontWeight) {
+  // Support 'bold' and 'normal' for Electron compatibility.
+  if (fontWeight === 'bold') {
+    return 700;
+  } else if (fontWeight === 'normal') {
+    return 400;
+  }
+  return parseInt(fontWeight, 10);
+}
+
 export default function nodeToSketchLayers(node, options) {
   const layers = [];
   const bcr = node.getBoundingClientRect();
@@ -275,7 +289,7 @@ export default function nodeToSketchLayers(node, options) {
     fontSize: parseInt(fontSize, 10),
     lineHeight: lineHeight !== 'normal' ? parseInt(lineHeight, 10) : undefined,
     letterSpacing: letterSpacing !== 'normal' ? parseFloat(letterSpacing) : undefined,
-    fontWeight: parseInt(fontWeight, 10),
+    fontWeight: parseFontWeight(fontWeight),
     color,
     textTransform,
     textDecoration: textDecorationLine,
