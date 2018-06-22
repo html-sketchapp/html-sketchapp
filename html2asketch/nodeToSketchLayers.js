@@ -64,10 +64,16 @@ function isSVGDescendant(node) {
   return (node instanceof SVGElement) && node.matches('svg *');
 }
 
+/**
+ * @param {string} fontWeight font weight as provided by the browser
+ * @return {number} normalized font weight
+ */
 function parseFontWeight(fontWeight) {
   // Support 'bold' and 'normal' for Electron compatibility.
-  if (fontWeight === 'bold' || fontWeight === 'normal') {
-    return fontWeight;
+  if (fontWeight === 'bold') {
+    return 700;
+  } else if (fontWeight === 'normal') {
+    return 400;
   }
   return parseInt(fontWeight, 10);
 }
