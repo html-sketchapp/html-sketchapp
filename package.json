@@ -1,6 +1,6 @@
 {
   "name": "@brainly/html-sketchapp",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "HTML to Sketch",
   "keywords": [
     "sketch",
@@ -21,7 +21,7 @@
     "watch": "concurrently \"npm run watch-lib\" \"npm run watch-plugin\"",
     "watch-lib": "npm run build-lib -- --watch",
     "watch-plugin": "npm run build-plugin -- --watch --run",
-    "prepare": "npm run build && npm run test",
+    "prepare": "npm run build-plugin && npm run test",
     "test": "npm run build-lib && npm run lint && npm run tslint && npm run unit && npm run e2e",
     "unit": "jest",
     "lint": "eslint html2asketch/ asketch2sketch/ tests/ e2e/*.js",
