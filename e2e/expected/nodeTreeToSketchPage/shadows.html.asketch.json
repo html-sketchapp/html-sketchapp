@@ -253,7 +253,28 @@
                         "spread": 2
                       }
                     ],
-                    "innerShadows": [],
+                    "innerShadows": [
+                      {
+                        "_class": "innerShadow",
+                        "isEnabled": true,
+                        "blurRadius": 5.125,
+                        "color": {
+                          "_class": "color",
+                          "red": 1,
+                          "green": 0,
+                          "blue": 0,
+                          "alpha": 1
+                        },
+                        "contextSettings": {
+                          "_class": "graphicsContextSettings",
+                          "blendMode": 0,
+                          "opacity": 1
+                        },
+                        "offsetX": 3.5,
+                        "offsetY": 0,
+                        "spread": 2
+                      }
+                    ],
                     "endDecorationType": 0,
                     "miterLimit": 10,
                     "startDecorationType": 0,

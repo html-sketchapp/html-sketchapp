@@ -8,6 +8,7 @@ import Text from './model/text';
 import TextStyle from './model/textStyle';
 import createXPathFromElement from './helpers/createXPathFromElement';
 import {parseBackgroundImage} from './helpers/background';
+import {splitShadowString, shadowStringToObject} from './helpers/shadow';
 import {getSVGString} from './helpers/svg';
 import {getGroupBCR} from './helpers/bcr';
 import {fixWhiteSpace} from './helpers/text';
@@ -19,24 +20,6 @@ const DEFAULT_VALUES = {
   borderWidth: '0px',
   boxShadow: 'none'
 };
-
-function shadowStringToObject(shadowStr) {
-  let shadowObj = {};
-  const matches =
-    shadowStr.match(/^([a-z0-9#., ()]+) ([-]?[0-9.]+)px ([-]?[0-9.]+)px ([-]?[0-9.]+)px ([-]?[0-9.]+)px ?(inset)?$/i);
-
-  if (matches && matches.length === 7) {
-    shadowObj = {
-      color: matches[1],
-      offsetX: parseInt(matches[2], 10),
-      offsetY: parseInt(matches[3], 10),
-      blur: parseInt(matches[4], 10),
-      spread: parseInt(matches[5], 10)
-    };
-  }
-
-  return shadowObj;
-}
 
 function hasOnlyDefaultStyles(styles) {
   return Object.keys(DEFAULT_VALUES).every(key => {
@@ -157,33 +140,42 @@ export default function nodeToSketchLayers(node, options) {
     }
 
     if (boxShadow !== DEFAULT_VALUES.boxShadow) {
-      const shadowObj = shadowStringToObject(boxShadow);
+      const shadowStrings = splitShadowString(boxShadow);
 
-      if (boxShadow.indexOf('inset') !== -1) {
-        if (borderWidth.indexOf(' ') === -1) {
-          shadowObj.spread += parseInt(borderWidth, 10);
+      shadowStrings.forEach(shadowString => {
+        const shadowObject = shadowStringToObject(shadowString);
+
+        if (shadowObject.inset) {
+          if (borderWidth.indexOf(' ') === -1) {
+            shadowObject.spread += parseFloat(borderWidth);
+          }
+          style.addInnerShadow(shadowObject);
+        } else {
+          style.addShadow(shadowObject);
         }
-        style.addInnerShadow(shadowObj);
-      } else {
-        style.addShadow(shadowObj);
-      }
+      });
     }
 
     // support for one-side borders (using inner shadow because Sketch doesn't support that)
     if (borderWidth.indexOf(' ') === -1) {
-      style.addBorder({color: borderColor, thickness: parseInt(borderWidth, 10)});
+      style.addBorder({color: borderColor, thickness: parseFloat(borderWidth)});
     } else {
-      if (borderTopWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderTopColor + ' 0px ' + borderTopWidth + ' 0px 0px inset'));
+      const borderTopWidthFloat = parseFloat(borderTopWidth);
+      const borderRightWidthFloat = parseFloat(borderRightWidth);
+      const borderBottomWidthFloat = parseFloat(borderBottomWidth);
+      const borderLeftWidthFloat = parseFloat(borderLeftWidth);
+
+      if (borderTopWidthFloat !== 0) {
+        style.addInnerShadow({color: borderTopColor, offsetY: borderTopWidthFloat});
       }
-      if (borderRightWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderRightColor + ' -' + borderRightWidth + ' 0px 0px 0px inset'));
+      if (borderRightWidthFloat !== 0) {
+        style.addInnerShadow({color: borderRightColor, offsetX: -borderRightWidthFloat});
       }
-      if (borderBottomWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderBottomColor + ' 0px -' + borderBottomWidth + ' 0px 0px inset'));
+      if (borderBottomWidthFloat !== 0) {
+        style.addInnerShadow({color: borderBottomColor, offsetY: -borderBottomWidthFloat});
       }
-      if (borderLeftWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderLeftColor + ' ' + borderLeftWidth + ' 0px 0px 0px inset'));
+      if (borderLeftWidthFloat !== 0) {
+        style.addInnerShadow({color: borderLeftColor, offsetX: borderLeftWidthFloat});
       }
     }
 
