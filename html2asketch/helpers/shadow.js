@@ -10,7 +10,7 @@ const splitShadowString = boxShadow => {
       }
       return str;
     }
-  );
+  ).filter(shadow => shadow.length > 0);
 
   return shadowStrings;
 };
@@ -23,10 +23,11 @@ const shadowStringToObject = shadowString => {
   if (matches && matches.length === 7) {
     return {
       color: matches[1],
-      offsetX: parseInt(matches[2], 10),
-      offsetY: parseInt(matches[3], 10),
-      blur: parseInt(matches[4], 10),
-      spread: parseInt(matches[5], 10)
+      offsetX: parseFloat(matches[2]),
+      offsetY: parseFloat(matches[3]),
+      blur: parseFloat(matches[4]),
+      spread: parseFloat(matches[5]),
+      inset: matches[6] !== undefined
     };
   }
 };

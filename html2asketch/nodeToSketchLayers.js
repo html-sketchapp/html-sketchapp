@@ -131,9 +131,9 @@ export default function nodeToSketchLayers(node, options) {
       shadowStrings.forEach(shadowString => {
         const shadowObject = shadowStringToObject(shadowString);
 
-        if (shadowString.indexOf('inset') !== -1) {
+        if (shadowObject.inset) {
           if (borderWidth.indexOf(' ') === -1) {
-            shadowObject.spread += parseInt(borderWidth, 10);
+            shadowObject.spread += parseFloat(borderWidth);
           }
           style.addInnerShadow(shadowObject);
         } else {
@@ -144,19 +144,24 @@ export default function nodeToSketchLayers(node, options) {
 
     // support for one-side borders (using inner shadow because Sketch doesn't support that)
     if (borderWidth.indexOf(' ') === -1) {
-      style.addBorder({color: borderColor, thickness: parseInt(borderWidth, 10)});
+      style.addBorder({color: borderColor, thickness: parseFloat(borderWidth)});
     } else {
-      if (borderTopWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderTopColor + ' 0px ' + borderTopWidth + ' 0px 0px inset'));
+      const borderTopWidthFloat = parseFloat(borderTopWidth);
+      const borderRightWidthFloat = parseFloat(borderRightWidth);
+      const borderBottomWidthFloat = parseFloat(borderBottomWidth);
+      const borderLeftWidthFloat = parseFloat(borderLeftWidth);
+
+      if (borderTopWidthFloat !== 0) {
+        style.addInnerShadow({color: borderTopColor, offsetY: borderTopWidthFloat});
       }
-      if (borderRightWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderRightColor + ' -' + borderRightWidth + ' 0px 0px 0px inset'));
+      if (borderRightWidthFloat !== 0) {
+        style.addInnerShadow({color: borderRightColor, offsetX: -borderRightWidthFloat});
       }
-      if (borderBottomWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderBottomColor + ' 0px -' + borderBottomWidth + ' 0px 0px inset'));
+      if (borderBottomWidthFloat !== 0) {
+        style.addInnerShadow({color: borderBottomColor, offsetY: -borderBottomWidthFloat});
       }
-      if (borderLeftWidth !== '0px') {
-        style.addInnerShadow(shadowStringToObject(borderLeftColor + ' ' + borderLeftWidth + ' 0px 0px 0px inset'));
+      if (borderLeftWidthFloat !== 0) {
+        style.addInnerShadow({color: borderLeftColor, offsetX: borderLeftWidthFloat});
       }
     }
 

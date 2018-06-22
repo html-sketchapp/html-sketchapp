@@ -237,7 +237,7 @@
           {
             "_class": "innerShadow",
             "isEnabled": true,
-            "blurRadius": 5,
+            "blurRadius": 5.125,
             "color": {
               "_class": "color",
               "red": 1,
@@ -250,7 +250,7 @@
               "blendMode": 0,
               "opacity": 1
             },
-            "offsetX": 0,
+            "offsetX": 3.5,
             "offsetY": 0,
             "spread": 2
           }
