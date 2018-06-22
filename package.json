@@ -22,7 +22,7 @@
     "watch-lib": "npm run build-lib -- --watch",
     "watch-plugin": "npm run build-plugin -- --watch --run",
     "prepare": "npm run build && npm run test",
-    "test": "npm run lint && npm run tslint && npm run unit && npm run e2e",
+    "test": "npm run build-lib && npm run lint && npm run tslint && npm run unit && npm run e2e",
     "unit": "jest",
     "lint": "eslint html2asketch/ asketch2sketch/ tests/ e2e/*.js",
     "lint-fix": "npm run lint -- --fix",
