@@ -1277,7 +1277,7 @@
                       {
                         "_class": "innerShadow",
                         "isEnabled": true,
-                        "blurRadius": 1,
+                        "blurRadius": 0,
                         "color": {
                           "_class": "color",
                           "red": 1,
@@ -1297,7 +1297,7 @@
                       {
                         "_class": "innerShadow",
                         "isEnabled": true,
-                        "blurRadius": 1,
+                        "blurRadius": 0,
                         "color": {
                           "_class": "color",
                           "red": 1,
@@ -1317,7 +1317,7 @@
                       {
                         "_class": "innerShadow",
                         "isEnabled": true,
-                        "blurRadius": 1,
+                        "blurRadius": 0,
                         "color": {
                           "_class": "color",
                           "red": 1,
@@ -1337,7 +1337,7 @@
                       {
                         "_class": "innerShadow",
                         "isEnabled": true,
-                        "blurRadius": 1,
+                        "blurRadius": 0,
                         "color": {
                           "_class": "color",
                           "red": 0,
@@ -1871,7 +1871,7 @@
                       {
                         "_class": "innerShadow",
                         "isEnabled": true,
-                        "blurRadius": 1,
+                        "blurRadius": 0,
                         "color": {
                           "_class": "color",
                           "red": 0,
@@ -1891,7 +1891,7 @@
                       {
                         "_class": "innerShadow",
                         "isEnabled": true,
-                        "blurRadius": 1,
+                        "blurRadius": 0,
                         "color": {
                           "_class": "color",
                           "red": 1,
@@ -1911,7 +1911,7 @@
                       {
                         "_class": "innerShadow",
                         "isEnabled": true,
-                        "blurRadius": 1,
+                        "blurRadius": 0,
                         "color": {
                           "_class": "color",
                           "red": 1,
@@ -1931,7 +1931,7 @@
                       {
                         "_class": "innerShadow",
                         "isEnabled": true,
-                        "blurRadius": 1,
+                        "blurRadius": 0,
                         "color": {
                           "_class": "color",
                           "red": 1,
@@ -2201,7 +2201,7 @@
                       {
                         "_class": "innerShadow",
                         "isEnabled": true,
-                        "blurRadius": 1,
+                        "blurRadius": 0,
                         "color": {
                           "_class": "color",
                           "red": 1,
@@ -2221,7 +2221,7 @@
                       {
                         "_class": "innerShadow",
                         "isEnabled": true,
-                        "blurRadius": 1,
+                        "blurRadius": 0,
                         "color": {
                           "_class": "color",
                           "red": 1,
@@ -2241,7 +2241,7 @@
                       {
                         "_class": "innerShadow",
                         "isEnabled": true,
-                        "blurRadius": 1,
+                        "blurRadius": 0,
                         "color": {
                           "_class": "color",
                           "red": 0,
@@ -2261,7 +2261,7 @@
                       {
                         "_class": "innerShadow",
                         "isEnabled": true,
-                        "blurRadius": 1,
+                        "blurRadius": 0,
                         "color": {
                           "_class": "color",
                           "red": 1,
@@ -2531,7 +2531,7 @@
                       {
                         "_class": "innerShadow",
                         "isEnabled": true,
-                        "blurRadius": 1,
+                        "blurRadius": 0,
                         "color": {
                           "_class": "color",
                           "red": 0,
@@ -2551,7 +2551,7 @@
                       {
                         "_class": "innerShadow",
                         "isEnabled": true,
-                        "blurRadius": 1,
+                        "blurRadius": 0,
                         "color": {
                           "_class": "color",
                           "red": 1,
@@ -2571,7 +2571,7 @@
                       {
                         "_class": "innerShadow",
                         "isEnabled": true,
-                        "blurRadius": 1,
+                        "blurRadius": 0,
                         "color": {
                           "_class": "color",
                           "red": 0,
@@ -2591,7 +2591,7 @@
                       {
                         "_class": "innerShadow",
                         "isEnabled": true,
-                        "blurRadius": 1,
+                        "blurRadius": 0,
                         "color": {
                           "_class": "color",
                           "red": 1,
