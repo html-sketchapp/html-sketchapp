@@ -1157,7 +1157,7 @@
                   "isLocked": false,
                   "isVisible": true,
                   "layerListExpandedType": 0,
-                  "name": "/html[1]/body[1]/div[@class=\"border border-left\"]",
+                  "name": "/html[1]/body[1]/div[@class=\"border-left\"]",
                   "nameIsFixed": false,
                   "resizingConstraint": 63,
                   "resizingType": 0,
@@ -1191,8 +1191,8 @@
                       "frame": {
                         "_class": "rect",
                         "constrainProportions": false,
-                        "height": 104,
-                        "width": 103,
+                        "height": 18,
+                        "width": 784,
                         "x": 0,
                         "y": 0
                       },
@@ -1280,66 +1280,6 @@
                         "blurRadius": 0,
                         "color": {
                           "_class": "color",
-                          "red": 1,
-                          "green": 0,
-                          "blue": 0,
-                          "alpha": 1
-                        },
-                        "contextSettings": {
-                          "_class": "graphicsContextSettings",
-                          "blendMode": 0,
-                          "opacity": 1
-                        },
-                        "offsetX": 0,
-                        "offsetY": 2,
-                        "spread": 0
-                      },
-                      {
-                        "_class": "innerShadow",
-                        "isEnabled": true,
-                        "blurRadius": 0,
-                        "color": {
-                          "_class": "color",
-                          "red": 1,
-                          "green": 0,
-                          "blue": 0,
-                          "alpha": 1
-                        },
-                        "contextSettings": {
-                          "_class": "graphicsContextSettings",
-                          "blendMode": 0,
-                          "opacity": 1
-                        },
-                        "offsetX": -2,
-                        "offsetY": 0,
-                        "spread": 0
-                      },
-                      {
-                        "_class": "innerShadow",
-                        "isEnabled": true,
-                        "blurRadius": 0,
-                        "color": {
-                          "_class": "color",
-                          "red": 1,
-                          "green": 0,
-                          "blue": 0,
-                          "alpha": 1
-                        },
-                        "contextSettings": {
-                          "_class": "graphicsContextSettings",
-                          "blendMode": 0,
-                          "opacity": 1
-                        },
-                        "offsetX": 0,
-                        "offsetY": -2,
-                        "spread": 0
-                      },
-                      {
-                        "_class": "innerShadow",
-                        "isEnabled": true,
-                        "blurRadius": 0,
-                        "color": {
-                          "_class": "color",
                           "red": 0,
                           "green": 0,
                           "blue": 0,
@@ -1367,8 +1307,8 @@
                   "frame": {
                     "_class": "rect",
                     "constrainProportions": false,
-                    "height": 104,
-                    "width": 103,
+                    "height": 18,
+                    "width": 784,
                     "x": 0,
                     "y": 0
                   },
@@ -1413,7 +1353,7 @@
                     "height": 17,
                     "width": 67,
                     "x": 1,
-                    "y": 2
+                    "y": 0
                   },
                   "text": "border left",
                   "automaticallyDrawOnUnderlyingPath": false,
@@ -1442,8 +1382,8 @@
               "frame": {
                 "_class": "rect",
                 "constrainProportions": false,
-                "height": 104,
-                "width": 103,
+                "height": 18,
+                "width": 784,
                 "x": 0,
                 "y": 420
               },
@@ -1487,7 +1427,7 @@
                   "isLocked": false,
                   "isVisible": true,
                   "layerListExpandedType": 0,
-                  "name": "/html[1]/body[1]/div[@class=\"border border-right\"]",
+                  "name": "/html[1]/body[1]/div[@class=\"border-right\"]",
                   "nameIsFixed": false,
                   "resizingConstraint": 63,
                   "resizingType": 0,
@@ -1521,8 +1461,8 @@
                       "frame": {
                         "_class": "rect",
                         "constrainProportions": false,
-                        "height": 104,
-                        "width": 104,
+                        "height": 18,
+                        "width": 784,
                         "x": 0,
                         "y": 0
                       },
@@ -1601,10 +1541,13 @@
                         "patternTileScale": 1
                       }
                     ],
-                    "borders": [
+                    "borders": [],
+                    "shadows": [],
+                    "innerShadows": [
                       {
-                        "_class": "border",
+                        "_class": "innerShadow",
                         "isEnabled": true,
+                        "blurRadius": 0,
                         "color": {
                           "_class": "color",
                           "red": 1,
@@ -1612,13 +1555,16 @@
                           "blue": 0,
                           "alpha": 1
                         },
-                        "fillType": 0,
-                        "position": 1,
-                        "thickness": 2
+                        "contextSettings": {
+                          "_class": "graphicsContextSettings",
+                          "blendMode": 0,
+                          "opacity": 1
+                        },
+                        "offsetX": -2,
+                        "offsetY": 0,
+                        "spread": 0
                       }
                     ],
-                    "shadows": [],
-                    "innerShadows": [],
                     "endDecorationType": 0,
                     "miterLimit": 10,
                     "startDecorationType": 0,
@@ -1631,8 +1577,8 @@
                   "frame": {
                     "_class": "rect",
                     "constrainProportions": false,
-                    "height": 104,
-                    "width": 104,
+                    "height": 18,
+                    "width": 784,
                     "x": 0,
                     "y": 0
                   },
@@ -1676,8 +1622,8 @@
                     "constrainProportions": false,
                     "height": 17,
                     "width": 75,
-                    "x": 2,
-                    "y": 2
+                    "x": 0,
+                    "y": 0
                   },
                   "text": "border right",
                   "automaticallyDrawOnUnderlyingPath": false,
@@ -1706,10 +1652,10 @@
               "frame": {
                 "_class": "rect",
                 "constrainProportions": false,
-                "height": 104,
-                "width": 104,
+                "height": 18,
+                "width": 784,
                 "x": 0,
-                "y": 524
+                "y": 438
               },
               "hasClickThrough": false,
               "windingRule": 1
@@ -1751,7 +1697,7 @@
                   "isLocked": false,
                   "isVisible": true,
                   "layerListExpandedType": 0,
-                  "name": "/html[1]/body[1]/div[@class=\"border border-top\"]",
+                  "name": "/html[1]/body[1]/div[@class=\"border-top\"]",
                   "nameIsFixed": false,
                   "resizingConstraint": 63,
                   "resizingType": 0,
@@ -1785,8 +1731,8 @@
                       "frame": {
                         "_class": "rect",
                         "constrainProportions": false,
-                        "height": 105,
-                        "width": 104,
+                        "height": 21,
+                        "width": 784,
                         "x": 0,
                         "y": 0
                       },
@@ -1887,66 +1833,6 @@
                         "offsetX": 0,
                         "offsetY": 3,
                         "spread": 0
-                      },
-                      {
-                        "_class": "innerShadow",
-                        "isEnabled": true,
-                        "blurRadius": 0,
-                        "color": {
-                          "_class": "color",
-                          "red": 1,
-                          "green": 0,
-                          "blue": 0,
-                          "alpha": 1
-                        },
-                        "contextSettings": {
-                          "_class": "graphicsContextSettings",
-                          "blendMode": 0,
-                          "opacity": 1
-                        },
-                        "offsetX": -2,
-                        "offsetY": 0,
-                        "spread": 0
-                      },
-                      {
-                        "_class": "innerShadow",
-                        "isEnabled": true,
-                        "blurRadius": 0,
-                        "color": {
-                          "_class": "color",
-                          "red": 1,
-                          "green": 0,
-                          "blue": 0,
-                          "alpha": 1
-                        },
-                        "contextSettings": {
-                          "_class": "graphicsContextSettings",
-                          "blendMode": 0,
-                          "opacity": 1
-                        },
-                        "offsetX": 0,
-                        "offsetY": -2,
-                        "spread": 0
-                      },
-                      {
-                        "_class": "innerShadow",
-                        "isEnabled": true,
-                        "blurRadius": 0,
-                        "color": {
-                          "_class": "color",
-                          "red": 1,
-                          "green": 0,
-                          "blue": 0,
-                          "alpha": 1
-                        },
-                        "contextSettings": {
-                          "_class": "graphicsContextSettings",
-                          "blendMode": 0,
-                          "opacity": 1
-                        },
-                        "offsetX": 2,
-                        "offsetY": 0,
-                        "spread": 0
                       }
                     ],
                     "endDecorationType": 0,
@@ -1961,8 +1847,8 @@
                   "frame": {
                     "_class": "rect",
                     "constrainProportions": false,
-                    "height": 105,
-                    "width": 104,
+                    "height": 21,
+                    "width": 784,
                     "x": 0,
                     "y": 0
                   },
@@ -2006,7 +1892,7 @@
                     "constrainProportions": false,
                     "height": 17,
                     "width": 66,
-                    "x": 2,
+                    "x": 0,
                     "y": 3
                   },
                   "text": "border top",
@@ -2036,10 +1922,10 @@
               "frame": {
                 "_class": "rect",
                 "constrainProportions": false,
-                "height": 105,
-                "width": 104,
+                "height": 21,
+                "width": 784,
                 "x": 0,
-                "y": 628
+                "y": 456
               },
               "hasClickThrough": false,
               "windingRule": 1
@@ -2081,7 +1967,7 @@
                   "isLocked": false,
                   "isVisible": true,
                   "layerListExpandedType": 0,
-                  "name": "/html[1]/body[1]/div[@class=\"border border-bottom\"]",
+                  "name": "/html[1]/body[1]/div[@class=\"border-bottom\"]",
                   "nameIsFixed": false,
                   "resizingConstraint": 63,
                   "resizingType": 0,
@@ -2115,8 +2001,8 @@
                       "frame": {
                         "_class": "rect",
                         "constrainProportions": false,
-                        "height": 106,
-                        "width": 104,
+                        "height": 22,
+                        "width": 784,
                         "x": 0,
                         "y": 0
                       },
@@ -2204,46 +2090,6 @@
                         "blurRadius": 0,
                         "color": {
                           "_class": "color",
-                          "red": 1,
-                          "green": 0,
-                          "blue": 0,
-                          "alpha": 1
-                        },
-                        "contextSettings": {
-                          "_class": "graphicsContextSettings",
-                          "blendMode": 0,
-                          "opacity": 1
-                        },
-                        "offsetX": 0,
-                        "offsetY": 2,
-                        "spread": 0
-                      },
-                      {
-                        "_class": "innerShadow",
-                        "isEnabled": true,
-                        "blurRadius": 0,
-                        "color": {
-                          "_class": "color",
-                          "red": 1,
-                          "green": 0,
-                          "blue": 0,
-                          "alpha": 1
-                        },
-                        "contextSettings": {
-                          "_class": "graphicsContextSettings",
-                          "blendMode": 0,
-                          "opacity": 1
-                        },
-                        "offsetX": -2,
-                        "offsetY": 0,
-                        "spread": 0
-                      },
-                      {
-                        "_class": "innerShadow",
-                        "isEnabled": true,
-                        "blurRadius": 0,
-                        "color": {
-                          "_class": "color",
                           "red": 0,
                           "green": 0,
                           "blue": 1,
@@ -2256,26 +2102,6 @@
                         },
                         "offsetX": 0,
                         "offsetY": -4,
-                        "spread": 0
-                      },
-                      {
-                        "_class": "innerShadow",
-                        "isEnabled": true,
-                        "blurRadius": 0,
-                        "color": {
-                          "_class": "color",
-                          "red": 1,
-                          "green": 0,
-                          "blue": 0,
-                          "alpha": 1
-                        },
-                        "contextSettings": {
-                          "_class": "graphicsContextSettings",
-                          "blendMode": 0,
-                          "opacity": 1
-                        },
-                        "offsetX": 2,
-                        "offsetY": 0,
                         "spread": 0
                       }
                     ],
@@ -2291,8 +2117,8 @@
                   "frame": {
                     "_class": "rect",
                     "constrainProportions": false,
-                    "height": 106,
-                    "width": 104,
+                    "height": 22,
+                    "width": 784,
                     "x": 0,
                     "y": 0
                   },
@@ -2336,8 +2162,8 @@
                     "constrainProportions": false,
                     "height": 17,
                     "width": 91,
-                    "x": 2,
-                    "y": 2
+                    "x": 0,
+                    "y": 0
                   },
                   "text": "border bottom",
                   "automaticallyDrawOnUnderlyingPath": false,
@@ -2366,10 +2192,10 @@
               "frame": {
                 "_class": "rect",
                 "constrainProportions": false,
-                "height": 106,
-                "width": 104,
+                "height": 22,
+                "width": 784,
                 "x": 0,
-                "y": 733
+                "y": 477
               },
               "hasClickThrough": false,
               "windingRule": 1
@@ -2411,7 +2237,7 @@
                   "isLocked": false,
                   "isVisible": true,
                   "layerListExpandedType": 0,
-                  "name": "/html[1]/body[1]/div[@class=\"border border-top border-bottom\"]",
+                  "name": "/html[1]/body[1]/div[@class=\"border-top border-bottom\"]",
                   "nameIsFixed": false,
                   "resizingConstraint": 63,
                   "resizingType": 0,
@@ -2445,8 +2271,8 @@
                       "frame": {
                         "_class": "rect",
                         "constrainProportions": false,
-                        "height": 107,
-                        "width": 104,
+                        "height": 25,
+                        "width": 784,
                         "x": 0,
                         "y": 0
                       },
@@ -2554,26 +2380,6 @@
                         "blurRadius": 0,
                         "color": {
                           "_class": "color",
-                          "red": 1,
-                          "green": 0,
-                          "blue": 0,
-                          "alpha": 1
-                        },
-                        "contextSettings": {
-                          "_class": "graphicsContextSettings",
-                          "blendMode": 0,
-                          "opacity": 1
-                        },
-                        "offsetX": -2,
-                        "offsetY": 0,
-                        "spread": 0
-                      },
-                      {
-                        "_class": "innerShadow",
-                        "isEnabled": true,
-                        "blurRadius": 0,
-                        "color": {
-                          "_class": "color",
                           "red": 0,
                           "green": 0,
                           "blue": 1,
@@ -2586,26 +2392,6 @@
                         },
                         "offsetX": 0,
                         "offsetY": -4,
-                        "spread": 0
-                      },
-                      {
-                        "_class": "innerShadow",
-                        "isEnabled": true,
-                        "blurRadius": 0,
-                        "color": {
-                          "_class": "color",
-                          "red": 1,
-                          "green": 0,
-                          "blue": 0,
-                          "alpha": 1
-                        },
-                        "contextSettings": {
-                          "_class": "graphicsContextSettings",
-                          "blendMode": 0,
-                          "opacity": 1
-                        },
-                        "offsetX": 2,
-                        "offsetY": 0,
                         "spread": 0
                       }
                     ],
@@ -2621,8 +2407,8 @@
                   "frame": {
                     "_class": "rect",
                     "constrainProportions": false,
-                    "height": 107,
-                    "width": 104,
+                    "height": 25,
+                    "width": 784,
                     "x": 0,
                     "y": 0
                   },
@@ -2664,16 +2450,16 @@
                   "frame": {
                     "_class": "rect",
                     "constrainProportions": false,
-                    "height": 35,
-                    "width": 71,
-                    "x": 2,
+                    "height": 17,
+                    "width": 116,
+                    "x": 0,
                     "y": 3
                   },
                   "text": "border top-bottom",
                   "automaticallyDrawOnUnderlyingPath": false,
                   "dontSynchroniseWithSymbol": false,
                   "lineSpacingBehaviour": 2,
-                  "textBehaviour": 1
+                  "textBehaviour": 0
                 }
               ],
               "clippingMaskMode": 0,
@@ -2696,10 +2482,10 @@
               "frame": {
                 "_class": "rect",
                 "constrainProportions": false,
-                "height": 107,
-                "width": 104,
+                "height": 25,
+                "width": 784,
                 "x": 0,
-                "y": 839
+                "y": 499
               },
               "hasClickThrough": false,
               "windingRule": 1
@@ -2725,7 +2511,7 @@
           "frame": {
             "_class": "rect",
             "constrainProportions": false,
-            "height": 946,
+            "height": 524,
             "width": 784,
             "x": 8,
             "y": 8
@@ -2739,7 +2525,7 @@
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
-        "height": 946,
+        "height": 524,
         "width": 784,
         "x": 0,
         "y": 0
@@ -2769,7 +2555,7 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 946,
+    "height": 524,
     "width": 784,
     "x": 0,
     "y": 0
