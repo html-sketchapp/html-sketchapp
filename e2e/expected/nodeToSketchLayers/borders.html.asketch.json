@@ -35,7 +35,7 @@
       "isLocked": false,
       "isVisible": true,
       "layerListExpandedType": 0,
-      "name": "/html[1]/body[1]/div[@class=\"border-top border-bottom\"]",
+      "name": "/html[1]/body[1]/div[@class=\"box border-top border-bottom border-left border-right\"]",
       "nameIsFixed": false,
       "resizingConstraint": 63,
       "resizingType": 0,
@@ -69,8 +69,8 @@
           "frame": {
             "_class": "rect",
             "constrainProportions": false,
-            "height": 25,
-            "width": 784,
+            "height": 107,
+            "width": 103,
             "x": 0,
             "y": 0
           },
@@ -172,663 +172,6 @@
             "offsetY": 3,
             "spread": 0
           },
-          {
-            "_class": "innerShadow",
-            "isEnabled": true,
-            "blurRadius": 0,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 1,
-              "alpha": 1
-            },
-            "contextSettings": {
-              "_class": "graphicsContextSettings",
-              "blendMode": 0,
-              "opacity": 1
-            },
-            "offsetX": 0,
-            "offsetY": -4,
-            "spread": 0
-          }
-        ],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
-      "frame": {
-        "_class": "rect",
-        "constrainProportions": false,
-        "height": 25,
-        "width": 784,
-        "x": 8,
-        "y": 507
-      },
-      "hasClickThrough": false,
-      "windingRule": 1
-    },
-    {
-      "_class": "text",
-      "do_objectID": "pizza",
-      "exportOptions": {
-        "_class": "exportOptions",
-        "exportFormats": [],
-        "includedLayerIds": [],
-        "layerOptions": 0,
-        "shouldTrim": false
-      },
-      "isFlippedHorizontal": false,
-      "isFlippedVertical": false,
-      "isLocked": false,
-      "isVisible": true,
-      "layerListExpandedType": 0,
-      "name": "border top-bottom",
-      "nameIsFixed": false,
-      "resizingConstraint": 47,
-      "resizingType": 0,
-      "rotation": 0,
-      "shouldBreakMaskChain": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
-      "style": {
-        "color": "rgb(0, 0, 0)",
-        "fontSize": 16,
-        "fontFamily": "Times New Roman",
-        "fontWeight": 400,
-        "textDecoration": "none",
-        "textAlign": "start",
-        "textTransform": "none"
-      },
-      "frame": {
-        "_class": "rect",
-        "constrainProportions": false,
-        "height": 17,
-        "width": 116,
-        "x": 8,
-        "y": 510
-      },
-      "text": "border top-bottom",
-      "automaticallyDrawOnUnderlyingPath": false,
-      "dontSynchroniseWithSymbol": false,
-      "lineSpacingBehaviour": 2,
-      "textBehaviour": 0
-    },
-    {
-      "_class": "shapeGroup",
-      "do_objectID": "pizza",
-      "exportOptions": {
-        "_class": "exportOptions",
-        "exportFormats": [],
-        "includedLayerIds": [],
-        "layerOptions": 0,
-        "shouldTrim": false
-      },
-      "isFlippedHorizontal": false,
-      "isFlippedVertical": false,
-      "isLocked": false,
-      "isVisible": true,
-      "layerListExpandedType": 0,
-      "name": "/html[1]/body[1]/div[@class=\"border-bottom\"]",
-      "nameIsFixed": false,
-      "resizingConstraint": 63,
-      "resizingType": 0,
-      "rotation": 0,
-      "shouldBreakMaskChain": false,
-      "layers": [
-        {
-          "_class": "rectangle",
-          "do_objectID": "pizza",
-          "exportOptions": {
-            "_class": "exportOptions",
-            "exportFormats": [],
-            "includedLayerIds": [],
-            "layerOptions": 0,
-            "shouldTrim": false
-          },
-          "isFlippedHorizontal": false,
-          "isFlippedVertical": false,
-          "isLocked": false,
-          "isVisible": true,
-          "layerListExpandedType": 0,
-          "name": "rectangle",
-          "nameIsFixed": false,
-          "resizingConstraint": 63,
-          "resizingType": 0,
-          "rotation": 0,
-          "shouldBreakMaskChain": false,
-          "layers": [],
-          "clippingMaskMode": 0,
-          "hasClippingMask": false,
-          "frame": {
-            "_class": "rect",
-            "constrainProportions": false,
-            "height": 22,
-            "width": 784,
-            "x": 0,
-            "y": 0
-          },
-          "path": {
-            "_class": "path",
-            "isClosed": true,
-            "pointRadiusBehaviour": 1,
-            "points": [
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{0, 0}",
-                "curveMode": 1,
-                "curveTo": "{0, 0}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{0, 0}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{1, 0}",
-                "curveMode": 1,
-                "curveTo": "{1, 0}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{1, 0}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{1, 1}",
-                "curveMode": 1,
-                "curveTo": "{1, 1}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{1, 1}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{0, 1}",
-                "curveMode": 1,
-                "curveTo": "{0, 1}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{0, 1}"
-              }
-            ]
-          },
-          "hasConvertedToNewRoundCorners": true,
-          "fixedRadius": 0,
-          "edited": false,
-          "booleanOperation": -1
-        }
-      ],
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 0
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [],
-        "shadows": [],
-        "innerShadows": [
-          {
-            "_class": "innerShadow",
-            "isEnabled": true,
-            "blurRadius": 0,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 1,
-              "alpha": 1
-            },
-            "contextSettings": {
-              "_class": "graphicsContextSettings",
-              "blendMode": 0,
-              "opacity": 1
-            },
-            "offsetX": 0,
-            "offsetY": -4,
-            "spread": 0
-          }
-        ],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
-      "frame": {
-        "_class": "rect",
-        "constrainProportions": false,
-        "height": 22,
-        "width": 784,
-        "x": 8,
-        "y": 485
-      },
-      "hasClickThrough": false,
-      "windingRule": 1
-    },
-    {
-      "_class": "text",
-      "do_objectID": "pizza",
-      "exportOptions": {
-        "_class": "exportOptions",
-        "exportFormats": [],
-        "includedLayerIds": [],
-        "layerOptions": 0,
-        "shouldTrim": false
-      },
-      "isFlippedHorizontal": false,
-      "isFlippedVertical": false,
-      "isLocked": false,
-      "isVisible": true,
-      "layerListExpandedType": 0,
-      "name": "border bottom",
-      "nameIsFixed": false,
-      "resizingConstraint": 47,
-      "resizingType": 0,
-      "rotation": 0,
-      "shouldBreakMaskChain": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
-      "style": {
-        "color": "rgb(0, 0, 0)",
-        "fontSize": 16,
-        "fontFamily": "Times New Roman",
-        "fontWeight": 400,
-        "textDecoration": "none",
-        "textAlign": "start",
-        "textTransform": "none"
-      },
-      "frame": {
-        "_class": "rect",
-        "constrainProportions": false,
-        "height": 17,
-        "width": 91,
-        "x": 8,
-        "y": 485
-      },
-      "text": "border bottom",
-      "automaticallyDrawOnUnderlyingPath": false,
-      "dontSynchroniseWithSymbol": false,
-      "lineSpacingBehaviour": 2,
-      "textBehaviour": 0
-    },
-    {
-      "_class": "shapeGroup",
-      "do_objectID": "pizza",
-      "exportOptions": {
-        "_class": "exportOptions",
-        "exportFormats": [],
-        "includedLayerIds": [],
-        "layerOptions": 0,
-        "shouldTrim": false
-      },
-      "isFlippedHorizontal": false,
-      "isFlippedVertical": false,
-      "isLocked": false,
-      "isVisible": true,
-      "layerListExpandedType": 0,
-      "name": "/html[1]/body[1]/div[@class=\"border-top\"]",
-      "nameIsFixed": false,
-      "resizingConstraint": 63,
-      "resizingType": 0,
-      "rotation": 0,
-      "shouldBreakMaskChain": false,
-      "layers": [
-        {
-          "_class": "rectangle",
-          "do_objectID": "pizza",
-          "exportOptions": {
-            "_class": "exportOptions",
-            "exportFormats": [],
-            "includedLayerIds": [],
-            "layerOptions": 0,
-            "shouldTrim": false
-          },
-          "isFlippedHorizontal": false,
-          "isFlippedVertical": false,
-          "isLocked": false,
-          "isVisible": true,
-          "layerListExpandedType": 0,
-          "name": "rectangle",
-          "nameIsFixed": false,
-          "resizingConstraint": 63,
-          "resizingType": 0,
-          "rotation": 0,
-          "shouldBreakMaskChain": false,
-          "layers": [],
-          "clippingMaskMode": 0,
-          "hasClippingMask": false,
-          "frame": {
-            "_class": "rect",
-            "constrainProportions": false,
-            "height": 21,
-            "width": 784,
-            "x": 0,
-            "y": 0
-          },
-          "path": {
-            "_class": "path",
-            "isClosed": true,
-            "pointRadiusBehaviour": 1,
-            "points": [
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{0, 0}",
-                "curveMode": 1,
-                "curveTo": "{0, 0}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{0, 0}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{1, 0}",
-                "curveMode": 1,
-                "curveTo": "{1, 0}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{1, 0}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{1, 1}",
-                "curveMode": 1,
-                "curveTo": "{1, 1}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{1, 1}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{0, 1}",
-                "curveMode": 1,
-                "curveTo": "{0, 1}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{0, 1}"
-              }
-            ]
-          },
-          "hasConvertedToNewRoundCorners": true,
-          "fixedRadius": 0,
-          "edited": false,
-          "booleanOperation": -1
-        }
-      ],
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 0
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [],
-        "shadows": [],
-        "innerShadows": [
-          {
-            "_class": "innerShadow",
-            "isEnabled": true,
-            "blurRadius": 0,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 1,
-              "blue": 0,
-              "alpha": 1
-            },
-            "contextSettings": {
-              "_class": "graphicsContextSettings",
-              "blendMode": 0,
-              "opacity": 1
-            },
-            "offsetX": 0,
-            "offsetY": 3,
-            "spread": 0
-          }
-        ],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
-      "frame": {
-        "_class": "rect",
-        "constrainProportions": false,
-        "height": 21,
-        "width": 784,
-        "x": 8,
-        "y": 464
-      },
-      "hasClickThrough": false,
-      "windingRule": 1
-    },
-    {
-      "_class": "text",
-      "do_objectID": "pizza",
-      "exportOptions": {
-        "_class": "exportOptions",
-        "exportFormats": [],
-        "includedLayerIds": [],
-        "layerOptions": 0,
-        "shouldTrim": false
-      },
-      "isFlippedHorizontal": false,
-      "isFlippedVertical": false,
-      "isLocked": false,
-      "isVisible": true,
-      "layerListExpandedType": 0,
-      "name": "border top",
-      "nameIsFixed": false,
-      "resizingConstraint": 47,
-      "resizingType": 0,
-      "rotation": 0,
-      "shouldBreakMaskChain": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
-      "style": {
-        "color": "rgb(0, 0, 0)",
-        "fontSize": 16,
-        "fontFamily": "Times New Roman",
-        "fontWeight": 400,
-        "textDecoration": "none",
-        "textAlign": "start",
-        "textTransform": "none"
-      },
-      "frame": {
-        "_class": "rect",
-        "constrainProportions": false,
-        "height": 17,
-        "width": 66,
-        "x": 8,
-        "y": 467
-      },
-      "text": "border top",
-      "automaticallyDrawOnUnderlyingPath": false,
-      "dontSynchroniseWithSymbol": false,
-      "lineSpacingBehaviour": 2,
-      "textBehaviour": 0
-    },
-    {
-      "_class": "shapeGroup",
-      "do_objectID": "pizza",
-      "exportOptions": {
-        "_class": "exportOptions",
-        "exportFormats": [],
-        "includedLayerIds": [],
-        "layerOptions": 0,
-        "shouldTrim": false
-      },
-      "isFlippedHorizontal": false,
-      "isFlippedVertical": false,
-      "isLocked": false,
-      "isVisible": true,
-      "layerListExpandedType": 0,
-      "name": "/html[1]/body[1]/div[@class=\"border-right\"]",
-      "nameIsFixed": false,
-      "resizingConstraint": 63,
-      "resizingType": 0,
-      "rotation": 0,
-      "shouldBreakMaskChain": false,
-      "layers": [
-        {
-          "_class": "rectangle",
-          "do_objectID": "pizza",
-          "exportOptions": {
-            "_class": "exportOptions",
-            "exportFormats": [],
-            "includedLayerIds": [],
-            "layerOptions": 0,
-            "shouldTrim": false
-          },
-          "isFlippedHorizontal": false,
-          "isFlippedVertical": false,
-          "isLocked": false,
-          "isVisible": true,
-          "layerListExpandedType": 0,
-          "name": "rectangle",
-          "nameIsFixed": false,
-          "resizingConstraint": 63,
-          "resizingType": 0,
-          "rotation": 0,
-          "shouldBreakMaskChain": false,
-          "layers": [],
-          "clippingMaskMode": 0,
-          "hasClippingMask": false,
-          "frame": {
-            "_class": "rect",
-            "constrainProportions": false,
-            "height": 18,
-            "width": 784,
-            "x": 0,
-            "y": 0
-          },
-          "path": {
-            "_class": "path",
-            "isClosed": true,
-            "pointRadiusBehaviour": 1,
-            "points": [
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{0, 0}",
-                "curveMode": 1,
-                "curveTo": "{0, 0}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{0, 0}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{1, 0}",
-                "curveMode": 1,
-                "curveTo": "{1, 0}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{1, 0}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{1, 1}",
-                "curveMode": 1,
-                "curveTo": "{1, 1}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{1, 1}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{0, 1}",
-                "curveMode": 1,
-                "curveTo": "{0, 1}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{0, 1}"
-              }
-            ]
-          },
-          "hasConvertedToNewRoundCorners": true,
-          "fixedRadius": 0,
-          "edited": false,
-          "booleanOperation": -1
-        }
-      ],
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
-      "style": {
-        "_class": "style",
-        "fills": [
-          {
-            "_class": "fill",
-            "isEnabled": true,
-            "color": {
-              "_class": "color",
-              "red": 0,
-              "green": 0,
-              "blue": 0,
-              "alpha": 0
-            },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [],
-        "shadows": [],
-        "innerShadows": [
           {
             "_class": "innerShadow",
             "isEnabled": true,
@@ -848,206 +191,27 @@
             "offsetX": -2,
             "offsetY": 0,
             "spread": 0
-          }
-        ],
-        "endDecorationType": 0,
-        "miterLimit": 10,
-        "startDecorationType": 0,
-        "contextSettings": {
-          "_class": "graphicsContextSettings",
-          "blendMode": 0,
-          "opacity": "1"
-        }
-      },
-      "frame": {
-        "_class": "rect",
-        "constrainProportions": false,
-        "height": 18,
-        "width": 784,
-        "x": 8,
-        "y": 446
-      },
-      "hasClickThrough": false,
-      "windingRule": 1
-    },
-    {
-      "_class": "text",
-      "do_objectID": "pizza",
-      "exportOptions": {
-        "_class": "exportOptions",
-        "exportFormats": [],
-        "includedLayerIds": [],
-        "layerOptions": 0,
-        "shouldTrim": false
-      },
-      "isFlippedHorizontal": false,
-      "isFlippedVertical": false,
-      "isLocked": false,
-      "isVisible": true,
-      "layerListExpandedType": 0,
-      "name": "border right",
-      "nameIsFixed": false,
-      "resizingConstraint": 47,
-      "resizingType": 0,
-      "rotation": 0,
-      "shouldBreakMaskChain": false,
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
-      "style": {
-        "color": "rgb(0, 0, 0)",
-        "fontSize": 16,
-        "fontFamily": "Times New Roman",
-        "fontWeight": 400,
-        "textDecoration": "none",
-        "textAlign": "start",
-        "textTransform": "none"
-      },
-      "frame": {
-        "_class": "rect",
-        "constrainProportions": false,
-        "height": 17,
-        "width": 75,
-        "x": 8,
-        "y": 446
-      },
-      "text": "border right",
-      "automaticallyDrawOnUnderlyingPath": false,
-      "dontSynchroniseWithSymbol": false,
-      "lineSpacingBehaviour": 2,
-      "textBehaviour": 0
-    },
-    {
-      "_class": "shapeGroup",
-      "do_objectID": "pizza",
-      "exportOptions": {
-        "_class": "exportOptions",
-        "exportFormats": [],
-        "includedLayerIds": [],
-        "layerOptions": 0,
-        "shouldTrim": false
-      },
-      "isFlippedHorizontal": false,
-      "isFlippedVertical": false,
-      "isLocked": false,
-      "isVisible": true,
-      "layerListExpandedType": 0,
-      "name": "/html[1]/body[1]/div[@class=\"border-left\"]",
-      "nameIsFixed": false,
-      "resizingConstraint": 63,
-      "resizingType": 0,
-      "rotation": 0,
-      "shouldBreakMaskChain": false,
-      "layers": [
-        {
-          "_class": "rectangle",
-          "do_objectID": "pizza",
-          "exportOptions": {
-            "_class": "exportOptions",
-            "exportFormats": [],
-            "includedLayerIds": [],
-            "layerOptions": 0,
-            "shouldTrim": false
           },
-          "isFlippedHorizontal": false,
-          "isFlippedVertical": false,
-          "isLocked": false,
-          "isVisible": true,
-          "layerListExpandedType": 0,
-          "name": "rectangle",
-          "nameIsFixed": false,
-          "resizingConstraint": 63,
-          "resizingType": 0,
-          "rotation": 0,
-          "shouldBreakMaskChain": false,
-          "layers": [],
-          "clippingMaskMode": 0,
-          "hasClippingMask": false,
-          "frame": {
-            "_class": "rect",
-            "constrainProportions": false,
-            "height": 18,
-            "width": 784,
-            "x": 0,
-            "y": 0
-          },
-          "path": {
-            "_class": "path",
-            "isClosed": true,
-            "pointRadiusBehaviour": 1,
-            "points": [
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{0, 0}",
-                "curveMode": 1,
-                "curveTo": "{0, 0}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{0, 0}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{1, 0}",
-                "curveMode": 1,
-                "curveTo": "{1, 0}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{1, 0}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{1, 1}",
-                "curveMode": 1,
-                "curveTo": "{1, 1}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{1, 1}"
-              },
-              {
-                "_class": "curvePoint",
-                "cornerRadius": 0,
-                "curveFrom": "{0, 1}",
-                "curveMode": 1,
-                "curveTo": "{0, 1}",
-                "hasCurveFrom": false,
-                "hasCurveTo": false,
-                "point": "{0, 1}"
-              }
-            ]
-          },
-          "hasConvertedToNewRoundCorners": true,
-          "fixedRadius": 0,
-          "edited": false,
-          "booleanOperation": -1
-        }
-      ],
-      "clippingMaskMode": 0,
-      "hasClippingMask": false,
-      "style": {
-        "_class": "style",
-        "fills": [
           {
-            "_class": "fill",
+            "_class": "innerShadow",
             "isEnabled": true,
+            "blurRadius": 0,
             "color": {
               "_class": "color",
               "red": 0,
               "green": 0,
-              "blue": 0,
-              "alpha": 0
+              "blue": 1,
+              "alpha": 1
             },
-            "fillType": 0,
-            "noiseIndex": 0,
-            "noiseIntensity": 0,
-            "patternFillType": 1,
-            "patternTileScale": 1
-          }
-        ],
-        "borders": [],
-        "shadows": [],
-        "innerShadows": [
+            "contextSettings": {
+              "_class": "graphicsContextSettings",
+              "blendMode": 0,
+              "opacity": 1
+            },
+            "offsetX": 0,
+            "offsetY": -4,
+            "spread": 0
+          },
           {
             "_class": "innerShadow",
             "isEnabled": true,
@@ -1081,10 +245,10 @@
       "frame": {
         "_class": "rect",
         "constrainProportions": false,
-        "height": 18,
-        "width": 784,
+        "height": 107,
+        "width": 103,
         "x": 8,
-        "y": 428
+        "y": 468
       },
       "hasClickThrough": false,
       "windingRule": 1
@@ -1104,7 +268,7 @@
       "isLocked": false,
       "isVisible": true,
       "layerListExpandedType": 0,
-      "name": "border left",
+      "name": "single borders",
       "nameIsFixed": false,
       "resizingConstraint": 47,
       "resizingType": 0,
@@ -1125,11 +289,11 @@
         "_class": "rect",
         "constrainProportions": false,
         "height": 17,
-        "width": 67,
+        "width": 90,
         "x": 9,
-        "y": 428
+        "y": 471
       },
-      "text": "border left",
+      "text": "single borders",
       "automaticallyDrawOnUnderlyingPath": false,
       "dontSynchroniseWithSymbol": false,
       "lineSpacingBehaviour": 2,
@@ -1150,7 +314,7 @@
       "isLocked": false,
       "isVisible": true,
       "layerListExpandedType": 0,
-      "name": "/html[1]/body[1]/div[@class=\"border border-radius2\"]",
+      "name": "/html[1]/body[1]/div[@class=\"box border1 border-radius2\"]",
       "nameIsFixed": false,
       "resizingConstraint": 63,
       "resizingType": 0,
@@ -1297,7 +461,7 @@
         "height": 104,
         "width": 104,
         "x": 8,
-        "y": 324
+        "y": 354
       },
       "hasClickThrough": false,
       "windingRule": 1
@@ -1340,7 +504,7 @@
         "height": 17,
         "width": 84,
         "x": 10,
-        "y": 326
+        "y": 356
       },
       "text": "border radius",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -1363,7 +527,7 @@
       "isLocked": false,
       "isVisible": true,
       "layerListExpandedType": 0,
-      "name": "/html[1]/body[1]/div[@class=\"border border-radius\"]",
+      "name": "/html[1]/body[1]/div[@class=\"box border1 border-radius\"]",
       "nameIsFixed": false,
       "resizingConstraint": 63,
       "resizingType": 0,
@@ -1510,7 +674,7 @@
         "height": 104,
         "width": 104,
         "x": 8,
-        "y": 220
+        "y": 240
       },
       "hasClickThrough": false,
       "windingRule": 1
@@ -1553,7 +717,7 @@
         "height": 17,
         "width": 84,
         "x": 10,
-        "y": 222
+        "y": 242
       },
       "text": "border radius",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -1576,7 +740,7 @@
       "isLocked": false,
       "isVisible": true,
       "layerListExpandedType": 0,
-      "name": "/html[1]/body[1]/div[@class=\"border border1\"]",
+      "name": "/html[1]/body[1]/div[@class=\"box border2\"]",
       "nameIsFixed": false,
       "resizingConstraint": 63,
       "resizingType": 0,
@@ -1723,7 +887,7 @@
         "height": 108,
         "width": 108,
         "x": 8,
-        "y": 112
+        "y": 122
       },
       "hasClickThrough": false,
       "windingRule": 1
@@ -1766,7 +930,7 @@
         "height": 17,
         "width": 41,
         "x": 12,
-        "y": 116
+        "y": 126
       },
       "text": "border",
       "automaticallyDrawOnUnderlyingPath": false,
@@ -1789,7 +953,7 @@
       "isLocked": false,
       "isVisible": true,
       "layerListExpandedType": 0,
-      "name": "/html[1]/body[1]/div[@class=\"border\"]",
+      "name": "/html[1]/body[1]/div[@class=\"box border1\"]",
       "nameIsFixed": false,
       "resizingConstraint": 63,
       "resizingType": 0,
@@ -1993,7 +1157,7 @@
   "frame": {
     "_class": "rect",
     "constrainProportions": false,
-    "height": 524,
+    "height": 567,
     "width": 784,
     "x": 0,
     "y": 0
