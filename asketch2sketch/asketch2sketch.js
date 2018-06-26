@@ -21,6 +21,9 @@ function removeExistingLayers(context) {
 }
 
 function getNativeLayer(failingLayers, layer) {
+  // debug
+  // console.log('Processing ' + layer.name + ' (' + layer._class + ')');
+
   if (layer._class === 'text') {
     fixTextLayer(layer);
   } else if (layer._class === 'svg') {

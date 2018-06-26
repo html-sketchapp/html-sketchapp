@@ -96,8 +96,15 @@ function createAttributedString(textNode) {
   const {content, textStyles} = textNode;
 
   const attribs = createStringAttributes(textStyles);
+  let result = null;
 
-  return NSAttributedString.attributedStringWithString_attributes_(content, attribs);
+  try {
+    result = NSAttributedString.attributedStringWithString_attributes_(content, attribs);
+  } catch (e) {
+    console.log('Failed to create attributed string: ' + e);
+  }
+
+  return result;
 }
 
 function makeEncodedAttributedString(textNodes) {
@@ -106,7 +113,9 @@ function makeEncodedAttributedString(textNodes) {
   textNodes.forEach(textNode => {
     const newString = createAttributedString(textNode);
 
-    fullStr.appendAttributedString(newString);
+    if (newString !== null) {
+      fullStr.appendAttributedString(newString);
+    }
   });
 
   const encodedAttribStr = MSAttributedString.encodeAttributedString(fullStr);
