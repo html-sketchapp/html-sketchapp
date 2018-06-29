@@ -7,7 +7,7 @@ import Style from './model/style';
 import Text from './model/text';
 import TextStyle from './model/textStyle';
 import createXPathFromElement from './helpers/createXPathFromElement';
-import {parseBackgroundImage} from './helpers/background';
+import {parseBackgroundImage, getActualImageSize} from './helpers/background';
 import {splitShadowString, shadowStringToObject} from './helpers/shadow';
 import {getSVGString} from './helpers/svg';
 import {getGroupBCR} from './helpers/bcr';
@@ -74,6 +74,7 @@ export default function nodeToSketchLayers(node, options) {
     backgroundImage,
     backgroundPositionX,
     backgroundPositionY,
+    backgroundSize,
     borderColor,
     borderWidth,
     borderTopWidth,
@@ -197,7 +198,7 @@ export default function nodeToSketchLayers(node, options) {
 
     shapeGroup.addLayer(rectangle);
 
-    // This should return a array when multiple background-images are supported
+    // This should return a array once multiple background-images are supported
     const backgroundImageResult = parseBackgroundImage(backgroundImage);
 
     let layer = shapeGroup;
@@ -210,10 +211,20 @@ export default function nodeToSketchLayers(node, options) {
 
           img.src = backgroundImageResult.value;
 
-          const bitmapX = parseInt(backgroundPositionX, 10);
-          const bitmapY = parseInt(backgroundPositionY, 10);
+          // TODO add support for % values
+          const bitmapX = parseFloat(backgroundPositionX);
+          const bitmapY = parseFloat(backgroundPositionY);
 
-          if (bitmapX === 0 && bitmapY === 0 && img.width <= width && img.height <= height) {
+          const actualImgSize = getActualImageSize(
+            backgroundSize,
+            {width: img.width, height: img.height},
+            {width, height}
+          );
+
+          if (
+            bitmapX === 0 && bitmapY === 0 &&
+            actualImgSize.width === img.width && actualImgSize.height === img.height
+          ) {
             // background image fits entirely inside the node, so we can represent it with a (cheaper) image fill
             style.addImageFill(backgroundImageResult.value);
           } else {
@@ -222,8 +233,8 @@ export default function nodeToSketchLayers(node, options) {
               url: backgroundImageResult.value,
               x: bitmapX,
               y: bitmapY,
-              width: img.width,
-              height: img.height
+              width: actualImgSize.width,
+              height: actualImgSize.height
             });
 
             bm.setName('background-image');

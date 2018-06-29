@@ -97,6 +97,78 @@ const parseLinearGradient = value => {
   return null;
 };
 
+/**
+ * @param {string} backgroundSize value of background-size CSS property
+ * @param {{width: number, height: number}} imageSize natural size of the image
+ * @param {{width: number, height: number}} containerSize size of the container
+ * @return {{width: number, height: number}} actual image size
+ */
+const getActualImageSize = (backgroundSize, imageSize, containerSize) => {
+  let width, height;
+
+  // sanity check
+  if (imageSize.width === 0 || imageSize.height === 0 || containerSize.width === 0 || containerSize.height === 0) {
+    width = 0;
+    height = 0;
+  } else if (backgroundSize === 'cover') {
+    if (imageSize.width > imageSize.height) {
+      height = containerSize.height;
+      width = (height / imageSize.height) * imageSize.width;
+    } else {
+      width = containerSize.width;
+      height = (width / imageSize.width) * imageSize.height;
+    }
+  } else if (backgroundSize === 'contain') {
+    if (imageSize.width > imageSize.height) {
+      width = containerSize.width;
+      height = (width / imageSize.width) * imageSize.height;
+    } else {
+      height = containerSize.height;
+      width = (height / imageSize.height) * imageSize.width;
+    }
+  } else if (backgroundSize === 'auto') {
+    width = imageSize.width;
+    height = imageSize.height;
+  } else {
+    // we currently don't support multiple backgrounds
+    const [singleBackgroundSize] = backgroundSize.split(',');
+    let [backgroundSizeWidth, backgroundSizeHeight] = singleBackgroundSize.trim().split(' ');
+
+    if (backgroundSizeWidth === 'auto' || backgroundSizeWidth === undefined) {
+      backgroundSizeWidth = null;
+    } else if (backgroundSizeWidth.endsWith('%')) {
+      backgroundSizeWidth = (parseFloat(backgroundSizeWidth) / 100) * containerSize.width;
+    } else if (backgroundSizeWidth.endsWith('px')) {
+      backgroundSizeWidth = parseFloat(backgroundSizeWidth);
+    }
+
+    if (backgroundSizeHeight === 'auto' || backgroundSizeHeight === undefined) {
+      backgroundSizeHeight = null;
+    } else if (backgroundSizeHeight.endsWith('%')) {
+      backgroundSizeHeight = (parseFloat(backgroundSizeHeight) / 100) * containerSize.height;
+    } else if (backgroundSizeHeight.endsWith('px')) {
+      backgroundSizeHeight = parseFloat(backgroundSizeHeight);
+    }
+
+    if (backgroundSizeWidth !== null && backgroundSizeHeight === null) {
+      width = backgroundSizeWidth;
+      height = (width / imageSize.width) * imageSize.height;
+    } else if (backgroundSizeWidth === null && backgroundSizeHeight !== null) {
+      height = backgroundSizeHeight;
+      width = (height / imageSize.height) * imageSize.width;
+    } else if (backgroundSizeWidth !== null && backgroundSizeHeight !== null) {
+      width = backgroundSizeWidth;
+      height = backgroundSizeHeight;
+    }
+  }
+
+  return {
+    width,
+    height
+  };
+};
+
 export {
-  parseBackgroundImage
+  parseBackgroundImage,
+  getActualImageSize
 };

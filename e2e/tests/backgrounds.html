@@ -6,13 +6,6 @@
   <meta name="viewport" content="width=device-width">
   <title>html-sketchapp - Backgrounds</title>
   <style>
-    .bg-image {
-      width: 200px;
-      height: 200px;
-      background: url(./assets/blue.jpg);
-      background-size: cover;
-    }
-
     .bg-color {
       width: 200px;
       height: 200px;
@@ -25,28 +18,61 @@
       background: linear-gradient(red, yellow);
     }
 
-    .bg-sprite-1 {
+    .bg-image-simple {
+      width: 200px;
+      height: 200px;
+      background: url(./assets/blue.jpg);
+      background-size: cover;
+    }
+
+    .bg-image {
       width: 100px;
       height: 100px;
       background: url(./assets/chess.png) no-repeat;
+    }
+
+    .bg-position {
       background-position: -300px -100px;
     }
 
-    .bg-sprite-2 {
-      width: 100px;
-      height: 100px;
-      background: url(./assets/chess.png) no-repeat;
-      background-position: -500px 0;
+    .bg-position-and-size {
+      background-size: 200px;
+      background-position: -100px 0;
+    }
+
+    .bg-size {
+      background-size: 200px;
+    }
+
+    .bg-size-two-val {
+      background-size: 200px 200px;
+    }
+
+    .bg-size-percentage {
+      background-size: 50% 50%;
+    }
+
+    .bg-size-cover {
+      background-size: cover;
+    }
+
+    .bg-size-contain {
+      background-size: contain;
     }
   </style>
 </head>
 
 <body>
-  <div class='bg-image'></div>
   <div class='bg-color'></div>
   <div class='bg-gradient'></div>
-  <div class='bg-sprite-1'></div>
-  <div class='bg-sprite-2'></div>
+  <div class='bg-image-simple'></div>
+  <div class='bg-image bg-position'></div>
+  <div class='bg-image bg-position-and-size'></div>
+  <div class='bg-image bg-size'></div>
+  <div class='bg-image bg-size-two-val'></div>
+  <div class='bg-image bg-size-percentage'></div>
+  <div class='bg-image bg-size-cover'></div>
+  <div class='bg-image bg-size-contain'></div>
 </body>
 
 </html>
