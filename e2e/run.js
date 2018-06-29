@@ -1,3 +1,11 @@
+/**
+ * Runs End-To-End (e2e) tests
+ * --fix flag will override /expected/
+ * --debug flag will generate /valid/
+ * --file XXXXX flag will only process XXXXX test
+ *
+ * 📖 More info in the e2e/README.md .
+ */
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
@@ -8,6 +16,7 @@ const argv = require('minimist')(process.argv.slice(2));
 
 const fixExpectations = argv.hasOwnProperty('fix');
 const debug = argv.hasOwnProperty('debug');
+const testFile = argv.file || null;
 
 const TESTS_FOLDER = './tests';
 const injectedScriptPath = './dist/inject.bundle.js';
@@ -109,6 +118,10 @@ if (fixExpectations && debug) {
   console.log('🔧 Generating valid .asketch.json files');
 }
 
+if (testFile !== null) {
+  console.log(`1️⃣ Only "${testFile}" will be processed`);
+}
+
 const testResults = fs.readdirSync(TESTS_FOLDER)
   .filter(file => {
     if (isTravis && file === 'shadow-dom.html') {
@@ -116,7 +129,7 @@ const testResults = fs.readdirSync(TESTS_FOLDER)
       return false;
     }
 
-    return file.endsWith('.html');
+    return file.endsWith('.html') && (testFile === null || testFile + '.html' === file);
   })
   .reduce((promise, file) => promise.then(() => runTest(file)), Promise.resolve());
 

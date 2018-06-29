@@ -17,3 +17,5 @@ Please create a new HTML file in `/tests` or add your test cases to the existing
 ## I want to debug tests
 
 You can use `npm run e2e-debug` to generate valid `.asketch.json` files (see `/valid` folder) that can be imported to Sketch via plugin. You can also add `console.log`s to the HTML pages being tested - they should show up when running `npm run e2e`. If you are stuck ask for help in the PR!
+
+⏰ Pro tip! You can use `npm run e2e-debug -- --file shadows` to process only a single test file (same flag works with `e2e` and `e2e-fix`).
