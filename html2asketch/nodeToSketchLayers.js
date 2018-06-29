@@ -289,8 +289,8 @@ export default function nodeToSketchLayers(node, options) {
 
   const textStyle = new TextStyle({
     fontFamily,
-    fontSize: parseInt(fontSize, 10),
-    lineHeight: lineHeight !== 'normal' ? parseInt(lineHeight, 10) : undefined,
+    fontSize: parseFloat(fontSize),
+    lineHeight: lineHeight !== 'normal' ? parseFloat(lineHeight) : undefined,
     letterSpacing: letterSpacing !== 'normal' ? parseFloat(letterSpacing) : undefined,
     fontWeight: parseFontWeight(fontWeight),
     color,
@@ -300,12 +300,12 @@ export default function nodeToSketchLayers(node, options) {
     skipSystemFonts: options && options.skipSystemFonts
   });
 
-  const rangeHelper = document.createRange();
-
   // Text
   Array.from(node.childNodes)
     .filter(child => child.nodeType === 3 && child.nodeValue.trim().length > 0)
     .forEach(textNode => {
+      const rangeHelper = document.createRange();
+
       rangeHelper.selectNodeContents(textNode);
       const textRanges = Array.from(rangeHelper.getClientRects());
       const numberOfLines = textRanges.length;
@@ -320,7 +320,17 @@ export default function nodeToSketchLayers(node, options) {
         fixY = (textBCRHeight - lineHeightInt * numberOfLines) / 2;
       }
 
-      const textValue = fixWhiteSpace(textNode.nodeValue, whiteSpace);
+      let textValue = fixWhiteSpace(textNode.nodeValue, whiteSpace);
+
+      if (numberOfLines > 1) {
+        //first line might be shifted right
+        const firstLine = rangeHelper.getClientRects()[0]; 
+        const fixX = firstLine.x - textBCR.x;
+        // it's probably not always true, we sould measure somehow
+        const spaceWidht = parseFloat(fontSize) / 4;
+
+        textValue = ' '.repeat(fixX / spaceWidht) + textValue;
+      }
 
       const text = new Text({
         x: textBCR.left,
