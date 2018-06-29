@@ -70,6 +70,7 @@
     "asketch2sketch",
     "html2asketch",
     "build/html2asketch",
+    "build/asketch2sketch.sketchplugin",
     "README.md",
     "LICENSE.md",
     "package.json",
