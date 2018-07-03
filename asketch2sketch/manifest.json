@@ -1,6 +1,7 @@
 {
   "compatibleVersion": 3,
   "bundleVersion": 1,
+  "icon": "icon.png",
   "commands": [
     {
       "name": "From *Almost* Sketch to Sketch",

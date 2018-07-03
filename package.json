@@ -56,7 +56,10 @@
   "skpm": {
     "name": "asketch2sketch",
     "manifest": "asketch2sketch/manifest.json",
-    "main": "build/asketch2sketch.sketchplugin"
+    "main": "build/asketch2sketch.sketchplugin",
+    "assets": [
+      "asketch2sketch/assets/**/*"
+    ]
   },
   "dependencies": {
     "murmur2js": "^1.0.0",
