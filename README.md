@@ -3,7 +3,7 @@
 HTML to Sketch export solution.
 
 <div align="center">
-  <img alt="html-sketchapp" src="https://i.imgur.com/xQ1lqlV.png" height="100" />
+  <img alt="html-sketchapp" src="https://i.imgur.com/TeMMW8b.png" height="200" />
 </div>
 
 ## What it can do?
