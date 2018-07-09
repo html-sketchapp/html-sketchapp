@@ -48,6 +48,8 @@
     "NSMakeRect": false,
     "NSBundle": false,
     "MSSharedStyle": false,
-    "MSLayerGroup": false
+    "MSLayerGroup": false,
+    "NSPasteboard": false,
+    "NSPasteboardTypeString": false
   }
 }
