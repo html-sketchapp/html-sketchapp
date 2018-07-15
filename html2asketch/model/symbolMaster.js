@@ -17,7 +17,13 @@ class SymbolMaster extends Base {
     this._symbolID = id;
   }
 
-  getSymbolInstance({x, y, width, height}) {
+  getSymbolInstance({x, y, width = null, height = null}) {
+    // if no size will be requested, use the size of the master symbol
+    const {width: masterWidth, height: masterHeight} = this.getSize();
+
+    width = width === null ? masterWidth : width;
+    height = height === null ? masterHeight : height;
+
     return new SymbolInstance({x, y, width, height, symbolID: this._symbolID});
   }
 
@@ -29,8 +35,7 @@ class SymbolMaster extends Base {
     super.addLayer(layer);
   }
 
-  toJSON() {
-    const obj = super.toJSON();
+  getSize() {
     let width = this._width;
     let height = this._height;
 
@@ -48,6 +53,13 @@ class SymbolMaster extends Base {
         }
       });
     }
+
+    return {width, height};
+  }
+
+  toJSON() {
+    const obj = super.toJSON();
+    const {width, height} = this.getSize();
 
     obj.frame = {
       '_class': 'rect',
