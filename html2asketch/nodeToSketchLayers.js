@@ -167,16 +167,16 @@ export default function nodeToSketchLayers(node, options) {
       const borderLeftWidthFloat = parseFloat(borderLeftWidth);
 
       if (borderTopWidthFloat !== 0) {
-        style.addInnerShadow({color: borderTopColor, offsetY: borderTopWidthFloat, blur: 0});
+        style.addInnerShadow({color: borderTopColor, offsetY: borderTopWidthFloat});
       }
       if (borderRightWidthFloat !== 0) {
-        style.addInnerShadow({color: borderRightColor, offsetX: -borderRightWidthFloat, blur: 0});
+        style.addInnerShadow({color: borderRightColor, offsetX: -borderRightWidthFloat});
       }
       if (borderBottomWidthFloat !== 0) {
-        style.addInnerShadow({color: borderBottomColor, offsetY: -borderBottomWidthFloat, blur: 0});
+        style.addInnerShadow({color: borderBottomColor, offsetY: -borderBottomWidthFloat});
       }
       if (borderLeftWidthFloat !== 0) {
-        style.addInnerShadow({color: borderLeftColor, offsetX: borderLeftWidthFloat, blur: 0});
+        style.addInnerShadow({color: borderLeftColor, offsetX: borderLeftWidthFloat});
       }
     }
 

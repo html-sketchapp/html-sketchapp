@@ -83,7 +83,7 @@ class Style {
     });
   }
 
-  addInnerShadow({color = '#000', blur = 1, offsetX = 0, offsetY = 0, spread = 0}) {
+  addInnerShadow({color = '#000', blur = 0, offsetX = 0, offsetY = 0, spread = 0}) {
     this._innerShadows.push({
       _class: 'innerShadow',
       isEnabled: true,
