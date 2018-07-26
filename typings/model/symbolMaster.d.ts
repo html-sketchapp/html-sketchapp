@@ -11,8 +11,8 @@ export interface SymbolMasterProps {
 export interface GetSymbolInstanceProps {
   x: number;
   y: number;
-  width: number;
-  height: number;
+  width?: number;
+  height?: number;
 }
 
 export default class SymbolMaster extends Base {

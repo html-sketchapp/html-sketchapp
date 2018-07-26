@@ -9,11 +9,11 @@ export interface BorderProps {
 }
 
 export interface ShadowProps {
-  color: string;
-  blur: number;
-  offsetX: number;
-  offsetY: number;
-  spread: number;
+  color?: string;
+  blur?: number;
+  offsetX?: number;
+  offsetY?: number;
+  spread?: number;
 }
 
 export default class Style {
