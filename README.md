@@ -1,4 +1,4 @@
-# html-sketchapp [![Build Status](https://travis-ci.org/brainly/html-sketchapp.svg?branch=master)](https://travis-ci.org/brainly/html-sketchapp) [![npm version](https://badgen.now.sh/badge/npm/v3.3.1/blue)](https://www.npmjs.com/package/@brainly/html-sketchapp) [![MIT license](https://badgen.now.sh/badge/license/MIT/blue)](https://github.com/brainly/html-sketchapp/blob/master/LICENSE.md) [![npm downloads](https://badgen.now.sh/npm/dm/@brainly/html-sketchapp)](https://www.npmjs.com/package/@brainly/html-sketchapp)
+# html-sketchapp [![Build Status](https://travis-ci.org/brainly/html-sketchapp.svg?branch=master)](https://travis-ci.org/brainly/html-sketchapp) [![npm version](https://badgen.now.sh/npm/v/@brainly/html-sketchapp)](https://www.npmjs.com/package/@brainly/html-sketchapp) [![MIT license](https://badgen.now.sh/badge/license/MIT/blue)](https://github.com/brainly/html-sketchapp/blob/master/LICENSE.md) [![npm downloads](https://badgen.now.sh/npm/dm/@brainly/html-sketchapp)](https://www.npmjs.com/package/@brainly/html-sketchapp)
 
 HTML to Sketch export solution.
 
