@@ -74,10 +74,16 @@ function addSharedTextStyle(document, style) {
   if (container.addSharedStyleWithName_firstInstance) {
     container.addSharedStyleWithName_firstInstance(style.name, fromSJSONDictionary(style.value));
   } else {
-    // addSharedStyleWithName_firstInstance was removed in Sketch 50
-    const s = MSSharedStyle.alloc().initWithName_firstInstance(style.name, fromSJSONDictionary(style.value));
+    // thx airbnb :)
+    let sharedStyle;
+    const allocator = MSSharedStyle.alloc();
 
-    container.addSharedObject(s);
+    if (allocator.initWithName_firstInstance) {
+      sharedStyle = allocator.initWithName_firstInstance(style.name, fromSJSONDictionary(style.value));
+    } else {
+      sharedStyle = allocator.initWithName_style(style.name, fromSJSONDictionary(style.value));
+    }
+    container.addSharedObject(sharedStyle);
   }
 }
 
