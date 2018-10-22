@@ -19,7 +19,7 @@ function makeNativeSVGLayer(layer) {
     return null;
   }
 
-  while (svgLayer.layers().length === 1 && svgLayer.class() instanceof MSLayerGroup) {
+  while (svgLayer && svgLayer.layers && svgLayer.layers().length === 1 && svgLayer.class() instanceof MSLayerGroup) {
     svgLayer = svgLayer.layers()[0];
   }
 
