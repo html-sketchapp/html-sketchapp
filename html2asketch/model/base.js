@@ -12,7 +12,6 @@ class Base {
     this._userInfo = null;
     this.setResizingConstraint(RESIZING_CONSTRAINTS.NONE);
     this.setHasClippingMask(false);
-    this.setHasClickThrough(false);
   }
 
   setFixedWidthAndHeight() {
@@ -55,10 +54,6 @@ class Base {
 
   setHasClippingMask(hasClippingMask) {
     this._hasClippingMask = hasClippingMask;
-  }
-
-  setHasClickThrough(hasClickThrough) {
-    this._hasClickThrough = hasClickThrough;
   }
 
   toJSON() {
