@@ -35,23 +35,23 @@
     "sketch": ">=3.0"
   },
   "devDependencies": {
-    "@skpm/builder": "^0.4.2",
+    "@skpm/builder": "^0.4.3",
     "babel-cli": "^6.26.0",
-    "babel-preset-airbnb": "^2.5.3",
+    "babel-preset-airbnb": "^2.6.0",
     "concurrently": "^3.6.1",
-    "eslint": "^5.2.0",
+    "eslint": "^5.7.0",
     "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v16.2.9",
     "jest": "^21.2.1",
     "jest-cli": "^21.2.1",
     "jsdom": "^11.11.0",
     "minimist": "^1.2.0",
-    "puppeteer": "^1.6.1",
-    "skpm": "^1.1.0",
+    "puppeteer": "^1.9.0",
+    "skpm": "^1.1.9",
     "tslint": "^5.11.0",
     "typescript": "^2.9.2",
     "variable-diff": "^1.1.0",
-    "webpack": "^4.16.2",
-    "webpack-cli": "^3.1.0"
+    "webpack": "^4.22.0",
+    "webpack-cli": "^3.1.2"
   },
   "skpm": {
     "name": "asketch2sketch",
