@@ -15,14 +15,14 @@ export default function nodeTreeToSketchGroup(node, options) {
   if (node.nodeName !== 'svg') {
     // Recursively collect child groups for child nodes
     Array.from(node.children)
-      .filter(isNodeVisible)
+      .filter(node => isNodeVisible(node))
       .forEach(childNode => {
         layers.push(nodeTreeToSketchGroup(childNode, options));
 
         // Traverse the shadow DOM if present
         if (childNode.shadowRoot) {
           Array.from(childNode.shadowRoot.children)
-            .filter(isNodeVisible)
+            .filter(node => isNodeVisible(node))
             .map(nodeTreeToSketchGroup)
             .forEach(layer => layers.push(layer));
         }
