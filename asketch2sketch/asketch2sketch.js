@@ -74,7 +74,6 @@ function addSharedTextStyle(document, style) {
   if (container.addSharedStyleWithName_firstInstance) {
     container.addSharedStyleWithName_firstInstance(style.name, fromSJSONDictionary(style.value));
   } else {
-    // thx airbnb :)
     let sharedStyle;
     const allocator = MSSharedStyle.alloc();
 
