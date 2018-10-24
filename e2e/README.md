@@ -6,6 +6,8 @@
 
 ## My change breaks tests
 
+⚠️ Make sure that you are running e2e tests against latest version of the html2asketch library e.g. after switching branches run `npm run build-lib`.
+
 If you made a legit change that breaks e2e tests, please run `npm run e2e-fix` which will override files from `/expected` folder with new values.
 
 If your change unexpectedly breaks tests, see "I want to debug tests" section below.
