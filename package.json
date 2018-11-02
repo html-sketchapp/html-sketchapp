@@ -43,7 +43,7 @@
     "frontend-tools-configs": "git+https://github.com/brainly/frontend-tools-configs.git#v16.2.9",
     "jest": "^21.2.1",
     "jest-cli": "^21.2.1",
-    "jsdom": "^11.12.0",
+    "jsdom": "11.11.0",
     "minimist": "^1.2.0",
     "puppeteer": "^1.10.0",
     "skpm": "^1.1.9",
