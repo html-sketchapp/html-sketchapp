@@ -26,17 +26,14 @@ export default function nodeTreeToSketchGroup(node, options) {
     Array.from(node.children)
       .filter(node => isNodeVisible(node))
       .forEach(childNode => {
-        // check to see if childNode is a custom element
-        if (childNode.nodeName.includes('-') !== true) {
-          layers.push(nodeTreeToSketchGroup(childNode, options));
-        }
-
         // Traverse the shadow DOM if present
         if (childNode.shadowRoot) {
           Array.from(childNode.shadowRoot.children)
             .filter(node => isNodeVisible(node))
             .map(nodeTreeToSketchGroup)
             .forEach(layer => layers.push(layer));
+        } else {
+          layers.push(nodeTreeToSketchGroup(childNode, options));
         }
       });
   }
