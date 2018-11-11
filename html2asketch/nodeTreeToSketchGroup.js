@@ -9,6 +9,7 @@ export default function nodeTreeToSketchGroup(node, options) {
   const width = bcr.right - bcr.left;
   const height = bcr.bottom - bcr.top;
 
+  // bring up assignedNodes for slot as children of the slot
   if (node.nodeName === 'SLOT') {
     const allAssigned = node.assignedNodes();
 
@@ -25,7 +26,10 @@ export default function nodeTreeToSketchGroup(node, options) {
     Array.from(node.children)
       .filter(node => isNodeVisible(node))
       .forEach(childNode => {
-        layers.push(nodeTreeToSketchGroup(childNode, options));
+        // check to see if childNode is a custom element
+        if (childNode.nodeName.includes('-') !== true) {
+          layers.push(nodeTreeToSketchGroup(childNode, options));
+        }
 
         // Traverse the shadow DOM if present
         if (childNode.shadowRoot) {
