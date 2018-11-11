@@ -611,7 +611,54 @@
                   "resizingType": 0,
                   "rotation": 0,
                   "shouldBreakMaskChain": false,
-                  "layers": [],
+                  "layers": [
+                    {
+                      "_class": "text",
+                      "do_objectID": "pizza",
+                      "exportOptions": {
+                        "_class": "exportOptions",
+                        "exportFormats": [],
+                        "includedLayerIds": [],
+                        "layerOptions": 0,
+                        "shouldTrim": false
+                      },
+                      "isFlippedHorizontal": false,
+                      "isFlippedVertical": false,
+                      "isLocked": false,
+                      "isVisible": true,
+                      "layerListExpandedType": 0,
+                      "name": "Slotted content",
+                      "nameIsFixed": false,
+                      "resizingConstraint": 47,
+                      "resizingType": 0,
+                      "rotation": 0,
+                      "shouldBreakMaskChain": false,
+                      "clippingMaskMode": 0,
+                      "hasClippingMask": false,
+                      "style": {
+                        "color": "rgb(255, 255, 255)",
+                        "fontSize": 16,
+                        "fontFamily": "Optimist",
+                        "fontWeight": 400,
+                        "textDecoration": "none",
+                        "textAlign": "center",
+                        "textTransform": "none"
+                      },
+                      "frame": {
+                        "_class": "rect",
+                        "constrainProportions": false,
+                        "height": 17,
+                        "width": 106,
+                        "x": 157.3125,
+                        "y": 137.78125
+                      },
+                      "text": "Slotted content",
+                      "automaticallyDrawOnUnderlyingPath": false,
+                      "dontSynchroniseWithSymbol": false,
+                      "lineSpacingBehaviour": 2,
+                      "textBehaviour": 0
+                    }
+                  ],
                   "clippingMaskMode": 0,
                   "hasClippingMask": false,
                   "style": {

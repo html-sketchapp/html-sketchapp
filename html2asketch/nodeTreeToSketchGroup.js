@@ -9,6 +9,14 @@ export default function nodeTreeToSketchGroup(node, options) {
   const width = bcr.right - bcr.left;
   const height = bcr.bottom - bcr.top;
 
+  if (node.nodeName === 'SLOT') {
+    const allAssigned = node.assignedNodes();
+
+    allAssigned.forEach(slotNode => {
+      node.appendChild(slotNode);
+    });
+  }
+
   // Collect layers for the node level itself
   const layers = nodeToSketchLayers(node, {...options, layerOpacity: false}) || [];
 
