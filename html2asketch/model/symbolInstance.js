@@ -11,6 +11,10 @@ class SymbolInstance extends Base {
     this._symbolID = symbolID;
   }
 
+  setId(id) {
+    this._symbolID = id;
+  }
+
   toJSON() {
     const obj = super.toJSON();
 

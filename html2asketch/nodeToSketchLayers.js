@@ -322,7 +322,18 @@ export default function nodeToSketchLayers(node, options) {
 
       const textValue = fixWhiteSpace(textNode.nodeValue, whiteSpace);
 
+      let id;
+
+      if (textNode.parentNode && textNode.parentNode.dataset) {
+        const {sketchId, sketchText} = textNode.parentNode.dataset;
+
+        if (sketchId || sketchText) {
+          id = `text:${sketchId || sketchText}`;
+        }
+      }
+
       const text = new Text({
+        id,
         x: textBCR.left,
         y: textBCR.top + fixY,
         width: textBCR.right - textBCR.left,

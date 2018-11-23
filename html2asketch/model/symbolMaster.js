@@ -14,6 +14,7 @@ class SymbolMaster extends Base {
   }
 
   setId(id) {
+    super.setId(id);
     this._symbolID = id;
   }
 
