@@ -3,7 +3,7 @@ import {generateID, RESIZING_CONSTRAINTS, calculateResizingConstraintValue} from
 const DEFAULT_USER_INFO_SCOPE = 'html-sketchapp';
 
 class Base {
-  constructor({ id } = {}) {
+  constructor({id} = {}) {
     this._class = null;
     this._layers = [];
     this._style = null;
