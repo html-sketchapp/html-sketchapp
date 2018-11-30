@@ -29,7 +29,7 @@ class Document {
     this._name = name;
   }
 
-  setId(id) {
+  setObjectID(id) {
     this._objectID = id;
   }
 

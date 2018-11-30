@@ -26,7 +26,7 @@ class Base {
     return this._objectID;
   }
 
-  setId(id) {
+  setObjectID(id) {
     this._objectID = id;
   }
 

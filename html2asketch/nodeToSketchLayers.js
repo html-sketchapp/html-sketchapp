@@ -322,18 +322,7 @@ export default function nodeToSketchLayers(node, options) {
 
       const textValue = fixWhiteSpace(textNode.nodeValue, whiteSpace);
 
-      let id;
-
-      if (textNode.parentNode && textNode.parentNode.dataset) {
-        const {sketchId, sketchText} = textNode.parentNode.dataset;
-
-        if (sketchId || sketchText) {
-          id = `text:${sketchId || sketchText}`;
-        }
-      }
-
       const text = new Text({
-        id,
         x: textBCR.left,
         y: textBCR.top + fixY,
         width: textBCR.right - textBCR.left,
@@ -342,6 +331,10 @@ export default function nodeToSketchLayers(node, options) {
         style: textStyle,
         multiline: numberOfLines > 1
       });
+
+      if (options && options.onTextGenerate) {
+        options.onTextGenerate({text, node: textNode.parentNode});
+      }
 
       layers.push(text);
     });

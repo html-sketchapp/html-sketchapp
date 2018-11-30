@@ -15,6 +15,13 @@ test('generates unique id', () => {
   expect(a.getID()).not.toBe(b.getID());
 });
 
+test('supports custom id', () => {
+  const a = new Base({id: 'test-id'});
+  const b = new Base({id: 'test-id'});
+
+  expect(a.getID()).toBe(b.getID());
+});
+
 test('can only be used when extended', () => {
   const a = new Base();
   const b = new Base2();
@@ -35,6 +42,15 @@ test('setName', () => {
   a.setName(name);
 
   expect(a.toJSON().name).toBe(name);
+});
+
+test('setObjectID', () => {
+  const a = new Base2();
+  const id = 'test/name-should-work';
+
+  a.setObjectID(id);
+
+  expect(a.toJSON().do_objectID).toBe(id);
 });
 
 test('addLayer', () => {

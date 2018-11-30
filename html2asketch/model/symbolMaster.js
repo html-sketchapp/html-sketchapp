@@ -3,8 +3,8 @@ import Base from './base';
 import SymbolInstance from './symbolInstance';
 
 class SymbolMaster extends Base {
-  constructor({x, y, width = null, height = null}) {
-    super();
+  constructor({x, y, width = null, height = null, id}) {
+    super({id});
     this._class = 'symbolMaster';
     this._x = x;
     this._y = y;
@@ -14,7 +14,6 @@ class SymbolMaster extends Base {
   }
 
   setId(id) {
-    super.setId(id);
     this._symbolID = id;
   }
 

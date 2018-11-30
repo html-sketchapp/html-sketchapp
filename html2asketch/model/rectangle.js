@@ -1,8 +1,8 @@
 import Base from './base';
 
 class Rectangle extends Base {
-  constructor({width, height, cornerRadius = {topLeft: 0, bottomLeft: 0, topRight: 0, bottomRight: 0}}) {
-    super();
+  constructor({width, height, cornerRadius = {topLeft: 0, bottomLeft: 0, topRight: 0, bottomRight: 0}, id}) {
+    super({id});
     this._class = 'rectangle';
     this._width = width;
     this._height = height;
