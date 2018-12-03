@@ -333,7 +333,7 @@ export default function nodeToSketchLayers(node, options) {
       });
 
       if (options && options.onTextGenerate) {
-        options.onTextGenerate({text, node: textNode.parentNode});
+        options.onTextGenerate({layer: text, node: textNode});
       }
 
       layers.push(text);
