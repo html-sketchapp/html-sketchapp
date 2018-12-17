@@ -10,5 +10,6 @@ export default class Base {
   public setName(name: string): void;
   public setStyle(style: any): void;
   public setHasClippingMask(hasClippingMask: boolean): void;
+  public setIsLocked(isLocked: boolean): void;
   public toJSON(): string;
 }
