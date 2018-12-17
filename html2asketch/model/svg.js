@@ -1,8 +1,8 @@
 import Base from './base';
 
 class SVG extends Base {
-  constructor({x, y, width, height, rawSVGString}) {
-    super();
+  constructor({x, y, width, height, rawSVGString, id}) {
+    super({id});
     this._rawSVGString = rawSVGString;
     this._width = width;
     this._height = height;

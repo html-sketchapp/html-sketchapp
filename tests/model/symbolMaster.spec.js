@@ -7,6 +7,15 @@ test('toJSON() generates deterministic symbolIDs', () => {
   expect(symbolMaster.toJSON().symbolID).toEqual(symbolID);
 });
 
+test('symbolID can be set', () => {
+  const symbolMaster = new SymbolMaster({x: 200, y: 300});
+  const id = 'test-id';
+
+  symbolMaster.setId(id);
+
+  expect(symbolMaster.toJSON().symbolID).toEqual(id);
+});
+
 test('symbol instances have the same symbolID', () => {
   const symbolMaster = new SymbolMaster({x: 200, y: 300});
   const symbolInstance = symbolMaster.getSymbolInstance({x: 0, y: 0});

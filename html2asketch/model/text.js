@@ -2,8 +2,8 @@ import Base from './base';
 import {RESIZING_CONSTRAINTS} from '../helpers/utils';
 
 class Text extends Base {
-  constructor({x, y, width, height, text, style, multiline}) {
-    super();
+  constructor({x, y, width, height, text, style, multiline, id}) {
+    super({id});
     this._class = 'text';
     this._x = x;
     this._y = y;

@@ -8,10 +8,10 @@ function pageToPageReference(page) {
   };
 }
 
-function textStyleToSharedStyle(textLayer) {
+function textStyleToSharedStyle(textLayer, id) {
   return {
     '_class': 'sharedStyle',
-    'do_objectID': generateID(),
+    'do_objectID': id || generateID(),
     name: textLayer._name,
     'style': textLayer._style.toJSON()
   };
@@ -29,12 +29,16 @@ class Document {
     this._name = name;
   }
 
+  setObjectID(id) {
+    this._objectID = id;
+  }
+
   addPage(page) {
     this._pages.push(page);
   }
 
-  addTextStyle(textLayer) {
-    this._textStyles.push(textStyleToSharedStyle(textLayer));
+  addTextStyle(textLayer, id) {
+    this._textStyles.push(textStyleToSharedStyle(textLayer, id));
   }
 
   addColor(color) {

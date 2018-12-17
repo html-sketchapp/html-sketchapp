@@ -1,14 +1,18 @@
 import Base from './base';
 
 class SymbolInstance extends Base {
-  constructor({x, y, width, height, symbolID}) {
-    super();
+  constructor({x, y, width, height, symbolID, id}) {
+    super({id});
     this._class = 'symbolInstance';
     this._x = x;
     this._y = y;
     this._width = width;
     this._height = height;
     this._symbolID = symbolID;
+  }
+
+  setId(id) {
+    this._symbolID = id;
   }
 
   toJSON() {

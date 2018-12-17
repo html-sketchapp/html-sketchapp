@@ -332,6 +332,10 @@ export default function nodeToSketchLayers(node, options) {
         multiline: numberOfLines > 1
       });
 
+      if (options && options.onTextGenerate) {
+        options.onTextGenerate({layer: text, node: textNode});
+      }
+
       layers.push(text);
     });
 

@@ -2,8 +2,8 @@ import Base from './base';
 import {generateID} from '../helpers/utils';
 
 class Bitmap extends Base {
-  constructor({url, x, y, width, height}) {
-    super();
+  constructor({url, x, y, width, height, id}) {
+    super({id});
     this._class = 'bitmap';
     this._url = url;
     this._x = x;

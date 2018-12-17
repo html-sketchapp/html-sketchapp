@@ -1,8 +1,8 @@
 import Base from './base';
 
 class Group extends Base {
-  constructor({x, y, width, height}) {
-    super();
+  constructor({x, y, width, height, id}) {
+    super({id});
     this._class = 'group';
     this._x = x;
     this._y = y;

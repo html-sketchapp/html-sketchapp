@@ -1,8 +1,8 @@
 import Base from './base';
 
 class ShapeGroup extends Base {
-  constructor({x, y, width, height}) {
-    super();
+  constructor({x, y, width, height, id}) {
+    super({id});
     this._class = 'shapeGroup';
     this._width = width;
     this._height = height;
