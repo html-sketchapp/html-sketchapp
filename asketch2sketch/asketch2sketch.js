@@ -96,7 +96,7 @@ function addSharedColor(document, colorJSON) {
   const assets = document.documentData().assets();
   const color = fromSJSONDictionary(colorJSON);
 
-  assets.addAsset(color);
+  assets.addColorAsset(color);
 }
 
 export default function asketch2sketch(context, asketchFiles) {
