@@ -89,6 +89,14 @@ test('setResizingConstraint', () => {
   expect(a.toJSON().resizingConstraint).toBe(TOP & LEFT);
 });
 
+test('setIsLocked', () => {
+  const a = new Base2();
+
+  a.setIsLocked(true);
+
+  expect(a.toJSON().isLocked).toBe(true);
+});
+
 test('setFixedWidthAndHeight', () => {
   const a = new Base2();
   const {WIDTH, HEIGHT} = RESIZING_CONSTRAINTS;

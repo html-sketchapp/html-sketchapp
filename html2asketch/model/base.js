@@ -12,6 +12,7 @@ class Base {
     this._userInfo = null;
     this.setResizingConstraint(RESIZING_CONSTRAINTS.NONE);
     this.setHasClippingMask(false);
+    this.setIsLocked(false);
   }
 
   setFixedWidthAndHeight() {
@@ -60,6 +61,10 @@ class Base {
     this._hasClippingMask = hasClippingMask;
   }
 
+  setIsLocked(isLocked) {
+    this._isLocked = isLocked;
+  }
+
   toJSON() {
     if (!this._class) {
       throw new Error('Class not set.');
@@ -77,7 +82,7 @@ class Base {
       },
       'isFlippedHorizontal': false,
       'isFlippedVertical': false,
-      'isLocked': false,
+      'isLocked': this._isLocked,
       'isVisible': true,
       'layerListExpandedType': 0,
       'name': this._name || this._class,
