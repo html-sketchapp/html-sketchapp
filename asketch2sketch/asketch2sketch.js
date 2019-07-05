@@ -99,7 +99,7 @@ function addSharedColor(document, colorJSON) {
   assets.addAsset(color);
 }
 
-export default function asketch2sketch(context, asketchFiles) {
+export default function asketch2sketch(context, asketchFiles, needPageClear = true) {
   const document = context.document;
   const page = document.currentPage();
 
@@ -135,7 +135,9 @@ export default function asketch2sketch(context, asketchFiles) {
   }
 
   if (asketchPage) {
-    removeExistingLayers(page);
+    if (needPageClear) {
+      removeExistingLayers(page);
+    }
 
     page.name = asketchPage.name;
 
