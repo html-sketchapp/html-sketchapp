@@ -8,12 +8,12 @@ function pageToPageReference(page) {
   };
 }
 
-function textStyleToSharedStyle(textLayer, id) {
+function layerToSharedStyle(layer, id) {
   return {
     '_class': 'sharedStyle',
     'do_objectID': id || generateID(),
-    name: textLayer._name,
-    'style': textLayer._style.toJSON()
+    name: layer._name,
+    'style': layer._style.toJSON()
   };
 }
 
@@ -22,6 +22,7 @@ class Document {
     this._objectID = generateID();
     this._colors = [];
     this._textStyles = [];
+    this._layerStyles = [];
     this._pages = [];
   }
 
@@ -38,7 +39,11 @@ class Document {
   }
 
   addTextStyle(textLayer, id) {
-    this._textStyles.push(textStyleToSharedStyle(textLayer, id));
+    this._textStyles.push(layerToSharedStyle(textLayer, id));
+  }
+
+  addLayerStyle(layer, id) {
+    this._layerStyles.push(layerToSharedStyle(layer, id));
   }
 
   addColor(color) {
@@ -59,7 +64,7 @@ class Document {
       'foreignSymbols': [],
       'layerStyles': {
         '_class': 'sharedStyleContainer',
-        'objects': []
+        'objects': this._layerStyles
       },
       'layerSymbols': {
         '_class': 'symbolContainer',

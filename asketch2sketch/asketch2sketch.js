@@ -1,4 +1,5 @@
 import UI from 'sketch/ui';
+import {SharedStyle, getSelectedDocument} from 'sketch/dom'
 import {fromSJSONDictionary} from 'sketchapp-json-plugin';
 import {fixTextLayer, fixSharedTextStyle} from './helpers/fixFont';
 import fixImageFillsInLayer from './helpers/fixImageFill';
@@ -67,6 +68,9 @@ function getNativeLayer(failingLayers, layer) {
 function removeSharedTextStyles(document) {
   document.documentData().layerTextStyles().setObjects([]);
 }
+function removeSharedLayerStyles(document) {
+  document.documentData().layerStyles().setObjects([]);
+}
 
 function addSharedTextStyle(document, style) {
   const container = context.document.documentData().layerTextStyles();
@@ -84,6 +88,14 @@ function addSharedTextStyle(document, style) {
     }
     container.addSharedObject(sharedStyle);
   }
+}
+
+function addSharedLayerStyle(document, {name, style}) {
+  SharedStyle.fromStyle({
+    name,
+    style: fromSJSONDictionary(style),
+    document
+  });
 }
 
 function removeSharedColors(document) {
@@ -117,6 +129,7 @@ export default function asketch2sketch(context, asketchFiles) {
   if (asketchDocument) {
     removeSharedColors(document);
     removeSharedTextStyles(document);
+    removeSharedLayerStyles(document);
 
     if (asketchDocument.assets.colors) {
       asketchDocument.assets.colors.forEach(color => addSharedColor(document, color));
@@ -131,6 +144,13 @@ export default function asketch2sketch(context, asketchFiles) {
       });
 
       console.log('Shared text styles added: ' + asketchDocument.layerTextStyles.objects.length);
+    }
+    if (asketchDocument.layerStyles && asketchDocument.layerStyles.objects) {
+      asketchDocument.layerStyles.objects.forEach(sharedStyle => {
+        addSharedLayerStyle(document, sharedStyle);
+      });
+
+      console.log('Shared layer styles added: ' + asketchDocument.layerStyles.objects.length);
     }
   }
 
