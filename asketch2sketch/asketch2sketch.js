@@ -1,5 +1,5 @@
 import UI from 'sketch/ui';
-import {SharedStyle, getSelectedDocument} from 'sketch/dom'
+import {SharedStyle} from 'sketch/dom';
 import {fromSJSONDictionary} from 'sketchapp-json-plugin';
 import {fixTextLayer, fixSharedTextStyle} from './helpers/fixFont';
 import fixImageFillsInLayer from './helpers/fixImageFill';
