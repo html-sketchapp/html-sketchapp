@@ -87,7 +87,6 @@ export function fixImageFill(layer, fill) {
     // we are replacing the parent layer with SVGLayer
     replaceProperties(layer, svgLayer);
   } else {
-
     let nsImage, msImage;
 
     if (imageType === IMG_ERROR || imageType === IMG_UNSUPPORTED) {
@@ -129,4 +128,22 @@ export default function fixImageFillsInLayer(layer) {
       return;
     }
   }
+
+  /**
+   *  we need to make sure there are no fills whitout image info otherwise
+   *  we will be unable to use the fromNative method to properly work with our sketch document
+   * */
+  layer.style.fills = layer.style.fills
+    .map(fill => {
+      const {image} = fill;
+
+      if (!image) {
+        return fill;
+      }
+      const dataKeysLenght = Object.keys(image.data._data).length;
+      const sha1KeysLenght = Object.keys(image.sha1._data).length;
+
+      return dataKeysLenght > 0 && sha1KeysLenght > 0 ? fill : undefined;
+    })
+    .filter(el => el !== undefined);
 }
