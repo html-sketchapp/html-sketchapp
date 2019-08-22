@@ -1,8 +1,6 @@
 const sketch = require('sketch/dom');
 
-const manageSymbols = context => {
-  const document = context.document;
-
+const organizeSymbolMasters = document => {
   document.pages().forEach(nativePage => {
     const nativeSymbolsPage = sketch.Page.createSymbolsPage();
 
@@ -16,10 +14,11 @@ const manageSymbols = context => {
     const unusableTrash = [];
 
     page.layers.forEach(layer => {
-      const {type, frame} = layer;
+      const {type, frame, layers} = layer;
 
-      if (frame.height <= 0 || frame.width <= 0) {
+      if (frame.height <= 0 || frame.width <= 0 || layers.length <= 0) {
         unusableTrash.push(layer.id);
+        return;
       }
 
       if (type === 'SymbolMaster') {
@@ -29,7 +28,12 @@ const manageSymbols = context => {
 
     page.layers = [...page.layers.filter(layer => unusableTrash.indexOf(layer.id) < 0)];
   });
+};
 
+const manageSymbols = context => {
+  const document = context.document;
+
+  organizeSymbolMasters(document);
 };
 
 export default manageSymbols;
