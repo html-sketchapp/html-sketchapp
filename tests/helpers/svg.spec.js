@@ -11,7 +11,7 @@ test('returns correct outer HTML of the DOM node w/o children', () => {
   const outerHTML = 'pizza';
   const node1 = {
     children: [],
-    outerHTML
+    outerHTML,
   };
 
   expect(getSVGString(node1)).toEqual(outerHTML);
@@ -32,6 +32,7 @@ test('returns correct outher HTML of the DOM node with children', () => {
 
   global.document = document;
   global.SVGElement = dom.window.SVGElement;
+  global.getComputedStyle = dom.window.getComputedStyle;
 
   //jsdom closes all tags with </bla> :(
   expect(getSVGString(node)).toEqual(`<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">

@@ -59,10 +59,10 @@ test('addLayer', () => {
   const layer2 = {name: 'layer2'};
 
   a.addLayer({
-    toJSON: () => layer1
+    toJSON: () => layer1,
   });
   a.addLayer({
-    toJSON: () => layer2
+    toJSON: () => layer2,
   });
 
   expect(a.toJSON().layers).toEqual([layer1, layer2]);
@@ -73,7 +73,7 @@ test('setStyle', () => {
   const style = {color: 'pink'};
 
   a.setStyle({
-    toJSON: () => style
+    toJSON: () => style,
   });
 
   expect(a.toJSON().style).toBe(style);

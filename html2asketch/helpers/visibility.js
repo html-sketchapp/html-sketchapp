@@ -14,7 +14,7 @@ export function isNodeVisible(node, {width, height} = node.getBoundingClientRect
   opacity,
   visibility,
   display,
-  clip
+  clip,
 } = getComputedStyle(node)) {
   // skip node when display is set to none for itself or an ancestor
   // helps us catch things such as <noscript>

@@ -34,6 +34,6 @@ export default function convertAngleToFromAndTo(angle) {
 
   return {
     from,
-    to
+    to,
   };
 }

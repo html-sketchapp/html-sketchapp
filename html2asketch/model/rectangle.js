@@ -18,7 +18,7 @@ class Rectangle extends Base {
       'height': this._height,
       'width': this._width,
       'x': 0,
-      'y': 0
+      'y': 0,
     };
 
     obj.path = {
@@ -34,7 +34,7 @@ class Rectangle extends Base {
           'curveTo': '{0, 0}',
           'hasCurveFrom': false,
           'hasCurveTo': false,
-          'point': '{0, 0}'
+          'point': '{0, 0}',
         },
         {
           '_class': 'curvePoint',
@@ -44,7 +44,7 @@ class Rectangle extends Base {
           'curveTo': '{1, 0}',
           'hasCurveFrom': false,
           'hasCurveTo': false,
-          'point': '{1, 0}'
+          'point': '{1, 0}',
         },
         {
           '_class': 'curvePoint',
@@ -54,7 +54,7 @@ class Rectangle extends Base {
           'curveTo': '{1, 1}',
           'hasCurveFrom': false,
           'hasCurveTo': false,
-          'point': '{1, 1}'
+          'point': '{1, 1}',
         },
         {
           '_class': 'curvePoint',
@@ -64,9 +64,9 @@ class Rectangle extends Base {
           'curveTo': '{0, 1}',
           'hasCurveFrom': false,
           'hasCurveTo': false,
-          'point': '{0, 1}'
-        }
-      ]
+          'point': '{0, 1}',
+        },
+      ],
     };
 
     obj.hasConvertedToNewRoundCorners = true;

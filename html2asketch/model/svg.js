@@ -20,7 +20,7 @@ class SVG extends Base {
       x: this._x,
       y: this._y,
       resizingConstraint: this._resizingConstraint,
-      hasClippingMask: this._hasClippingMask
+      hasClippingMask: this._hasClippingMask,
     };
   }
 }

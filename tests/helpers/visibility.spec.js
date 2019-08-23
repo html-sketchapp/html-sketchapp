@@ -18,14 +18,14 @@ test('isNodeVisible: correctly identifies visible nodes', () => {
   </body>
   </html>
   `, {
-    runScripts: 'outside-only'
+    runScripts: 'outside-only',
   });
 
   // fix for offsetParent support in jsdom
   Object.defineProperty(dom.window.HTMLElement.prototype, 'offsetParent', {
     get() {
       return this.parentNode;
-    }
+    },
   });
 
   dom.window.eval(`
@@ -73,14 +73,14 @@ test('isNodeVisible: correctly identifies not visible nodes', () => {
   </body>
   </html>
   `, {
-    runScripts: 'outside-only'
+    runScripts: 'outside-only',
   });
 
   // fix for offsetParent support in jsdom
   Object.defineProperty(dom.window.HTMLElement.prototype, 'offsetParent', {
     get() {
       return this.parentNode;
-    }
+    },
   });
 
   dom.window.eval(`
@@ -114,14 +114,14 @@ test('isTextVisible: correctly identifies not visible text', () => {
   </body>
   </html>
   `, {
-    runScripts: 'outside-only'
+    runScripts: 'outside-only',
   });
 
   // fix for offsetParent support in jsdom
   Object.defineProperty(dom.window.HTMLElement.prototype, 'offsetParent', {
     get() {
       return this.parentNode;
-    }
+    },
   });
 
   dom.window.eval(`

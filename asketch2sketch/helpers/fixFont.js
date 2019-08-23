@@ -10,18 +10,18 @@ const TEXT_ALIGN = {
   left: TextAlignment.Left,
   right: TextAlignment.Right,
   center: TextAlignment.Center,
-  justify: TextAlignment.Justified
+  justify: TextAlignment.Justified,
 };
 
 const TEXT_DECORATION_UNDERLINE = {
   none: 0,
   underline: 1,
-  double: 9
+  double: 9,
 };
 
 const TEXT_DECORATION_LINETHROUGH = {
   none: 0,
-  'line-through': 1
+  'line-through': 1,
 };
 
 // this doesn't exist in constants
@@ -31,7 +31,7 @@ const TEXT_TRANSFORM = {
   initial: 0,
   inherit: 0,
   none: 0,
-  capitalize: 0
+  capitalize: 0,
 };
 
 function makeParagraphStyle(textStyle) {
@@ -65,7 +65,7 @@ function createStringAttributes(textStyles) {
     NSFont: font,
     NSParagraphStyle: makeParagraphStyle(textStyles),
     NSUnderline: TEXT_DECORATION_UNDERLINE[textStyles.textDecoration] || 0,
-    NSStrikethrough: TEXT_DECORATION_LINETHROUGH[textStyles.textDecoration] || 0
+    NSStrikethrough: TEXT_DECORATION_LINETHROUGH[textStyles.textDecoration] || 0,
   };
 
   const color = makeColorFromCSS(textStyles.color || 'black');
@@ -101,7 +101,7 @@ function createAttributedString(textNode) {
   try {
     result = NSAttributedString.attributedStringWithString_attributes_(content, attribs);
   } catch (e) {
-    console.log('Failed to create attributed string: ' + e);
+    console.log(`Failed to create attributed string: ${e}`);
   }
 
   return result;
@@ -148,8 +148,8 @@ function makeTextStyle(textStyle) {
       NSParagraphStyle: encodeSketchJSON(pStyle),
       NSKern: textStyle.letterSpacing || 0,
       MSAttributedStringTextTransformAttribute:
-        TEXT_TRANSFORM[textStyle.textTransform || 'initial'] * 1
-    }
+        TEXT_TRANSFORM[textStyle.textTransform || 'initial'] * 1,
+    },
   };
 
   return {
@@ -158,7 +158,7 @@ function makeTextStyle(textStyle) {
     miterLimit: 10,
     startDecorationType: 0,
     endDecorationType: 0,
-    textStyle: value
+    textStyle: value,
   };
 }
 

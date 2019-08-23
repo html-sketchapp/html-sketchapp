@@ -11,7 +11,7 @@ const APPLE_BROKEN_SYSTEM_FONT = '.AppleSystemUIFont';
 const FONT_STYLES = {
   normal: false,
   italic: true,
-  oblique: true
+  oblique: true,
 };
 
 const FONT_WEIGHTS = {
@@ -25,7 +25,7 @@ const FONT_WEIGHTS = {
   '600': NSFontWeightSemibold,
   '700': NSFontWeightBold,
   '800': NSFontWeightHeavy,
-  '900': NSFontWeightBlack
+  '900': NSFontWeightBlack,
 };
 
 const isItalicFont = font => {

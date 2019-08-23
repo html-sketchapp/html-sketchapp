@@ -8,7 +8,7 @@ export default function nodeTreeToSketchPage(node, options) {
   const bcr = node.getBoundingClientRect();
   const page = new Page({
     width: bcr.right - bcr.left,
-    height: bcr.bottom - bcr.top
+    height: bcr.bottom - bcr.top,
   });
 
   if (options && options.addArtboard) {
@@ -16,7 +16,7 @@ export default function nodeTreeToSketchPage(node, options) {
       x: 0,
       y: 0,
       width: rootGroup._width,
-      height: rootGroup._height
+      height: rootGroup._height,
     });
 
     artboard.addLayer(rootGroup);

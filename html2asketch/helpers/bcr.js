@@ -40,7 +40,7 @@ export function getGroupBCR(nodes) {
       right: 0,
       bottom: 0,
       width: 0,
-      height: 0
+      height: 0,
     };
   }
 
@@ -50,6 +50,6 @@ export function getGroupBCR(nodes) {
     right: groupBCR.right,
     bottom: groupBCR.bottom,
     width: groupBCR.right - groupBCR.left,
-    height: groupBCR.bottom - groupBCR.top
+    height: groupBCR.bottom - groupBCR.top,
   };
 }

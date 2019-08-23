@@ -78,7 +78,7 @@ class Base {
         'exportFormats': [],
         'includedLayerIds': [],
         'layerOptions': 0,
-        'shouldTrim': false
+        'shouldTrim': false,
       },
       'isFlippedHorizontal': false,
       'isFlippedVertical': false,
@@ -93,7 +93,7 @@ class Base {
       'shouldBreakMaskChain': false,
       'layers': this._layers.map(layer => layer.toJSON()),
       'clippingMaskMode': 0,
-      'hasClippingMask': this._hasClippingMask
+      'hasClippingMask': this._hasClippingMask,
     };
 
     if (this._userInfo) {

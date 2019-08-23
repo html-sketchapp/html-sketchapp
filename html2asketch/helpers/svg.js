@@ -79,7 +79,7 @@ const SVG_STYLE_PROPERTIES = [
   ['visibility', 'visible'],
   ['white-space', 'normal'],
   ['word-spacing', '0px'],
-  ['writing-mode', 'horizontal-tb']
+  ['writing-mode', 'horizontal-tb'],
 ];
 
 function inlineStyles(node) {

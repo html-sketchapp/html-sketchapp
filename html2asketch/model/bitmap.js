@@ -21,14 +21,14 @@ class Bitmap extends Base {
       'x': this._x,
       'y': this._y,
       'height': this._height,
-      'width': this._width
+      'width': this._width,
     };
 
     obj.image = {
       _class: 'MSJSONOriginalDataReference',
       _ref_class: 'MSImageData',
       _ref: `images/${generateID()}`,
-      url: this._url
+      url: this._url,
     };
 
     return obj;

@@ -48,7 +48,7 @@ export const makeColorFromCSS = (input, alpha = 1) => {
     red: r / 255,
     green: g / 255,
     blue: b / 255,
-    alpha: a * alpha
+    alpha: a * alpha,
   };
 };
 

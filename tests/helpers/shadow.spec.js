@@ -8,7 +8,7 @@ test('splitShadowString: should return array of splitted shadowStrings', () => {
     'rgb(0, 0, 0) 0px 0px 5px 2px',
     'red 0px 0px 5px 2px inset',
     '#0F0 0 0px 5px 2px',
-    'rgba(0, 0, 0, 0) 3.5px 1px 0 0'
+    'rgba(0, 0, 0, 0) 3.5px 1px 0 0',
   ]);
 });
 
@@ -16,7 +16,7 @@ test('splitShadowString: should handle single shadow', () => {
   const boxShadow = 'rgb(0, 0, 0) 0px 0px 5px 2px';
 
   expect(splitShadowString(boxShadow)).toEqual([
-    'rgb(0, 0, 0) 0px 0px 5px 2px'
+    'rgb(0, 0, 0) 0px 0px 5px 2px',
   ]);
 });
 
@@ -30,7 +30,7 @@ test('splitShadowString: should handle multiple', () => {
   const boxShadow = 'rgb(0, 0, 0) 0px 0px 5px 2px';
 
   expect(splitShadowString(boxShadow)).toEqual([
-    'rgb(0, 0, 0) 0px 0px 5px 2px'
+    'rgb(0, 0, 0) 0px 0px 5px 2px',
   ]);
 });
 
@@ -44,7 +44,7 @@ test('shadowStringToObject: should return object of parsed shadowString', () => 
     offsetY: 0,
     blur: 5,
     spread: 2,
-    inset: false
+    inset: false,
   });
   expect(shadowStringToObject(shadowString2)).toEqual({
     color: 'rgba(0, 0, 0, 0)',
@@ -52,6 +52,6 @@ test('shadowStringToObject: should return object of parsed shadowString', () => 
     offsetY: 0,
     blur: 5.5,
     spread: 2.2,
-    inset: true
+    inset: true,
   });
 });
