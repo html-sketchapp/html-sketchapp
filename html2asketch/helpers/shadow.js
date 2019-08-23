@@ -3,9 +3,9 @@ const splitShadowString = boxShadow => {
     (str, i, array) => {
       if (i + 1 < array.length) {
         if (str.match(/inse$/)) {
-          return str + 't';
+          return `${str}t`;
         } else if (str.match(/p$/)) {
-          return str + 'x';
+          return `${str}x`;
         }
       }
       return str;
@@ -27,12 +27,12 @@ const shadowStringToObject = shadowString => {
       offsetY: parseFloat(matches[3]),
       blur: parseFloat(matches[4]),
       spread: parseFloat(matches[5]),
-      inset: matches[6] !== undefined
+      inset: matches[6] !== undefined,
     };
   }
 };
 
 export {
   splitShadowString,
-  shadowStringToObject
+  shadowStringToObject,
 };

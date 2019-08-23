@@ -14,7 +14,7 @@ function getImageDataFromUrl(url) {
   if (!fetchedData) {
     return {
       type: IMG_ERROR,
-      data: null
+      data: null,
     };
   }
 
@@ -33,7 +33,7 @@ function getImageDataFromUrl(url) {
 
     return {
       type: IMG_SVG,
-      data: rawSVGString
+      data: rawSVGString,
     };
   } else if (
     /* eslint-disable eqeqeq */
@@ -46,12 +46,12 @@ function getImageDataFromUrl(url) {
   ) {
     return {
       type: IMG_UNSUPPORTED,
-      data: null
+      data: null,
     };
   } else {
     return {
       type: IMG_BLOB,
-      data: fetchedData
+      data: fetchedData,
     };
   }
 }
@@ -79,7 +79,7 @@ export function fixImageFill(layer, fill) {
       y: layer.frame.y,
       width: layer.frame.width,
       height: layer.frame.height,
-      rawSVGString: imageData
+      rawSVGString: imageData,
     };
 
     fixSVGLayer(svgLayer);

@@ -18,7 +18,7 @@ const DEFAULT_VALUES = {
   backgroundColor: 'rgba(0, 0, 0, 0)',
   backgroundImage: 'none',
   borderWidth: '0px',
-  boxShadow: 'none'
+  boxShadow: 'none',
 };
 
 function hasOnlyDefaultStyles(styles) {
@@ -102,7 +102,7 @@ export default function nodeToSketchLayers(node, options) {
     display,
     boxShadow,
     opacity,
-    whiteSpace
+    whiteSpace,
   } = styles;
 
   // skip SVG child nodes as they are already covered by `new SVG(…)`
@@ -191,7 +191,7 @@ export default function nodeToSketchLayers(node, options) {
       topLeft: fixBorderRadius(borderTopLeftRadius, width, height),
       topRight: fixBorderRadius(borderTopRightRadius, width, height),
       bottomLeft: fixBorderRadius(borderBottomLeftRadius, width, height),
-      bottomRight: fixBorderRadius(borderBottomRightRadius, width, height)
+      bottomRight: fixBorderRadius(borderBottomRightRadius, width, height),
     };
 
     const rectangle = new Rectangle({width, height, cornerRadius});
@@ -234,7 +234,7 @@ export default function nodeToSketchLayers(node, options) {
               x: bitmapX,
               y: bitmapY,
               width: actualImgSize.width,
-              height: actualImgSize.height
+              height: actualImgSize.height,
             });
 
             bm.setName('background-image');
@@ -275,7 +275,7 @@ export default function nodeToSketchLayers(node, options) {
       y: childrenBCR.top,
       width: childrenBCR.width,
       height: childrenBCR.height,
-      rawSVGString: getSVGString(node)
+      rawSVGString: getSVGString(node),
     });
 
     layers.push(svgLayer);
@@ -297,7 +297,7 @@ export default function nodeToSketchLayers(node, options) {
     textTransform,
     textDecoration: textDecorationLine,
     textAlign: display === 'flex' || display === 'inline-flex' ? justifyContent : textAlign,
-    skipSystemFonts: options && options.skipSystemFonts
+    skipSystemFonts: options && options.skipSystemFonts,
   });
 
   const rangeHelper = document.createRange();
@@ -329,7 +329,7 @@ export default function nodeToSketchLayers(node, options) {
         height: textBCRHeight,
         text: textValue,
         style: textStyle,
-        multiline: numberOfLines > 1
+        multiline: numberOfLines > 1,
       });
 
       if (options && options.onTextGenerate) {

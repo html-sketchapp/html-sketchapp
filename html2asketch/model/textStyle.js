@@ -11,7 +11,7 @@ const SYSTEM_FONTS = [
   'Segoe UI',
 
   // Android
-  'Roboto'
+  'Roboto',
 ];
 
 // INPUT: -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif
@@ -57,7 +57,7 @@ class TextStyle {
     textTransform,
     textDecoration,
     textAlign,
-    skipSystemFonts
+    skipSystemFonts,
   }) {
     this._color = color;
     this._fontSize = fontSize;
@@ -78,7 +78,7 @@ class TextStyle {
       'fontWeight': this._fontWeight,
       'lineHeight': this._lineHeight,
       'textDecoration': this._textDecoration,
-      'textAlign': this._textAlign
+      'textAlign': this._textAlign,
     };
 
     if (this._letterSpacing !== undefined) {

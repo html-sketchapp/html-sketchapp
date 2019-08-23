@@ -7,7 +7,7 @@ test('returns default BCR if no nodes are provided', () => {
     right: 0,
     bottom: 0,
     width: 0,
-    height: 0
+    height: 0,
   });
 });
 
@@ -19,8 +19,8 @@ test('for a single node returns BCR of that node', () => {
       right: 110,
       bottom: 110,
       width: 100,
-      height: 100
-    })
+      height: 100,
+    }),
   };
 
   expect(getGroupBCR([node1])).toEqual({
@@ -29,7 +29,7 @@ test('for a single node returns BCR of that node', () => {
     right: 110,
     bottom: 110,
     width: 100,
-    height: 100
+    height: 100,
   });
 });
 
@@ -41,8 +41,8 @@ test('correctly calculates BCR of multiple nodes', () => {
       right: 110,
       bottom: 110,
       width: 100,
-      height: 100
-    })
+      height: 100,
+    }),
   };
 
   const node2 = {
@@ -52,8 +52,8 @@ test('correctly calculates BCR of multiple nodes', () => {
       right: 155,
       bottom: 100,
       width: 150,
-      height: 50
-    })
+      height: 50,
+    }),
   };
 
   const node3 = {
@@ -63,8 +63,8 @@ test('correctly calculates BCR of multiple nodes', () => {
       right: 155,
       bottom: 1000,
       width: 150,
-      height: 500
-    })
+      height: 500,
+    }),
   };
 
   expect(getGroupBCR([node1, node2, node3])).toEqual({
@@ -73,6 +73,6 @@ test('correctly calculates BCR of multiple nodes', () => {
     right: 155,
     bottom: 1000,
     width: 150,
-    height: 990
+    height: 990,
   });
 });

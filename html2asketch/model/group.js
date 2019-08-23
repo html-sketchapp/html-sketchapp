@@ -19,7 +19,7 @@ class Group extends Base {
       'height': this._height,
       'width': this._width,
       'x': this._x,
-      'y': this._y
+      'y': this._y,
     };
 
     obj.hasClickThrough = false;

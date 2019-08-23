@@ -4,7 +4,7 @@ function pageToPageReference(page) {
   return {
     '_class': 'MSJSONFileReference',
     '_ref_class': 'MSImmutablePage',
-    '_ref': `pages/${page.getID()}`
+    '_ref': `pages/${page.getID()}`,
   };
 }
 
@@ -13,7 +13,7 @@ function textStyleToSharedStyle(textLayer, id) {
     '_class': 'sharedStyle',
     'do_objectID': id || generateID(),
     name: textLayer._name,
-    'style': textLayer._style.toJSON()
+    'style': textLayer._style.toJSON(),
   };
 }
 
@@ -51,7 +51,7 @@ class Document {
       'do_objectID': this._objectID,
       'assets': {
         '_class': 'assetCollection',
-        'colors': this._colors
+        'colors': this._colors,
       },
       'currentPageIndex': 0,
       'enableLayerInteraction': true,
@@ -59,17 +59,17 @@ class Document {
       'foreignSymbols': [],
       'layerStyles': {
         '_class': 'sharedStyleContainer',
-        'objects': []
+        'objects': [],
       },
       'layerSymbols': {
         '_class': 'symbolContainer',
-        'objects': []
+        'objects': [],
       },
       'layerTextStyles': {
         '_class': 'sharedTextStyleContainer',
-        'objects': this._textStyles
+        'objects': this._textStyles,
       },
-      'pages': this._pages.map(pageToPageReference)
+      'pages': this._pages.map(pageToPageReference),
     };
   }
 }

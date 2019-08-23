@@ -12,7 +12,7 @@ function makeNativeSVGLayer(layer) {
     svgImporter.prepareToImportFromData(svgData);
     svgLayer = svgImporter.importAsLayer();
   } catch (e) {
-    console.log('SVG import failed: ' + e);
+    console.log(`SVG import failed: ${e}`);
   }
 
   if (svgLayer === null) {
@@ -37,12 +37,12 @@ function makeNativeSVGLayer(layer) {
   svgLayer.rect = {
     origin: {
       x: layer.x,
-      y: layer.y
+      y: layer.y,
     },
     size: {
       width: layer.width,
-      height: layer.height
-    }
+      height: layer.height,
+    },
   };
 
   return svgLayer;
