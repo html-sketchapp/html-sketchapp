@@ -99,7 +99,7 @@ function addSharedColor(document, colorJSON) {
   assets.addAsset(color);
 }
 
-export default function asketch2sketch(context, asketchFiles) {
+export default function asketch2sketch(context, asketchFiles, options = {removeSharedStyles: true, clearPage: true}) {
   const document = context.document;
   const page = document.currentPage();
 
@@ -115,8 +115,10 @@ export default function asketch2sketch(context, asketchFiles) {
   });
 
   if (asketchDocument) {
-    removeSharedColors(document);
-    removeSharedTextStyles(document);
+    if (options && options.removeSharedStyles) {
+      removeSharedColors(document);
+      removeSharedTextStyles(document);
+    }
 
     if (asketchDocument.assets.colors) {
       asketchDocument.assets.colors.forEach(color => addSharedColor(document, color));
@@ -135,7 +137,9 @@ export default function asketch2sketch(context, asketchFiles) {
   }
 
   if (asketchPage) {
-    removeExistingLayers(page);
+    if (options && options.clearPage) {
+      removeExistingLayers(page);
+    }
 
     page.name = asketchPage.name;
 
