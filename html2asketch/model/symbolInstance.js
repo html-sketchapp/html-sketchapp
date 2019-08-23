@@ -24,14 +24,14 @@ class SymbolInstance extends Base {
       'width': this._width,
       'height': this._height,
       'x': this._x,
-      'y': this._y
+      'y': this._y,
     };
 
     obj.style = {
       '_class': 'style',
       'endDecorationType': 0,
       'miterLimit': 10,
-      'startDecorationType': 0
+      'startDecorationType': 0,
     };
 
     obj.symbolID = this._symbolID;

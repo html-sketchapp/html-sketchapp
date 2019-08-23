@@ -3,6 +3,6 @@ module.exports = {
   mode: 'development',
   output: {
     filename: './inject.bundle.js',
-    library: 'body2sketch'
-  }
+    library: 'body2sketch',
+  },
 };

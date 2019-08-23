@@ -79,10 +79,11 @@ const SVG_STYLE_PROPERTIES = [
   ['visibility', 'visible'],
   ['white-space', 'normal'],
   ['word-spacing', '0px'],
-  ['writing-mode', 'horizontal-tb']
+  ['writing-mode', 'horizontal-tb'],
 ];
 
 function inlineStyles(node) {
+  console.log('node', node);
   const styles = getComputedStyle(node);
 
   SVG_STYLE_PROPERTIES.forEach(prop => {

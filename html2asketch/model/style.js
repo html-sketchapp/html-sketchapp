@@ -26,7 +26,7 @@ class Style {
         alpha: 1,
         blue: 0.847,
         green: 0.847,
-        red: 0.847
+        red: 0.847,
       },
       fillType: 1,
       gradient: {
@@ -38,14 +38,14 @@ class Style {
         stops: stops.map((stopColor, index) => ({
           _class: 'gradientStop',
           color: makeColorFromCSS(stopColor),
-          position: index
+          position: index,
         })),
-        to: `{${to.x}, ${to.y}}`
+        to: `{${to.x}, ${to.y}}`,
       },
       noiseIndex: 0,
       noiseIntensity: 0,
       patternFillType: 1,
-      patternTileScale: 1
+      patternTileScale: 1,
     });
   }
 
@@ -62,7 +62,7 @@ class Style {
       color: makeColorFromCSS(color),
       fillType: 0,
       position: 1,
-      thickness
+      thickness,
     });
   }
 
@@ -75,11 +75,11 @@ class Style {
       contextSettings: {
         _class: 'graphicsContextSettings',
         blendMode: 0,
-        opacity: 1
+        opacity: 1,
       },
       offsetX,
       offsetY,
-      spread
+      spread,
     });
   }
 
@@ -92,11 +92,11 @@ class Style {
       contextSettings: {
         _class: 'graphicsContextSettings',
         blendMode: 0,
-        opacity: 1
+        opacity: 1,
       },
       offsetX,
       offsetY,
-      spread
+      spread,
     });
   }
 
@@ -117,8 +117,8 @@ class Style {
       contextSettings: {
         _class: 'graphicsContextSettings',
         blendMode: 0,
-        opacity: this._opacity
-      }
+        opacity: this._opacity,
+      },
     };
   }
 }

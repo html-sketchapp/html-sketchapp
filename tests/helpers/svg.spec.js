@@ -11,7 +11,7 @@ test('returns correct outer HTML of the DOM node w/o children', () => {
   const outerHTML = 'pizza';
   const node1 = {
     children: [],
-    outerHTML
+    outerHTML,
   };
 
   expect(getSVGString(node1)).toEqual(outerHTML);

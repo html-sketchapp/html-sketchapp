@@ -6,17 +6,17 @@ describe('getActualImageSize', () => {
 
     const imgSize = {
       width: 400,
-      height: 200
+      height: 200,
     };
 
     const containerSize = {
       width: 100,
-      height: 100
+      height: 100,
     };
 
     expect(getActualImageSize(bgSize, imgSize, containerSize)).toEqual({
       width: 100,
-      height: 50
+      height: 50,
     });
   });
 
@@ -25,17 +25,17 @@ describe('getActualImageSize', () => {
 
     const imgSize = {
       width: 400,
-      height: 200
+      height: 200,
     };
 
     const containerSize = {
       width: 100,
-      height: 100
+      height: 100,
     };
 
     expect(getActualImageSize(bgSize, imgSize, containerSize)).toEqual({
       width: 200,
-      height: 100
+      height: 100,
     });
   });
 
@@ -44,17 +44,17 @@ describe('getActualImageSize', () => {
 
     const imgSize = {
       width: 400,
-      height: 200
+      height: 200,
     };
 
     const containerSize = {
       width: 100,
-      height: 100
+      height: 100,
     };
 
     expect(getActualImageSize(bgSize, imgSize, containerSize)).toEqual({
       width: 100,
-      height: 50
+      height: 50,
     });
   });
 
@@ -63,17 +63,17 @@ describe('getActualImageSize', () => {
 
     const imgSize = {
       width: 400,
-      height: 200
+      height: 200,
     };
 
     const containerSize = {
       width: 100,
-      height: 100
+      height: 100,
     };
 
     expect(getActualImageSize(bgSize, imgSize, containerSize)).toEqual({
       width: 100,
-      height: 200
+      height: 200,
     });
   });
 
@@ -82,17 +82,17 @@ describe('getActualImageSize', () => {
 
     const imgSize = {
       width: 400,
-      height: 200
+      height: 200,
     };
 
     const containerSize = {
       width: 100,
-      height: 100
+      height: 100,
     };
 
     expect(getActualImageSize(bgSize, imgSize, containerSize)).toEqual({
       width: 50,
-      height: 25
+      height: 25,
     });
   });
 
@@ -101,17 +101,17 @@ describe('getActualImageSize', () => {
 
     const imgSize = {
       width: 400,
-      height: 200
+      height: 200,
     };
 
     const containerSize = {
       width: 100,
-      height: 100
+      height: 100,
     };
 
     expect(getActualImageSize(bgSize, imgSize, containerSize)).toEqual({
       width: 50,
-      height: 25
+      height: 25,
     });
   });
 
@@ -120,17 +120,17 @@ describe('getActualImageSize', () => {
 
     const imgSize = {
       width: 400,
-      height: 200
+      height: 200,
     };
 
     const containerSize = {
       width: 100,
-      height: 100
+      height: 100,
     };
 
     expect(getActualImageSize(bgSize, imgSize, containerSize)).toEqual({
       width: 200,
-      height: 100
+      height: 100,
     });
   });
 
@@ -139,17 +139,17 @@ describe('getActualImageSize', () => {
 
     const imgSize = {
       width: 400,
-      height: 200
+      height: 200,
     };
 
     const containerSize = {
       width: 100,
-      height: 100
+      height: 100,
     };
 
     expect(getActualImageSize(bgSize, imgSize, containerSize)).toEqual({
       width: 400,
-      height: 200
+      height: 200,
     });
   });
 });

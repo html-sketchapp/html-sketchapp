@@ -49,7 +49,7 @@ export const makeColorFromCSS = (input, alpha = 1) => {
     red: r / 255,
     green: g / 255,
     blue: b / 255,
-    alpha: a * alpha
+    alpha: a * alpha,
   };
 };
 
@@ -62,7 +62,7 @@ export const makeColorFill = (cssColor, alpha) => ({
   noiseIndex: 0,
   noiseIntensity: 0,
   patternFillType: 1,
-  patternTileScale: 1
+  patternTileScale: 1,
 });
 
 const ensureBase64DataURL = url => {
@@ -96,12 +96,12 @@ export const makeImageFill = (url, patternFillType = 1) => ({
     _class: 'MSJSONOriginalDataReference',
     _ref_class: 'MSImageData',
     _ref: `images/${generateID()}`,
-    url: url.indexOf('data:') === 0 ? ensureBase64DataURL(url) : url
+    url: url.indexOf('data:') === 0 ? ensureBase64DataURL(url) : url,
   },
   noiseIndex: 0,
   noiseIntensity: 0,
   patternFillType,
-  patternTileScale: 1
+  patternTileScale: 1,
 });
 
 const containsAllItems = (needles, haystack) => needles.every(needle => haystack.includes(needle));
@@ -131,5 +131,5 @@ export const RESIZING_CONSTRAINTS = {
   LEFT: 59,
   WIDTH: 61,
   HEIGHT: 47,
-  NONE: 63
+  NONE: 63,
 };

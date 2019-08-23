@@ -26,7 +26,7 @@ export default function zoomToFit(context) {
         minX,
         minY,
         maxX,
-        maxY
+        maxY,
       };
     }
 

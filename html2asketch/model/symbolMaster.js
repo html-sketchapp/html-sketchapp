@@ -67,26 +67,26 @@ class SymbolMaster extends Base {
       width,
       height,
       'x': this._x,
-      'y': this._y
+      'y': this._y,
     };
 
     obj.style = {
       '_class': 'style',
       'endDecorationType': 0,
       'miterLimit': 10,
-      'startDecorationType': 0
+      'startDecorationType': 0,
     };
 
     obj.horizontalRulerData = {
       '_class': 'rulerData',
       'base': 0,
-      'guides': []
+      'guides': [],
     };
 
     obj.verticalRulerData = {
       '_class': 'rulerData',
       'base': 0,
-      'guides': []
+      'guides': [],
     };
 
     obj.backgroundColor = {
@@ -94,7 +94,7 @@ class SymbolMaster extends Base {
       'alpha': 1,
       'blue': 1,
       'green': 1,
-      'red': 1
+      'red': 1,
     };
 
     obj.hasClickThrough = true;

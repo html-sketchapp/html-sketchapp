@@ -46,7 +46,7 @@ function getNativeLayer(failingLayers, layer) {
   } catch (e) {
     failingLayers.push(layer.name);
 
-    console.log('Layer failed to import: ' + layer.name);
+    console.log(`Layer failed to import: ${layer.name}`);
     return null;
   }
 
@@ -121,7 +121,7 @@ export default function asketch2sketch(context, asketchFiles) {
     if (asketchDocument.assets.colors) {
       asketchDocument.assets.colors.forEach(color => addSharedColor(document, color));
 
-      console.log('Shared colors added: ' + asketchDocument.assets.colors.length);
+      console.log(`Shared colors added: ${asketchDocument.assets.colors.length}`);
     }
 
     if (asketchDocument.layerTextStyles && asketchDocument.layerTextStyles.objects) {
@@ -130,7 +130,7 @@ export default function asketch2sketch(context, asketchFiles) {
         addSharedTextStyle(document, style);
       });
 
-      console.log('Shared text styles added: ' + asketchDocument.layerTextStyles.objects.length);
+      console.log(`Shared text styles added: ${asketchDocument.layerTextStyles.objects.length}`);
     }
   }
 

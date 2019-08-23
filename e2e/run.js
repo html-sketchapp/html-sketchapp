@@ -48,18 +48,18 @@ function getPuppeteerPage() {
 }
 
 async function runTest(file) {
-  const testPageURL = 'file://' + path.resolve(TESTS_FOLDER, file);
+  const testPageURL = `file://${path.resolve(TESTS_FOLDER, file)}`;
 
   console.log(`🔍 Processing ${file}`);
 
   const page = await getPuppeteerPage();
 
   await page.goto(testPageURL, {
-    waitUntil: 'networkidle0'
+    waitUntil: 'networkidle0',
   });
 
   await page.addScriptTag({
-    path: injectedScriptPath
+    path: injectedScriptPath,
   });
 
   let anyError = false;
@@ -129,7 +129,7 @@ const testResults = fs.readdirSync(TESTS_FOLDER)
       return false;
     }
 
-    return file.endsWith('.html') && (testFile === null || testFile + '.html' === file);
+    return file.endsWith('.html') && (testFile === null || `${testFile}.html` === file);
   })
   .reduce((promise, file) => promise.then(() => runTest(file)), Promise.resolve());
 

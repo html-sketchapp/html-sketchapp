@@ -21,7 +21,7 @@ const parseBackgroundImage = value => {
     // Image
     return {
       type: 'Image',
-      value: urlMatches[1]
+      value: urlMatches[1],
     };
   } else if (linearGradientMatches && linearGradientMatches.length === 2) {
     // Linear gradient
@@ -30,7 +30,7 @@ const parseBackgroundImage = value => {
     if (linearGradientConfig) {
       return {
         type: 'LinearGradient',
-        value: linearGradientConfig
+        value: linearGradientConfig,
       };
     }
   }
@@ -81,7 +81,7 @@ const parseLinearGradient = value => {
     // Assume 2 color stops
     return {
       angle: '180deg',
-      stops: [parts[0], parts[1]]
+      stops: [parts[0], parts[1]],
     };
   } else if (parts.length > 2) {
     // angle + n stops
@@ -89,7 +89,7 @@ const parseLinearGradient = value => {
 
     return {
       angle,
-      stops
+      stops,
     };
   }
 
@@ -164,11 +164,11 @@ const getActualImageSize = (backgroundSize, imageSize, containerSize) => {
 
   return {
     width,
-    height
+    height,
   };
 };
 
 export {
   parseBackgroundImage,
-  getActualImageSize
+  getActualImageSize,
 };

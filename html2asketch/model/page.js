@@ -18,25 +18,25 @@ class Page extends Base {
       'height': this._height,
       'width': this._width,
       'x': 0,
-      'y': 0
+      'y': 0,
     };
 
     obj.style = {
       '_class': 'style',
       'endDecorationType': 0,
       'miterLimit': 10,
-      'startDecorationType': 0
+      'startDecorationType': 0,
     };
 
     obj.horizontalRulerData = {
       '_class': 'rulerData',
       'base': 0,
-      'guides': []
+      'guides': [],
     };
     obj.verticalRulerData = {
       '_class': 'rulerData',
       'base': 0,
-      'guides': []
+      'guides': [],
     };
 
     obj.hasClickThrough = true;

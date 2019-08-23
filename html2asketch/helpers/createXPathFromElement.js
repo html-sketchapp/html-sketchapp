@@ -16,13 +16,13 @@ export default function createXPathFromElement(elm) {
         }
       }
       if (uniqueIdCount === 1) {
-        segs.unshift('id("' + elm.getAttribute('id') + '")');
+        segs.unshift(`id("${elm.getAttribute('id')}")`);
         return segs.join('/');
       } else {
-        segs.unshift(elm.localName.toLowerCase() + '[@id="' + elm.getAttribute('id') + '"]');
+        segs.unshift(`${elm.localName.toLowerCase()}[@id="${elm.getAttribute('id')}"]`);
       }
     } else if (elm.hasAttribute('class')) {
-      segs.unshift(elm.localName.toLowerCase() + '[@class="' + elm.getAttribute('class') + '"]');
+      segs.unshift(`${elm.localName.toLowerCase()}[@class="${elm.getAttribute('class')}"]`);
     } else {
       let i = 1;
 
@@ -31,8 +31,8 @@ export default function createXPathFromElement(elm) {
           i++;
         }
       }
-      segs.unshift(elm.localName.toLowerCase() + '[' + i + ']');
+      segs.unshift(`${elm.localName.toLowerCase()}[${i}]`);
     }
   }
-  return segs.length ? '/' + segs.join('/') : null;
+  return segs.length ? `/${segs.join('/')}` : null;
 }
