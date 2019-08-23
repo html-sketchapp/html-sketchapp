@@ -1,4 +1,5 @@
 import {generateID, makeColorFromCSS} from '../helpers/utils';
+// import package json to get current version and the same in page
 
 function pageToPageReference(page) {
   return {
@@ -50,6 +51,7 @@ class Document {
     this._colors.push(makeColorFromCSS(color));
   }
 
+  // add field here with version
   toJSON() {
     return {
       '_class': 'document',

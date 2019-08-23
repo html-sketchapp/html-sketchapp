@@ -127,6 +127,8 @@ export default function asketch2sketch(context, asketchFiles, options = {removeS
   });
 
   if (asketchDocument) {
+    // import package json here and check with document if the additional field added in html2asketch is different
+    // if so display into using UI.alert
     if (options && options.removeSharedStyles) {
       removeSharedColors(document);
       removeSharedTextStyles(document);
@@ -157,6 +159,8 @@ export default function asketch2sketch(context, asketchFiles, options = {removeS
   }
 
   if (asketchPage) {
+    // import package json here and check with document if the additional field added in html2asketch is different
+    // if so display into using UI.alert
     if (options && options.clearPage) {
       removeExistingLayers(page);
     }
