@@ -94,7 +94,7 @@ function addSharedLayerStyle(document, {name, style}) {
   SharedStyle.fromStyle({
     name,
     style: fromSJSONDictionary(style),
-    document
+    document,
   });
 }
 
@@ -152,7 +152,7 @@ export default function asketch2sketch(context, asketchFiles, options = {removeS
         addSharedLayerStyle(document, sharedStyle);
       });
 
-      console.log('Shared layer styles added: ' + asketchDocument.layerStyles.objects.length);
+      console.log(`Shared layer styles added: ${asketchDocument.layerStyles.objects.length}`);
     }
   }
 
