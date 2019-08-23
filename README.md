@@ -1,4 +1,4 @@
-# html-sketchapp [![Build Status](https://travis-ci.org/brainly/html-sketchapp.svg?branch=master)](https://travis-ci.org/brainly/html-sketchapp) [![npm version](https://badgen.now.sh/npm/v/@brainly/html-sketchapp)](https://www.npmjs.com/package/@brainly/html-sketchapp) [![MIT license](https://badgen.now.sh/badge/license/MIT/blue)](https://github.com/brainly/html-sketchapp/blob/master/LICENSE.md) [![npm downloads](https://badgen.now.sh/npm/dm/@brainly/html-sketchapp)](https://www.npmjs.com/package/@brainly/html-sketchapp)
+# html-sketchapp [![Build Status](https://travis-ci.org/html-sketchapp/html-sketchapp.svg?branch=master)](https://travis-ci.org/html-sketchapp/html-sketchapp) [![npm version](https://badgen.now.sh/npm/v/@brainly/html-sketchapp)](https://www.npmjs.com/package/@brainly/html-sketchapp) [![MIT license](https://badgen.now.sh/badge/license/MIT/blue)](https://github.com/brainly/html-sketchapp/blob/master/LICENSE.md) [![npm downloads](https://badgen.now.sh/npm/dm/@brainly/html-sketchapp)](https://www.npmjs.com/package/@brainly/html-sketchapp)
 
 HTML to Sketch export solution.
 
@@ -23,12 +23,12 @@ The motivation behind this project was ability to easily share Front-End style g
 We were unable to quickly work around these limitations, so we created html-sketchapp.
 
 You can learn more about this project from:
-- [our wiki](https://github.com/brainly/html-sketchapp/wiki),
+- [our wiki](https://github.com/html-sketchapp/html-sketchapp/wiki),
 - and the excellent article ["Sketching in the Browser"](https://medium.com/seek-blog/sketching-in-the-browser-33a7b7aa0526) by @markdalgleish.
 
 ## Limitations
 
-Comprehensive summary of what is, and what is not supported can be found [here](https://github.com/brainly/html-sketchapp/wiki/What's-supported%3F), but the TLDR is as follows:
+Comprehensive summary of what is, and what is not supported can be found [here](https://github.com/html-sketchapp/html-sketchapp/wiki/What's-supported%3F), but the TLDR is as follows:
 
 - pseudoelements are not supported,
 - some CSS properties (e.g. overflow) are not supported or not fully supported,
@@ -52,12 +52,12 @@ npm i @brainly/html-sketchapp
 
 `html2asketch` is a library that you can use to create a script that extracts specific parts of your website and saves them as layers, shared text styles, document colors and symbols. Your script then can be run in a regular or a headless browser.
 
-There is no one right way of using `html2asketch`, but you can start by checking out the ["Usage Examples"](https://github.com/brainly/html-sketchapp/wiki/Usage-Examples) section of the wiki or the two example projects that we provide:
+There is no one right way of using `html2asketch`, but you can start by checking out the ["Usage Examples"](https://github.com/html-sketchapp/html-sketchapp/wiki/Usage-Examples) section of the wiki or the two example projects that we provide:
 
-- [html-sketchapp-example](https://github.com/brainly/html-sketchapp-example) - minimal script that takes an URL and produces a `page.asketch.json` file
+- [html-sketchapp-example](https://github.com/html-sketchapp/html-sketchapp-example) - minimal script that takes an URL and produces a `page.asketch.json` file
 - [html-sketchapp-style-guide](https://github.com/brainly/html-sketchapp-style-guide) - script that takes parts of the Brainly style-guide and exports them as Sketch symbols, shared text styles and document colors. This script produces `document.asketch.json` and `page.asketch.json`.
 
-*If you are wondering what are, and why we need `.asketch` files, plese see our [wiki](https://github.com/brainly/html-sketchapp/wiki/How-does-it-work%3F).*
+*If you are wondering what are, and why we need `.asketch` files, plese see our [wiki](https://github.com/html-sketchapp/html-sketchapp/wiki/How-does-it-work%3F).*
 
 ### Import .asketch files to Sketch
 
@@ -65,7 +65,7 @@ All `.asketch.json` files should be loaded to Sketch via the `asketch2sketch.ske
 
 <img src="https://i.imgur.com/9eDm6NQ.png" width="450" alt="Installing Sketch plugin" title="Installing Sketch plugin" />
 
-You can download ready to use Sketch plugin from the ["Releases"](https://github.com/brainly/html-sketchapp/releases/latest) section, or build it yourself from the sources:
+You can download ready to use Sketch plugin from the ["Releases"](https://github.com/html-sketchapp/html-sketchapp/releases/latest) section, or build it yourself from the sources:
 
 ```
 npm i # install dependencies
