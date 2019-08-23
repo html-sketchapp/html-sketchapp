@@ -83,7 +83,6 @@ const SVG_STYLE_PROPERTIES = [
 ];
 
 function inlineStyles(node) {
-  console.log('node', node);
   const styles = getComputedStyle(node);
 
   SVG_STYLE_PROPERTIES.forEach(prop => {
