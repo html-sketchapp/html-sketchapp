@@ -11,16 +11,16 @@ test('addPage', () => {
   const doc = new Document();
 
   expect(doc.toJSON()).toMatchObject({
-    pages: []
+    pages: [],
   });
 
   doc.addPage({getID: () => 'my-page-id'});
   expect(doc.toJSON()).toMatchObject({
     pages: [
       expect.objectContaining({
-        _ref: 'pages/my-page-id'
-      })
-    ]
+        _ref: 'pages/my-page-id',
+      }),
+    ],
   });
 });
 
@@ -30,15 +30,15 @@ test('addTextStyle', () => {
   expect(doc.toJSON()).toMatchObject({
     layerTextStyles: {
       _class: 'sharedTextStyleContainer',
-      objects: []
-    }
+      objects: [],
+    },
   });
 
   doc.addTextStyle({
     _name: 'my-text-style-name',
     _style: {
-      toJSON: () => ({my: 'json'})
-    }
+      toJSON: () => ({my: 'json'}),
+    },
   });
 
   expect(doc.toJSON()).toMatchObject({
@@ -50,10 +50,10 @@ test('addTextStyle', () => {
           do_objectID: expect.any(String),
           name: 'my-text-style-name',
           style: {
-            my: 'json'
-          }
-        }
-      ]
-    }
+            my: 'json',
+          },
+        },
+      ],
+    },
   });
 });
