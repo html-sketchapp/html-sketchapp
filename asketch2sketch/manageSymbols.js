@@ -1,7 +1,10 @@
 const sketch = require('sketch/dom');
 
-const organizeSymbolMasters = document => {
-  document.pages().forEach(nativePage => {
+const organizeSymbolMasters = (document, lastIndex) => {
+  document.pages().forEach((nativePage, i) => {
+    if (i < lastIndex) {
+      return;
+    }
     const nativeSymbolsPage = sketch.Page.createSymbolsPage();
 
     nativeSymbolsPage.parent = document;

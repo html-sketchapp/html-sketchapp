@@ -149,19 +149,19 @@ function parseDocument(document, asketchDocument) {
 export default function asketch2sketch(context, asketchFiles) {
   const document = context.document;
 
-  // delete all pages
-  for (let i = document.pages().length - 1; i > 0; i--) {
-    document.removePage(document.pages()[i]);
-  }
+  // remove "Page 1"
+  // document.removePage(document.pages()[0]);
 
-  document.pages().forEach(id => document.removePage(id));
+  // delete all pages
+  // for (let i = document.pages().length - 1; i > 0; i--) {
+  //   document.removePage(document.pages()[i]);
+  // }
+
+  // document.pages().forEach(id => document.removePage(id));
 
   asketchFiles.forEach(asketchFile => (
     asketchFile._class === 'document' ?
       parseDocument(document, asketchFile) :
       parsePage(document, asketchFile)
   ));
-
-  // remove "Page 1"
-  document.removePage(document.pages()[0]);
 }
