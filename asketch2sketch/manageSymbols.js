@@ -26,10 +26,11 @@ const organizeSymbolMasters = (document, lastIndex) => {
 
       if (type === 'SymbolMaster') {
         symbolsPage.layers = [...symbolsPage.layers, layer];
+        return;
       }
     });
 
-    page.layers = [...page.layers.filter(layer => unusableTrash.indexOf(layer.id) < 0)];
+    page.layers = [...page.layers.filter(layer => unusableTrash.indexOf(layer.id) < 0 && layer.type !== 'SymbolMaster')];
   });
 };
 
