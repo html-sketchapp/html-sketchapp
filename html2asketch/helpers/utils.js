@@ -133,3 +133,56 @@ export const RESIZING_CONSTRAINTS = {
   HEIGHT: 47,
   NONE: 63,
 };
+
+export const SMART_LAYOUT = {
+  LEFT_TO_RIGHT: 'LEFT_TO_RIGHT',
+  HORIZONTALLY_CENTER: 'HORIZONTALLY_CENTER',
+  RIGHT_TO_LEFT: 'RIGHT_TO_LEFT',
+  TOP_TO_BOTTOM: 'TOP_TO_BOTTOM',
+  VERTICALLY_CENTER: 'VERTICALLY_CENTER',
+  BOTTOM_TO_TOP: 'BOTTOM_TO_TOP',
+};
+
+const HORIZONTAL_AXIS = {
+  axis: 0,
+};
+const VERTICAL_AXIS = {
+  axis: 1,
+};
+export const DEFAULT_GROUP_LAYOUT = {
+  _class: 'MSImmutableFreeformGroupLayout',
+};
+const smartLayoutBase = {
+  _class: 'MSImmutableInferredGroupLayout',
+};
+
+export const getGroupLayout = layoutType => {
+  switch (layoutType) {
+    case SMART_LAYOUT.LEFT_TO_RIGHT: {
+      return {...smartLayoutBase, ...HORIZONTAL_AXIS, layoutAnchor: 0};
+    }
+
+    case SMART_LAYOUT.HORIZONTALLY_CENTER: {
+      return {...smartLayoutBase, ...HORIZONTAL_AXIS, layoutAnchor: 1};
+    }
+
+    case SMART_LAYOUT.RIGHT_TO_LEFT: {
+      return {...smartLayoutBase, ...HORIZONTAL_AXIS, layoutAnchor: 2};
+    }
+
+    case SMART_LAYOUT.TOP_TO_BOTTOM: {
+      return {...smartLayoutBase, ...VERTICAL_AXIS, layoutAnchor: 0};
+    }
+
+    case SMART_LAYOUT.VERTICALLY_CENTER: {
+      return {...smartLayoutBase, ...VERTICAL_AXIS, layoutAnchor: 1};
+    }
+
+    case SMART_LAYOUT.BOTTOM_TO_TOP: {
+      return {...smartLayoutBase, ...VERTICAL_AXIS, layoutAnchor: 2};
+    }
+
+    default:
+      return DEFAULT_GROUP_LAYOUT;
+  }
+};

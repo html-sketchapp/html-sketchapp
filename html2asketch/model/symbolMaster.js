@@ -1,6 +1,12 @@
-import {generateID} from '../helpers/utils';
+import {
+  generateID,
+  getGroupLayout,
+  SMART_LAYOUT
+} from '../helpers/utils';
 import Base from './base';
 import SymbolInstance from './symbolInstance';
+
+export const SYMBOL_SMART_LAYOUT = SMART_LAYOUT;
 
 class SymbolMaster extends Base {
   constructor({x, y, width = null, height = null, id}) {
@@ -11,6 +17,7 @@ class SymbolMaster extends Base {
     this._width = width;
     this._height = height;
     this._symbolID = generateID();
+    this._groupLayout = getGroupLayout();
   }
 
   setId(id) {
@@ -55,6 +62,10 @@ class SymbolMaster extends Base {
     }
 
     return {width, height};
+  }
+
+  setGroupLayout(layoutType) {
+    this._groupLayout = getGroupLayout(layoutType);
   }
 
   toJSON() {
@@ -105,6 +116,7 @@ class SymbolMaster extends Base {
     obj.includeBackgroundColorInInstance = false;
     obj.symbolID = this._symbolID;
     obj.changeIdentifier = 0;
+    obj.groupLayout = this._groupLayout;
 
     return obj;
   }

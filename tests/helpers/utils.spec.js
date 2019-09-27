@@ -1,4 +1,10 @@
-import {calculateResizingConstraintValue, RESIZING_CONSTRAINTS} from '../../html2asketch/helpers/utils';
+import {
+  calculateResizingConstraintValue,
+  RESIZING_CONSTRAINTS,
+  getGroupLayout,
+  DEFAULT_GROUP_LAYOUT,
+  SMART_LAYOUT,
+} from '../../html2asketch/helpers/utils';
 
 test('reduce series of numbers to their bitwise AND value', () => {
   const {TOP, LEFT, HEIGHT} = RESIZING_CONSTRAINTS;
@@ -25,5 +31,15 @@ describe('when given invalid combinations', () => {
     const {LEFT, RIGHT, WIDTH} = RESIZING_CONSTRAINTS;
 
     expect(() => calculateResizingConstraintValue(LEFT, RIGHT, WIDTH)).toThrow();
+  });
+});
+
+describe('getGroupLayout()', () => {
+  test('returns default group when no params passed', () => {
+    expect(getGroupLayout()).toEqual(DEFAULT_GROUP_LAYOUT);
+  });
+
+  test('returns chosen layout group', () => {
+    expect(getGroupLayout(SMART_LAYOUT.HORIZONTALLY_CENTER)).not.toEqual(DEFAULT_GROUP_LAYOUT);
   });
 });
