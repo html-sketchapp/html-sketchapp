@@ -162,27 +162,27 @@ const VERTICAL_AXIS = {
 export const getGroupLayout = layoutType => {
   switch (layoutType) {
     case SMART_LAYOUT.LEFT_TO_RIGHT: {
-      return {...smartLayoutBase, ...HORIZONTAL_AXIS, layoutAnchor: 0};
+      return Object.assign({}, smartLayoutBase, HORIZONTAL_AXIS, {layoutAnchor: 0});
     }
 
     case SMART_LAYOUT.HORIZONTALLY_CENTER: {
-      return {...smartLayoutBase, ...HORIZONTAL_AXIS, layoutAnchor: 1};
+      return Object.assign({}, smartLayoutBase, HORIZONTAL_AXIS, {layoutAnchor: 1});
     }
 
     case SMART_LAYOUT.RIGHT_TO_LEFT: {
-      return {...smartLayoutBase, ...HORIZONTAL_AXIS, layoutAnchor: 2};
+      return Object.assign({}, smartLayoutBase, HORIZONTAL_AXIS, {layoutAnchor: 2});
     }
 
     case SMART_LAYOUT.TOP_TO_BOTTOM: {
-      return {...smartLayoutBase, ...VERTICAL_AXIS, layoutAnchor: 0};
+      return Object.assign({}, smartLayoutBase, VERTICAL_AXIS, {layoutAnchor: 0});
     }
 
     case SMART_LAYOUT.VERTICALLY_CENTER: {
-      return {...smartLayoutBase, ...VERTICAL_AXIS, layoutAnchor: 1};
+      return Object.assign({}, smartLayoutBase, VERTICAL_AXIS, {layoutAnchor: 1});
     }
 
     case SMART_LAYOUT.BOTTOM_TO_TOP: {
-      return {...smartLayoutBase, ...VERTICAL_AXIS, layoutAnchor: 2};
+      return Object.assign({}, smartLayoutBase, VERTICAL_AXIS, {layoutAnchor: 2});
     }
 
     default:
