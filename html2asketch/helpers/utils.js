@@ -143,17 +143,17 @@ export const SMART_LAYOUT = {
   BOTTOM_TO_TOP: 'BOTTOM_TO_TOP',
 };
 
-const HORIZONTAL_AXIS = {
-  axis: 0,
-};
-const VERTICAL_AXIS = {
-  axis: 1,
-};
 export const DEFAULT_GROUP_LAYOUT = {
   _class: 'MSImmutableFreeformGroupLayout',
 };
 const smartLayoutBase = {
   _class: 'MSImmutableInferredGroupLayout',
+};
+const HORIZONTAL_AXIS = {
+  axis: 0,
+};
+const VERTICAL_AXIS = {
+  axis: 1,
 };
 
 export const getGroupLayout = layoutType => {
