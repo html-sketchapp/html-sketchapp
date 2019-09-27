@@ -146,12 +146,15 @@ export const SMART_LAYOUT = {
 export const DEFAULT_GROUP_LAYOUT = {
   _class: 'MSImmutableFreeformGroupLayout',
 };
+
 const smartLayoutBase = {
   _class: 'MSImmutableInferredGroupLayout',
 };
+
 const HORIZONTAL_AXIS = {
   axis: 0,
 };
+
 const VERTICAL_AXIS = {
   axis: 1,
 };

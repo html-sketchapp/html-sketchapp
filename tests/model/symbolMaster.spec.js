@@ -22,7 +22,7 @@ test('symbol has a default groupLayout', () => {
   expect(symbolMaster.toJSON().groupLayout).not.toBeNull();
 });
 
-test('symbol groupLayout can be changed' , () => {
+test('symbol groupLayout can be changed', () => {
   const symbolMaster = new SymbolMaster({x: 200, y: 300});
 
   const groupLayoutBefore = symbolMaster.toJSON().groupLayout;

@@ -1,7 +1,7 @@
 import {
   generateID,
   getGroupLayout,
-  SMART_LAYOUT
+  SMART_LAYOUT,
 } from '../helpers/utils';
 import Base from './base';
 import SymbolInstance from './symbolInstance';
