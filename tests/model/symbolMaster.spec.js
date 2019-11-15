@@ -1,4 +1,4 @@
-import SymbolMaster from '../../html2asketch/model/symbolMaster';
+import SymbolMaster, {SYMBOL_SMART_LAYOUT} from '../../html2asketch/model/symbolMaster';
 
 test('toJSON() generates deterministic symbolIDs', () => {
   const symbolMaster = new SymbolMaster({x: 200, y: 300});
@@ -14,6 +14,24 @@ test('symbolID can be set', () => {
   symbolMaster.setId(id);
 
   expect(symbolMaster.toJSON().symbolID).toEqual(id);
+});
+
+test('symbol has a default groupLayout', () => {
+  const symbolMaster = new SymbolMaster({x: 200, y: 300});
+
+  expect(symbolMaster.toJSON().groupLayout).not.toBeNull();
+});
+
+test('symbol groupLayout can be changed', () => {
+  const symbolMaster = new SymbolMaster({x: 200, y: 300});
+
+  const groupLayoutBefore = symbolMaster.toJSON().groupLayout;
+
+  symbolMaster.setGroupLayout(SYMBOL_SMART_LAYOUT.LEFT_TO_RIGHT);
+
+  const groupLayoutAfter = symbolMaster.toJSON().groupLayout;
+
+  expect(groupLayoutBefore).not.toEqual(groupLayoutAfter);
 });
 
 test('symbol instances have the same symbolID', () => {
