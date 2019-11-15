@@ -290,7 +290,7 @@ export default function nodeToSketchLayers(node, options) {
   const textStyle = new TextStyle({
     fontFamily,
     fontSize: parseInt(fontSize, 10),
-    lineHeight: lineHeight !== 'normal' ? parseInt(lineHeight, 10) : undefined,
+    lineHeight: lineHeight !== 'normal' ? parseFloat(lineHeight) : undefined,
     letterSpacing: letterSpacing !== 'normal' ? parseFloat(letterSpacing) : undefined,
     fontWeight: parseFontWeight(fontWeight),
     color,
