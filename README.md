@@ -79,6 +79,7 @@ npm run build # build the plugin
 - [UIengine](https://github.com/dennisreimann/uiengine) - "Workbench for UI-driven development."
 - [Alva](https://github.com/meetalva/alva) - "Alva is a radically new design tool that enables cross-functional teams to design digital products"
 - [FAST-DNA](https://github.com/Microsoft/fast-dna) - "A set of tooling, resources, and components used to accelerate building Web sites and applications."
+- [HTML to Sketch](https://kimdal-hyeong.github.io/html-to-sketch-electron/download-analyst/) - "You can draw a website in an open sketch window."
 
 ## Standing on the shoulders of giants :heart:
 
