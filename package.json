@@ -1,5 +1,5 @@
 {
-  "name": "@brainly/html-sketchapp",
+  "name": "html-sketchapp",
   "version": "4.4.0",
   "description": "HTML to Sketch",
   "keywords": [
@@ -10,9 +10,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brainly/html-sketchapp.git"
+    "url": "git+https://github.com/html-sketchapp/html-sketchapp.git"
   },
-  "author": "Brainly - Konrad Dzwinel <kdzwinel@gmail.com>",
+  "author": "Konrad Dzwinel <kdzwinel@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "npm run build-lib && npm run build-plugin",
@@ -80,7 +80,7 @@
     "package-lock.json"
   ],
   "bugs": {
-    "url": "https://github.com/brainly/html-sketchapp/issues"
+    "url": "https://github.com/html-sketchapp/html-sketchapp/issues"
   },
-  "homepage": "https://github.com/brainly/html-sketchapp#readme"
+  "homepage": "https://github.com/html-sketchapp/html-sketchapp#readme"
 }
