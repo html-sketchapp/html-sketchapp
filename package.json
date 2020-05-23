@@ -65,7 +65,7 @@
     "murmur2js": "^1.0.0",
     "normalize-css-color": "^1.0.2",
     "sketch-constants": "^1.1.0",
-    "sketchapp-json-plugin": "^0.1.2"
+    "sketchapp-json-plugin": "git://github.com/darknoon/sketchapp-json-plugin.git#0188eb640b"
   },
   "main": "build/html2asketch/index",
   "typings": "typings/",
