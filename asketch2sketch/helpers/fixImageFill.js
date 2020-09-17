@@ -20,7 +20,7 @@ function getImageDataFromUrl(url) {
 
   const firstByte = fetchedData
     .subdataWithRange(NSMakeRange(0, 1))
-    .description();
+    .debugDescription();
 
   // Check for first byte. Must use non-type-exact matching (!=).
   // 0xFF = JPEG, 0x89 = PNG, 0x47 = GIF, 0x49 = TIFF, 0x4D = TIFF
