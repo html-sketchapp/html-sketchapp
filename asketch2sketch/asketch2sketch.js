@@ -1,6 +1,6 @@
 import UI from 'sketch/ui';
 import {SharedStyle} from 'sketch/dom';
-import {fromSJSONDictionary} from 'sketchapp-json-plugin';
+import {fromSJSONDictionary} from '@brainly/sketchapp-json-plugin';
 import {fixTextLayer, fixSharedTextStyle} from './helpers/fixFont';
 import fixImageFillsInLayer from './helpers/fixImageFill';
 import fixBitmap from './helpers/fixBitmap';

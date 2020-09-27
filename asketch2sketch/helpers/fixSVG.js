@@ -1,4 +1,4 @@
-import {toSJSON} from 'sketchapp-json-plugin';
+import {toSJSON} from '@brainly/sketchapp-json-plugin';
 import {replaceProperties} from './utils';
 
 function makeNativeSVGLayer(layer) {
