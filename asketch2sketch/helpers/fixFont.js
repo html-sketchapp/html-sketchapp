@@ -1,7 +1,7 @@
 // taken from https://github.com/airbnb/react-sketchapp/blob/master/src/jsonUtils/hacksForJSONImpl.js
 import {generateID, makeColorFromCSS} from './utils';
 import {TextAlignment} from 'sketch-constants';
-import {toSJSON} from 'sketchapp-json-plugin';
+import {toSJSON} from '@brainly/sketchapp-json-plugin';
 import findFont from './findFont';
 import getSketchVersion from './getSketchVersion';
 
