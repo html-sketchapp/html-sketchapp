@@ -25,10 +25,10 @@ export default function convertAngleToFromAndTo(angle) {
 
     return {
       from,
-      to: {x: x,y: y}
+      to: {x, y},
     };
   }
-  
+
   // we need angle to be a float number
   const degrees = Number.parseFloat(angle);
 
@@ -47,6 +47,6 @@ export default function convertAngleToFromAndTo(angle) {
         throw TypeError('Incorrect angle.');
     }
   }
-  
+
   return convertAngleInDegreesToFromAndTo(degrees);
 }
