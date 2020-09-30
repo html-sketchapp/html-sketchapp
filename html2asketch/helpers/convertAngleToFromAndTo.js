@@ -7,7 +7,7 @@ export default function convertAngleToFromAndTo(angle) {
       return Number.NaN;
     }
 
-    const value = parseFloat(match[1]) + ;
+    const value = parseFloat(match[1]) + 0;
     const unit = match[2];
 
     switch (unit) {
