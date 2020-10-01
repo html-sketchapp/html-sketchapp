@@ -25,7 +25,7 @@ export default function convertAngleToFromAndTo(angle) {
   }
 
   function convertRadiansToFromAndTo(radians) {
-    // we begin "from" (0,0) and have a circle (returned as "to") 
+    // we begin "from" (0,0) and have a circle (returned as "to")
     // with starting from point at (0,-1) for 0deg (to bottom)
     // default 0deg
     const from = {x: 0, y: 0};
