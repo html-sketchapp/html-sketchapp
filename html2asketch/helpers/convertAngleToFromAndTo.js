@@ -37,7 +37,7 @@ export default function convertAngleToFromAndTo(angle) {
 
     // sin() and cos() needs radians to work with
     // and we need to rotate the whole thing by 90deg so we support "to bottom" as default
-    const angleInRadians = radians + parseAngleToRadians('-270deg');
+    const angleInRadians = radians - parseAngleToRadians('90deg');
 
     // calculate circle's (x,y) wich is sin nad cos of given radians
     // we support precision to make things human readable
