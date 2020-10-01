@@ -23,12 +23,13 @@ export default function convertAngleToFromAndTo(angle) {
         return Number.NaN;
     }
   }
-  
+
   function convertRadiansToFromAndTo(radians) {
-    // we begin "from" (0,0) and have a circle (returned as "to") with starting from point at (0,-1) for 0deg (to bottom)
+    // we begin "from" (0,0) and have a circle (returned as "to") 
+    // with starting from point at (0,-1) for 0deg (to bottom)
     // default 0deg
-    const from = { x: 0, y: 0 };
-    const to = { x: 0, y: -1 };
+    const from = {x: 0, y: 0};
+    const to = {x: 0, y: -1};
 
     if (radians === 0) {
       return {from, to};
@@ -50,7 +51,7 @@ export default function convertAngleToFromAndTo(angle) {
 
     return {
       from,
-      to: { x, y },
+      to: {x, y},
     };
   }
 
@@ -72,7 +73,7 @@ export default function convertAngleToFromAndTo(angle) {
         return convertRadiansToFromAndTo(parseAngleToRadians('180deg'));
       case 'to left top':
         return convertRadiansToFromAndTo(parseAngleToRadians('225deg'));
-      case 'to right':
+      case 'to left':
         return convertRadiansToFromAndTo(parseAngleToRadians('270deg'));
       case 'to left bottom':
         return convertRadiansToFromAndTo(parseAngleToRadians('315deg'));
