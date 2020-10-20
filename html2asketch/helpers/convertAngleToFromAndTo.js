@@ -55,7 +55,7 @@ export default function convertAngleToFromAndTo(angle, width, height) {
     response.from.y /= height;
     response.to.y /= height;
 
-    // x axis shoul be proportional to width
+    // x axis should be proportional to width
     response.from.x /= width;
     response.to.x /= width;
 
