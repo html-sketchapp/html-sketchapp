@@ -1,5 +1,5 @@
 // Keep this pure for easy testing in the future.
-export default function convertAngleToFromAndTo(angle) {
+export default function convertAngleToFromAndTo(angle, width, height) {
   function parseAngleToRadians(angle) {
     const match = angle.match(/^(-?(?:\d+)?(?:\.\d+)?)(deg|grad|rad|turn)$/);
 
@@ -24,63 +24,95 @@ export default function convertAngleToFromAndTo(angle) {
     }
   }
 
-  function convertRadiansToFromAndTo(radians) {
-    // we begin "from" (0,0) and have a circle (returned as "to")
-    // with starting from point at (0,-1) for 0deg (to bottom)
-    // default 0deg
-    const from = {x: 0, y: 0};
-    const to = {x: 0, y: -1};
-
-    if (radians === 0) {
-      return {from, to};
-    }
-
-    // sin() and cos() needs radians to work with
-    // and we need to rotate the whole thing by 90deg so we support "to bottom" as default
-    const angleInRadians = radians - parseAngleToRadians('90deg');
-
-    // calculate circle's (x,y) wich is sin nad cos of given radians
-    // we support precision to make things human readable
-    const precision = 2;
-    let x = Number.parseFloat(Math.cos(angleInRadians).toFixed(precision));
-    let y = Number.parseFloat(Math.sin(angleInRadians).toFixed(precision));
-
-    // convert -0 to +0, sin() and cos() may return -0 wich can lead to some miss-calcualtions
-    x += 0;
-    y += 0;
-
-    return {
-      from,
-      to: {x, y},
-    };
+  function fixFloat(float) {
+    const precistion = 5;
+  
+    return Number.parseFloat(float.toFixed(precistion)) + 0;
+  }
+  
+  function calculateFromAndTo({angleInRadians, width, height}) {
+    const angle180degInRadians = parseAngleToRadians('180deg');
+  
+    // calculate gradient height
+    const gradientHeight = Math.abs(width * Math.sin(angleInRadians)) + Math.abs(height * Math.cos(angleInRadians));
+  
+    // calculate is which is half of gradient times cos/sin of angle
+    const toX = fixFloat((gradientHeight / 2) * Math.sin(angleInRadians));
+    const toY = fixFloat((gradientHeight / 2) * Math.cos(angleInRadians));
+  
+    // calculate is which is half of gradient times cos/sin of angle
+    const fromX = fixFloat((gradientHeight / 2) * Math.sin(angleInRadians + angle180degInRadians));
+    const fromY = fixFloat((gradientHeight / 2) * Math.cos(angleInRadians + angle180degInRadians));
+  
+    return {fromX, fromY, toX, toY};
+  }
+  
+  function normalizeDimensionForSketch({fromX, fromY, toX, toY, width, height}) {
+    const response = {from: {x: fromX, y: fromY}, to: {x: toX, y: toY}};
+  
+    // y axis shoulbe be 1 if equal to height
+    response.from.y /= height;
+    response.to.y /= height;
+  
+    // x axis shoulbe be 1 if equal to width
+    response.from.x /= width;
+    response.to.x /= width;
+  
+    // y axis is reflected downwards in sketch
+    response.from.y *= -1;
+    response.to.y *= -1;
+  
+    // let's fixFloat
+    response.from.x = fixFloat(response.from.x);
+    response.from.y = fixFloat(response.from.y);
+    response.to.x = fixFloat(response.to.x);
+    response.to.y = fixFloat(response.to.y);
+  
+    // (0,0) is in (0.5,0.5), we need to move whole axis
+    response.from.x += 0.5;
+    response.from.y += 0.5;
+    response.to.x += 0.5;
+    response.to.y += 0.5;
+  
+    return response;
   }
 
   // we need angle to be a float number
-  const radians = parseAngleToRadians(angle);
+  let angleInRadians = parseAngleToRadians(angle);
 
   // but if we don't have a number we also support some strings
-  if (Number.isNaN(radians)) {
+  if (Number.isNaN(angleInRadians)) {
     switch (angle.toLowerCase()) {
-      case 'to bottom':
-        return convertRadiansToFromAndTo(parseAngleToRadians('0deg'));
-      case 'to right bottom':
-        return convertRadiansToFromAndTo(parseAngleToRadians('45deg'));
-      case 'to right':
-        return convertRadiansToFromAndTo(parseAngleToRadians('90deg'));
-      case 'to right top':
-        return convertRadiansToFromAndTo(parseAngleToRadians('135deg'));
       case 'to top':
-        return convertRadiansToFromAndTo(parseAngleToRadians('180deg'));
-      case 'to left top':
-        return convertRadiansToFromAndTo(parseAngleToRadians('225deg'));
-      case 'to left':
-        return convertRadiansToFromAndTo(parseAngleToRadians('270deg'));
+        angleInRadians = parseAngleToRadians('0deg');
+        break;
+      case 'to right top':
+        angleInRadians = parseAngleToRadians('45deg');
+        break;
+      case 'to right':
+        angleInRadians = parseAngleToRadians('90deg');
+        break;
+      case 'to right bottom':
+        angleInRadians = parseAngleToRadians('135deg');
+        break;
+      case 'to bottom':
+        angleInRadians = parseAngleToRadians('180deg');
+        break;
       case 'to left bottom':
-        return convertRadiansToFromAndTo(parseAngleToRadians('315deg'));
+        angleInRadians = parseAngleToRadians('225deg');
+        break;
+      case 'to left':
+        angleInRadians = parseAngleToRadians('270deg');
+        break;
+      case 'to left top':
+        angleInRadians = parseAngleToRadians('315deg');
+        break;
       default:
         throw TypeError('Incorrect angle.');
     }
   }
 
-  return convertRadiansToFromAndTo(radians);
+  const mathDimensions = calculateFromAndTo({angleInRadians, width, height});
+
+  return normalizeDimensionForSketch({...mathDimensions, width, height});
 }
