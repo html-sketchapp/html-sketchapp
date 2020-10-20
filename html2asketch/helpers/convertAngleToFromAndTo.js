@@ -27,6 +27,7 @@ export default function convertAngleToFromAndTo(angle, width, height) {
   function fixFloat(float) {
     const precistion = 5;
 
+    // round with precision and convert -0 to +0
     return Number.parseFloat(float.toFixed(precistion)) + 0;
   }
 
@@ -36,19 +37,19 @@ export default function convertAngleToFromAndTo(angle, width, height) {
     // calculate gradient height
     const gradientHeight = Math.abs(width * Math.sin(angleInRadians)) + Math.abs(height * Math.cos(angleInRadians));
 
-    // calculate is which is half of gradient times cos/sin of angle
+    // calculate to which is half of gradient times cos/sin of angle
     const toX = fixFloat((gradientHeight / 2) * Math.sin(angleInRadians));
     const toY = fixFloat((gradientHeight / 2) * Math.cos(angleInRadians));
 
-    // calculate is which is half of gradient times cos/sin of angle
+    // calculate from which is half of gradient times cos/sin of angle + 180deg
     const fromX = fixFloat((gradientHeight / 2) * Math.sin(angleInRadians + angle180degInRadians));
     const fromY = fixFloat((gradientHeight / 2) * Math.cos(angleInRadians + angle180degInRadians));
 
-    return {fromX, fromY, toX, toY};
+    return {from: {x: fromX, y: fromY}, to: {x: toX, y: toY}};
   }
 
-  function normalizeDimensionForSketch({fromX, fromY, toX, toY, width, height}) {
-    const response = {from: {x: fromX, y: fromY}, to: {x: toX, y: toY}};
+  function normalizeDimensionsForSketch({from, to, width, height}) {
+    const response = {from: {...from}, to: {...to}};
 
     // y axis shoulbe be 1 if equal to height
     response.from.y /= height;
@@ -118,7 +119,7 @@ export default function convertAngleToFromAndTo(angle, width, height) {
     }
   }
 
-  const mathDimensions = calculateFromAndTo({angleInRadians, width, height});
+  const {from, to} = calculateFromAndTo({angleInRadians, width, height});
 
-  return normalizeDimensionForSketch({...mathDimensions, width, height});
+  return normalizeDimensionsForSketch({from, to, width, height});
 }
