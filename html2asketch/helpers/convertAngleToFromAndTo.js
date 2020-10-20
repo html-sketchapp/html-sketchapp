@@ -26,54 +26,54 @@ export default function convertAngleToFromAndTo(angle, width, height) {
 
   function fixFloat(float) {
     const precistion = 5;
-  
+
     return Number.parseFloat(float.toFixed(precistion)) + 0;
   }
-  
+
   function calculateFromAndTo({angleInRadians, width, height}) {
     const angle180degInRadians = parseAngleToRadians('180deg');
-  
+
     // calculate gradient height
     const gradientHeight = Math.abs(width * Math.sin(angleInRadians)) + Math.abs(height * Math.cos(angleInRadians));
-  
+
     // calculate is which is half of gradient times cos/sin of angle
     const toX = fixFloat((gradientHeight / 2) * Math.sin(angleInRadians));
     const toY = fixFloat((gradientHeight / 2) * Math.cos(angleInRadians));
-  
+
     // calculate is which is half of gradient times cos/sin of angle
     const fromX = fixFloat((gradientHeight / 2) * Math.sin(angleInRadians + angle180degInRadians));
     const fromY = fixFloat((gradientHeight / 2) * Math.cos(angleInRadians + angle180degInRadians));
-  
+
     return {fromX, fromY, toX, toY};
   }
-  
+
   function normalizeDimensionForSketch({fromX, fromY, toX, toY, width, height}) {
     const response = {from: {x: fromX, y: fromY}, to: {x: toX, y: toY}};
-  
+
     // y axis shoulbe be 1 if equal to height
     response.from.y /= height;
     response.to.y /= height;
-  
+
     // x axis shoulbe be 1 if equal to width
     response.from.x /= width;
     response.to.x /= width;
-  
+
     // y axis is reflected downwards in sketch
     response.from.y *= -1;
     response.to.y *= -1;
-  
+
     // let's fixFloat
     response.from.x = fixFloat(response.from.x);
     response.from.y = fixFloat(response.from.y);
     response.to.x = fixFloat(response.to.x);
     response.to.y = fixFloat(response.to.y);
-  
+
     // (0,0) is in (0.5,0.5), we need to move whole axis
     response.from.x += 0.5;
     response.from.y += 0.5;
     response.to.x += 0.5;
     response.to.y += 0.5;
-  
+
     return response;
   }
 
