@@ -77,38 +77,44 @@ export default function convertAngleToFromAndTo(angle, width, height) {
     return response;
   }
 
+  const normalizedAngle = angle.trim().toLowerCase();
+
   // we need angle to be a float number
-  let angleInRadians = parseAngleToRadians(angle);
+  let angleInRadians = parseAngleToRadians(normalizedAngle);
 
   // but if we don't have a number we also support some strings
   if (Number.isNaN(angleInRadians)) {
-    switch (angle.toLowerCase()) {
+    switch (normalizedAngle) {
       case 'to top':
         angleInRadians = parseAngleToRadians('0deg');
         break;
       case 'to right top':
+      case 'to top right':
         angleInRadians = parseAngleToRadians('45deg');
         break;
       case 'to right':
         angleInRadians = parseAngleToRadians('90deg');
         break;
       case 'to right bottom':
+      case 'to bottom right':
         angleInRadians = parseAngleToRadians('135deg');
         break;
       case 'to bottom':
         angleInRadians = parseAngleToRadians('180deg');
         break;
       case 'to left bottom':
+      case 'to bottom left':
         angleInRadians = parseAngleToRadians('225deg');
         break;
       case 'to left':
         angleInRadians = parseAngleToRadians('270deg');
         break;
       case 'to left top':
+      case 'to top left':
         angleInRadians = parseAngleToRadians('315deg');
         break;
       default:
-        throw TypeError('Incorrect angle.');
+        throw TypeError(`Incorrect angle: ${angle}`);
     }
   }
 
