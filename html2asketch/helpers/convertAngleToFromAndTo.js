@@ -25,7 +25,7 @@ export default function convertAngleToFromAndTo(angle, width, height) {
   }
 
   function fixFloat(float) {
-    const precistion = 5;
+    const precistion = 7;
 
     // round with precision and convert -0 to +0
     return Number.parseFloat(float.toFixed(precistion)) + 0;
@@ -51,11 +51,11 @@ export default function convertAngleToFromAndTo(angle, width, height) {
   function normalizeDimensionsForSketch({from, to, width, height}) {
     const response = {from: {...from}, to: {...to}};
 
-    // y axis shoulbe be 1 if equal to height
+    // y axis should be proportional to height
     response.from.y /= height;
     response.to.y /= height;
 
-    // x axis shoulbe be 1 if equal to width
+    // x axis shoul be proportional to width
     response.from.x /= width;
     response.to.x /= width;
 
