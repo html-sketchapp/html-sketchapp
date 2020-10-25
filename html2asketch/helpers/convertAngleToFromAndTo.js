@@ -69,7 +69,9 @@ export default function convertAngleToFromAndTo(angle, width, height) {
     response.to.x = fixFloat(response.to.x);
     response.to.y = fixFloat(response.to.y);
 
-    // (0,0) is in (0.5,0.5), we need to move whole axis
+    // (0.5, 0.5) is the shift of the gradient line in sketch, 
+    // as we want gradient line to always go through the 
+    // center of the shape in both axis, so we need to move whole axis
     response.from.x += 0.5;
     response.from.y += 0.5;
     response.to.x += 0.5;
