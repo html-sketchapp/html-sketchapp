@@ -253,7 +253,7 @@ export default function nodeToSketchLayers(node, options) {
           break;
         }
         case 'LinearGradient':
-          style.addGradientFill(backgroundImageResult.value);
+          style.addGradientFill(backgroundImageResult.value, width, height);
           break;
         default:
           // Unsupported types:

@@ -14,8 +14,9 @@ class Style {
     this._fills.push(makeColorFill(color, opacity));
   }
 
-  addGradientFill({angle, stops}) {
-    const {from, to} = convertAngleToFromAndTo(angle);
+  addGradientFill({angle, stops}, width, height) {
+    // width and height stand for trimmed 2d canvas of any polygon to fill gradient with
+    const {from, to} = convertAngleToFromAndTo(angle, width, height);
 
     this._fills.push({
       _class: 'fill',
