@@ -1,13 +1,11 @@
 import UI from 'sketch/ui';
-import {SharedStyle, Swatch} from 'sketch/dom';
+import sketch, {SharedStyle, Swatch} from 'sketch/dom';
 import {fromSJSONDictionary} from '@brainly/sketchapp-json-plugin';
 import {fixTextLayer, fixSharedTextStyle} from './helpers/fixFont';
 import fixImageFillsInLayer from './helpers/fixImageFill';
 import fixBitmap from './helpers/fixBitmap';
 import fixSVGLayer from './helpers/fixSVG';
 import zoomToFit from './helpers/zoomToFit';
-
-const sketch = require('sketch/dom');
 
 function removeExistingLayers(context) {
   if (context.containsLayers()) {
