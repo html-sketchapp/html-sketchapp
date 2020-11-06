@@ -114,7 +114,7 @@ function addSharedColor(document, colorJSON) {
 }
 
 function removeSharedSwatches(document) {
-  //document.documentData().swatches().setObjects([]);
+  sketch.fromNative(document).swatches = [];
 }
 
 function addSharedSwatch(document, swatch) {
@@ -143,8 +143,8 @@ export default function asketch2sketch(context, asketchFiles, options = {removeS
 
   if (asketchDocument) {
     if (options && options.removeSharedStyles) {
-      removeSharedColors(document);
       removeSharedSwatches(document);
+      removeSharedColors(document);
       removeSharedTextStyles(document);
       removeSharedLayerStyles(document);
     }
