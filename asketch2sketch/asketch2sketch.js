@@ -1,11 +1,13 @@
 import UI from 'sketch/ui';
-import {SharedStyle} from 'sketch/dom';
+import {SharedStyle, Swatch} from 'sketch/dom';
 import {fromSJSONDictionary} from '@brainly/sketchapp-json-plugin';
 import {fixTextLayer, fixSharedTextStyle} from './helpers/fixFont';
 import fixImageFillsInLayer from './helpers/fixImageFill';
 import fixBitmap from './helpers/fixBitmap';
 import fixSVGLayer from './helpers/fixSVG';
 import zoomToFit from './helpers/zoomToFit';
+
+const sketch = require('sketch/dom');
 
 function removeExistingLayers(context) {
   if (context.containsLayers()) {
@@ -111,6 +113,19 @@ function addSharedColor(document, colorJSON) {
   assets.addAsset(color);
 }
 
+function removeSharedSwatches(document) {
+  //document.documentData().swatches().setObjects([]);
+}
+
+function addSharedSwatch(document, swatch) {
+  const color = Swatch.from({
+    name: swatch.name,
+    color: fromSJSONDictionary(swatch.value),
+  });
+
+  sketch.fromNative(document).swatches.push(color);
+}
+
 export default function asketch2sketch(context, asketchFiles, options = {removeSharedStyles: true, clearPage: true}) {
   const document = context.document;
   const page = document.currentPage();
@@ -129,6 +144,7 @@ export default function asketch2sketch(context, asketchFiles, options = {removeS
   if (asketchDocument) {
     if (options && options.removeSharedStyles) {
       removeSharedColors(document);
+      removeSharedSwatches(document);
       removeSharedTextStyles(document);
       removeSharedLayerStyles(document);
     }
@@ -137,6 +153,12 @@ export default function asketch2sketch(context, asketchFiles, options = {removeS
       asketchDocument.assets.colors.forEach(color => addSharedColor(document, color));
 
       console.log(`Shared colors added: ${asketchDocument.assets.colors.length}`);
+    }
+
+    if (asketchDocument.sharedSwatches.objects) {
+      asketchDocument.sharedSwatches.objects.forEach(swatch => addSharedSwatch(document, swatch));
+
+      console.log(`Shared swatches added: ${asketchDocument.sharedSwatches.objects.length}`);
     }
 
     if (asketchDocument.layerTextStyles && asketchDocument.layerTextStyles.objects) {

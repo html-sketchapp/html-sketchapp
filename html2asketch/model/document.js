@@ -2,18 +2,27 @@ import {generateID, makeColorFromCSS} from '../helpers/utils';
 
 function pageToPageReference(page) {
   return {
-    '_class': 'MSJSONFileReference',
-    '_ref_class': 'MSImmutablePage',
-    '_ref': `pages/${page.getID()}`,
+    _class: 'MSJSONFileReference',
+    _ref_class: 'MSImmutablePage',
+    _ref: `pages/${page.getID()}`,
   };
 }
 
 function layerToSharedStyle(layer, id) {
   return {
-    '_class': 'sharedStyle',
-    'do_objectID': id || generateID(),
+    _class: 'sharedStyle',
+    do_objectID: id || generateID(),
     name: layer._name,
-    'style': layer._style.toJSON(),
+    style: layer._style.toJSON(),
+  };
+}
+
+function colorToSharedSwatch(name, color) {
+  return {
+    _class: 'swatch',
+    do_objectID: generateID(),
+    name,
+    value: makeColorFromCSS(color),
   };
 }
 
@@ -21,6 +30,7 @@ class Document {
   constructor() {
     this._objectID = generateID();
     this._colors = [];
+    this._swatches = [];
     this._textStyles = [];
     this._layerStyles = [];
     this._pages = [];
@@ -50,31 +60,39 @@ class Document {
     this._colors.push(makeColorFromCSS(color));
   }
 
+  addSwatch(name, color) {
+    this._swatches.push(colorToSharedSwatch(name, color));
+  }
+
   toJSON() {
     return {
-      '_class': 'document',
-      'do_objectID': this._objectID,
-      'assets': {
-        '_class': 'assetCollection',
-        'colors': this._colors,
+      _class: 'document',
+      do_objectID: this._objectID,
+      assets: {
+        _class: 'assetCollection',
+        colors: this._colors,
       },
-      'currentPageIndex': 0,
-      'enableLayerInteraction': true,
-      'enableSliceInteraction': true,
-      'foreignSymbols': [],
-      'layerStyles': {
-        '_class': 'sharedStyleContainer',
-        'objects': this._layerStyles,
+      currentPageIndex: 0,
+      enableLayerInteraction: true,
+      enableSliceInteraction: true,
+      foreignSymbols: [],
+      layerStyles: {
+        _class: 'sharedStyleContainer',
+        objects: this._layerStyles,
       },
-      'layerSymbols': {
-        '_class': 'symbolContainer',
-        'objects': [],
+      layerSymbols: {
+        _class: 'symbolContainer',
+        objects: [],
       },
-      'layerTextStyles': {
-        '_class': 'sharedTextStyleContainer',
-        'objects': this._textStyles,
+      layerTextStyles: {
+        _class: 'sharedTextStyleContainer',
+        objects: this._textStyles,
       },
-      'pages': this._pages.map(pageToPageReference),
+      sharedSwatches: {
+        _class: 'swatchContainer',
+        objects: this._swatches,
+      },
+      pages: this._pages.map(pageToPageReference),
     };
   }
 }
