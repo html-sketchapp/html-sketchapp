@@ -1,5 +1,5 @@
 import UI from 'sketch/ui';
-import {SharedStyle} from 'sketch/dom';
+import sketch, {SharedStyle, Swatch} from 'sketch/dom';
 import {fromSJSONDictionary} from '@brainly/sketchapp-json-plugin';
 import {fixTextLayer, fixSharedTextStyle} from './helpers/fixFont';
 import fixImageFillsInLayer from './helpers/fixImageFill';
@@ -111,6 +111,19 @@ function addSharedColor(document, colorJSON) {
   assets.addAsset(color);
 }
 
+function removeSharedSwatches(document) {
+  sketch.fromNative(document).swatches = [];
+}
+
+function addSharedSwatch(document, swatch) {
+  const color = Swatch.from({
+    name: swatch.name,
+    color: fromSJSONDictionary(swatch.value),
+  });
+
+  sketch.fromNative(document).swatches.push(color);
+}
+
 export default function asketch2sketch(context, asketchFiles, options = {removeSharedStyles: true, clearPage: true}) {
   const document = context.document;
   const page = document.currentPage();
@@ -128,6 +141,7 @@ export default function asketch2sketch(context, asketchFiles, options = {removeS
 
   if (asketchDocument) {
     if (options && options.removeSharedStyles) {
+      removeSharedSwatches(document);
       removeSharedColors(document);
       removeSharedTextStyles(document);
       removeSharedLayerStyles(document);
@@ -137,6 +151,12 @@ export default function asketch2sketch(context, asketchFiles, options = {removeS
       asketchDocument.assets.colors.forEach(color => addSharedColor(document, color));
 
       console.log(`Shared colors added: ${asketchDocument.assets.colors.length}`);
+    }
+
+    if (asketchDocument.sharedSwatches.objects) {
+      asketchDocument.sharedSwatches.objects.forEach(swatch => addSharedSwatch(document, swatch));
+
+      console.log(`Shared swatches added: ${asketchDocument.sharedSwatches.objects.length}`);
     }
 
     if (asketchDocument.layerTextStyles && asketchDocument.layerTextStyles.objects) {
