@@ -28,6 +28,18 @@ const FONT_WEIGHTS = {
   '900': NSFontWeightBlack,
 };
 
+const WEIGHT_MAP = {
+  [NSFontWeightUltraLight]: [-1.0, -0.70],
+  [NSFontWeightThin]: [-0.70, -0.45],
+  [NSFontWeightLight]: [-0.45, -0.10],
+  [NSFontWeightRegular]: [-0.10, 0.10],
+  [NSFontWeightMedium]: [0.10, 0.27],
+  [NSFontWeightSemibold]: [0.27, 0.35],
+  [NSFontWeightBold]: [0.35, 0.50],
+  [NSFontWeightHeavy]: [0.50, 0.60],
+  [NSFontWeightBlack]: [0.60, 1.0],
+};
+
 const isItalicFont = font => {
   const traits = font.fontDescriptor().objectForKey(NSFontTraitsAttribute);
   const symbolicTraits = traits[NSFontSymbolicTrait].unsignedIntValue();
@@ -174,6 +186,7 @@ const findFont = style => {
     if (isItalic === isItalicFont(match) && isCondensed === isCondensedFont(match)) {
       const testWeight = weightOfFont(match);
 
+      console.log(`Find closes font, fontWeight: ${fontWeight}, match: ${match}, testWeight: ${testWeight},  fontName: '${fontNames[i]}', fontSize: ${fontSize}`);
       if (Math.abs(testWeight - fontWeight) < Math.abs(closestWeight - fontWeight)) {
         font = match;
 
