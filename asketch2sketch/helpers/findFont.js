@@ -185,8 +185,6 @@ const findFont = style => {
   // and there is another font heavier font - black, with 0.8 weight, the latter will be picked.
   const fontWeightRange = WEIGHT_MAP[fontWeight];
 
-  console.log(`fontWeight: ${fontWeight} fontWeightRange: ${fontWeightRange}, fontNames: ${fontNames},  fontNames.length: ${fontNames.length} `);
-
   for (let i = 0; i < fontNames.length; i += 1) {
     const match = NSFont.fontWithName_size(fontNames[i], fontSize);
 
