@@ -71,6 +71,7 @@ const weightOfFont = font => {
           .toLowerCase()
           .endsWith(w)
       ) {
+
         return FONT_WEIGHTS[w];
       }
     }
@@ -178,7 +179,13 @@ const findFont = style => {
   }
 
   // Get the closest font that matches the given weight for the fontFamily
-  let closestWeight = Infinity;
+  // We don't break the loop even if we find matching element.
+  // The heaviest matching element should win.
+  // E.g. If weight of extra bold font found in the system is 0.61 and would match NSFontWeightBlack
+  // and there is another font heavier font - black, with 0.8 weight, the latter will be picked.
+  const fontWeightRange = WEIGHT_MAP[fontWeight];
+
+  console.log(`fontWeight: ${fontWeight} fontWeightRange: ${fontWeightRange}, fontNames: ${fontNames},  fontNames.length: ${fontNames.length} `);
 
   for (let i = 0; i < fontNames.length; i += 1) {
     const match = NSFont.fontWithName_size(fontNames[i], fontSize);
@@ -186,11 +193,8 @@ const findFont = style => {
     if (isItalic === isItalicFont(match) && isCondensed === isCondensedFont(match)) {
       const testWeight = weightOfFont(match);
 
-      console.log(`Find closes font, fontWeight: ${fontWeight}, match: ${match}, testWeight: ${testWeight},  fontName: '${fontNames[i]}', fontSize: ${fontSize}`);
-      if (Math.abs(testWeight - fontWeight) < Math.abs(closestWeight - fontWeight)) {
+      if (testWeight >= fontWeightRange[0] && testWeight < fontWeightRange[1]) {
         font = match;
-
-        closestWeight = testWeight;
       }
     }
   }
