@@ -71,7 +71,6 @@ const weightOfFont = font => {
           .toLowerCase()
           .endsWith(w)
       ) {
-
         return FONT_WEIGHTS[w];
       }
     }
