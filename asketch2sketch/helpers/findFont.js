@@ -177,9 +177,9 @@ const findFont = style => {
     }
   }
 
-  // Get the closest font that matches the given weight for the fontFamily
-  // We don't break the loop even if we find matching element.
-  // The heaviest matching element should win.
+  // Get the font that matches the given weight for the fontFamily.
+  // We don't break the loop even if we find matching element because
+  // the heaviest matching element should win.
   // E.g. If weight of extra bold font found in the system is 0.61 and would match NSFontWeightBlack
   // and there is another heavier font - black, with 0.8 weight, the latter will be picked.
   const fontWeightRange = WEIGHT_MAP[fontWeight];
